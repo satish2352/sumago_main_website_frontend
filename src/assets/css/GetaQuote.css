@@ -1,0 +1,185 @@
+.info-section {
+    position: relative;
+    padding-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.getaquote-section .colStyle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+@media only screen and (min-width:990px) {
+    .getaquote-section .info-block-one .inner-box {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border: 1px dashed #d8d2d0;
+        border-radius: 15px;
+        box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.08);
+        padding: 42px 30px;
+        height: 320px;
+        width: auto;
+    }
+}
+
+.getaquote-section .info-block-one .inner-box .icon-box {
+    position: relative;
+    display: inline-block;
+    font-size: 35px;
+    margin-bottom: 35px;
+    z-index: 1;
+    color: #d73439;
+}
+
+.getaquote-section .info-block-one .inner-box .icon-box:before {
+    position: absolute;
+    content: '';
+    background-image: url(../images/wp-content/themes/printpark/assets/images/shape/shape-43.png);
+    width: 59px;
+    height: 50px;
+    left: -15px;
+    top: 3px;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.getaquote-section .info-block-one .inner-box p {
+    position: relative;
+    display: block;
+    margin-bottom: 14px;
+}
+
+.getaquote-section .info-block-one .inner-box h4 {
+    position: relative;
+    display: block;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 700;
+}
+
+.getaquote-section .info-block-one .inner-box h4 a {
+    display: inline-block;
+    color: #0c0c0c;
+    text-decoration: none;
+}
+
+.getaquote-section .info-block-one .inner-box h6 {
+    position: relative;
+    display: block;
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.getaquote-section .info-block-one .inner-box h6 a {
+    position: relative;
+    display: inline-block;
+    padding-left: 30px;
+    color: #0c0c0c;
+}
+
+.getaquote-section .info-block-one .inner-box h6 a i {
+    position: absolute;
+    left: 0px;
+    top: -1px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+@media only screen and (min-width:990px) {
+    .getaquote-section .info-block-one .cardAtCenter {
+        height: 400px;
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.theme-btn.btn-two {
+    background: #0c0c0c;
+}
+
+.theme-btn {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+    text-align: center;
+    padding: 14px 30px;
+    text-transform: uppercase;
+    border-radius: 35px;
+    color: #fff !important;
+    z-index: 1;
+    transition: all 500ms ease;
+}
+
+.theme-btn.btn-two:hover {
+    background: #D73439;
+}
+
+@media only screen and (min-width: 540px) and (max-width:768px) {
+    .getaquote-section .column-1 {
+        order: 1;
+    }
+
+    .getaquote-section .column-2 {
+        order: 3;
+        margin-top: 40px;
+    }
+
+    .getaquote-section .column-3 {
+        order: 2;
+    }
+}
+
+/* @media only screen and (min-width: 540px) and (max-width: 767px){
+    .getaquote-section .column-1 {
+        order: 1;
+    }
+
+    .getaquote-section .column-2 {
+        order: 3;
+    }
+
+    .getaquote-section .column-3 {
+        order: 2;
+    }
+} */
+
+@media only screen and (min-width:768px) and (max-width:990px) {
+    .getaquote-section .column-2 {
+        order: 3;
+        margin-top: 40px;
+        margin-left: 25%;
+    }
+}
+
+@media only screen and (min-width:990px) {
+    .getaquote-section .column-1 {
+        order: 1;
+    }
+
+    .getaquote-section .column-2 {
+        order: 2;
+    }
+
+    .getaquote-section .column-3 {
+        order: 3;
+    }
+}

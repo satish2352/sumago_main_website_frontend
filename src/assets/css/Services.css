@@ -1,0 +1,159 @@
+.services-section {
+  margin: 40px 0;
+}
+
+.services-name .icon {
+  color: #D73439;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.services-name .text {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  padding-left: 10px;
+  color: #D73439;
+}
+
+.services-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.services-text h2 {
+  font-family: 'Outfit';
+  font-size: 48px;
+  color: #D73439;
+}
+
+.service-block-one .inner-box {
+  position: relative;
+  display: block;
+  border: 1px dashed #d8d2d0;
+  border-radius: 25px;
+  padding: 132px 30px 31px 40px;
+  overflow: hidden;
+}
+
+.service-block-one .inner-box .overlay-shape {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  z-index: -1;
+  transition: all 500ms ease;
+}
+
+.service-block-one .inner-box:hover .overlay-shape {
+  opacity: 1;
+}
+
+.service-block-one .inner-box .icon-box {
+  position: absolute;
+  display: inline-block;
+  top: 55px;
+  right: 58px;
+  width: 60px;
+  height: 60px;
+  line-height: 68px;
+  font-size: 30px;
+  color: #fd6145;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.service-block-one .inner-box .icon-box .shape {
+  position: absolute;
+  left: -20px;
+  top: -15px;
+  width: 101px;
+  height: 91px;
+  background-repeat: no-repeat;
+  z-index: -1;
+  -webkit-animation: zoom-fade 6s infinite linear;
+  animation: zoom-fade 6s infinite linear;
+}
+
+.service-block-one .inner-box .link-btn {
+  position: absolute;
+  left: 0px;
+  top: 39px;
+  background: #fff;
+  width: 94px;
+  height: 60px;
+  box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.10);
+  border-radius: 0px 30px 30px 0px;
+}
+
+.service-block-one .inner-box .link-btn a {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  line-height: 58px;
+  background: #faf1ef;
+  color: #D73439;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 30px;
+  top: 5px;
+  right: 5px;
+  cursor: default;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.service-block-one .inner-box .link-btn a:hover {
+  color: #fff;
+}
+
+.service-block-one .inner-box h6 {
+  position: relative;
+  display: block;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.service-block-one .inner-box h3 {
+  position: relative;
+  display: block;
+  font-size: 24px;
+  line-height: 34px;
+  font-weight: 700;
+  margin-bottom: 9px;
+}
+
+.service-block-one .inner-box h3 a {
+  position: relative;
+  display: inline-block;
+  color: #0c0c0c;
+  text-decoration: none;
+}
+
+.services-section .serviceCards {
+  margin-top: 20px;
+}
+
+@media only screen and (max-width:768px) {
+  .services-section .serviceCards {
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,289 @@
+.testimonial-section {
+    margin: 20px 0;
+}
+
+.testimonial-section .testimonialSlideCount {
+    position: relative;
+    top: -80px;
+}
+
+.testimonial-section .testimonialSlideCount h1 {
+    font-family: 'Outfit' sans-serif;
+    color: #afa7a7;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.testimonial-section .testimonialSlideCount span {
+    font-family: 'Outfit' sans-serif;
+    color: #D73439;
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.feedback-text .icon {
+    color: #D73439;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.feedback-text .text {
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    padding-left: 10px;
+    color: #D73439;
+}
+
+.testimonial-section .sec-title {
+    width: 75%;
+}
+
+.testimonial-style-three {
+    position: relative;
+    padding: 120px 0px 212px 0px;
+}
+
+.testimonial-style-three .sec-title {
+    margin-bottom: 0px;
+}
+
+.testimonial-style-three .sec-title p {
+    margin-bottom: 37px;
+}
+
+.testimonial-style-three .sec-title h5 {
+    display: block;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.testimonial-style-three .sec-title h5 a {
+    position: relative;
+    display: inline-block;
+    color: #0c0c0c;
+    padding-left: 27px;
+}
+
+.testimonial-style-three .sec-title h5 a i {
+    position: absolute;
+    left: 0px;
+    top: -1px;
+    font-size: 24px;
+}
+
+.testimonial-block-three .inner-box {
+    position: relative;
+    display: block;
+    background: #fff;
+    padding: 42px 30px 33px 30px;
+    border-radius: 25px;
+}
+
+.testimonial-block-three .inner-box .author-box {
+    position: relative;
+    display: block;
+    margin-bottom: 19px;
+}
+
+.testimonial-block-three .inner-box .author-box .author-thumb {
+    position: relative;
+    display: inline-block;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    padding: 3px;
+    margin-bottom: 18px !important;
+}
+
+.testimonial-block-three .inner-box .author-box .author-thumb img {
+    width: 100%;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-block-three .inner-box .author-box .author-thumb:before {
+    position: absolute;
+    content: '';
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    left: -2px;
+    top: -2px;
+}
+
+.testimonial-block-three .inner-box .author-box .author-thumb:after {
+    position: absolute;
+    content: '';
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    left: 0px;
+    top: 0px;
+    background: #fff;
+}
+
+.testimonial-block-three .inner-box .author-box .designation {
+    position: relative;
+    display: block;
+    font-size: 17px;
+}
+
+.testimonial-block-three .inner-box .rating-box {
+    position: absolute;
+    right: 30px;
+    top: 40px;
+    min-width: 97px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    font-family: 'Outfit', sans-serif;
+    color: #0c0c0c;
+    font-weight: 700;
+    border: 1px solid #fb991a;
+    border-radius: 50%;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.testimonial-section .sec-title h2 {
+    color: #D73439;
+    position: relative;
+    display: block;
+    font-size: 48px;
+    line-height: 58px;
+    font-weight: 700;
+    margin: 0px;
+}
+
+.testimonial-block-three .inner-box .rating-box i {
+    position: relative;
+    font-size: 16px;
+    color: #fb991a;
+    margin-right: 5px;
+    top: 1px;
+}
+
+.testimonial-block-three .inner-box h3 {
+    position: relative;
+    display: block;
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.testimonial-block-three .inner-box .quote-box {
+    position: absolute;
+    top: 110px;
+    right: 30px;
+}
+
+.testimonial-style-three .content-box {
+    position: relative;
+    margin-right: -400px;
+}
+
+.testimonial-style-three .content-box:before {
+    position: absolute;
+    content: '';
+    background: #faf3ef;
+    width: 370px;
+    height: 100%;
+    top: 0px;
+    right: 0px;
+    z-index: 2;
+    border-radius: 25px;
+    opacity: 0.5;
+}
+
+.testimonial-style-three .owl-nav {
+    position: absolute;
+    left: 0px;
+    bottom: -20px;
+    max-width: 770px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.testimonial-style-three .owl-nav:before {
+    position: absolute;
+    content: '';
+    background: #e4dad8;
+    width: 534px;
+    height: 1px;
+    top: 26px;
+    right: 154px;
+}
+
+.testimonial-style-three .owl-nav button {
+    background: transparent;
+    border: 1px dashed #cfc7c2;
+}
+
+.testimonial-style-three .owl-dots {
+    position: absolute;
+    left: 70px;
+    bottom: -40px;
+    min-height: 60px;
+    counter-reset: slides-num;
+}
+
+.testimonial-style-three .owl-dots::after {
+    position: absolute;
+    right: 8px;
+    top: -1px;
+    content: "0" counter(slides-num);
+    display: inline-block;
+    font-size: 16px;
+    color: #afa7a7;
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+}
+
+.testimonial-style-three .owl-dots:before {
+    position: absolute;
+    content: '';
+    right: 35px;
+    top: 7px;
+    width: 1px;
+    height: 12px;
+    background: #a09ba9;
+    transform: rotate(10deg);
+}
+
+.testimonial-style-three .owl-dots button span {
+    display: none !important;
+}
+
+.testimonial-style-three .owl-dots button {
+    position: absolute;
+    top: -4px;
+    right: 55px;
+    counter-increment: slides-num;
+    font-size: 24px;
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+}
+
+.testimonial-style-three .owl-dots button.active:before {
+    position: absolute;
+    content: counter(slides-num);
+}
+
+.testimonial-style-three .owl-dots button.active:after {
+    position: absolute;
+    content: '0';
+    top: 0px;
+    right: 0px;
+}

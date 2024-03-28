@@ -1,0 +1,57 @@
+.numbers-section {
+    background-color: #F34F58 !important;
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    padding: 100px 0px 20px 0px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 990px){
+    .numbers-section .funfact-section .big-text {
+        display: none;
+    }
+
+    .funfact-section {
+        width: 100%;
+    }
+
+    .funFactTabAdjustment75-2 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .funfact-section .content-box {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 991px){
+    .funFactTabAdjustment75-1 {
+        display: none;
+    }
+
+    .numbers-section .customNumberTileStyling {
+        margin-top: 124px;
+    }
+}
+
+@media only screen and (min-width: 540px) and (max-width: 767px) {
+    .funFactTabAdjustment75-1 {
+        display: none;
+    }
+
+    .numbers-section .funfact-section .big-text {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 540px){
+    .funFactTabAdjustment75-1 {
+        display: none;
+    }
+
+    .numbers-section {
+        background-color: #F34F58 !important;
+        transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+        padding: 50px 0px 20px 0px;
+    }
+}

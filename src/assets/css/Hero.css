@@ -1,0 +1,102 @@
+.carousel-slide {
+    position: relative;
+}
+
+.carousel-text {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    color: white;
+    width: 35%;
+    z-index: 1;
+}
+
+.carousel-image {
+    width: 95%;
+    height: auto;
+    position: relative;
+    left: 50px;
+    z-index: 0;
+}
+
+.carousel-slide .carousel-text h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 90px;
+    color: #f54c4c;
+}
+
+.carousel-slide .carousel-text p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 43px;
+    color: #0c0c0c;
+    font-weight: 700;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    font-size: 24px;
+}
+
+@media (max-width: 768px) {
+    .carousel-text {
+        left: 30%;
+        width: 50%;
+    }
+
+    .carousel-slide .carousel-text h1 {
+        font-size: 24px;
+    }
+
+    .carousel-slide .carousel-text p {
+        font-size: 16px;
+    }
+
+    .carousel-image {
+        left: 0;
+        width: 100%;
+    }
+
+    .carousel-indicators {
+        display: none;
+    }
+}
+
+[data-bs-theme=dark] .carousel .carousel-indicators [data-bs-target], [data-bs-theme=dark].carousel .carousel-indicators [data-bs-target] {
+    background-color: #D73439;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+}
+
+.hero-section .carousel-indicators {
+    bottom: -60px;
+}
+
+@media only screen and (min-width: 769px) and (max-width: 990px) {
+    .carousel-text {
+        width: 40%;
+        left: 28%;
+    }
+
+    .carousel-slide .carousel-text h1 {
+        font-family: 'Outfit', sans-serif;
+        font-size: 74px;
+        color: #f54c4c;
+    }
+
+    .carousel-slide .carousel-text p {
+        font-family: 'Outfit', sans-serif;
+        font-size: 28px;
+        color: #0c0c0c;
+        font-weight: 700;
+    }
+
+    .carousel-image {
+        margin-left: -30px;
+    }
+
+    .hero-section .carousel-indicators {
+        display: none;
+    }
+}

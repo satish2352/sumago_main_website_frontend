@@ -1,0 +1,27 @@
+.aboutus .vision-mission-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+@media only screen and (min-width: 540px) and (max-width: 991px){
+    .aboutus .desktopcorevalue img {
+       margin-left: -25px;
+    }
+}
+
+.aboutus .news-section p {
+    padding: 24px;
+}
+
+@media only screen and (max-width: 990px){
+    .aboutus .news-section p {
+        padding: 0 24px;
+    }
+
+    .aboutus .vision-mission-container {
+        padding: 0;
+        margin-bottom: -18px;
+    }
+}

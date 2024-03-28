@@ -1,0 +1,10 @@
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .tabAdjustment .column3{
+        margin-left: 25%;
+        margin-top: 20px;
+    }
+
+    .tabAdjustment .cardHeight {
+        height: 500px;
+    }
+}

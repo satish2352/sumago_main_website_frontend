@@ -1,0 +1,12 @@
+.contactbutton-section a {
+    text-decoration: none;
+    color: #0c0c0c;
+}
+
+@media only screen and (max-width: 990px) {
+    .contactbutton-section .buttonContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

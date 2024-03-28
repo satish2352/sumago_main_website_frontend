@@ -1,0 +1,30 @@
+.service-sidebar .widget_nav_menu .menu-service-menu-container li {
+    font-size: 18px;
+    color: #afa7a7;
+    font-weight: 400;
+}
+
+.service-sidebar .widget_nav_menu .menu-service-menu-container i {
+    font-size: 18px;
+    color: #afa7a7;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-sidebar .widget_nav_menu .menu-service-menu-container .service-item.selected li,
+.service-sidebar .widget_nav_menu .menu-service-menu-container .service-item.selected i {
+    color: #0c0c0c;
+    transition: none;
+}
+
+.service-sidebar .widget_nav_menu .menu-service-menu-container .service-item:hover li,
+.service-sidebar .widget_nav_menu .menu-service-menu-container .service-item:hover i {
+    color: #D73439;
+    transition: 0.3s ease-in-out;
+}
+
+.bread-crumb li {
+    font-family: 'Outfit', sans-serif;
+}

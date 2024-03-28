@@ -1,0 +1,38 @@
+.question-cards {
+    background-color: #fef4f0;
+    padding: 40px 0;
+}
+
+#left {
+    margin-top:50px;
+}
+
+.question-cards .card-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    color: #0c0c0c;
+}
+
+.question-cards .card-text:hover {
+    color: #d73439;
+}
+
+.img-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.img-container img:hover {
+    scale: 1.1;
+    transition: 0.3s ease-in-out;
+}
+
+.img-container {
+    margin: 10px;
+    overflow: hidden;
+}
+
+.questionCards .image-box figure {
+    margin-top: 20px;
+}

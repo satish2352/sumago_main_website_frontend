@@ -1,0 +1,25 @@
+@media only screen and (max-width: 990px) {
+    .main-footer .scroll-top {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 540px) and (max-width: 991px){
+    footer .column3 {
+        position: absolute;
+        width: 60%;
+        right: 0;
+        top: 8%;
+    }
+
+    footer .column2 .menu-essentials-menu-container ul{
+        margin-right: 110px;
+    }
+}
+
+@media only screen and (max-width:540px) {
+    footer .column2 .menu-essentials-menu-container ul{
+        margin: 0;
+        padding: 0;
+    }
+}

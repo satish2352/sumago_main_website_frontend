@@ -1,0 +1,451 @@
+.admin-bar .sticky-header{
+	top:32px;	
+}
+
+/************************* Footer widget style **************************/
+
+#nav_menu-2 .widget-title h3{
+   margin-bottom: 23px
+}
+
+#nav_menu-3 .widget-title h3{
+   margin-bottom: 23px
+}
+
+#nav_menu-4 .widget-title h3{
+   margin-bottom: 23px
+}
+
+#nav_menu-5 .widget-title h3{
+   margin-bottom: 23px
+}
+
+#nav_menu-6 .widget-title h3{
+   margin-bottom: 23px
+}
+
+#nav_menu-7 .widget-title h3{
+   margin-bottom: 23px
+}
+
+#printpark_google_map-2 .widget-title h3{
+   margin-bottom: 23px
+}
+
+.main-footer .footer-widget{
+	margin-bottom:40px;
+}
+
+.main-footer .footer-widget ul li{
+  position: relative;
+  display: block;
+  margin-bottom: 12px;
+  padding-left: 19px;
+  color: #aca7a7;
+}
+
+.main-footer .footer-widget ul li:last-child{
+  margin-bottom: 0px;
+}
+
+.main-footer .footer-widget ul li ul li{
+  margin-bottom: 0px;
+  margin-top:12px;
+}
+
+.main-footer .footer-widget ul li a{
+  position: relative;
+  display: inline-block;
+}
+
+.main-footer .footer-widget ul li a:hover{
+  color: #D73439;
+}
+
+.main-footer.footer-style-two .footer-widget ul li a:hover{
+  color: #D73439;
+}
+
+.main-footer .footer-widget ul li:before {
+  position: absolute;
+  content: "\f00c";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 700;
+  font-size: 8px;
+  color: #0c0c0c;
+  background: #D73439;
+  width: 12px;
+  height: 12px;
+  line-height: 12px;
+  text-align: center;
+  border-radius: 2px;
+  left: 0px;
+  top: 8px;
+  transition: all 500ms ease;
+}
+
+.main-footer.footer-style-two .footer-widget ul li a:before {
+  color: #fff;
+  background: #D73439;
+}
+
+.main-footer.footer-style-two .footer-widget ul li a{
+	color: #0c0c0c;
+}
+
+.widget_printpark_contact_info .logo-widget .widget-content .social-links-two li a:before{
+	content: none;
+}
+
+.widget_printpark_contact_info .logo-widget .widget-content .social-links-two li a{
+	padding-left: 0px;
+}
+
+/************************* Service widget style **************************/
+
+.service-sidebar #nav_menu-7{
+  position: relative;
+  display: block;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.service-sidebar #nav_menu-7 h3{
+  position: relative;
+  display: block;
+  font-size: 22px;
+  line-height: 32px;
+  color: #fff;
+  font-weight: 700;
+  background: #D73439;
+  padding: 20px 20px 18px 53px;
+}
+
+.service-sidebar #nav_menu-7 h3:before{
+  position: absolute;
+  content: "\f112";
+  font-family: 'flaticon';
+  font-size: 18px;
+  left: 25px;
+  top: 19px;
+  font-weight: 400;
+}
+
+.service-sidebar #nav_menu-7 ul{
+  position: relative;
+  padding: 0px 24px;
+  border: 1px dashed #d8d2d0;
+  border-top: none;
+  border-radius: 0px 0px 25px 25px;
+}
+
+.service-sidebar #nav_menu-7 ul li{
+  position: relative;
+  display: block;
+  padding: 19px 0px 17px 0px;
+  border-bottom: 1px dashed #d8d2d0;
+}
+
+.service-sidebar #nav_menu-7 ul li:last-child{
+  border-bottom: none;
+}
+
+.service-sidebar #nav_menu-7 ul li a{
+  position: relative;
+  display: block;
+  font-size: 18px;
+  line-height: 28px;
+      font-family: 'Outfit', sans-serif;
+  color: #afa7a7;
+  font-weight: 700;
+}
+
+.service-sidebar #nav_menu-7 ul li:hover a,
+.service-sidebar #nav_menu-7 ul li.current-menu-item a,
+.service-sidebar #nav_menu-7 ul li.current-menu-item a:before{
+  color: #fd6145;
+}
+
+.service-sidebar #nav_menu-7 ul li:hover a,
+.service-sidebar #nav_menu-7 ul li.current-menu-item a,
+.service-sidebar #nav_menu-7 ul li.current-menu-item a{
+  color: #0c0c0c;
+}
+
+/* .service-sidebar #nav_menu-7 ul li a:before{
+  position: absolute;
+  content: "\f132";
+  font-family: 'flaticon';
+  font-size: 20px;
+  top: -1px;
+  right: 0px;
+  font-weight: 400;
+} */
+
+.service-sidebar #nav_menu-7 ul li a:hover:before{
+  color: #D73439;
+}
+
+.service-sidebar #nav_menu-7{
+  margin-bottom: 50px;
+}
+
+/************************* Blog widget style **************************/
+.widget:not(:last-child){
+	margin-bottom:50px;
+}
+.widget ul,
+.widget ol{
+	margin:0px;
+	padding:0px;
+	position:relative;
+}
+
+.widget ul li,
+.widget ol li{
+  position: relative;
+  display: block;
+  padding-bottom: 2px;
+  margin-bottom:12px;
+  border-bottom: 1px dashed #dcd5d4;
+  font-size: 14px;
+  line-height: 24px;
+      font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  /* text-transform: uppercase; */
+  color: #0c0c0c;
+}
+
+.widget ul li:last-child,
+.widget ol li:last-child{
+	border-bottom:none;
+	padding-bottom:0px;
+	margin-bottom:0px;
+}
+
+.widget ul li ul li,
+.widget ol li ol li{
+	border-bottom:none;
+	padding-bottom:0px;
+	margin-bottom:0px;
+	margin-top:12px;
+	padding-top:12px;
+	border-top:1px dashed #dcd5d4;
+	margin-left:15px;
+}
+
+.widget ul li a,
+.widget ol li a{
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 24px;
+      font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  /* text-transform: uppercase; */
+  color: #0c0c0c;
+}
+
+.widget ul li a:hover,
+.widget ol li a:hover{
+  color: #D73439;
+}
+
+.widget .tagcloud{
+  position: relative;
+  display: inline-block;
+}
+
+.widget .tagcloud a{
+  position: relative;
+  display: inline-block;
+  font-size: 17px !important;
+  line-height: 28px;
+      font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  color: #7b7675;
+  background: #faf1ef;
+  border-radius: 5px;
+  padding: 4px 15px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.widget .tagcloud a:hover{
+  color: #fff;
+  background: #D73439;
+}
+
+.chirokind-comment-item .add-comment-box{
+	margin-top:40px;
+}
+
+/***************** Comment Style*******************/
+.printpark-comment-item .printpark-comment-item{
+	margin-left:80px;
+}
+
+.news-block-one .inner-box .image-box .image-content h6 a{
+	color: #fff;
+}
+
+.news-block-two .inner-box .image-box .image-content h6 a{
+	color: #fff;
+}
+
+.post-info h6 a{
+	color: #fff;
+}
+
+.page-title .bread-crumb li:before {
+  position: absolute;
+  content: '\f105';
+  font-family: 'Font Awesome 5 Free';
+  font-weight:700;
+  font-size: 20px;
+  color: #7b7675;
+  right: 5px;
+  top: 1px;
+  transition: all 500ms ease;
+}
+
+.page-title .bread-crumb li:last-child {
+    color: #0c0c0c;
+}
+
+.project-style-three .sortable-masonry .project-block-two .inner-box .image-box img{
+	height: 430px;
+    object-fit: cover;
+}
+
+.project-details .upper-text{
+	margin-bottom: 0px;
+}
+
+.project-details p{
+	margin-bottom: 1px;
+}
+
+.project-details .project-info-box .info-list li p{
+	margin-bottom: 0px;
+}
+
+.main-footer .newsletter-widget .subscribe-form .form-group button[type='submit']{
+	padding: 0px;
+	line-height: 56px;
+}
+
+.subscribe-section .inner-box .form-inner .form-group button[type='submit']{
+	background: -webkit-linear-gradient(0deg, #fd6146, #fb7a43 50%);
+	padding: 11px 30px;
+	font-size: 30px;
+}
+
+.shop-block-one .inner-box .lower-content .option-list .more-btn .theme-btn.btn-one{
+	padding: 8px 20px;
+}
+
+.comingsoon-section .content-box form .form-group button[type='submit']{
+	padding: 0px;
+}
+
+.error-section .content-box .form-inner .form-group button[type='submit']{
+	padding: 0px;
+}
+
+
+.blog-details-content .printpark-comment-item .comment-form-area{
+	margin:40px 0;
+}
+
+.team-details-style1 .inner-title h2{
+	font-size: 30px;
+	line-height: 40px;
+	font-weight: 700;
+	margin-bottom: 12px;
+}
+
+.team-details-style1__content .inner-title p{
+	font-weight:500;
+	color:#fd6145;
+}
+
+.team-details-style1__content .text-box p{
+	margin-bottom:30px;
+}
+
+.news-block-one .inner-box .image-box .image-content.te-adjustment{
+	position:relative;
+	left:auto;
+	top:auto;
+	bottom:auto;
+	right:auto;
+	padding:5px;
+	border: 1px dashed #d8d2d0;
+	width: calc(100% - 25px);
+	margin:0 auto;
+}
+
+.news-block-one .inner-box .image-box .image-content.te-adjustment h6{
+	margin-bottom:0px;
+}
+
+blockquote{
+	background:#faeddd;
+	padding:40px;
+	margin-bottom:25px;
+	border-radius:20px;
+}
+
+.m-t30{
+	margin-top:30px;
+}
+
+.widget .nice-select,
+.footer-widget .nice-select{
+	position:relative;
+	float:none;
+	display: block;
+	width: 100%;
+	height: 60px;
+	line-height:60px;
+	/* background: #faf1ef; */
+	border-radius: 15px;
+	/* border: 1px dashed #faf1ef; */
+	font-size: 17px;
+	color: #7b7675;
+	padding: 0px 20px;
+	transition: all 500ms ease;
+}
+
+.widget .nice-select:before,
+.footer-widget .nice-select:before{
+	line-height:60px;
+	right:20px;
+}
+
+.widget .nice-select ul.list,
+.footer-widget .nice-select ul.list{
+	width:100%;
+}
+
+.widget .nice-select ul.list li,
+.footer-widget .nice-select ul.list li{
+	padding-bottom:0px;
+	margin-bottom:0px;
+	border:none;
+}
+
+.blog-sidebar .widget-title h3 a,
+.main-footer .widget-title h3 a{
+	color:inherit;
+}
+
+.main-footer .footer-widget ul.social-links-two li{
+	padding-left:0px;
+}
+
+.main-footer .footer-widget ul.social-links-two li:before{
+	display:none;
+}

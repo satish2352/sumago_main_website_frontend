@@ -1,0 +1,52 @@
+.content-four .acc-content {
+    font-family: 'Outfit', sans-serif;
+}
+
+.content-four .accord-item {
+    padding: 12px 0;
+    margin-bottom: 20px;
+}
+
+.content-four .custom-accordion .accord-item .acc-btn h5 {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.content-four .accordion-item {
+    border: 2px dotted #dee2e6;
+    border-radius: 20px;
+}
+
+.content-four .accordion-button:focus {
+    z-index: 3;
+    border-color: none !important;
+    outline: 0;
+    box-shadow: none;
+}
+
+.content-four .accordion-button:not(.collapsed) {
+    background-color: transparent !important;
+    color: #d73439 !important;
+}
+
+.content-four .accordion-button::after {
+    display: none;
+}
+
+.content-four .accordion-button::before {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    margin-right: 16px;
+    content: "";
+    background-image: none !important;
+    display: inline-block;
+}
+
+.content-four .accordion-button::before {
+    content: '+';
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+}
