@@ -70,13 +70,15 @@ const WhySumago = () => {
                                                                         </div>
                                                                         <div className="overlay-shape" style={{ backgroundImage: `url(${shape6})` }}>
                                                                         </div>
-                                                                        <h3>
-                                                                            <a class="ser-title"
-                                                                            >Experience</a>
-                                                                        </h3>
-                                                                        <p class="ser-text">With years of experience in the
-                                                                            industry, we've successfully delivered countless
-                                                                            projects across various domains.</p>
+                                                                        <div className="cardText">
+                                                                            <h3>
+                                                                                <a class="ser-title"
+                                                                                >Experience</a>
+                                                                            </h3>
+                                                                            <p class="ser-text firstCardP">With years of experience in the
+                                                                                industry, we've successfully delivered countless
+                                                                                projects across various domains.</p>
+                                                                        </div>
                                                                         <figure class="image-box"><img width="220" height="220"
                                                                             src={img1}
                                                                             class="attachment-printpark_220x220 size-printpark_220x220 wp-post-image"
@@ -100,14 +102,16 @@ const WhySumago = () => {
                                                                         <div class="overlay-shape"
                                                                             style={{ backgroundImage: `url(${shape6})` }}>
                                                                         </div>
-                                                                        <h3><a class="ser-title"
-                                                                        >Dedicated
-                                                                            <br />
-                                                                            Team</a>
-                                                                        </h3>
-                                                                        <p class="ser-text">A team of passionate and skilled
-                                                                            professionals committed to providing top-notch IT
-                                                                            solutions.</p>
+                                                                        <div className="cardText">
+                                                                            <h3><a class="ser-title"
+                                                                            >Dedicated
+                                                                                <br />
+                                                                                Team</a>
+                                                                            </h3>
+                                                                            <p class="ser-text">A team of passionate and skilled
+                                                                                professionals committed to providing top-notch IT
+                                                                                solutions.</p>
+                                                                        </div>
                                                                         <figure class="image-box"><img width="220" height="220"
                                                                             src={img2}
                                                                             class="attachment-printpark_220x220 size-printpark_220x220 wp-post-image"
@@ -131,12 +135,14 @@ const WhySumago = () => {
                                                                         <div class="overlay-shape"
                                                                             style={{ backgroundImage: `url(${shape6})` }}>
                                                                         </div>
-                                                                        <h3><a class="ser-title"
-                                                                        >Client-Centric
-                                                                            Approach</a></h3>
-                                                                        <p class="ser-text">Your satisfaction is our priority.
-                                                                            We work closely with you to understand your goals &
-                                                                            challenges. </p>
+                                                                        <div className="cardText">
+                                                                            <h3><a class="ser-title"
+                                                                            >Client-Centric
+                                                                                Approach</a></h3>
+                                                                            <p class="ser-text">Your satisfaction is our priority.
+                                                                                We work closely with you to understand your goals &
+                                                                                challenges. </p>
+                                                                        </div>
                                                                         <figure class="image-box"><img width="220" height="220"
                                                                             src={img3}
                                                                             class="attachment-printpark_220x220 size-printpark_220x220 wp-post-image"
@@ -160,14 +166,16 @@ const WhySumago = () => {
                                                                         <div class="overlay-shape"
                                                                             style={{ backgroundImage: `url(${shape6})` }}>
                                                                         </div>
-                                                                        <h3><a class="ser-title"
-                                                                        >Affordable
-                                                                            Solutions</a>
-                                                                        </h3>
-                                                                        <p class="ser-text"> Cost-effective solutions without
-                                                                            compromising on quality & competitive pricing make
-                                                                            our services accessible to businesses of all sizes.
-                                                                        </p>
+                                                                        <div className="cardText">
+                                                                            <h3><a class="ser-title"
+                                                                            >Affordable
+                                                                                Solutions</a>
+                                                                            </h3>
+                                                                            <p class="ser-text"> Cost-effective solutions without
+                                                                                compromising on quality & competitive pricing make
+                                                                                our services accessible to businesses of all sizes.
+                                                                            </p>
+                                                                        </div>
                                                                         <figure class="image-box"><img width="220" height="220"
                                                                             src={img4}
                                                                             class="attachment-printpark_220x220 size-printpark_220x220 wp-post-image"

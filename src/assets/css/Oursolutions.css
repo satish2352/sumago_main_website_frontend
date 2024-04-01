@@ -28,3 +28,7 @@
 .bread-crumb li {
     font-family: 'Outfit', sans-serif;
 }
+
+.ourSolutions .modal-body select {
+    padding: 0.375rem 0.75rem;
+}

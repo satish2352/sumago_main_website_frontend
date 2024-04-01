@@ -62,7 +62,8 @@
     }
 }
 
-[data-bs-theme=dark] .carousel .carousel-indicators [data-bs-target], [data-bs-theme=dark].carousel .carousel-indicators [data-bs-target] {
+[data-bs-theme=dark] .carousel .carousel-indicators [data-bs-target],
+[data-bs-theme=dark].carousel .carousel-indicators [data-bs-target] {
     background-color: #D73439;
     height: 12px;
     width: 12px;
@@ -98,5 +99,20 @@
 
     .hero-section .carousel-indicators {
         display: none;
+    }
+}
+
+@media only screen and (min-width: 991px) and (max-width: 1366px) {
+    .carousel-slide .carousel-text h1 {
+        font-family: 'Outfit', sans-serif;
+        font-size: 66px;
+        color: #f54c4c;
+    }
+
+    .carousel-slide .carousel-text p {
+        font-family: 'Outfit', sans-serif;
+        font-size: 28px;
+        color: #0c0c0c;
+        font-weight: 700;
     }
 }

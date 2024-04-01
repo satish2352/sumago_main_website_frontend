@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Frame from '../assets/images/wp-content/themes/printpark/assets/images/shape/Frame.png';
 import shape20 from '../assets/images/wp-content/themes/printpark/assets/images/shape/shape-20.png';
@@ -7,6 +7,16 @@ import '../assets/css/Contact1.css'
 import axios from 'axios';
 
 const Contact1 = () => {
+    const [data, setData] = useState([])
+    useEffect(() => {
+        axios.get("/location/find").then((result) => {
+            console.log("result", result);
+            setData(result.data)
+        }).catch((err) => {
+            console.log("err", err);
+        });
+    }, [])
+
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
@@ -256,10 +266,49 @@ const Contact1 = () => {
                 </section>
                 <Container fluid>
                     <section
-                        className="elementor-section elementor-top-section elementor-element elementor-element-1fdab63 elementor-section-boxed elementor-section-height-default elementor-section-height-default mb-3"
+                        className="mt-lg-4 mb-lg-5 elementor-section elementor-top-section elementor-element elementor-element-1fdab63 elementor-section-boxed elementor-section-height-default elementor-section-height-default mb-3"
                         data-id="1fdab63" data-element_type="section">
                         <div className="elementor-container elementor-column-gap-default">
                             <Row className='tabAdjustment'>
+                                {/* {
+                                    data.map((item, id) => {
+                                        return (
+                                            <Col lg={4} md={6} sm={12} className='column1'>
+                                                <div className="elementor-column elementor-top-column elementor-element elementor-element-a4fd0a5 "
+                                                    data-id="a4fd0a5" data-element_type="column">
+                                                    <div className="elementor-widget-wrap elementor-element-populated">
+                                                        <div className="elementor-element elementor-element-ca701f4 elementor-widget elementor-widget-printpark_icon_box"
+                                                            data-id="ca701f4" data-element_type="widget"
+                                                            data-widget_type="printpark_icon_box.default">
+                                                            <div className="elementor-widget-container">
+                                                                <section className="info-section centred p-0 m-0">
+                                                                    <div className="info-column">
+                                                                        <div className="info-block-one">
+                                                                            <div className="inner-box te-icon-box cardHeight">
+                                                                                <div className="icon-box te-icon">
+                                                                                    <i className="flaticon-map"></i>
+                                                                                </div>
+                                                                                <p className="te-text">Visit our office <br />9 am to 6 pm Monday to Saturday.
+                                                                                </p>
+                                                                                <h4 className="te-subtitle">{item.address}
+                                                                                </h4>
+                                                                                <h6 className="text-lowercase"><a href="mailto:{item.email}" >{item.email}</a></h6>
+                                                                                <h6><a href="tel:{item.contact}">{item.contact}</a></h6>
+                                                                                <h6><a href={item.geolocation}
+                                                                                    target="&quot;_blank&quot;" rel="&quot;nofollow&quot;"><i
+                                                                                        className="flaticon-arrow-right"></i>View On Map</a></h6>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </section>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Col>
+                                        )
+                                    })
+                                } */}
                                 <Col lg={4} md={6} sm={12} className='column1'>
                                     <div className="elementor-column elementor-top-column elementor-element elementor-element-a4fd0a5 "
                                         data-id="a4fd0a5" data-element_type="column">

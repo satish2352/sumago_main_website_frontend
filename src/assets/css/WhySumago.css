@@ -10,3 +10,21 @@
     text-align: center;
     margin-bottom: 20px;
 }
+
+.whysumago-section .cardText .firstCardP {
+    margin-top: 42px;
+}
+
+.whysumago-section .cardText {
+    min-height: 200px;
+}
+
+@media only screen and (max-width: 768px) { 
+    .whysumago-section .cardText .firstCardP {
+        margin-top: 0;
+    }
+
+    .whysumago-section .cardText {
+        min-height: 0;
+    }
+}

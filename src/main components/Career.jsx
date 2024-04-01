@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Testimonials from '../components/Testimonials'
 import { Link } from 'react-router-dom';
 import img1 from '../assets/images/wp-content/themes/printpark/assets/images/shape/Frame.png';
@@ -21,8 +21,39 @@ import r1 from '../assets/images/wp-content/uploads/2023/08/ICONS CAREERE PAGE/d
 import BEimg3 from '../assets/images/wp-content/uploads/2023/08/ICONS CAREERE PAGE/3401411-200 r 3.png'
 import '../assets/images/wp-content/themes/printpark/assets/css/style.css'
 import axios from 'axios';
+import GoUp from '../components/GoUp';
 
 const Career = () => {
+  const [imgData, setImgData] = useState([])
+  useEffect(() => {
+    axios.get("/life/find").then((result) => {
+      console.log("result", result);
+      setImgData(result.imgData)
+    }).catch((err) => {
+      console.log("err", err);
+    });
+  }, [])
+
+  const [jobData, setJobData] = useState([])
+  useEffect(() => {
+    axios.get("/jobs/find").then((result) => {
+      console.log("result", result);
+      setJobData(result.jobData)
+    }).catch((err) => {
+      console.log("err", err);
+    });
+  }, [])
+
+  const [internData, setInternData] = useState([])
+  useEffect(() => {
+    axios.get("/internship/find").then((result) => {
+      console.log("result", result);
+      setInternData(result.internData)
+    }).catch((err) => {
+      console.log("err", err);
+    });
+  }, [])
+
   const [activeTab, setActiveTab] = useState('all'); // Initial active tab state
   const [title, setTitle] = useState("")
   const [name, setName] = useState("")
@@ -147,6 +178,18 @@ const Career = () => {
                         <div className="filters-box">
                           <div className="filters">
                             <ul className="filter-tabs filter-btns clearfix">
+                              {/* {
+                                imgData.map((item, id) => {
+                                  return (
+                                    <li
+                                      className={activeTab === item.category ? 'active filter' : 'filter'}
+                                      onClick={() => handleTabClick(item.category)}
+                                    >
+                                      {item.category}
+                                    </li>
+                                  )
+                                })
+                              } */}
                               <li
                                 className={activeTab === 'all' ? 'active filter' : 'filter'}
                                 onClick={() => handleTabClick('all')}
@@ -220,7 +263,59 @@ const Career = () => {
               <div className="tabs-content">
                 <div className="tab active-tab" id="tab-3">
                   <div className="row clearfix">
+                    {/* {
+                      jobData.map((item, id) => {
+                        return (
+                          <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                            <div className="pricing-block-one ">
+                              <div className="pricing-table te-tab">
+                                <div className="table-header">
+                                  <div className="shape"
+                                    style={{ backgroundImage: `url(${img7})` }}>
+                                  </div>
+                                  <img src={r1} style={{ width: '80px', height: '90px' }} alt="image" />
+                                  <h2 className="te-heading">
+                                    <h3 className="te-pac">{item.designation}</h3>
+                                  </h2>
+                                  <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Apply Now
+                                  </button>
 
+                                </div>
+
+                                <div className="table-content te-list">
+                                  <div className="card__header">
+                                    <img className="card__thumb" src={experience1} alt="" />
+                                    <div className="card__header-text">
+                                      <ul className="clearfix" style={{ fontWeight: '400' }}>
+                                        <li>{item.job_openings}</li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <div className="card__header">
+                                    <img className="card__thumb" src={location1} alt="" />
+                                    <div className="card__header-text">
+                                      <ul className="clearfix" style={{ fontWeight: '400' }}>
+                                        <li>{item.location}</li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <div className="card__header">
+                                    <img className="card__thumb" src={BEimg} alt="" />
+                                    <div className="card__header-text">
+                                      <ul className="clearfix" style={{ fontWeight: '400' }}>
+                                        <li>{item.qualification}</li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        )
+                      })
+                    } */}
                     <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
                       <div className="pricing-block-one ">
                         <div className="pricing-table te-tab">
@@ -453,7 +548,59 @@ const Career = () => {
               <div className="tabs-content">
                 <div className="tab active-tab" id="tab-3">
                   <div className="row clearfix">
+                    {/* {
+                      internData.map((item,id) => {
+                        return (
+                          <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                            <div className="pricing-block-one ">
+                              <div className="pricing-table te-tab">
+                                <div className="table-header">
+                                  <div className="shape"
+                                    style={{ backgroundImage: `url(${img7})` }}>
+                                  </div>
+                                  <img src={r1} style={{ width: '80px', height: '90px' }} alt="image" />
+                                  <h2 className="te-heading">
+                                    <h3 className="te-pac">{item.designation}</h3>
+                                  </h2>
+                                  <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Apply Now
+                                  </button>
 
+                                </div>
+
+                                <div className="table-content te-list">
+                                  <div className="card__header">
+                                    <img className="card__thumb" src={experience1} alt="" />
+                                    <div className="card__header-text">
+                                      <ul className="clearfix" style={{ fontWeight: '400' }}>
+                                        <li>{item.intern_openings}</li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <div className="card__header">
+                                    <img className="card__thumb" src={location1} alt="" />
+                                    <div className="card__header-text">
+                                      <ul className="clearfix" style={{ fontWeight: '400' }}>
+                                        <li>{item.location}</li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <div className="card__header">
+                                    <img className="card__thumb" src={BEimg} alt="" />
+                                    <div className="card__header-text">
+                                      <ul className="clearfix" style={{ fontWeight: '400' }}>
+                                        <li>{item.qualification}</li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        )
+                      })
+                    } */}
                     <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
                       <div className="pricing-block-one ">
                         <div className="pricing-table te-tab">

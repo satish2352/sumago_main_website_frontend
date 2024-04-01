@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import '../assets/css/Numbers.css'
 import { Col, Container, Row } from 'react-bootstrap'
 import client from '../assets/images/wp-content/themes/printpark/assets/images/shape/client.png'
 import award from '../assets/images/wp-content/themes/printpark/assets/images/shape/AWRAD.png'
 
 const Numbers = () => {
+    const [data, setData] = useState([])
+    useEffect(() => {
+        axios.get("/clientCount/create").then((result) => {
+            console.log("result", result);
+            setData(result.data)
+        }).catch((err) => {
+            console.log("err", err);
+        });
+    }, [])
+
     return (
         <div className="numbers-section container-fluid">
             <section
@@ -52,6 +63,31 @@ const Numbers = () => {
                                     <div className="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-abee258"
                                         data-id="abee258" data-element_type="column">
                                         <div className="elementor-widget-wrap elementor-element-populated">
+                                            {/* {
+                                                data.map((item, id) => {
+                                                    return (
+                                                        <div className="elementor-element elementor-element-b21af8c elementor-widget elementor-widget-printpark_funfact_box"
+                                                            data-id="b21af8c" data-element_type="widget"
+                                                            data-widget_type="printpark_funfact_box.default">
+                                                            <div className="elementor-widget-container">
+
+                                                                <div className="funfact-block-one">
+                                                                    <div className="inner-box town-funfact-section">
+                                                                        <div className="count-outer count-box">
+                                                                            <span className="count-text te-count" data-speed="1500"
+                                                                                data-stop="780" style={{ color: '#0c0c0c' }}>{item.count}</span>
+                                                                        </div>
+                                                                        <p className="te-text mt-1">{item.title}</p>
+                                                                        <div className="icon-box te-icon">
+                                                                            <img src={item.icon} width="40" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                })
+                                            } */}
                                             <div className="elementor-element elementor-element-b21af8c elementor-widget elementor-widget-printpark_funfact_box"
                                                 data-id="b21af8c" data-element_type="widget"
                                                 data-widget_type="printpark_funfact_box.default">

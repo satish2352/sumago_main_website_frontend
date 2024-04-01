@@ -124,14 +124,15 @@ const Header = () => {
                                     <i className="flaticon-incoming-call"></i> &nbsp;
                                     <span> Call Us</span> <strong>Now:</strong>
                                 </div>
-                                <Row style={{ paddingLeft: '10px', paddingRight: '10px', paddingBottom: '5px' }}>
-                                    <Col lg={6} md={6} sm={6}>
+                                <ul className='list-unstyled d-flex justify-content-evenly mb-2'
+                                    >
+                                    <li>
                                         <a href="tel:+91 902 828 8668"><strong>+91 902 828 8668,</strong></a>
-                                    </Col>
-                                    <Col lg={6} md={6} sm={6}>
+                                    </li>
+                                    <li>
                                         <a href="tel:+91 840 808 4888"><strong>+91 840 808 4888</strong></a>
-                                    </Col>
-                                </Row>
+                                    </li>
+                                </ul>
                             </div>
                             <div className="col-sm-12 col-md-5 col-lg-5 d-grid justify-content-center ">
                                 <figure className="logo" ><Link to="/" title="WordPress Printing"><img id="sumalogo" src={sumagologo} alt="logo" /></Link></figure>
@@ -255,7 +256,7 @@ const Header = () => {
                     <nav class="menu-box">
                         <div class="nav-logo">
                             <Link to="/" title="WordPress Printing"><img src={sumagowhite}
-                                alt="logo"/></Link>
+                                alt="logo" /></Link>
                         </div>
                         <div class="menu-outer">{/*Here Menu Will Come Automatically Via Javascript / Same Menu as in Header*/}
                         </div>
@@ -297,7 +298,7 @@ const Header = () => {
                             <div className="outer-box outer-box1 d-flex justify-content-evenly ">
 
                                 <Link to="/" title="WordPress Printing" className='d-flex align-items-center'>
-                                    <img src={sumagologo} alt="" style={{width:'400px', height: 'auto'}} onClick={scrollToTop}/></Link>
+                                    <img src={sumagologo} alt="" style={{ width: '400px', height: 'auto' }} onClick={scrollToTop} /></Link>
 
                                 <div className="left-column">
 

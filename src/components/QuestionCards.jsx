@@ -7,7 +7,7 @@ import '../assets/css/QuestionCards.css'
 
 const QuestionCards = () => {
     return (
-        <div className='questionCards container-fluid'>
+        <div className='questionCards'>
             <section id="quebak"
                 class="elementor-section elementor-inner-section elementor-element elementor-element-cb662a5 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                 data-id="cb662a5" data-element_type="section">

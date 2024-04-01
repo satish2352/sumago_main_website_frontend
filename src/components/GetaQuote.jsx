@@ -19,16 +19,19 @@ const GetaQuote = () => {
         }
         axios.post("/quote/add", newData).then((resp) => {
             console.log("resp", resp)
-            setName("")
-            setEmail("")
-            setPhone("")
-            setService("")
-            setOther("")
-            setAddress("")
-            setComment("")
         }).catch((err) => {
             console.log("err", err);
         })
+    }
+
+    const clearFields = () => {
+        setName("")
+        setEmail("")
+        setPhone("")
+        setService("")
+        setOther("")
+        setAddress("")
+        setComment("")
     }
     return (
         <>
@@ -114,7 +117,7 @@ const GetaQuote = () => {
                                                                                         <div style={{ textAlign: "left" }} className="form-group">
                                                                                             <label>Type of Services :</label>
                                                                                             <select name="service" className="form-control" required value={service} onChange={(e) => setService(e.target.value)}>
-                                                                                                <option value="">Select Service</option>
+                                                                                                <option value="" disabled>Select Service</option>
                                                                                                 <option value="Website Development">Website Development</option>
                                                                                                 <option value="App Development">App Development</option>
                                                                                                 <option value="Software Development">Software Development</option>
@@ -141,8 +144,7 @@ const GetaQuote = () => {
                                                                                         <div style={{ textAlign: "left" }} className="form-group mt-4">
                                                                                             <center>
                                                                                                 <button className="btn btn-success btn-lg" type="submit" >Submit</button>
-                                                                                                <button className="btn btn-success btn-lg" type="reset"  >Clear</button>
-
+                                                                                                <button className="btn btn-success btn-lg" type="reset" onClick={clearFields}  >Clear</button>
                                                                                             </center>
                                                                                         </div>
                                                                                     </form>

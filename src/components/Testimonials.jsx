@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import '../assets/css/Testimonials.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -25,8 +26,17 @@ import Slider from 'react-slick';
 
 
 const Testimonials = () => {
-    const [currentSlide, setCurrentSlide] = useState(0);
+    const [data, setData] = useState([])
+    useEffect(() => {
+        axios.get("/testimonials/find").then((result) => {
+            console.log("result", result);
+            setData(result.data)
+        }).catch((err) => {
+            console.log("err", err);
+        });
+    }, [])
 
+    const [currentSlide, setCurrentSlide] = useState(0);
     const settings = {
         // centerMode: true,
         autoplay: true,
@@ -51,6 +61,36 @@ const Testimonials = () => {
                     <Col lg={7} md={7} sm={12}>
                         <div className='slider-bg'>
                             <Slider {...settings}>
+                                {/* {
+                                    data.map((item,id) => {
+                                        return (
+                                            <div className="testimonial-block-three">
+                                                <div className="inner-box te-testimonial">
+                                                    <div className="quote-box"><img decoding="async"
+                                                        src={quote}
+                                                        alt="Awesome Image" /></div>
+                                                    <div className="rating-box">
+                                                        <i class="bi bi-star-fill"></i><i
+                                                            class="bi bi-star-fill"></i><i
+                                                                class="bi bi-star-fill"></i><i
+                                                                    class="bi bi-star-fill"></i><i
+                                                                        class="bi bi-star"></i>
+                                                    </div>
+                                                    <div className="author-box">
+                                                        <figure className="author-thumb"><img loading="lazy"
+                                                            decoding="async" width="50" height="50"
+                                                            src={item.img}
+                                                            className="attachment-printpark_50x50 size-printpark_50x50 wp-post-image"
+                                                            alt="" /></figure>
+                                                        <h3 className="te-title">{item.name}</h3>
+                                                        <span className="designation te-designation">{item.designation}</span>
+                                                    </div>
+                                                    <p className="te-text" style={{ height: '8.7rem' }}>{item.review}&hellip;</p>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                } */}
                                 <div className="testimonial-block-three">
                                     <div className="inner-box te-testimonial">
                                         <div className="quote-box"><img decoding="async"
