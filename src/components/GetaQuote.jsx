@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import '../assets/css/GetaQuote.css';
-import { Col, Row } from 'react-bootstrap';
+import { Button, Col, Form, Modal, Row } from 'react-bootstrap';
 import axios from 'axios';
 
 const GetaQuote = () => {
+    const [show, setShow] = useState(false);
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
@@ -11,28 +12,86 @@ const GetaQuote = () => {
     const [other, setOther] = useState("")
     const [address, setAddress] = useState("")
     const [comment, setComment] = useState("")
+    const [errors, setErrors] = useState({});
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
+    const validateForm = () => {
+        let errors = {};
+        let isValid = true;
+
+        if (!comment.trim()) {
+            errors.comment = 'comment is required';
+            isValid = false;
+        }
+        if (!address.trim()) {
+            errors.address = 'address is required';
+            isValid = false;
+        }
+        if (!service.trim()) {
+            errors.service = 'Service is required';
+            isValid = false;
+        }
+        if (!other.trim()) {
+            errors.other = 'other service is required';
+            isValid = false;
+        }
+
+        if (!name.trim()) {
+            errors.name = 'Name is required';
+            isValid = false;
+        }
+
+        if (!phone.trim()) {
+            errors.phone = 'Phone number is required';
+            isValid = false;
+        } else if (!/^[7-9]{1}[0-9]{9}$/.test(phone)) {
+            errors.phone = 'Invalid phone number';
+            isValid = false;
+        }
+
+        if (!email.trim()) {
+            errors.email = 'Email is required';
+            isValid = false;
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            errors.email = 'Invalid email address';
+            isValid = false;
+        }
+
+        setErrors(errors);
+        return isValid;
+    };
     const SubmitData = (e) => {
         e.preventDefault();
         let newData = {
             name: name, email: email, phone: phone, service: service, other_service: other, address: address, comment: comment
         }
-        axios.post("/quote/add", newData).then((resp) => {
-            console.log("resp", resp)
-        }).catch((err) => {
-            console.log("err", err);
-        })
+        if (validateForm()) {
+            axios.post("/quotes/create", newData).then((resp) => {
+                console.log("resp", resp)
+                setName("");
+                setEmail("");
+                setPhone("");
+                setService("");
+                setOther("");
+                setAddress("");
+                setComment("");
+                handleClose()
+            }).catch((err) => {
+                console.log("err", err);
+            })
+        }
     }
 
-    const clearFields = () => {
-        setName("")
-        setEmail("")
-        setPhone("")
-        setService("")
-        setOther("")
-        setAddress("")
-        setComment("")
-    }
+    // const clearFields = () => {
+    //     setName("")
+    //     setEmail("")
+    //     setPhone("")
+    //     setService("")
+    //     setOther("")
+    //     setAddress("")
+    //     setComment("")
+    // }
     return (
         <>
             <div className='getaquote-section container'>
@@ -89,72 +148,74 @@ const GetaQuote = () => {
                                                             <br />
                                                             <div className="col-lg-12 col-md-12 col-sm-12 form-group message-btn centred">
                                                                 <p>
-                                                                    <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                                    <button type="button" className="theme-btn btn-two" onClick={handleShow}>
                                                                         GET A QUOTE
                                                                     </button>
+
                                                                     {/* Modal */}
-                                                                    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                                        <div className="modal-dialog">
-                                                                            <div className="modal-content">
-                                                                                <div className="modal-header">
-                                                                                    <h4 className="modal-title">GET A QUOTE</h4>
-                                                                                    <button type="button" className="close" data-bs-dismiss="modal">X</button>
+                                                                    <Modal show={show} onHide={handleClose}>
+                                                                        <Modal.Header closeButton>
+                                                                            <Modal.Title>GET A QUOTE</Modal.Title>
+                                                                        </Modal.Header>
+                                                                        <Form onSubmit={SubmitData} name="myForm">
+                                                                            <Modal.Body>
+                                                                                <Form.Group>
+                                                                                    <Form.Label>Name:</Form.Label>
+                                                                                    <Form.Control type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+                                                                                    {errors.name && <span className="error text-danger">{errors.name}</span>}
+                                                                                </Form.Group>
+                                                                                <Form.Group>
+                                                                                    <Form.Label>Contact:</Form.Label>
+                                                                                    <Form.Control type="tel" placeholder="Phone no" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                                                                                    {errors.phone && <span className="error text-danger">{errors.phone}</span>}
+                                                                                </Form.Group>
+                                                                                <Form.Group>
+                                                                                    <Form.Label>Email:</Form.Label>
+                                                                                    <Form.Control type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                                                                    {errors.email && <span className="error text-danger">{errors.email}</span>}
+                                                                                </Form.Group>
+                                                                                <Form.Group>
+                                                                                    <Form.Label>Type of Services:</Form.Label>
+                                                                                    <Form.Control as="select" value={service} onChange={(e) => setService(e.target.value)}>
+                                                                                        <option value="" disabled>Select Service</option>
+                                                                                        <option value="Website Development">Website Development</option>
+                                                                                        <option value="App Development">App Development</option>
+                                                                                        <option value="Software Development">Software Development</option>
+                                                                                        <option value="Digital Marketing">Digital Marketing</option>
+                                                                                        <option value="Social Media">Social Media</option>
+                                                                                        <option value="SEO">SEO</option>
+                                                                                        <option value="Training/Internship">Training/Internship</option>
+                                                                                        <option value="Start up Consultancy">Start up Consultancy</option>
+                                                                                        <option value="#">Web Hosting</option>
+                                                                                    </Form.Control>
+                                                                                    {errors.service && <span className="error text-danger">{errors.service}</span>}
+                                                                                </Form.Group>
+                                                                                <Form.Group>
+                                                                                    <Form.Label>Other:</Form.Label>
+                                                                                    <Form.Control type="text" placeholder="Other Service" value={other} onChange={(e) => setOther(e.target.value)} />
+                                                                                    {errors.other && <span className="error text-danger">{errors.other}</span>}
+                                                                                </Form.Group>
+                                                                                <Form.Group>
+                                                                                    <Form.Label>Address / City:</Form.Label>
+                                                                                    <Form.Control as="textarea" rows={4} placeholder="Address / City" value={address} onChange={(e) => setAddress(e.target.value)} />
+                                                                                    {errors.address && <span className="error text-danger">{errors.address}</span>}
+                                                                                </Form.Group>
+                                                                                <Form.Group>
+                                                                                    <Form.Label>Any Comment:</Form.Label>
+                                                                                    <Form.Control as="textarea" rows={4} placeholder="Comment" value={comment} onChange={(e) => setComment(e.target.value)} />
+                                                                                    {errors.comment && <span className="error text-danger">{errors.comment}</span>}
+                                                                                </Form.Group>
+                                                                                <div className="form-group mt-4">
+                                                                                    <center>
+                                                                                    </center>
                                                                                 </div>
-                                                                                <div className="modal-body">
-                                                                                    <form method="post" onSubmit={SubmitData} name="myForm">
-                                                                                        <div style={{ textAlign: "left" }} className="form-group">
-                                                                                            <label>Name :</label>
-                                                                                            <input className="form-control" type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" required />
-                                                                                        </div>
-                                                                                        <div style={{ textAlign: "left" }} className="form-group">
-                                                                                            <label>Contact :</label>
-                                                                                            <input className="form-control" type="tel" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} maxLength="10" minLength="10" pattern="[7-9]{1}[0-9]{9}" placeholder="Phone no" required />
-                                                                                        </div>
-                                                                                        <div style={{ textAlign: "left" }} className="form-group">
-                                                                                            <label>Email :</label>
-                                                                                            <input className="form-control" type="email" name="email" placeholder="Email" required value={email} onChange={(e) => setEmail(e.target.value)} />
-                                                                                        </div>
-                                                                                        <div style={{ textAlign: "left" }} className="form-group">
-                                                                                            <label>Type of Services :</label>
-                                                                                            <select name="service" className="form-control" required value={service} onChange={(e) => setService(e.target.value)}>
-                                                                                                <option value="" disabled>Select Service</option>
-                                                                                                <option value="Website Development">Website Development</option>
-                                                                                                <option value="App Development">App Development</option>
-                                                                                                <option value="Software Development">Software Development</option>
-                                                                                                <option value="Digital Marketing">Digital Marketing</option>
-                                                                                                <option value="Social Media">Social Media</option>
-                                                                                                <option value="SEO">SEO</option>
-                                                                                                <option value="Training/Internship">Training/Internship</option>
-                                                                                                <option value="Start up Consultancy">Start up Consultancy</option>
-                                                                                                <option value="#">Web Hosting</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                        <div style={{ textAlign: "left" }} className="form-group">
-                                                                                            <label>Other :</label>
-                                                                                            <input className="form-control" type="text" name="other" value={other} onChange={(e) => setOther(e.target.value)} placeholder="Other Service" />
-                                                                                        </div>
-                                                                                        <div style={{ textAlign: "left" }} className="form-group">
-                                                                                            <label>Address / City :</label>
-                                                                                            <textarea className="form-control" rows="4" cols="10" name="address" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Address / City"></textarea>
-                                                                                        </div>
-                                                                                        <div style={{ textAlign: "left" }} className="form-group">
-                                                                                            <label>Any Comment :</label>
-                                                                                            <textarea className="form-control" rows="4" cols="10" name="comment" value={comment} onChange={(e) => setComment(e.target.value)} placeholder="Comment"></textarea>
-                                                                                        </div>
-                                                                                        <div style={{ textAlign: "left" }} className="form-group mt-4">
-                                                                                            <center>
-                                                                                                <button className="btn btn-success btn-lg" type="submit" >Submit</button>
-                                                                                                <button className="btn btn-success btn-lg" type="reset" onClick={clearFields}  >Clear</button>
-                                                                                            </center>
-                                                                                        </div>
-                                                                                    </form>
-                                                                                </div>
-                                                                                <div className="modal-footer">
-                                                                                    <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                                            </Modal.Body>
+                                                                            <Modal.Footer>
+                                                                                <Button variant="secondary" className='mx-1' type="button" onClick={handleClose}>Close</Button>
+                                                                                <Button variant="success" className='mx-1' type="submit">Submit</Button>
+                                                                            </Modal.Footer>
+                                                                        </Form>
+                                                                    </Modal>
                                                                 </p>
                                                             </div>
                                                         </div>

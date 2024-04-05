@@ -22,33 +22,42 @@ import BEimg3 from '../assets/images/wp-content/uploads/2023/08/ICONS CAREERE PA
 import '../assets/images/wp-content/themes/printpark/assets/css/style.css'
 import axios from 'axios';
 import GoUp from '../components/GoUp';
+import { Button, Form, Modal } from 'react-bootstrap';
 
 const Career = () => {
   const [imgData, setImgData] = useState([])
+  const [internData, setInternData] = useState([])
+  const [jobData, setJobData] = useState([])
+  const [show, setShow] = useState(false);
+  const [applicationType, setApplicationType] = useState("");
+  const handleClose = () => setShow(false);
+  const handleShow = (application) => {
+    setShow(true);
+    setApplicationType(application)
+  }
+  console.log("applicationType", applicationType);
   useEffect(() => {
-    axios.get("/life/find").then((result) => {
+    axios.get("life_category/find").then((result) => {
       console.log("result", result);
-      setImgData(result.imgData)
+      setImgData(result.data)
     }).catch((err) => {
       console.log("err", err);
     });
   }, [])
 
-  const [jobData, setJobData] = useState([])
   useEffect(() => {
     axios.get("/jobs/find").then((result) => {
-      console.log("result", result);
-      setJobData(result.jobData)
+      console.log("result jobs", result);
+      setJobData(result.data)
     }).catch((err) => {
       console.log("err", err);
     });
   }, [])
 
-  const [internData, setInternData] = useState([])
   useEffect(() => {
     axios.get("/internship/find").then((result) => {
       console.log("result", result);
-      setInternData(result.internData)
+      setInternData(result.data)
     }).catch((err) => {
       console.log("err", err);
     });
@@ -63,35 +72,109 @@ const Career = () => {
   const [confmEmail, setConfmEmail] = useState("")
   const [cv, setCV] = useState()
   const [cover_letter, setCover_letter] = useState()
-  console.log("cv", cv);
-  console.log("cover_letter", cover_letter);
+  const [lifeCategoryData, setLifeCategoryData] = useState([])
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    let errors = {};
+    let isValid = true;
+
+    if (!title.trim()) {
+      errors.title = 'Title is required';
+      isValid = false;
+    }
+
+    if (!name.trim()) {
+      errors.name = 'Name is required';
+      isValid = false;
+    }
+
+    if (!phone.trim()) {
+      errors.phone = 'Phone number is required';
+      isValid = false;
+    } else if (!/^[7-9]{1}[0-9]{9}$/.test(phone)) {
+      errors.phone = 'Invalid phone number';
+      isValid = false;
+    }
+
+    if (!address.trim()) {
+      errors.address = 'Address is required';
+      isValid = false;
+    }
+
+    if (!email.trim()) {
+      errors.email = 'Email is required';
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      errors.email = 'Invalid email address';
+      isValid = false;
+    }
+
+    if (!confmEmail.trim()) {
+      errors.confmEmail = 'Confirmation email is required';
+      isValid = false;
+    } else if (confmEmail.trim() !== email.trim()) {
+      errors.confmEmail = 'Emails do not match';
+      isValid = false;
+    }
+
+    if (!cv) {
+      errors.cv = 'CV is required';
+      isValid = false;
+    }
+
+    if (!cover_letter) {
+      errors.cover_letter = 'Cover letter is required';
+      isValid = false;
+    }
+
+    setErrors(errors);
+    return isValid;
+  };
   const submitData = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("title", title)
-    formData.append("name", name)
-    formData.append("phone", phone)
-    formData.append("address", address)
-    formData.append("email", email)
-    formData.append("confmEmail", confmEmail)
-    formData.append("cv", cv)
-    formData.append("cover_letter", cover_letter)
-    axios.post("/career/apply", formData, { headers: { "Content-Type": "multipart/form-data" } }).then((resp) => {
-      console.log("resp", resp)
-      setTitle("")
-      setName("")
-      setPhone("")
-      setAddress("")
-      setEmail("")
-      setConfmEmail("")
-      setCV("")
-      setCover_letter("")
-    }).catch((err) => {
-      console.log("err", err);
-    })
+    if (validateForm()) {
+      const formData = new FormData();
+      formData.append("applicationType", applicationType)
+      formData.append("title", title)
+      formData.append("name", name)
+      formData.append("phone", phone)
+      formData.append("address", address)
+      formData.append("email", email)
+      formData.append("confmEmail", confmEmail)
+      formData.append("cv", cv)
+      formData.append("cover_letter", cover_letter)
+      axios.post("applynow/create", formData, { headers: { "Content-Type": "multipart/form-data" } }).then((resp) => {
+        console.log("resp", resp)
+        setTitle("")
+        setName("")
+        setPhone("")
+        setAddress("")
+        setEmail("")
+        setConfmEmail("")
+        setCV("")
+        setCover_letter("")
+        setApplicationType("")
+        handleClose()
+      }).catch((err) => {
+        console.log("err", err);
+      })
+    }
   }
   const handleTabClick = (category) => {
     setActiveTab(category);
+    axios.get("/life_category_details/find", {
+      params: {
+        category: category
+      }
+    }).then((response) => {
+      console.log("result", response.data);
+      setLifeCategoryData(response.data)
+      // Handle the response data here, such as updating state or rendering it on the UI
+    }).catch((error) => {
+      console.log("error", error);
+      // Handle errors here
+    });
   };
 
   const projects = [
@@ -178,7 +261,7 @@ const Career = () => {
                         <div className="filters-box">
                           <div className="filters">
                             <ul className="filter-tabs filter-btns clearfix">
-                              {/* {
+                              {
                                 imgData.map((item, id) => {
                                   return (
                                     <li
@@ -189,32 +272,32 @@ const Career = () => {
                                     </li>
                                   )
                                 })
-                              } */}
-                              <li
+                              }
+                              {/* <li
                                 className={activeTab === 'all' ? 'active filter' : 'filter'}
                                 onClick={() => handleTabClick('all')}
                               >
                                 All Categories
-                              </li>
-                              <li
+                              </li> */}
+                              {/* <li
                                 className={activeTab === 'garment-printing' ? 'active filter' : 'filter'}
                                 onClick={() => handleTabClick('garment-printing')}
                               >
                                 Training
-                              </li>
-                              <li
+                              </li> */}
+                              {/* <li
                                 className={activeTab === 'litho_printing' ? 'active filter' : 'filter'}
                                 onClick={() => handleTabClick('litho_printing')}
                               >
                                 Implant
-                              </li>
+                              </li> */}
                             </ul>
                           </div>
                         </div>
 
                         {/* Project items */}
                         <div className="items-container row clearfix">
-                          {projects
+                          {lifeCategoryData
                             .filter((project) => activeTab === 'all' || project.category.includes(activeTab))
                             .map((project, index) => (
                               <div
@@ -224,9 +307,10 @@ const Career = () => {
                                 <div className="project-block-one">
                                   <div className="inner-box bn-project-box">
                                     <figure className="image-box">
+                                      <h1>{project.category}</h1>
                                       <img
-                                        src={project.image}
-                                        alt={project.title}
+                                        src={project.img}
+                                        alt={project.category}
                                         onClick={() => handleTabClick(project.category)}
                                       />
                                     </figure>
@@ -263,60 +347,64 @@ const Career = () => {
               <div className="tabs-content">
                 <div className="tab active-tab" id="tab-3">
                   <div className="row clearfix">
-                    {/* {
-                      jobData.map((item, id) => {
-                        return (
-                          <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                            <div className="pricing-block-one ">
-                              <div className="pricing-table te-tab">
-                                <div className="table-header">
-                                  <div className="shape"
-                                    style={{ backgroundImage: `url(${img7})` }}>
+                    {
+                      jobData.length == 0 ? <h5>Currently No Vacancy Available</h5> :
+                        jobData.map((item, id) => {
+                          return (
+                            <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                              <div className="pricing-block-one ">
+                                <div className="pricing-table te-tab">
+                                  <div className="table-header">
+                                    <div className="shape"
+                                      style={{ backgroundImage: `url(${img7})` }}>
+                                    </div>
+                                    <img src={r1} style={{ width: '80px', height: '90px' }} alt="image" />
+                                    <h2 className="te-heading">
+                                      <h3 className="te-pac">{item.designation}</h3>
+                                    </h2>
+                                    {/* <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                      Apply Now
+                                    </button> */}
+                                    <Button type="button" className="theme-btn btn-two border-0" onClick={() => handleShow("Job")}>
+                                      Apply Now
+                                    </Button>
+
                                   </div>
-                                  <img src={r1} style={{ width: '80px', height: '90px' }} alt="image" />
-                                  <h2 className="te-heading">
-                                    <h3 className="te-pac">{item.designation}</h3>
-                                  </h2>
-                                  <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Apply Now
-                                  </button>
+
+                                  <div className="table-content te-list">
+                                    <div className="card__header">
+                                      <img className="card__thumb" src={experience1} alt="" />
+                                      <div className="card__header-text">
+                                        <ul className="clearfix" style={{ fontWeight: '400' }}>
+                                          <li>{item.opening}</li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                    <div className="card__header">
+                                      <img className="card__thumb" src={location1} alt="" />
+                                      <div className="card__header-text">
+                                        <ul className="clearfix" style={{ fontWeight: '400' }}>
+                                          <li>{item.location}</li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                    <div className="card__header">
+                                      <img className="card__thumb" src={BEimg} alt="" />
+                                      <div className="card__header-text">
+                                        <ul className="clearfix" style={{ fontWeight: '400' }}>
+                                          <li>{item.qualification}</li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
 
                                 </div>
-
-                                <div className="table-content te-list">
-                                  <div className="card__header">
-                                    <img className="card__thumb" src={experience1} alt="" />
-                                    <div className="card__header-text">
-                                      <ul className="clearfix" style={{ fontWeight: '400' }}>
-                                        <li>{item.job_openings}</li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                  <div className="card__header">
-                                    <img className="card__thumb" src={location1} alt="" />
-                                    <div className="card__header-text">
-                                      <ul className="clearfix" style={{ fontWeight: '400' }}>
-                                        <li>{item.location}</li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                  <div className="card__header">
-                                    <img className="card__thumb" src={BEimg} alt="" />
-                                    <div className="card__header-text">
-                                      <ul className="clearfix" style={{ fontWeight: '400' }}>
-                                        <li>{item.qualification}</li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                </div>
-
                               </div>
                             </div>
-                          </div>
-                        )
-                      })
-                    } */}
-                    <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                          )
+                        })
+                    }
+                    {/* <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
                       <div className="pricing-block-one ">
                         <div className="pricing-table te-tab">
                           <div className="table-header">
@@ -326,7 +414,6 @@ const Career = () => {
                             <img src={r1} style={{ width: '80px', height: '90px' }} alt="image" />
                             <h2 className="te-heading">
                               <h3 className="te-pac">MEAN DEVELOPER</h3>
-                              {/* <span className="symble">$</span> 549 <span className="text">/Mo</span> */}
                             </h2>
                             <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
                               Apply Now
@@ -363,8 +450,8 @@ const Career = () => {
 
                         </div>
                       </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                    </div> */}
+                    {/* <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
                       <div className="pricing-block-one active-block">
                         <div className="pricing-table te-tab">
                           <div className="table-header">
@@ -374,7 +461,6 @@ const Career = () => {
                             <img src={r1} style={{ width: '80px', height: '90px' }} alt="image" />
                             <h2 className="te-heading">
                               <h3 className="te-pac" style={{ color: '#f54c4c' }}>MEAN DEVELOPER</h3>
-                              {/* <span className="symble">$</span> 749 <span className="text">/ye</span> */}
                             </h2>
                             <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
                               Apply Now
@@ -409,8 +495,8 @@ const Career = () => {
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                    </div> */}
+                    {/* <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
                       <div className="pricing-block-one ">
                         <div className="pricing-table te-tab">
                           <div className="table-header">
@@ -420,8 +506,7 @@ const Career = () => {
                             <img src={r1} style={{ width: '80px', height: '90px' }} alt="image" />
                             <h2 className="te-heading">
                               <h3 className="te-pac">MEAN DEVELOPER</h3>
-                              {/* <span className="symble">$</span> 549 <span className="text">/Mo</span> */}
-                            </h2>
+                              </h2>
                             <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
                               Apply Now
                             </button>
@@ -457,7 +542,7 @@ const Career = () => {
 
                         </div>
                       </div>
-                    </div>
+                    </div> */}
 
                   </div>
                 </div>
@@ -469,71 +554,63 @@ const Career = () => {
       {/*pricing - section end*/}
 
       {/*Modal */}
-      <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h4 className="modal-title">Apply Now</h4>
-              <button type="button" className="close" data-bs-dismiss="modal">X</button>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Apply Now</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={submitData} name="myForm" encType="multipart/form-data">
+            <Form.Group controlId="formTitle">
+              <Form.Label>Job Title:</Form.Label>
+              <Form.Control type="text" placeholder="Job Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+              {errors.title && <span className="error text-danger">{errors.title}</span>}
+            </Form.Group>
+            <Form.Group controlId="formName">
+              <Form.Label>Name:</Form.Label>
+              <Form.Control type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+              {errors.name && <span className="error text-danger">{errors.name}</span>}
+            </Form.Group>
+            <Form.Group controlId="formPhone">
+              <Form.Label>Mobile Number:</Form.Label>
+              <Form.Control type="tel" placeholder="Mobile no." value={phone} onChange={(e) => setPhone(e.target.value)} />
+              {errors.phone && <span className="error text-danger">{errors.phone}</span>}
+            </Form.Group>
+            <Form.Group controlId="formAddress">
+              <Form.Label>Address:</Form.Label>
+              <Form.Control as="textarea" rows={3} placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} />
+              {errors.address && <span className="error text-danger">{errors.address}</span>}
+            </Form.Group>
+            <Form.Group controlId="formEmail">
+              <Form.Label>Email Address:</Form.Label>
+              <Form.Control type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+              {errors.email && <span className="error text-danger">{errors.email}</span>}
+            </Form.Group>
+            <Form.Group controlId="formConfmEmail">
+              <Form.Label>Confirm Email Address:</Form.Label>
+              <Form.Control type="email" placeholder="Confirm Email" value={confmEmail} onChange={(e) => setConfmEmail(e.target.value)} />
+              {errors.confmEmail && <span className="error text-danger">{errors.confmEmail}</span>}
+            </Form.Group>
+            <Form.Group controlId="formCoverLetter">
+              <Form.Label>Cover Letter:</Form.Label>
+              <Form.Control type="file" accept=".pdf" onChange={(e) => setCover_letter(e.target.files[0])} />
+              {errors.coverLetter && <span className="error text-danger">{errors.coverLetter}</span>}
+            </Form.Group>
+            <Form.Group controlId="formCV">
+              <Form.Label>Upload CV:</Form.Label>
+              <Form.Control type="file" accept=".pdf" onChange={(e) => setCV(e.target.files[0])} />
+              {errors.cv && <span className="error text-danger">{errors.cv}</span>}
+            </Form.Group>
+            <div className="form-group text-center mt-4">
+              <Button variant="secondary" className='mx-1' onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" className='mx-1' type="submit">
+                Submit
+              </Button>
             </div>
-            <div className="modal-body">
-              <form method="post" name="myForm" enctype="multipart/form-data" onSubmit={submitData}>
-                <div className="form-group">
-                  <label>Job Title :</label>
-                  <input className="form-control" type="text" name="title" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Name" required />
-                </div>
-                <div className="form-group">
-                  <label>Name :</label>
-                  <input className="form-control" type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" required />
-                </div>
-                <div className="form-group">
-                  <label>Mobile Number :</label>
-                  <input className="form-control" type="tel" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} maxlength="10" minlength="10" pattern="[7-9]{1}[0-9]{9}" placeholder="Mobile no." required />
-                </div>
-                <div className="form-group">
-                  <label>Address :</label>
-                  <textarea type="text" name="address" className="form-control" placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} required=""></textarea>
-                </div>
-                <div className="form-group">
-                  <label>Email Address :</label>
-                  <input className="form-control" type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
-                </div>
-                <div className="form-group">
-                  <label>Confirm Email Address :</label>
-                  <input className="form-control" type="email" name="confEmail" placeholder="Email" required value={confmEmail} onChange={(e) => setConfmEmail(e.target.value)} />
-                </div>
-                <div className="form-group">
-                  <label>Cover Letter :</label>
-                  <div>
-                    <input type="file" name="cover_letter" accept=".pdf" id="cover_letter" required onChange={(e) => setCover_letter(e.target.files[0])} />
-                    <span id="file_error" className="inputError"></span>
-                  </div>
-                </div>
-                <div className="form-group">
-                  <label>Upload CV :</label>
-                  <div>
-                    <input type="file" name="cv" accept=".pdf" id="cv" required onChange={(e) => setCV(e.target.files[0])} />
-                    <span id="file_error" className="inputError"></span>
-                  </div>
-                </div>
-
-                {/* <div className="form-group">
-                <input type="text" name="captcha1" id="captcha" className="form-control" placeholder="Enter Captcha" required="">
-                  <img src="captcha.php">
-                  </div> */}
-
-                <div className="form-group text-center mt-4">
-
-                  <button className="btn btn-success btn-lg" type="submit" name="btn_submit">Submit</button>
-                  {/* <input className="btn btn-danger btn-lg" type="reset" name="btn_reset" value="Clear"> */}
-                </div>
-              </form>
-
-
-            </div>
-          </div>
-        </div>
-      </div>
+          </Form>
+        </Modal.Body>
+      </Modal>
       <section className="pricing-section style-two">
         <div className="auto-container">
           <div className="tabs-box">
@@ -548,60 +625,61 @@ const Career = () => {
               <div className="tabs-content">
                 <div className="tab active-tab" id="tab-3">
                   <div className="row clearfix">
-                    {/* {
-                      internData.map((item,id) => {
-                        return (
-                          <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                            <div className="pricing-block-one ">
-                              <div className="pricing-table te-tab">
-                                <div className="table-header">
-                                  <div className="shape"
-                                    style={{ backgroundImage: `url(${img7})` }}>
+                    {
+                      internData.length == 0 ? <h5>Currently No Vacancy Available</h5> :
+                        internData.map((item, id) => {
+                          return (
+                            <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                              <div className="pricing-block-one ">
+                                <div className="pricing-table te-tab">
+                                  <div className="table-header">
+                                    <div className="shape"
+                                      style={{ backgroundImage: `url(${img7})` }}>
+                                    </div>
+                                    <img src={r1} style={{ width: '80px', height: '90px' }} alt="image" />
+                                    <h2 className="te-heading">
+                                      <h3 className="te-pac">{item.designation}</h3>
+                                    </h2>
+                                    <Button type='button' className='theme-btn btn-two border-0' onClick={() => handleShow("Internship")}>
+                                      Apply Now
+                                    </Button>
+
                                   </div>
-                                  <img src={r1} style={{ width: '80px', height: '90px' }} alt="image" />
-                                  <h2 className="te-heading">
-                                    <h3 className="te-pac">{item.designation}</h3>
-                                  </h2>
-                                  <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Apply Now
-                                  </button>
+
+                                  <div className="table-content te-list">
+                                    <div className="card__header">
+                                      <img className="card__thumb" src={experience1} alt="" />
+                                      <div className="card__header-text">
+                                        <ul className="clearfix" style={{ fontWeight: '400' }}>
+                                          <li>{item.intern_openings}</li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                    <div className="card__header">
+                                      <img className="card__thumb" src={location1} alt="" />
+                                      <div className="card__header-text">
+                                        <ul className="clearfix" style={{ fontWeight: '400' }}>
+                                          <li>{item.location}</li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                    <div className="card__header">
+                                      <img className="card__thumb" src={BEimg} alt="" />
+                                      <div className="card__header-text">
+                                        <ul className="clearfix" style={{ fontWeight: '400' }}>
+                                          <li>{item.qualification}</li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
 
                                 </div>
-
-                                <div className="table-content te-list">
-                                  <div className="card__header">
-                                    <img className="card__thumb" src={experience1} alt="" />
-                                    <div className="card__header-text">
-                                      <ul className="clearfix" style={{ fontWeight: '400' }}>
-                                        <li>{item.intern_openings}</li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                  <div className="card__header">
-                                    <img className="card__thumb" src={location1} alt="" />
-                                    <div className="card__header-text">
-                                      <ul className="clearfix" style={{ fontWeight: '400' }}>
-                                        <li>{item.location}</li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                  <div className="card__header">
-                                    <img className="card__thumb" src={BEimg} alt="" />
-                                    <div className="card__header-text">
-                                      <ul className="clearfix" style={{ fontWeight: '400' }}>
-                                        <li>{item.qualification}</li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                </div>
-
                               </div>
                             </div>
-                          </div>
-                        )
-                      })
-                    } */}
-                    <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                          )
+                        })
+                    }
+                    {/* <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
                       <div className="pricing-block-one ">
                         <div className="pricing-table te-tab">
                           <div className="table-header">
@@ -611,8 +689,7 @@ const Career = () => {
                             <img src={r1} style={{ width: '80px', height: '90px' }} alt="image" />
                             <h2 className="te-heading">
                               <h3 className="te-pac">MEAN DEVELOPER</h3>
-                              {/* <span className="symble">$</span> 549 <span className="text">/Mo</span> */}
-                            </h2>
+                              </h2>
                             <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
                               Apply Now
                             </button>
@@ -648,8 +725,8 @@ const Career = () => {
 
                         </div>
                       </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                    </div> */}
+                    {/* <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
                       <div className="pricing-block-one active-block">
                         <div className="pricing-table te-tab">
                           <div className="table-header">
@@ -659,8 +736,7 @@ const Career = () => {
                             <img src={r1} style={{ width: '80px', height: '90px' }} alt="image" />
                             <h2 className="te-heading">
                               <h3 className="te-pac" style={{ color: '#f54c4c' }}>MEAN DEVELOPER</h3>
-                              {/* <span className="symble">$</span> 749 <span className="text">/ye</span> */}
-                            </h2>
+                              </h2>
                             <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
                               Apply Now
                             </button>
@@ -694,8 +770,8 @@ const Career = () => {
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                    </div> */}
+                    {/* <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
                       <div className="pricing-block-one ">
                         <div className="pricing-table te-tab">
                           <div className="table-header">
@@ -705,8 +781,7 @@ const Career = () => {
                             <img src={r1} style={{ width: '80px', height: '90px' }} alt="image" />
                             <h2 className="te-heading">
                               <h3 className="te-pac">MEAN DEVELOPER</h3>
-                              {/* <span className="symble">$</span> 549 <span className="text">/Mo</span> */}
-                            </h2>
+                             </h2>
                             <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
                               Apply Now
                             </button>
@@ -742,7 +817,7 @@ const Career = () => {
 
                         </div>
                       </div>
-                    </div>
+                    </div> */}
 
                   </div>
                 </div>

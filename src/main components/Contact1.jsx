@@ -22,13 +22,52 @@ const Contact1 = () => {
     const [phone, setPhone] = useState("")
     const [website, setWebsite] = useState("")
     const [message, setMessage] = useState("")
+    const [errors, setErrors] = useState({});
 
+    const validateForm = () => {
+      let errors = {};
+      let isValid = true;
+  
+      if (!website.trim()) {
+        errors.website = 'Website name is required';
+        isValid = false;
+      }
+      if (!message.trim()) {
+        errors.message = 'message is required';
+        isValid = false;
+      }
+  
+      if (!name.trim()) {
+        errors.name = 'Name is required';
+        isValid = false;
+      }
+  
+      if (!phone.trim()) {
+        errors.phone = 'Phone number is required';
+        isValid = false;
+      } else if (!/^[7-9]{1}[0-9]{9}$/.test(phone)) {
+        errors.phone = 'Invalid phone number';
+        isValid = false;
+      }
+  
+      if (!email.trim()) {
+        errors.email = 'Email is required';
+        isValid = false;
+      } else if (!/\S+@\S+\.\S+/.test(email)) {
+        errors.email = 'Invalid email address';
+        isValid = false;
+      }
+  
+      setErrors(errors);
+      return isValid;
+    };
     const SubmitData = (e) => {
         e.preventDefault();
         let newData = {
             name, email, phone, website, message
         }
-        axios.post("contact/add", newData).then((resp) => {
+        if (validateForm()) {
+        axios.post("contact/records", newData, { headers: { "content-type": "application/json" } }).then((resp) => {
             console.log("resp", resp)
             setName("")
             setEmail("")
@@ -38,6 +77,7 @@ const Contact1 = () => {
         }).catch((err) => {
             console.log("err", err);
         })
+    }
     }
     return (
         <>
@@ -156,6 +196,7 @@ const Contact1 = () => {
                                                                                             onChange={(e) => setName(e.target.value)}
                                                                                             type="text"
                                                                                             name="name" /></span>
+                                                                                            {errors.name && <span className="error text-danger">{errors.name}</span>}
                                                                                     </p>
                                                                                 </div>
                                                                                 <div
@@ -176,6 +217,7 @@ const Contact1 = () => {
                                                                                             onChange={(e) => setEmail(e.target.value)}
                                                                                             type="email"
                                                                                             name="email" /></span>
+                                                                                            {errors.email && <span className="error text-danger">{errors.email}</span>}
                                                                                     </p>
                                                                                 </div>
                                                                                 <div
@@ -195,6 +237,7 @@ const Contact1 = () => {
                                                                                             onChange={(e) => setPhone(e.target.value)}
                                                                                             type="text"
                                                                                             name="phone" required /></span>
+                                                                                            {errors.phone && <span className="error text-danger">{errors.phone}</span>}
                                                                                     </p>
                                                                                 </div>
                                                                                 <div
@@ -214,6 +257,7 @@ const Contact1 = () => {
                                                                                             onChange={(e) => setWebsite(e.target.value)}
                                                                                             type="text"
                                                                                             name="website" /></span>
+                                                                                            {errors.website && <span className="error text-danger">{errors.website}</span>}
                                                                                     </p>
                                                                                 </div>
                                                                                 <div
@@ -233,6 +277,7 @@ const Contact1 = () => {
                                                                                             onChange={(e) => setMessage(e.target.value)}
                                                                                             placeholder="Your Message..."
                                                                                             name="message"></textarea></span>
+                                                                                            {errors.message && <span className="error text-danger">{errors.message}</span>}
                                                                                     </p>
                                                                                 </div>
                                                                                 <div
@@ -270,7 +315,7 @@ const Contact1 = () => {
                         data-id="1fdab63" data-element_type="section">
                         <div className="elementor-container elementor-column-gap-default">
                             <Row className='tabAdjustment'>
-                                {/* {
+                                {
                                     data.map((item, id) => {
                                         return (
                                             <Col lg={4} md={6} sm={12} className='column1'>
@@ -308,8 +353,8 @@ const Contact1 = () => {
                                             </Col>
                                         )
                                     })
-                                } */}
-                                <Col lg={4} md={6} sm={12} className='column1'>
+                                }
+                                {/* <Col lg={4} md={6} sm={12} className='column1'>
                                     <div className="elementor-column elementor-top-column elementor-element elementor-element-a4fd0a5 "
                                         data-id="a4fd0a5" data-element_type="column">
                                         <div className="elementor-widget-wrap elementor-element-populated">
@@ -407,7 +452,7 @@ const Contact1 = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </Col>
+                                </Col> */}
                             </Row>
                         </div>
                     </section >
