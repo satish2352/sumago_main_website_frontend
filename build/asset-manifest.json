@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.3157aba3.css",
-    "main.js": "/static/js/main.2e3d353b.js",
-    "static/js/453.f6403434.chunk.js": "/static/js/453.f6403434.chunk.js",
+    "main.css": "/static/css/main.c52b51dd.css",
+    "main.js": "/static/js/main.9bf7ace5.js",
+    "static/js/206.7fe358d8.chunk.js": "/static/js/206.7fe358d8.chunk.js",
     "static/media/Frame.png": "/static/media/Frame.ef0d9342f1d2bfd5128c.png",
     "static/media/agg.jpg": "/static/media/agg.1375c824886e657c1244.jpg",
     "static/media/corporate traning.jpg": "/static/media/corporate traning.97731f2b7e74278e34b6.jpg",
@@ -53,6 +53,9 @@
     "static/media/2) application new.jpg": "/static/media/2) application new.d028ddf8ae8e2b1337d9.jpg",
     "static/media/birthday (4).jpg": "/static/media/birthday (4).168ae66fb12b3f481f37.jpg",
     "static/media/birthday (1).jpg": "/static/media/birthday (1).22d6df7d53ca9aa71fca.jpg",
+    "static/media/deepjoyti.png": "/static/media/deepjoyti.af97f0e1428f95bc1192.png",
+    "static/media/mangesh.png": "/static/media/mangesh.c88759c08b92536ba1e5.png",
+    "static/media/snehal.png": "/static/media/snehal.0c2bf07c9fb78147ae15.png",
     "static/media/16 chetana A.png": "/static/media/16 chetana A.5b1e08fac5f762c3a11a.png",
     "static/media/birthday (2).jpg": "/static/media/birthday (2).e8d9af415cbbc9f5b92a.jpg",
     "static/media/consulting.jpg": "/static/media/consulting.c756d4930221780896dd.jpg",
@@ -68,12 +71,14 @@
     "static/media/OUTSOURCING .jpg": "/static/media/OUTSOURCING .64d1c612d6101a191b9a.jpg",
     "static/media/diwali (1).jpg": "/static/media/diwali (1).aa83e05f623b6d86b027.jpg",
     "static/media/1.png": "/static/media/1.9f3da9ceab3c24b1c64d.png",
+    "static/media/snehal b.png": "/static/media/snehal b.760dbec5d685bc917395.png",
     "static/media/BLOCKCHAIN.jpg": "/static/media/BLOCKCHAIN.bb60f54268af216084be.jpg",
     "static/media/diwali (5).jpg": "/static/media/diwali (5).26b0bb095632f9156da3.jpg",
     "static/media/11 amit A.png": "/static/media/11 amit A.f705f28e680d76b49548.png",
     "static/media/5 GANESH A.png": "/static/media/5 GANESH A.34d3abdf7eb01931fbd4.png",
     "static/media/5.png": "/static/media/5.403f17c0750da2ba49e5.png",
     "static/media/3.png": "/static/media/3.db05bffba74c20d6d187.png",
+    "static/media/ashwini.png": "/static/media/ashwini.259af5966aac8a99e40c.png",
     "static/media/fa-solid-900.eot": "/static/media/fa-solid-900.3a24a60e7f9c6574864a.eot",
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.10ecefc282f2761808bf.ttf",
     "static/media/vission.png": "/static/media/vission.ea6d822d5c787080b6bb.png",
@@ -81,6 +86,7 @@
     "static/media/58dbfef0-c491-49d7-b29d-efd0380a287a-removebg-preview.png": "/static/media/58dbfef0-c491-49d7-b29d-efd0380a287a-removebg-preview.13e51314824ae60146af.png",
     "static/media/diwali.jpg": "/static/media/diwali.462b19596c5bda4165a7.jpg",
     "static/media/18 pratik A.png": "/static/media/18 pratik A.a018bfdb60bfc4cc592e.png",
+    "static/media/harshal.png": "/static/media/harshal.3275581b61adf087af01.png",
     "static/media/3 )digital marketing.jpg": "/static/media/3 )digital marketing.8ebcb2a585da71d2691d.jpg",
     "static/media/4 VIREN A.png": "/static/media/4 VIREN A.e2bf7ef7c74e13e6c908.png",
     "static/media/20 pooja A.png": "/static/media/20 pooja A.1948f3a39ffa3453cfa9.png",
@@ -100,6 +106,7 @@
     "static/media/SUMAGO White New.png": "/static/media/SUMAGO White New.eece09896ce5c3eea60e.png",
     "static/media/SUMAGO White.png": "/static/media/SUMAGO White.eece09896ce5c3eea60e.png",
     "static/media/wwww.png": "/static/media/wwww.eece09896ce5c3eea60e.png",
+    "static/media/saurabh kalal.jpg": "/static/media/saurabh kalal.4238d099d944ac694c5a.jpg",
     "static/media/responsive.jpg": "/static/media/responsive.dcd5e1310e571b53aa9e.jpg",
     "static/media/SUMAGO Logo.png": "/static/media/SUMAGO Logo.bd27e557adf1d3fcaf02.png",
     "static/media/sumago.png": "/static/media/sumago.bd27e557adf1d3fcaf02.png",
@@ -213,13 +220,10 @@
     "static/media/star.woff": "/static/media/star.8ab6da8ce4d274edf643.woff",
     "static/media/star.svg": "/static/media/star.486bfe4fbf01c0dbb3d3.svg",
     "static/media/diners.svg": "/static/media/diners.637579df083fe357ab09.svg",
-    "static/media/loader.svg": "/static/media/loader.2ac8330bf65fce0b22eb.svg",
-    "main.3157aba3.css.map": "/static/css/main.3157aba3.css.map",
-    "main.2e3d353b.js.map": "/static/js/main.2e3d353b.js.map",
-    "453.f6403434.chunk.js.map": "/static/js/453.f6403434.chunk.js.map"
+    "static/media/loader.svg": "/static/media/loader.2ac8330bf65fce0b22eb.svg"
   },
   "entrypoints": [
-    "static/css/main.3157aba3.css",
-    "static/js/main.2e3d353b.js"
+    "static/css/main.c52b51dd.css",
+    "static/js/main.9bf7ace5.js"
   ]
 }
