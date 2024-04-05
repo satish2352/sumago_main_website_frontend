@@ -29,7 +29,6 @@ const Testimonials = () => {
     const [data, setData] = useState([])
     useEffect(() => {
         axios.get("/testimonials/find").then((result) => {
-            console.log("result", result);
             setData(result.data)
         }).catch((err) => {
             console.log("err", err);
@@ -79,7 +78,7 @@ const Testimonials = () => {
                                                     <div className="author-box">
                                                         <figure className="author-thumb"><img loading="lazy"
                                                             decoding="async" width="50" height="50"
-                                                            src={`http://localhost:5000/${item.img}`}
+                                                            src={item.img}
                                                             className="attachment-printpark_50x50 size-printpark_50x50 wp-post-image"
                                                             alt="" /></figure>
                                                         <h3 className="te-title">{item.name}</h3>

@@ -9,7 +9,6 @@ const Numbers = () => {
     const [data, setData] = useState([])
     useEffect(() => {
         axios.get("/clientCount/find").then((result) => {
-            console.log("result", result);
             setData(result.data)
         }).catch((err) => {
             console.log("err", err);
