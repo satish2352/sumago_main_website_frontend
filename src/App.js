@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header'
 import Home from './main components/Home';
@@ -12,7 +12,10 @@ import NewNavbar from './components/NewNavbar';
 import axios from 'axios';
 import GoUp from './components/GoUp';
 function App() {
-  axios.defaults.baseURL = axios.defaults.baseURL = "http://127.0.0.1:5000"
+  useEffect(() => {
+    axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+    console.log("process.env.REACT_APP_API_BASE_URL", process.env.REACT_APP_API_BASE_URL);
+  }, []);
   return (
     <Router>
       <NewNavbar />
