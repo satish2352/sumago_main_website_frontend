@@ -140,6 +140,7 @@ const Header = () => {
                 setAddress("");
                 setComment("");
                 handleClose()
+                alert("form submitted successfully")
             }).catch((err) => {
                 console.log("err", err);
             })

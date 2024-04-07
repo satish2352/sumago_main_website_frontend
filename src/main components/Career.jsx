@@ -169,6 +169,7 @@ const Career = () => {
         setCover_letter("")
         setApplicationType("")
         handleClose()
+        alert("form submitted successfully")
       }).catch((err) => {
         console.log("err", err);
       })

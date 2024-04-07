@@ -93,7 +93,7 @@ const Contact1 = () => {
                 setPhone("")
                 setWebsite("")
                 setMessage("")
-
+                alert("form submitted successfully")
             }).catch((err) => {
                 console.log("err", err);
             })
