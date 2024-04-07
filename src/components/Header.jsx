@@ -23,11 +23,15 @@ import email from '../assets/images/wp-content/themes/printpark/assets/images/sh
 import sumagologo from '../assets/images/wp-content/uploads/2023/08/SUMAGO Logo.png'
 import logo13 from '../assets/images/wp-content/uploads/2023/08/Logo1 3.png'
 import sumagowhite from '../assets/images/wp-content/uploads/2023/08/SUMAGO White.png'
-import { Col, Row } from 'react-bootstrap'
+import { Button, Col, Form, Modal, Row } from 'react-bootstrap'
+import axios from 'axios'
+import ReCAPTCHA from "react-google-recaptcha";
+import { useRef } from 'react'
 
 const Header = () => {
     const [scrolled, setScrolled] = useState(false);
-
+    const captchaRef = useRef(null);
+    const [isCaptchaVerified, setCaptchaVerified] = useState(false);
     useEffect(() => {
         const handleScroll = () => {
             const isScrolled = window.scrollY > 100;
@@ -53,6 +57,94 @@ const Header = () => {
             behavior: 'smooth'
         });
     };
+
+    const [show, setShow] = useState(false);
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [phone, setPhone] = useState("")
+    const [service, setService] = useState("")
+    const [other, setOther] = useState("")
+    const [address, setAddress] = useState("")
+    const [comment, setComment] = useState("")
+    const [errors, setErrors] = useState({});
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const onChange = (value) => {
+        setCaptchaVerified(true);
+        console.log(value);
+    }
+
+    const validateForm = () => {
+        let errors = {};
+        let isValid = true;
+
+        if (!comment.trim()) {
+            errors.comment = 'comment is required';
+            isValid = false;
+        }
+        if (!address.trim()) {
+            errors.address = 'address is required';
+            isValid = false;
+        }
+        if (!service.trim()) {
+            errors.service = 'Service is required';
+            isValid = false;
+        }
+        if (!other.trim()) {
+            errors.other = 'other service is required';
+            isValid = false;
+        }
+
+        if (!name.trim()) {
+            errors.name = 'Name is required';
+            isValid = false;
+        }
+
+        if (!phone.trim()) {
+            errors.phone = 'Phone number is required';
+            isValid = false;
+        } else if (!/^[7-9]{1}[0-9]{9}$/.test(phone)) {
+            errors.phone = 'Invalid phone number';
+            isValid = false;
+        }
+
+        if (!email.trim()) {
+            errors.email = 'Email Id is required';
+            isValid = false;
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            errors.email = 'Invalid email address';
+            isValid = false;
+        }
+
+        if (!isCaptchaVerified) {
+            errors.captcha = 'please complete the recaptcha before submitting.';
+            isValid = false;
+        }
+
+        setErrors(errors);
+        return isValid;
+    };
+    const SubmitData = (e) => {
+        e.preventDefault();
+        let newData = {
+            name: name, email: email, phone: phone, service: service, other_service: other, address: address, comment: comment
+        }
+        if (validateForm()) {
+            axios.post("/quotes/create", newData).then((resp) => {
+                console.log("resp", resp)
+                setName("");
+                setEmail("");
+                setPhone("");
+                setService("");
+                setOther("");
+                setAddress("");
+                setComment("");
+                handleClose()
+            }).catch((err) => {
+                console.log("err", err);
+            })
+        }
+    }
 
     return (
         <>
@@ -125,7 +217,7 @@ const Header = () => {
                                     <span> Call Us</span> <strong>Now:</strong>
                                 </div>
                                 <ul className='list-unstyled d-flex justify-content-evenly mb-2'
-                                    >
+                                >
                                     <li>
                                         <a href="tel:+91 902 828 8668"><strong>+91 902 828 8668,</strong></a>
                                     </li>
@@ -141,7 +233,7 @@ const Header = () => {
                                 <div className='right-box'>
                                     <Row style={{ paddingLeft: '40px', paddingRight: '40px', paddingTop: '5px' }}>
                                         <Col lg={2} md={2} sm={2}>
-                                            <img src={email} width="20px" height="20px" alt='' />
+                                        <i class="fas fa-envelope email-icon"></i>
                                         </Col>
                                         <Col lg={10} md={10} sm={10}>
                                             <a href="mailto:info@sumagoinfotech.com" style={{ color: 'black' }}>info@sumagoinfotech.com</a>
@@ -223,8 +315,76 @@ const Header = () => {
                                 <div className="menu-right-content">
                                     <div className="btn-box">
                                         <Link to={"/contact"}
-                                            className="theme-btn btn-one" style={{ textDecoration: 'none' }}>Get a Quote</Link>
+                                            className="theme-btn btn-one" style={{ textDecoration: 'none' }} onClick={handleShow}>Get a Quote</Link>
                                     </div>
+                                    <Modal show={show} onHide={handleClose}>
+                                        <Modal.Header closeButton>
+                                            <Modal.Title>GET A QUOTE</Modal.Title>
+                                        </Modal.Header>
+                                        <Form onSubmit={SubmitData} name="myForm">
+                                            <Modal.Body>
+                                                <Form.Group>
+                                                    <Form.Label>Name:</Form.Label>
+                                                    <Form.Control type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+                                                    {errors.name && <span className="error text-danger">{errors.name}</span>}
+                                                </Form.Group>
+                                                <Form.Group>
+                                                    <Form.Label>Phone No.:</Form.Label>
+                                                    <Form.Control type="tel" placeholder="Phone no." value={phone} onChange={(e) => setPhone(e.target.value)} />
+                                                    {errors.phone && <span className="error text-danger">{errors.phone}</span>}
+                                                </Form.Group>
+                                                <Form.Group>
+                                                    <Form.Label>Email Id:</Form.Label>
+                                                    <Form.Control type="email" placeholder="Email Id" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                                    {errors.email && <span className="error text-danger">{errors.email}</span>}
+                                                </Form.Group>
+                                                <Form.Group>
+                                                    <Form.Label>Type of Services:</Form.Label>
+                                                    <Form.Control as="select" value={service} onChange={(e) => setService(e.target.value)}>
+                                                        <option value="" disabled>Select Service</option>
+                                                        <option value="Website Development">Website Development</option>
+                                                        <option value="App Development">App Development</option>
+                                                        <option value="Software Development">Software Development</option>
+                                                        <option value="Digital Marketing">Digital Marketing</option>
+                                                        <option value="Social Media">Social Media</option>
+                                                        <option value="SEO">SEO</option>
+                                                        <option value="Training/Internship">Training/Internship</option>
+                                                        <option value="Start up Consultancy">Start up Consultancy</option>
+                                                        <option value="#">Web Hosting</option>
+                                                    </Form.Control>
+                                                    {errors.service && <span className="error text-danger">{errors.service}</span>}
+                                                </Form.Group>
+                                                <Form.Group>
+                                                    <Form.Label>Other Service:</Form.Label>
+                                                    <Form.Control type="text" placeholder="Other Service" value={other} onChange={(e) => setOther(e.target.value)} />
+                                                    {errors.other && <span className="error text-danger">{errors.other}</span>}
+                                                </Form.Group>
+                                                <Form.Group>
+                                                    <Form.Label>Address:</Form.Label>
+                                                    <Form.Control as="textarea" rows={4} placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} />
+                                                    {errors.address && <span className="error text-danger">{errors.address}</span>}
+                                                </Form.Group>
+                                                <Form.Group>
+                                                    <Form.Label>Any Comment:</Form.Label>
+                                                    <Form.Control as="textarea" rows={4} placeholder="Comment" value={comment} onChange={(e) => setComment(e.target.value)} />
+                                                    {errors.comment && <span className="error text-danger">{errors.comment}</span>}
+                                                </Form.Group>
+                                                <div lg={11} className='mt-3'>
+                                                    <ReCAPTCHA
+                                                        ref={captchaRef}
+                                                        sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6LedW7IpAAAAALRXSgALrJKbJH1D7iaqc8HrMoAy"}
+                                                        onChange={onChange}
+                                                    />
+                                                </div>
+                                                {errors.captcha && <span className="error text-danger">{errors.captcha}</span>}
+
+                                            </Modal.Body>
+                                            <Modal.Footer>
+                                                <Button variant="secondary" className='mx-1' type="button" onClick={handleClose}>Close</Button>
+                                                <Button variant="success" className='mx-1' type="submit">Submit</Button>
+                                            </Modal.Footer>
+                                        </Form>
+                                    </Modal>
                                 </div>
 
                             </div>
@@ -357,6 +517,7 @@ const Header = () => {
                             </div>
                         </div>
                     </div>
+
                 </header>
             )}
         </>

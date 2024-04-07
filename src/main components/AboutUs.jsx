@@ -112,27 +112,30 @@ const AboutUs = () => {
     };
     const imageData = [
         { src: b1, category: 'garment-printing' },
-        { src: b2, category: 'garment-printing' },
-        { src: b3, category: 'garment-printing' },
-        { src: b4, category: 'garment-printing' },
         { src: b5, category: 'garment-printing' },
+        { src: b3, category: 'garment-printing' },
+        { src: b2, category: 'garment-printing' },
+        { src: b4, category: 'garment-printing' },
         { src: b6, category: 'garment-printing' },
         { src: d1, category: 'litho_printing' },
         { src: d2, category: 'litho_printing' },
         { src: d3, category: 'litho_printing' },
         { src: d4, category: 'litho_printing' },
         { src: d5, category: 'litho_printing' },
-        { src: d6, category: 'litho_printing' },
-        { src: g1, category: 'Ganpati' },
+        { src: d5, category: 'litho_printing' },
+        // { src: n3, category: 'Navratri' },
         { src: g2, category: 'Ganpati' },
+        { src: g2, category: 'Ganpati' },
+        { src: g1, category: 'Ganpati' },
+        { src: n2, category: 'Navratri' },
+        { src: n2, category: 'Navratri' },
+        { src: n1, category: 'Navratri' },
         { src: g3, category: 'Ganpati' },
         { src: g4, category: 'Ganpati' },
+        { src: d6, category: 'litho_printing' },
         { src: g5, category: 'Ganpati' },
-        { src: n1, category: 'Navratri' },
-        { src: n2, category: 'Navratri' },
-        { src: n3, category: 'Navratri' },
-        { src: n4, category: 'Navratri' },
         { src: n5, category: 'Navratri' },
+        { src: n4, category: 'Navratri' },
         { src: n6, category: 'Navratri' },
     ];
 
@@ -398,7 +401,7 @@ const AboutUs = () => {
                                                                         </div>
                                                                     </div>
 
-                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                    {/* <div className="col-lg-3 col-md-6 col-sm-12 team-block">
                                                                         <div className="team-block-two">
                                                                             <div className="inner-box te-team">
                                                                                 <figure className="image-box"><img fetchpriority="high"
@@ -418,7 +421,7 @@ const AboutUs = () => {
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> */}
 
                                                                     <div className="col-lg-3 col-md-6 col-sm-12 team-block">
                                                                         <div className="team-block-two">
@@ -509,7 +512,7 @@ const AboutUs = () => {
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    
+
                                                                     <div className="col-lg-3 col-md-6 col-sm-12 team-block">
                                                                         <div className="team-block-two">
                                                                             <div className="inner-box te-team">
@@ -531,7 +534,48 @@ const AboutUs = () => {
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={yashG}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Yash Ghodke</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Yash Ghodke</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">Business Development Executive</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                     
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={rohiniG}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Rohini Gaikwad</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Rohini Gaikwad</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">Business Analyst</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
 
 
 
@@ -823,7 +867,7 @@ const AboutUs = () => {
                                                                         </div>
                                                                     </div>
 
-                                                                    
+
 
                                                                     <div className="col-lg-3 col-md-6 col-sm-12 team-block">
                                                                         <div className="team-block-two">
@@ -846,27 +890,7 @@ const AboutUs = () => {
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
-                                                                        <div className="team-block-two">
-                                                                            <div className="inner-box te-team">
-                                                                                <figure className="image-box"><img fetchpriority="high"
-                                                                                    decoding="async" width="358" height="440"
-                                                                                    src={yashG}
-                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
-                                                                                    alt="" /></figure>
-                                                                                <div className="text-box">
-                                                                                    <h3 className="te-title">Yash Ghodke</h3>
-                                                                                </div>
-                                                                                <div className="overlay-content">
-                                                                                    <h3 className="te-title"><a
-                                                                                    >Yash Ghodke</a></h3>
-                                                                                    <span
-                                                                                        className="designation te-designation">Business Development Executive</span>
-
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                                   
                                                                     <div className="col-lg-3 col-md-6 col-sm-12 team-block">
                                                                         <div className="team-block-two">
                                                                             <div className="inner-box te-team">
@@ -912,29 +936,8 @@ const AboutUs = () => {
                                                                         </div>
                                                                     </div>
 
-                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
-                                                                        <div className="team-block-two">
-                                                                            <div className="inner-box te-team">
-                                                                                <figure className="image-box"><img fetchpriority="high"
-                                                                                    decoding="async" width="358" height="440"
-                                                                                    src={rohiniG}
-                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
-                                                                                    alt="" /></figure>
-                                                                                <div className="text-box">
-                                                                                    <h3 className="te-title">Rohini Gaikwad</h3>
-                                                                                </div>
-                                                                                <div className="overlay-content">
-                                                                                    <h3 className="te-title"><a
-                                                                                    >Rohini Gaikwad</a></h3>
-                                                                                    <span
-                                                                                        className="designation te-designation">Business Analyst</span>
 
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
 
-                                                            
                                                                     <div className="col-lg-3 col-md-6 col-sm-12 team-block">
                                                                         <div className="team-block-two">
                                                                             <div className="inner-box te-team">
@@ -1231,7 +1234,7 @@ const AboutUs = () => {
                                                                             loading="lazy"
                                                                             decoding="async"
                                                                             width="370"
-                                                                            height="270"
+                                                                            height="auto"
                                                                             src={image.src}
                                                                             className="attachment-printpark_370x270 size-printpark_370x270 wp-post-image"
                                                                             alt=""

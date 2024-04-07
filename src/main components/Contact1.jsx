@@ -5,6 +5,8 @@ import shape20 from '../assets/images/wp-content/themes/printpark/assets/images/
 import { Col, Container, Row } from 'react-bootstrap';
 import '../assets/css/Contact1.css'
 import axios from 'axios';
+import ReCAPTCHA from "react-google-recaptcha";
+import { useRef } from 'react'
 
 const Contact1 = () => {
     const [data, setData] = useState([])
@@ -23,61 +25,79 @@ const Contact1 = () => {
     const [website, setWebsite] = useState("")
     const [message, setMessage] = useState("")
     const [errors, setErrors] = useState({});
+    const captchaRef = useRef(null);
+    const [isCaptchaVerified, setCaptchaVerified] = useState(false);
+    const onChange = (value) => {
+        setCaptchaVerified(true);
+        console.log(value);
+    }
 
     const validateForm = () => {
-      let errors = {};
-      let isValid = true;
-  
-      if (!website.trim()) {
-        errors.website = 'Website name is required';
-        isValid = false;
-      }
-      if (!message.trim()) {
-        errors.message = 'message is required';
-        isValid = false;
-      }
-  
-      if (!name.trim()) {
-        errors.name = 'Name is required';
-        isValid = false;
-      }
-  
-      if (!phone.trim()) {
-        errors.phone = 'Phone number is required';
-        isValid = false;
-      } else if (!/^[7-9]{1}[0-9]{9}$/.test(phone)) {
-        errors.phone = 'Invalid phone number';
-        isValid = false;
-      }
-  
-      if (!email.trim()) {
-        errors.email = 'Email is required';
-        isValid = false;
-      } else if (!/\S+@\S+\.\S+/.test(email)) {
-        errors.email = 'Invalid email address';
-        isValid = false;
-      }
-  
-      setErrors(errors);
-      return isValid;
+        let errors = {};
+        let isValid = true;
+
+        if (!website.trim()) {
+            errors.website = 'Website name is required';
+            isValid = false;
+        }
+        if (!message.trim()) {
+            errors.message = 'message is required';
+            isValid = false;
+        }
+
+        if (!name.trim()) {
+            errors.name = 'Name is required';
+            isValid = false;
+        }
+
+        if (!phone.trim()) {
+            errors.phone = 'Phone number is required';
+            isValid = false;
+        } else if (!/^[7-9]{1}[0-9]{9}$/.test(phone)) {
+            errors.phone = 'Invalid phone number';
+            isValid = false;
+        }
+
+        if (!email.trim()) {
+            errors.email = 'Email is required';
+            isValid = false;
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            errors.email = 'Invalid email address';
+            isValid = false;
+        }
+        if (!isCaptchaVerified) {
+            errors.captcha = 'please complete the recaptcha before submitting.';
+            isValid = false;
+        }
+        //   if (!isCaptchaVerified) {
+        //     // setSubmitMessage("Please complete the ReCAPTCHA before submitting.");
+        //     errors.captc = 'Please complete the ReCAPTCHA before submitting.';
+        //     isValid = false;
+        //     return;
+        // }
+
+        setErrors(errors);
+        return isValid;
     };
     const SubmitData = (e) => {
         e.preventDefault();
+
         let newData = {
             name, email, phone, website, message
         }
         if (validateForm()) {
-        axios.post("contact/records", newData, { headers: { "content-type": "application/json" } }).then((resp) => {
-            console.log("resp", resp)
-            setName("")
-            setEmail("")
-            setPhone("")
-            setWebsite("")
-            setMessage("")
-        }).catch((err) => {
-            console.log("err", err);
-        })
-    }
+            axios.post("contact/records", newData, { headers: { "content-type": "application/json" } }).then((resp) => {
+                console.log("resp", resp)
+                setName("")
+                setEmail("")
+                setPhone("")
+                setWebsite("")
+                setMessage("")
+
+            }).catch((err) => {
+                console.log("err", err);
+            })
+        }
     }
     return (
         <>
@@ -196,7 +216,7 @@ const Contact1 = () => {
                                                                                             onChange={(e) => setName(e.target.value)}
                                                                                             type="text"
                                                                                             name="name" /></span>
-                                                                                            {errors.name && <span className="error text-danger">{errors.name}</span>}
+                                                                                        {errors.name && <span className="error text-danger">{errors.name}</span>}
                                                                                     </p>
                                                                                 </div>
                                                                                 <div
@@ -212,12 +232,12 @@ const Contact1 = () => {
                                                                                             className="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email"
                                                                                             aria-required="true"
                                                                                             aria-invalid="false"
-                                                                                            placeholder="Email*"
+                                                                                            placeholder="Email Id*"
                                                                                             value={email}
                                                                                             onChange={(e) => setEmail(e.target.value)}
                                                                                             type="email"
                                                                                             name="email" /></span>
-                                                                                            {errors.email && <span className="error text-danger">{errors.email}</span>}
+                                                                                        {errors.email && <span className="error text-danger">{errors.email}</span>}
                                                                                     </p>
                                                                                 </div>
                                                                                 <div
@@ -237,7 +257,7 @@ const Contact1 = () => {
                                                                                             onChange={(e) => setPhone(e.target.value)}
                                                                                             type="text"
                                                                                             name="phone" required /></span>
-                                                                                            {errors.phone && <span className="error text-danger">{errors.phone}</span>}
+                                                                                        {errors.phone && <span className="error text-danger">{errors.phone}</span>}
                                                                                     </p>
                                                                                 </div>
                                                                                 <div
@@ -257,7 +277,7 @@ const Contact1 = () => {
                                                                                             onChange={(e) => setWebsite(e.target.value)}
                                                                                             type="text"
                                                                                             name="website" /></span>
-                                                                                            {errors.website && <span className="error text-danger">{errors.website}</span>}
+                                                                                        {errors.website && <span className="error text-danger">{errors.website}</span>}
                                                                                     </p>
                                                                                 </div>
                                                                                 <div
@@ -277,9 +297,17 @@ const Contact1 = () => {
                                                                                             onChange={(e) => setMessage(e.target.value)}
                                                                                             placeholder="Your Message..."
                                                                                             name="message"></textarea></span>
-                                                                                            {errors.message && <span className="error text-danger">{errors.message}</span>}
+                                                                                        {errors.message && <span className="error text-danger ">{errors.message}</span>}
                                                                                     </p>
                                                                                 </div>
+                                                                                <div lg={11}>
+                                                                                    <ReCAPTCHA
+                                                                                        ref={captchaRef}
+                                                                                        sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6LedW7IpAAAAALRXSgALrJKbJH1D7iaqc8HrMoAy"}
+                                                                                        onChange={onChange}
+                                                                                    />
+                                                                                </div>
+                                                                                {errors.captcha && <span className="error text-danger" style={{fontWeight:"400"}}> {errors.captcha}</span>}
                                                                                 <div
                                                                                     className="col-lg-12 col-md-12 col-sm-12 form-group message-btn centred">
                                                                                     <button className="theme-btn btn-one"

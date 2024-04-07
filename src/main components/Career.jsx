@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Testimonials from '../components/Testimonials'
 import { Link } from 'react-router-dom';
 import img1 from '../assets/images/wp-content/themes/printpark/assets/images/shape/Frame.png';
@@ -23,6 +23,7 @@ import '../assets/images/wp-content/themes/printpark/assets/css/style.css'
 import axios from 'axios';
 import GoUp from '../components/GoUp';
 import { Button, Form, Modal } from 'react-bootstrap';
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Career = () => {
   const [imgData, setImgData] = useState([])
@@ -30,10 +31,17 @@ const Career = () => {
   const [jobData, setJobData] = useState([])
   const [show, setShow] = useState(false);
   const [applicationType, setApplicationType] = useState("");
+  const captchaRef = useRef(null);
+  const [isCaptchaVerified, setCaptchaVerified] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = (application) => {
     setShow(true);
     setApplicationType(application)
+  }
+  const onChange = (value) => {
+    // This function will be called when the ReCAPTCHA is completed.
+    setCaptchaVerified(true);
+    console.log(value);
   }
   console.log("applicationType", applicationType);
   useEffect(() => {
@@ -103,7 +111,7 @@ const Career = () => {
     }
 
     if (!email.trim()) {
-      errors.email = 'Email is required';
+      errors.email = 'Email Id is required';
       isValid = false;
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       errors.email = 'Invalid email address';
@@ -111,7 +119,7 @@ const Career = () => {
     }
 
     if (!confmEmail.trim()) {
-      errors.confmEmail = 'Confirmation email is required';
+      errors.confmEmail = 'Confirmation email Id is required';
       isValid = false;
     } else if (confmEmail.trim() !== email.trim()) {
       errors.confmEmail = 'Emails do not match';
@@ -125,6 +133,11 @@ const Career = () => {
 
     if (!cover_letter) {
       errors.cover_letter = 'Cover letter is required';
+      isValid = false;
+    }
+
+    if (!isCaptchaVerified) {
+      errors.captcha = 'please complete the recaptcha before submitting.';
       isValid = false;
     }
 
@@ -561,8 +574,8 @@ const Career = () => {
         <Modal.Body>
           <Form onSubmit={submitData} name="myForm" encType="multipart/form-data">
             <Form.Group controlId="formTitle">
-              <Form.Label>Job Title:</Form.Label>
-              <Form.Control type="text" placeholder="Job Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+              <Form.Label>Title:</Form.Label>
+              <Form.Control type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
               {errors.title && <span className="error text-danger">{errors.title}</span>}
             </Form.Group>
             <Form.Group controlId="formName">
@@ -581,13 +594,13 @@ const Career = () => {
               {errors.address && <span className="error text-danger">{errors.address}</span>}
             </Form.Group>
             <Form.Group controlId="formEmail">
-              <Form.Label>Email Address:</Form.Label>
-              <Form.Control type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+              <Form.Label>Email ID:</Form.Label>
+              <Form.Control type="email" placeholder="Email Id" value={email} onChange={(e) => setEmail(e.target.value)} />
               {errors.email && <span className="error text-danger">{errors.email}</span>}
             </Form.Group>
             <Form.Group controlId="formConfmEmail">
-              <Form.Label>Confirm Email Address:</Form.Label>
-              <Form.Control type="email" placeholder="Confirm Email" value={confmEmail} onChange={(e) => setConfmEmail(e.target.value)} />
+              <Form.Label>Confirm Email ID:</Form.Label>
+              <Form.Control type="email" placeholder="Confirm Email Id" value={confmEmail} onChange={(e) => setConfmEmail(e.target.value)} />
               {errors.confmEmail && <span className="error text-danger">{errors.confmEmail}</span>}
             </Form.Group>
             <Form.Group controlId="formCoverLetter">
@@ -600,6 +613,14 @@ const Career = () => {
               <Form.Control type="file" accept=".pdf" onChange={(e) => setCV(e.target.files[0])} />
               {errors.cv && <span className="error text-danger">{errors.cv}</span>}
             </Form.Group>
+            <div lg={11} className='mt-3'>
+              <ReCAPTCHA
+                ref={captchaRef}
+                sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6LedW7IpAAAAALRXSgALrJKbJH1D7iaqc8HrMoAy"}
+                onChange={onChange}
+              />
+            </div>
+            {errors.captcha && <span className="error text-danger">{errors.captcha}</span>}
             <div className="form-group text-center mt-4">
               <Button variant="secondary" className='mx-1' onClick={handleClose}>
                 Close

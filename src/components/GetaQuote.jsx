@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import '../assets/css/GetaQuote.css';
 import { Button, Col, Form, Modal, Row } from 'react-bootstrap';
 import axios from 'axios';
-
+import ReCAPTCHA from "react-google-recaptcha";
+import { useRef } from 'react'
 const GetaQuote = () => {
     const [show, setShow] = useState(false);
     const [name, setName] = useState("")
@@ -13,9 +14,16 @@ const GetaQuote = () => {
     const [address, setAddress] = useState("")
     const [comment, setComment] = useState("")
     const [errors, setErrors] = useState({});
+    const captchaRef = useRef(null);
+    const [isCaptchaVerified, setCaptchaVerified] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const onChange = (value) => {
+        setCaptchaVerified(true);
+        console.log(value);
+    }
+    
     const validateForm = () => {
         let errors = {};
         let isValid = true;
@@ -51,10 +59,15 @@ const GetaQuote = () => {
         }
 
         if (!email.trim()) {
-            errors.email = 'Email is required';
+            errors.email = 'Email Id is required';
             isValid = false;
         } else if (!/\S+@\S+\.\S+/.test(email)) {
             errors.email = 'Invalid email address';
+            isValid = false;
+        }
+
+        if (!isCaptchaVerified) {
+            errors.captcha = 'please complete the recaptcha before submitting.';
             isValid = false;
         }
 
@@ -165,13 +178,13 @@ const GetaQuote = () => {
                                                                                     {errors.name && <span className="error text-danger">{errors.name}</span>}
                                                                                 </Form.Group>
                                                                                 <Form.Group>
-                                                                                    <Form.Label>Contact:</Form.Label>
-                                                                                    <Form.Control type="tel" placeholder="Phone no" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                                                                                    <Form.Label>Phone No.:</Form.Label>
+                                                                                    <Form.Control type="tel" placeholder="Phone no." value={phone} onChange={(e) => setPhone(e.target.value)} />
                                                                                     {errors.phone && <span className="error text-danger">{errors.phone}</span>}
                                                                                 </Form.Group>
                                                                                 <Form.Group>
-                                                                                    <Form.Label>Email:</Form.Label>
-                                                                                    <Form.Control type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                                                                    <Form.Label>Email Id:</Form.Label>
+                                                                                    <Form.Control type="email" placeholder="Email Id" value={email} onChange={(e) => setEmail(e.target.value)} />
                                                                                     {errors.email && <span className="error text-danger">{errors.email}</span>}
                                                                                 </Form.Group>
                                                                                 <Form.Group>
@@ -191,13 +204,13 @@ const GetaQuote = () => {
                                                                                     {errors.service && <span className="error text-danger">{errors.service}</span>}
                                                                                 </Form.Group>
                                                                                 <Form.Group>
-                                                                                    <Form.Label>Other:</Form.Label>
+                                                                                    <Form.Label>Other Service:</Form.Label>
                                                                                     <Form.Control type="text" placeholder="Other Service" value={other} onChange={(e) => setOther(e.target.value)} />
                                                                                     {errors.other && <span className="error text-danger">{errors.other}</span>}
                                                                                 </Form.Group>
                                                                                 <Form.Group>
-                                                                                    <Form.Label>Address / City:</Form.Label>
-                                                                                    <Form.Control as="textarea" rows={4} placeholder="Address / City" value={address} onChange={(e) => setAddress(e.target.value)} />
+                                                                                    <Form.Label>Address:</Form.Label>
+                                                                                    <Form.Control as="textarea" rows={4} placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} />
                                                                                     {errors.address && <span className="error text-danger">{errors.address}</span>}
                                                                                 </Form.Group>
                                                                                 <Form.Group>
@@ -205,10 +218,18 @@ const GetaQuote = () => {
                                                                                     <Form.Control as="textarea" rows={4} placeholder="Comment" value={comment} onChange={(e) => setComment(e.target.value)} />
                                                                                     {errors.comment && <span className="error text-danger">{errors.comment}</span>}
                                                                                 </Form.Group>
-                                                                                <div className="form-group mt-4">
+                                                                                <div lg={11} className='mt-3'>
+                                                                                    <ReCAPTCHA
+                                                                                        ref={captchaRef}
+                                                                                        sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6LedW7IpAAAAALRXSgALrJKbJH1D7iaqc8HrMoAy"}
+                                                                                        onChange={onChange}
+                                                                                    />
+                                                                                </div>
+                                                                                {errors.captcha && <span className="error text-danger">{errors.captcha}</span>}
+                                                                                {/* <div className="form-group mt-4">
                                                                                     <center>
                                                                                     </center>
-                                                                                </div>
+                                                                                </div> */}
                                                                             </Modal.Body>
                                                                             <Modal.Footer>
                                                                                 <Button variant="secondary" className='mx-1' type="button" onClick={handleClose}>Close</Button>
