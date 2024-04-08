@@ -74,6 +74,12 @@
     bottom: -60px;
 }
 
+@media only screen and (min-width: 769px){
+    .carousel-slide .carousel-text p {
+        line-height: 60px;
+    }
+}
+
 @media only screen and (min-width: 769px) and (max-width: 990px) {
     .carousel-text {
         width: 40%;

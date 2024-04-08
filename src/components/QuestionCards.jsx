@@ -24,7 +24,7 @@ const QuestionCards = () => {
 
                                     {/* news-section */}
                                     <section class="news-section p-0 m-0">
-                                        <div class="row clearfix">
+                                        <div class="row clearfix pb-4">
 
                                             <div class="col-lg-3 col-md-6 col-sm-12 news-block">
                                                 <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms"
@@ -37,16 +37,14 @@ const QuestionCards = () => {
                                                                 src={img1}
                                                                 class="attachment-printpark_350x270 size-printpark_350x270 wp-post-image"
                                                                 alt=""/></a></figure>
-
                                                         </div>
                                                         <div class="lower-content">
-                                                            <h3 class="te-title" style={{lineHeight:'28px'}}>
+                                                            <h3 class="te-title">
                                                                 <a
                                                                 >
                                                                     Do you face frequent website bugs on your
                                                                     website?</a>
                                                             </h3>
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -62,7 +60,6 @@ const QuestionCards = () => {
                                                                 src={img2}
                                                                 class="attachment-printpark_350x270 size-printpark_350x270 wp-post-image"
                                                                 alt=""/></a></figure>
-
                                                         </div>
                                                         <div class="lower-content">
                                                             <h3 class="te-title">
@@ -70,7 +67,6 @@ const QuestionCards = () => {
                                                                 >Is
                                                                     the loading speed of your website fast? </a>
                                                             </h3>
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -86,7 +82,6 @@ const QuestionCards = () => {
                                                                 src={img3}
                                                                 class="attachment-printpark_350x270 size-printpark_350x270 wp-post-image"
                                                                 alt=""/></a></figure>
-
                                                         </div>
                                                         <div class="lower-content">
                                                             <h3 class="te-title">
@@ -94,7 +89,6 @@ const QuestionCards = () => {
                                                                 >Is
                                                                     your website’s UI responsive?</a>
                                                             </h3>
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -110,7 +104,6 @@ const QuestionCards = () => {
                                                                 src={img4}
                                                                 class="attachment-printpark_350x270 size-printpark_350x270 wp-post-image"
                                                                 alt=""/></a></figure>
-
                                                         </div>
                                                         <div class="lower-content">
                                                             <h3 class="te-title">
@@ -118,7 +111,6 @@ const QuestionCards = () => {
                                                                 >Do
                                                                     you have a valid SSL certificate?</a>
                                                             </h3>
-
                                                         </div>
                                                     </div>
                                                 </div>

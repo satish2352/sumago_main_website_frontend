@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Accordion } from 'react-bootstrap';
 import '../assets/css/ContentFour.css';
+
 const Contentfour = () => {
   const industries = [
     { title: 'Product Based', content: 'Streamlining product development and enhancing customer experiences through digital solutions.' },
@@ -12,13 +13,15 @@ const Contentfour = () => {
     // { title: 'Software Companies', content: 'Accelerating software development and innovation through agile methodologies and DevOps practices.' },
   ];
 
+  const [activeKey, setActiveKey] = useState('0');
+
   return (
     <div className="content-four">
       <div className="text-box">
         <h2>Industries Served</h2>
         <p>We offer our streamlined expertise of services across a range of different industries:</p>
       </div>
-      <Accordion className="custom-accordion">
+      <Accordion className="custom-accordion" activeKey={activeKey} onSelect={(key) => setActiveKey(key)}>
         {industries.map((industry, index) => (
           <Accordion.Item key={index} eventKey={index.toString()} className='accord-item'>
             <Accordion.Header className='acc-btn'>

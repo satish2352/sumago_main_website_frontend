@@ -31,8 +31,8 @@ const Hero = () => {
                 <Carousel pause={false} data-bs-theme="dark">
                     <Carousel.Item interval={5000}>
                         <div className="carousel-text">
-                            <h1>Embrace</h1>
-                            <p>innovation and adapt to market trends with updated solutions</p>
+                            <h1>Streamline</h1>
+                            <p>operations and boost productivity with IT automation</p>
                         </div>
                         <img src={img1} alt='' className='carousel-image' />
                     </Carousel.Item>
@@ -45,22 +45,22 @@ const Hero = () => {
                     </Carousel.Item>
                     <Carousel.Item interval={5000}>
                         <div className="carousel-text">
-                            <h1>Protect</h1>
-                            <p>data assets and mitigate and cybersecurity threats through secure websites</p>
+                            <h1>Increase</h1>
+                            <p>the reach of your business through optimized Digital Marketing</p>
                         </div>
                         <img src={img3} alt='' className='carousel-image' />
                     </Carousel.Item>
                     <Carousel.Item interval={5000}>
                         <div className="carousel-text">
-                            <h1>Streamline</h1>
-                            <p>operations and boost productivity with IT automation</p>
+                            <h1>Protect</h1>
+                            <p>data assets and mitigate and cybersecurity threats through secure websites</p>
                         </div>
                         <img src={img4} alt='' className='carousel-image' />
                     </Carousel.Item>
                     <Carousel.Item interval={5000}>
                         <div className="carousel-text">
-                            <h1>Increase</h1>
-                            <p>the reach of your business through optimized Digital Marketing</p>
+                            <h1>Embrace</h1>
+                            <p>innovation and adapt to market trends with updated solutions</p>
                         </div>
                         <img src={img5} alt='' className='carousel-image' />
                     </Carousel.Item>
