@@ -303,8 +303,8 @@ const Contact1 = () => {
                                                                                 <div lg={11}>
                                                                                     <ReCAPTCHA
                                                                                         ref={captchaRef}
-                                                                                        sitekey="6LedW7IpAAAAALRXSgALrJKbJH1D7iaqc8HrMoAy"
-                                                                                        // sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6LedW7IpAAAAALRXSgALrJKbJH1D7iaqc8HrMoAy"}
+                                                                                        sitekey="6LcbabQpAAAAALv41fHiGZbJBErKILGbFwMROBVi"
+                                                                                        // sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6LcbabQpAAAAALv41fHiGZbJBErKILGbFwMROBVi"}
                                                                                         onChange={onChange}
                                                                                     />
                                                                                 </div>
