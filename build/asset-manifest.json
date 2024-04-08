@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.9c175852.css",
-    "main.js": "/static/js/main.b19ddda1.js",
+    "main.css": "/static/css/main.49d3ca07.css",
+    "main.js": "/static/js/main.f2defcc0.js",
     "static/js/206.7fe358d8.chunk.js": "/static/js/206.7fe358d8.chunk.js",
+    "static/media/business_profile.pdf": "/static/media/business_profile.dffb3d22dbc8dff015d4.pdf",
     "static/media/Frame.png": "/static/media/Frame.ef0d9342f1d2bfd5128c.png",
     "static/media/agg.jpg": "/static/media/agg.1375c824886e657c1244.jpg",
     "static/media/corporate traning.jpg": "/static/media/corporate traning.97731f2b7e74278e34b6.jpg",
@@ -19,11 +20,14 @@
     "static/media/1sonali maam.png": "/static/media/1sonali maam.a8b79d70f5128f3faa7c.png",
     "static/media/ganpati (5).png": "/static/media/ganpati (5).2f0f0765ff6b63547dc9.png",
     "static/media/navratri (3).png": "/static/media/navratri (3).ff2ec32f6a3520821a9c.png",
+    "static/media/navratri 9.png": "/static/media/navratri 9.d278644bb2f1fe65248d.png",
     "static/media/navratri (6).png": "/static/media/navratri (6).9bd05d2b055587ec30d3.png",
+    "static/media/ganpati 6.png": "/static/media/ganpati 6.003858f37673b3017312.png",
     "static/media/ganpati (2).png": "/static/media/ganpati (2).9e82e6a5dca531667eee.png",
     "static/media/navratri (1).png": "/static/media/navratri (1).76ed2ead1838543a7548.png",
     "static/media/navratri (5).png": "/static/media/navratri (5).c50cbcbeac85d8c0314c.png",
     "static/media/ABOUT US (5) (1).jpg": "/static/media/ABOUT US (5) (1).6c1481254226fe99a5c8.jpg",
+    "static/media/diwali 7.png": "/static/media/diwali 7.c34c99cdb6c55fe3d887.png",
     "static/media/ganpati (1).png": "/static/media/ganpati (1).fca1bbc60832a1ce538c.png",
     "static/media/ganpati (4).png": "/static/media/ganpati (4).8c61ca8b02d36298852f.png",
     "static/media/2 aniruddha  A.png": "/static/media/2 aniruddha  A.c928223b6489b258377f.png",
@@ -34,6 +38,7 @@
     "static/media/Frame 15 (2).jpg": "/static/media/Frame 15 (2).d8fc3d2f4da075c1b46c.jpg",
     "static/media/Frame 15 (8).jpg": "/static/media/Frame 15 (8).c0c3b05e69da89448cb9.jpg",
     "static/media/Frame 15.jpg": "/static/media/Frame 15.08f0e0be7833fb721155.jpg",
+    "static/media/diwalI (6).png": "/static/media/diwalI (6).c1feede6c25d593df17b.png",
     "static/media/Frame 15 (6).jpg": "/static/media/Frame 15 (6).4fefec6999ee42c03999.jpg",
     "static/media/1 MANASI A.png": "/static/media/1 MANASI A.63cef77090eeee6818b1.png",
     "static/media/12 ananad A.png": "/static/media/12 ananad A.cb8e3ebd8623758d97f1.png",
@@ -230,7 +235,7 @@
     "static/media/loader.svg": "/static/media/loader.2ac8330bf65fce0b22eb.svg"
   },
   "entrypoints": [
-    "static/css/main.9c175852.css",
-    "static/js/main.b19ddda1.js"
+    "static/css/main.49d3ca07.css",
+    "static/js/main.f2defcc0.js"
   ]
 }

@@ -245,7 +245,7 @@ const Header = () => {
                                             <i className="flaticon-incoming-call" style={{ color: "black" }}></i>
                                         </Col>
                                         <Col lg={10} md={10} sm={10}>
-                                            <a href="tel:+91 726 308 4881"><strong>+91 726 308 4881</strong></a>
+                                            <a href="tel:+91 9890058156"><strong>+91 9890058156</strong></a>
                                         </Col>
                                     </Row>
                                 </div>
@@ -373,7 +373,7 @@ const Header = () => {
                                                 <div lg={11} className='mt-3'>
                                                     <ReCAPTCHA
                                                         ref={captchaRef}
-                                                        sitekey={"6LedW7IpAAAAALRXSgALrJKbJH1D7iaqc8HrMoAy"}
+                                                        sitekey="6LedW7IpAAAAALRXSgALrJKbJH1D7iaqc8HrMoAy"
                                                         // sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6LedW7IpAAAAALRXSgALrJKbJH1D7iaqc8HrMoAy"}
                                                         onChange={onChange}
                                                     />

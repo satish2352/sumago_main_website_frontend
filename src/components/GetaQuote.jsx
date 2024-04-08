@@ -299,7 +299,7 @@ const GetaQuote = () => {
                                                                                     <ReCAPTCHA
                                                                                         ref={captchaRef}
                                                                                         // sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6LedW7IpAAAAALRXSgALrJKbJH1D7iaqc8HrMoAy"}
-                                                                                        sitekey={"6LedW7IpAAAAALRXSgALrJKbJH1D7iaqc8HrMoAy"}
+                                                                                        sitekey="6LedW7IpAAAAALRXSgALrJKbJH1D7iaqc8HrMoAy"
                                                                                         onChange={onChange}
                                                                                     />
                                                                                 </div>

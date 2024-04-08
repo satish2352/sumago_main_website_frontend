@@ -17,7 +17,7 @@ import resaug from '../assets/images/wp-content/uploads/2023/08/imagesservice/au
 import shape38 from '../assets/images/wp-content/themes/printpark/assets/images/shape/shape-38.png'
 import frame from '../assets/images/wp-content/themes/printpark/assets/images/shape/Frame.png'
 import shape20 from '../assets/images/wp-content/themes/printpark/assets/images/shape/shape-20.png'
-
+import downloadFile from "../assets/documents/business_profile.pdf"
 import { Container, Row, Col, Button, Image, Modal, Form } from 'react-bootstrap';
 import ContentThree from '../components/ContentThree';
 import Contentfour from '../components/Contentfour';
@@ -197,7 +197,7 @@ const Oursolutions2 = (props) => {
                                             </div>
                                             <div className="download-btn">
                                                 <Button type="button">
-                                                    <a href="../assets/images/wp-content/uploads/2023/08/Business Profile PDF.pdf" download>
+                                                    <a href={downloadFile} target='_blank' download>
                                                         <i className="flaticon-file"></i>
                                                     </a>
                                                 </Button>
@@ -352,7 +352,8 @@ const Oursolutions2 = (props) => {
                                                         <div lg={11} className='mt-3'>
                                                             <ReCAPTCHA
                                                                 ref={captchaRef}
-                                                                sitekey={window.location.hostname === "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6LedW7IpAAAAALRXSgALrJKbJH1D7iaqc8HrMoAy"}
+                                                                sitekey="6LedW7IpAAAAALRXSgALrJKbJH1D7iaqc8HrMoAy"
+                                                                // sitekey={window.location.hostname === "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6LedW7IpAAAAALRXSgALrJKbJH1D7iaqc8HrMoAy"}
                                                                 onChange={onChange}
                                                             />
                                                         </div>
