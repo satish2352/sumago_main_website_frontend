@@ -9,7 +9,7 @@ const AccordionItem = ({ title, content }) => {
 
   return (
     <li className={`accordion block ${isOpen ? 'open' : ''}`}>
-      <div className="acc-btn" onClick={toggleAccordion}>
+      <div className="acc-btn" >
         <div className="icon-box"></div>
         <h5>{title}</h5>
       </div>

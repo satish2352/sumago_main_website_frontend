@@ -78,17 +78,21 @@ import d3 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/diwali/
 import d4 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/diwali/diwali (4).jpg'
 import d5 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/diwali/diwali (5).jpg'
 import d6 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/diwali/diwali.jpg'
+import d7 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/diwali/diwalI (6).png'
+import d8 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/diwali/diwali 7.png'
 import g1 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/ganpati/ganpati (1).png'
 import g2 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/ganpati/ganpati (2).png'
 import g3 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/ganpati/ganpati (3).png'
 import g4 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/ganpati/ganpati (4).png'
 import g5 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/ganpati/ganpati (5).png'
+import g6 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/ganpati/ganpati 6.png'
 import n1 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/navratri/navratri (1).png'
 import n2 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/navratri/navratri (2).png'
 import n3 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/navratri/navratri (3).png'
 import n4 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/navratri/navratri (5).png'
 import n5 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/navratri/navratri (6).png'
 import n6 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/navratri/navratri (7).png'
+import n7 from '../assets/images/wp-content/uploads/2023/08/fun @ sumago/navratri/navratri 9.png'
 import a1 from '../assets/images/wp-content/uploads/2023/08/apperication/Frame 15 (6).jpg'
 import a2 from '../assets/images/wp-content/uploads/2023/08/apperication/Frame 15.jpg'
 import a3 from '../assets/images/wp-content/uploads/2023/08/apperication/Frame 15 (8).jpg'
@@ -122,13 +126,13 @@ const AboutUs = () => {
         { src: d3, category: 'litho_printing' },
         { src: d4, category: 'litho_printing' },
         { src: d5, category: 'litho_printing' },
-        { src: d5, category: 'litho_printing' },
+        { src: d8, category: 'litho_printing' },
         // { src: n3, category: 'Navratri' },
-        { src: g2, category: 'Ganpati' },
+        { src: g6, category: 'Ganpati' },
         { src: g2, category: 'Ganpati' },
         { src: g1, category: 'Ganpati' },
         { src: n2, category: 'Navratri' },
-        { src: n2, category: 'Navratri' },
+        { src: n7, category: 'Navratri' },
         { src: n1, category: 'Navratri' },
         { src: g3, category: 'Ganpati' },
         { src: g4, category: 'Ganpati' },

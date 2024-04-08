@@ -23,7 +23,7 @@
     border-radius: 20px;
 }
 
-.img-container img:hover {
+.question-cards.img-container img:hover {
     scale: 1.1;
     transition: 0.3s ease-in-out;
 }
