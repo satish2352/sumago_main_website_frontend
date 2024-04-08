@@ -34,6 +34,7 @@ const Career = () => {
   const captchaRef = useRef(null);
   const [isCaptchaVerified, setCaptchaVerified] = useState(false);
   const handleClose = () => setShow(false);
+
   const handleShow = (application) => {
     setShow(true);
     setApplicationType(application)
@@ -82,7 +83,7 @@ const Career = () => {
   const [cover_letter, setCover_letter] = useState()
   const [lifeCategoryData, setLifeCategoryData] = useState([])
   const [errors, setErrors] = useState({});
-
+  console.log("lifeCategoryData", lifeCategoryData);
   const validateForm = () => {
     let errors = {};
     let isValid = true;
@@ -177,18 +178,30 @@ const Career = () => {
   }
   const handleTabClick = (category) => {
     setActiveTab(category);
-    axios.get("/life_category_details/find", {
-      params: {
-        category: category
-      }
-    }).then((response) => {
-      console.log("result", response.data);
-      setLifeCategoryData(response.data)
-      // Handle the response data here, such as updating state or rendering it on the UI
-    }).catch((error) => {
-      console.log("error", error);
-      // Handle errors here
-    });
+    console.log("category", category);
+    if (category === "All Categories") {
+      axios.get("/life_category_details/find_all").then((response) => {
+        console.log("result", response.data);
+        setLifeCategoryData(response.data)
+        // Handle the response data here, such as updating state or rendering it on the UI
+      }).catch((error) => {
+        console.log("error", error);
+        // Handle errors here
+      })
+    } else {
+      axios.get("/life_category_details/find", {
+        params: {
+          category: category
+        }
+      }).then((response) => {
+        console.log("result", response.data);
+        setLifeCategoryData(response.data)
+        // Handle the response data here, such as updating state or rendering it on the UI
+      }).catch((error) => {
+        console.log("error", error);
+        // Handle errors here
+      })
+    }
   };
 
   const projects = [
@@ -312,7 +325,7 @@ const Career = () => {
                         {/* Project items */}
                         <div className="items-container row clearfix">
                           {lifeCategoryData
-                            .filter((project) => activeTab === 'all' || project.category.includes(activeTab))
+                            // .filter((project) => activeTab === 'all' || project.category.includes(activeTab))
                             .map((project, index) => (
                               <div
                                 key={index}
@@ -321,7 +334,7 @@ const Career = () => {
                                 <div className="project-block-one">
                                   <div className="inner-box bn-project-box">
                                     <figure className="image-box">
-                                      <h1>{project.category}</h1>
+                                      {/* <h1>{project.category}</h1> */}
                                       <img
                                         src={project.img}
                                         alt={project.category}
