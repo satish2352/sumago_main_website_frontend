@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Container } from 'react-bootstrap'
 import Slider from "react-slick";
+import { ArrowRightCircleFill, ArrowLeftCircleFill } from 'react-bootstrap';
 import img1 from '../assets/images/wp-content/uploads/2023/08/LaravelNew.png'
 import img2 from '../assets/images/wp-content/uploads/2023/08/ReactNew.png'
 import img3 from '../assets/images/wp-content/uploads/2023/08/AngularNew.png'
@@ -21,10 +22,14 @@ const TechnologiesServiced = () => {
         slidesToShow: 3,
         speed: 500,
         pauseOnHover: false,
-        arrows: false,
-        // nextArrow: <CustomNextArrow />,
-        // prevArrow: <CustomPrevArrow />,
+        arrows: true,
+        nextArrow: <CustomNextArrow />,
+        prevArrow: <CustomPrevArrow />,
     };
+    
+
+    
+
     return (
         <div className='technologies-section'>
             <Container fluid>
@@ -37,31 +42,37 @@ const TechnologiesServiced = () => {
                             <div className="img-container">
                                 <img src={img1} alt="" />
                             </div>
+                            <div style={{textAlign:'center'}}><h4>Laravel</h4></div>
                         </div>
                         <div>
                             <div className="img-container">
                                 <img src={img2} alt="" />
                             </div>
+                            <div style={{textAlign:'center'}}><h4>React</h4></div>
                         </div>
                         <div>
                             <div className="img-container">
                                 <img src={img3} alt="" />
                             </div>
+                            <div style={{textAlign:'center'}}><h4>Angular</h4></div>
                         </div>
                         <div>
                             <div className="img-container">
                                 <img src={img4} alt="" />
                             </div>
+                            <div style={{textAlign:'center'}}><h4>Blockchain</h4></div>
                         </div>
                         <div>
                             <div className="img-container">
                                 <img src={img5} alt="" />
                             </div>
+                            <div style={{textAlign:'center'}}><h4>Data Analytics</h4></div>
                         </div>
                         <div>
                             <div className="img-container">
                                 <img src={img6} alt="" />
                             </div>
+                            <div style={{textAlign:'center'}}><h4>Data Science</h4></div>
                         </div>
                     </Slider>
                 </div>
@@ -70,20 +81,20 @@ const TechnologiesServiced = () => {
     )
 }
 
-// const CustomNextArrow = (props) => {
-//     return (
-//         <div onClick={props.onClick} className='testimonialLeftArrow'>
-//             <i class="bi bi-arrow-right-circle-fill"></i>
-//         </div>
-//     );
-// };
+const CustomNextArrow = (props) => {
+    return (
+        <div onClick={props.onClick} className='testimonialLeftArrow'>
+            <i class="bi bi-arrow-right-circle-fill" style={{fontSize:'30px'}}></i>
+        </div>
+    );
+    };
 
-// const CustomPrevArrow = (props) => {
-//     return (
-//         <div onClick={props.onClick} className='testimonialRightArrow'>
-//             <i class="bi bi-arrow-left-circle-fill"></i>
-//         </div>
-//     );
-// };
+const CustomPrevArrow = (props) => {
+    return (
+        <div onClick={props.onClick} className='testimonialRightArrow'>
+            <i class="bi bi-arrow-left-circle-fill" style={{fontSize:'30px'}}></i>
+        </div>
+     );
+ };
 
 export default TechnologiesServiced

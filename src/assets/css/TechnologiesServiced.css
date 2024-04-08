@@ -16,7 +16,7 @@
     color: #0c0c0c;
 }
 
-/* .technologies-section .testimonialLeftArrow {
+.technologies-section .testimonialLeftArrow {
   position: absolute;
   top: 40%;
   right: 1%;
@@ -30,6 +30,8 @@
 .technologies-section .testimonialLeftArrow i {
   font-size: 32px;
 }
+.question-cards:hover{    scale: 1.1;
+  transition: 0.3s ease-in-out;}
 
 .technologies-section .testimonialRightArrow {
   position: absolute;
@@ -44,7 +46,7 @@
 
 .technologies-section .testimonialRightArrow i {
   font-size: 32px;
-} */
+}
 
 .technologies-section .img-container img {
     width: 100%;
