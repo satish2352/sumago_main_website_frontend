@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.49d3ca07.css",
-    "main.js": "/static/js/main.96df4e0e.js",
+    "main.css": "/static/css/main.6e9cd7b1.css",
+    "main.js": "/static/js/main.5ac37e64.js",
     "static/js/206.7fe358d8.chunk.js": "/static/js/206.7fe358d8.chunk.js",
     "static/media/business_profile.pdf": "/static/media/business_profile.dffb3d22dbc8dff015d4.pdf",
     "static/media/Frame.png": "/static/media/Frame.ef0d9342f1d2bfd5128c.png",
@@ -122,6 +122,7 @@
     "static/media/laptop.png": "/static/media/laptop.b9905c060696c89ad58a.png",
     "static/media/2.png": "/static/media/2.c229a230ba525c0b9113.png",
     "static/media/Rectangle4.png": "/static/media/Rectangle4.95aa192bc02f7da1fd19.png",
+    "static/media/website loading  speed.jpg": "/static/media/website loading  speed.69950cd5bbdc901d7430.jpg",
     "static/media/fa-solid-900.woff": "/static/media/fa-solid-900.46fdbd2d897f8824e63c.woff",
     "static/media/thumbnail.png": "/static/media/thumbnail.5c0f32dc789eaf98007d.png",
     "static/media/1v.png": "/static/media/1v.7c5931b9b273529232cf.png",
@@ -235,7 +236,7 @@
     "static/media/loader.svg": "/static/media/loader.2ac8330bf65fce0b22eb.svg"
   },
   "entrypoints": [
-    "static/css/main.49d3ca07.css",
-    "static/js/main.96df4e0e.js"
+    "static/css/main.6e9cd7b1.css",
+    "static/js/main.5ac37e64.js"
   ]
 }

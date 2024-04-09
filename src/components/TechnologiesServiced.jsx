@@ -33,7 +33,7 @@ const TechnologiesServiced = () => {
     return (
         <div className='technologies-section'>
             <Container fluid>
-                <div className="top-text">
+                <div className="top-text my-3">
                     <h2>Technologies Serviced</h2>
                 </div>
                 <div className="slider-container">

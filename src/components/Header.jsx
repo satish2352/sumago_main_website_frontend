@@ -220,10 +220,10 @@ const Header = () => {
                                 <ul className='list-unstyled d-flex justify-content-evenly mb-2'
                                 >
                                     <li>
-                                        <a href="tel:+91 902 828 8668"><strong>+91 902 828 8668,</strong></a>
+                                        <a href="tel:+919028288668"><strong>+91 902 828 8668</strong></a>
                                     </li>
                                     <li>
-                                        <a href="tel:+91 840 808 4888"><strong>+91 840 808 4888</strong></a>
+                                        <a href="tel:+918408084888"><strong>+91 840 808 4888</strong></a>
                                     </li>
                                 </ul>
                             </div>
@@ -234,7 +234,7 @@ const Header = () => {
                                 <div className='right-box'>
                                     <Row style={{ paddingLeft: '40px', paddingRight: '40px', paddingTop: '5px' }}>
                                         <Col lg={2} md={2} sm={2}>
-                                        <i class="fas fa-envelope email-icon"></i>
+                                            <i class="fas fa-envelope email-icon"></i>
                                         </Col>
                                         <Col lg={10} md={10} sm={10}>
                                             <a href="mailto:info@sumagoinfotech.com" style={{ color: 'black' }}>info@sumagoinfotech.com</a>
@@ -290,12 +290,12 @@ const Header = () => {
                                                             aria-expanded="false" data-scroll
                                                             data-options="easing: easeOutQuart" style={{ textDecoration: 'none' }} onclick={scrollToTop}>Our Solutions</Link>
                                                     </li>
-                                                    <li id="menu-item-82"
+                                                    {/* <li id="menu-item-82"
                                                         className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-82">
                                                         <Link title="Career" to="/career" data-toggle="dropdown1"
                                                             className="hvr-underline-from-left1" aria-expanded="false" data-scroll
                                                             data-options="easing: easeOutQuart" style={{ textDecoration: 'none' }} onclick={scrollToTop}>Career</Link>
-                                                    </li>
+                                                    </li> */}
                                                     <li id="menu-item-81"
                                                         className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-81">
                                                         <Link title="About" to="/about" data-toggle="dropdown1"
@@ -489,13 +489,13 @@ const Header = () => {
 
 
 
-                                                    <li id="menu-item-82"
+                                                    {/* <li id="menu-item-82"
                                                         className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-82">
                                                         <Link title="Career" to="/career" data-toggle="dropdown1"
                                                             className="hvr-underline-from-left1" aria-expanded="false" data-scroll
                                                             data-options="easing: easeOutQuart" style={{ textDecoration: 'none', color: "black" }} onClick={scrollToTop}>Career</Link>
 
-                                                    </li>
+                                                    </li> */}
                                                     <li id="menu-item-81"
                                                         className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-81">
                                                         <Link title="About" to="/about" data-toggle="dropdown1"

@@ -108,7 +108,7 @@ const GetaQuote = () => {
     // }
     return (
         <>
-            <div className='getaquote-section container'>
+            <div className='getaquote-section container mt-5'>
                 <Row>
                     <Col lg={4} md={6} sm={12} className='column-1'>
                         <div className="elementor-column elementor-top-column elementor-element elementor-element-fec6395  "

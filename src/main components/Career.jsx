@@ -886,7 +886,7 @@ const Career = () => {
             </div>
           </div>
         </section>
-        <Testimonials />
+        {/* <Testimonials /> */}
       </div>
     </>
   )

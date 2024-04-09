@@ -362,12 +362,12 @@ const Contact1 = () => {
                                                                                 <div className="icon-box te-icon">
                                                                                     <i className="flaticon-map"></i>
                                                                                 </div>
-                                                                                <p className="te-text">Visit our office <br />9 am to 6 pm Monday to Saturday.
+                                                                                <p className="te-text">Visit our office <br />9 am to 7 pm Monday to Saturday.
                                                                                 </p>
                                                                                 <h4 className="te-subtitle">{item.address}
                                                                                 </h4>
                                                                                 <h6 className="text-lowercase"><a href="mailto:{item.email}" >{item.email}</a></h6>
-                                                                                <h6><a href="tel:{item.contact}">{item.contact}</a></h6>
+                                                                                <h6><a href={`tel:+91${item.contact}`}>+91 {item.contact}</a></h6>
                                                                                 <h6><a href={item.geolocation}
                                                                                     target="&quot;_blank&quot;" rel="&quot;nofollow&quot;"><i
                                                                                         className="flaticon-arrow-right"></i>View On Map</a></h6>

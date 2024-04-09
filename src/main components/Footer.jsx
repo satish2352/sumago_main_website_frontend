@@ -164,7 +164,7 @@ const Footer = () => {
                                         <Link target="_blank" to="https://www.instagram.com/sumago_infotech"><i className="fab fa-instagram"></i></Link>
                                     </Col>
                                     <Col>
-                                        <Link target="_blank" to="https://www.youtube.com/channel/UCoUCNHO1wXI92HnEmNtIkEg?view_as=subscriber"><i className="fab fa-youtube"></i></Link>
+                                        <Link target="_blank" to="https://youtube.com/@SumagoInfotechPvtLtd?si=HBSAUjlRTR-8tTvE"><i className="fab fa-youtube"></i></Link>
                                     </Col>
                                 </Row>
                             </li>

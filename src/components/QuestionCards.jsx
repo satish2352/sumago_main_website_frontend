@@ -1,6 +1,6 @@
 import React from 'react'
 import img1 from '../assets/images/wp-content/uploads/2023/08/question/bug.jpg'
-import img2 from '../assets/images/wp-content/uploads/2023/08/question/l certifications1.jpg'
+import img2 from '../assets/images/wp-content/uploads/2023/08/question/website loading  speed.jpg'
 import img3 from '../assets/images/wp-content/uploads/2023/08/question/responsive.jpg'
 import img4 from '../assets/images/wp-content/uploads/2023/08/question/l certifications1.jpg'
 import '../assets/css/QuestionCards.css'
@@ -64,8 +64,7 @@ const QuestionCards = () => {
                                                         <div class="lower-content">
                                                             <h3 class="te-title">
                                                                 <a
-                                                                >Is
-                                                                    the loading speed of your website fast? </a>
+                                                                >Is the loading speed of your website fast? </a>
                                                             </h3>
                                                         </div>
                                                     </div>
