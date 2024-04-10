@@ -332,7 +332,7 @@ const AboutUs = () => {
                                                                                     <h3 className="te-title"><a
                                                                                     >Sonali Gorade</a></h3>
                                                                                     <span
-                                                                                        className="designation te-designation">CEO</span>
+                                                                                        className="designation te-designation">CHIEF EXECUTIVE OFFICER</span>
 
                                                                                 </div>
                                                                             </div>
@@ -354,7 +354,7 @@ const AboutUs = () => {
                                                                                     <h3 className="te-title"><a
                                                                                     >Sudhir Gorade</a></h3>
                                                                                     <span
-                                                                                        className="designation te-designation">CGO</span>
+                                                                                        className="designation te-designation">CHIEF GROWTH OFFICER</span>
 
                                                                                 </div>
                                                                             </div>

@@ -90,11 +90,12 @@ const Header = () => {
             errors.service = 'Service is required';
             isValid = false;
         }
-        if (!other.trim()) {
-            errors.other = 'Other service is required';
-            isValid = false;
+        if (service == "Other Service") {
+            if (!other.trim()) {
+                errors.other = 'Other service is required';
+                isValid = false;
+            }
         }
-
         if (!name.trim()) {
             errors.name = 'Name is required';
             isValid = false;
@@ -127,8 +128,9 @@ const Header = () => {
     const SubmitData = (e) => {
         e.preventDefault();
         let newData = {
-            name: name, email: email, phone: phone, service: service, other_service: other, address: address, comment: comment
+            name: name, email: email, phone: phone, service: service, other_service: service == "Other Service" ? other : "NA", address: address, comment: comment
         }
+        console.log("newData", newData);
         if (validateForm()) {
             axios.post("/quotes/create", newData).then((resp) => {
                 console.log("resp", resp)
@@ -351,15 +353,19 @@ const Header = () => {
                                                         <option value="SEO">SEO</option>
                                                         <option value="Training/Internship">Training/Internship</option>
                                                         <option value="Start up Consultancy">Start up Consultancy</option>
-                                                        <option value="#">Web Hosting</option>
+                                                        <option value="Web Hosting">Web Hosting</option>
+                                                        <option value="Other Service">Other Service</option>
                                                     </Form.Control>
                                                     {errors.service && <span className="error text-danger">{errors.service}</span>}
                                                 </Form.Group>
-                                                <Form.Group>
-                                                    <Form.Label>Other Service:</Form.Label>
-                                                    <Form.Control type="text" placeholder="Other Service" value={other} onChange={(e) => setOther(e.target.value)} />
-                                                    {errors.other && <span className="error text-danger">{errors.other}</span>}
-                                                </Form.Group>
+                                                {
+                                                    service == "Other Service" &&
+                                                    <Form.Group>
+                                                        <Form.Label>Other Service:</Form.Label>
+                                                        <Form.Control type="text" placeholder="Other Service" value={other} onChange={(e) => setOther(e.target.value)} />
+                                                        {errors.other && <span className="error text-danger">{errors.other}</span>}
+                                                    </Form.Group>
+                                                }
                                                 <Form.Group>
                                                     <Form.Label>Address:</Form.Label>
                                                     <Form.Control as="textarea" rows={4} placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} />

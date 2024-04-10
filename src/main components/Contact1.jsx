@@ -257,7 +257,7 @@ const Contact1 = () => {
                                                                                             placeholder="Phone*"
                                                                                             value={phone}
                                                                                             onChange={(e) => setPhone(e.target.value)}
-                                                                                            type="text"
+                                                                                            type="number"
                                                                                             name="phone" required /></span>
                                                                                         {errors.phone && <span className="error text-danger">{errors.phone}</span>}
                                                                                     </p>

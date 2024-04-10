@@ -3978,6 +3978,7 @@ div#mCSB_1_container{
 }
 
 .faq-section .form-inner .form-group input[type='text'],
+.faq-section .form-inner .form-group input[type='number'],
 .faq-section .form-inner .form-group input[type='email'],
 .faq-section .form-inner .form-group textarea{
   position: relative;
@@ -13914,6 +13915,7 @@ div#mCSB_1_container{
 }
 
 .contact-section .form-inner .form-group input[type='text'],
+.contact-section .form-inner .form-group input[type='number'],
 .contact-section .form-inner .form-group input[type='email'],
 .contact-section .form-inner .form-group textarea{
   position: relative;

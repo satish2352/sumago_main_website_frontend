@@ -11,7 +11,7 @@
 
 .technologies-section .top-text h2 {
     font-family: 'Outfit';
-    font-size: 24px;
+    font-size: 30px;
     line-height: 34px;
     color: #0c0c0c;
 }
@@ -49,8 +49,10 @@
 }
 
 .technologies-section .img-container img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
+  padding: 8px;
+  
 }
   
   @media only screen and (min-width: 540px) and (max-width: 990px) {

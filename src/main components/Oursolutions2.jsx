@@ -79,11 +79,12 @@ const Oursolutions2 = (props) => {
             errors.service = 'Service is required';
             isValid = false;
         }
-        if (!other.trim()) {
-            errors.other = 'Other service is required';
-            isValid = false;
+        if (service == "Other Service") {
+            if (!other.trim()) {
+                errors.other = 'Other service is required';
+                isValid = false;
+            }
         }
-
         if (!name.trim()) {
             errors.name = 'Name is required';
             isValid = false;
@@ -117,7 +118,7 @@ const Oursolutions2 = (props) => {
         e.preventDefault();
         console.log("service", service);
         let newData = {
-            name: name, email: email, phone: phone, service: service, other_service: other, address: address, comment: comment
+            name: name, email: email, phone: phone, service: service, other_service: service == "Other Service" ? other : "NA", address: address, comment: comment
         }
         if (validateForm()) {
             axios.post("/quotes/create", newData).then((resp) => {
@@ -276,16 +277,7 @@ const Oursolutions2 = (props) => {
                                                         </Form.Group>
                                                         <Form.Group>
                                                             <Form.Label>Type of Services:</Form.Label>
-                                                            <Form.Control
-                                                                as="select"
-                                                                value={service}
-                                                                onChange={(e) => setService(e.target.value)}
-                                                                onBlur={() => {
-                                                                    if (service.trim() && errors.service) {
-                                                                        setErrors({ ...errors, service: '' });
-                                                                    }
-                                                                }}
-                                                            >
+                                                            <Form.Control as="select" value={service} onChange={(e) => setService(e.target.value)}>
                                                                 <option value="" disabled>Select Service</option>
                                                                 <option value="Website Development">Website Development</option>
                                                                 <option value="App Development">App Development</option>
@@ -295,26 +287,19 @@ const Oursolutions2 = (props) => {
                                                                 <option value="SEO">SEO</option>
                                                                 <option value="Training/Internship">Training/Internship</option>
                                                                 <option value="Start up Consultancy">Start up Consultancy</option>
-                                                                <option value="#">Web Hosting</option>
+                                                                <option value="Web Hosting">Web Hosting</option>
+                                                                <option value="Other Service">Other Service</option>
                                                             </Form.Control>
                                                             {errors.service && <span className="error text-danger">{errors.service}</span>}
                                                         </Form.Group>
-
-                                                        <Form.Group>
-                                                            <Form.Label>Other Service:</Form.Label>
-                                                            <Form.Control
-                                                                type="text"
-                                                                placeholder="Other Service"
-                                                                value={other}
-                                                                onChange={(e) => setOther(e.target.value)}
-                                                                onBlur={() => {
-                                                                    if (other.trim() && errors.other) {
-                                                                        setErrors({ ...errors, other: '' });
-                                                                    }
-                                                                }}
-                                                            />
-                                                            {errors.other && <span className="error text-danger">{errors.other}</span>}
-                                                        </Form.Group>
+                                                        {
+                                                            service == "Other Service" &&
+                                                            <Form.Group>
+                                                                <Form.Label>Other Service:</Form.Label>
+                                                                <Form.Control type="text" placeholder="Other Service" value={other} onChange={(e) => setOther(e.target.value)} />
+                                                                {errors.other && <span className="error text-danger">{errors.other}</span>}
+                                                            </Form.Group>
+                                                        }
 
                                                         <Form.Group>
                                                             <Form.Label>Address:</Form.Label>

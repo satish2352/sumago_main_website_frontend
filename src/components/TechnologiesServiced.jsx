@@ -18,23 +18,47 @@ const TechnologiesServiced = () => {
         centerMode: true,
         autoplay: true,
         infinite: true,
-        centerPadding: "60px",
-        slidesToShow: 3,
+        slidesToShow: 5,
         speed: 500,
         pauseOnHover: false,
-        arrows: true,
-        nextArrow: <CustomNextArrow />,
-        prevArrow: <CustomPrevArrow />,
+        arrows: false,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 4,
+                    centerPadding: "40px"
+                }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3,
+                    centerPadding: "30px"
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    centerPadding: "20px"
+                }
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1,
+                    centerPadding: "10px"
+                }
+            }
+        ]
     };
-    
-
-    
 
     return (
         <div className='technologies-section'>
             <Container fluid>
                 <div className="top-text my-3">
-                    <h2>Technologies Serviced</h2>
+                   <b><h2>Technologies Serviced</h2></b>
                 </div>
                 <div className="slider-container">
                     <Slider {...settings} style={{ color: "#ff0000" }}>
@@ -80,21 +104,5 @@ const TechnologiesServiced = () => {
         </div>
     )
 }
-
-const CustomNextArrow = (props) => {
-    return (
-        <div onClick={props.onClick} className='testimonialLeftArrow'>
-            <i class="bi bi-arrow-right-circle-fill" style={{fontSize:'30px'}}></i>
-        </div>
-    );
-    };
-
-const CustomPrevArrow = (props) => {
-    return (
-        <div onClick={props.onClick} className='testimonialRightArrow'>
-            <i class="bi bi-arrow-left-circle-fill" style={{fontSize:'30px'}}></i>
-        </div>
-     );
- };
 
 export default TechnologiesServiced
