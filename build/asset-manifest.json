@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.7a6f079b.css",
-    "main.js": "/static/js/main.864b0036.js",
+    "main.css": "/static/css/main.0d082460.css",
+    "main.js": "/static/js/main.04e174ca.js",
     "static/js/206.7fe358d8.chunk.js": "/static/js/206.7fe358d8.chunk.js",
     "static/media/business_profile.pdf": "/static/media/business_profile.dffb3d22dbc8dff015d4.pdf",
     "static/media/Frame.png": "/static/media/Frame.ef0d9342f1d2bfd5128c.png",
@@ -229,7 +229,7 @@
     "static/media/loader.svg": "/static/media/loader.2ac8330bf65fce0b22eb.svg"
   },
   "entrypoints": [
-    "static/css/main.7a6f079b.css",
-    "static/js/main.864b0036.js"
+    "static/css/main.0d082460.css",
+    "static/js/main.04e174ca.js"
   ]
 }
