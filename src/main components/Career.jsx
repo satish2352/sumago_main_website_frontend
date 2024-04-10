@@ -170,7 +170,7 @@ const Career = () => {
         setCover_letter("")
         setApplicationType("")
         handleClose()
-        alert("form submitted successfully")
+        alert("Your information submitted we will connect with you shortly !!")
       }).catch((err) => {
         console.log("err", err);
       })

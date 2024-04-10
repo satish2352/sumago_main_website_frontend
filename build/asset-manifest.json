@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.6e9cd7b1.css",
-    "main.js": "/static/js/main.5ac37e64.js",
+    "main.css": "/static/css/main.7a6f079b.css",
+    "main.js": "/static/js/main.864b0036.js",
     "static/js/206.7fe358d8.chunk.js": "/static/js/206.7fe358d8.chunk.js",
     "static/media/business_profile.pdf": "/static/media/business_profile.dffb3d22dbc8dff015d4.pdf",
     "static/media/Frame.png": "/static/media/Frame.ef0d9342f1d2bfd5128c.png",
@@ -88,7 +88,6 @@
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.10ecefc282f2761808bf.ttf",
     "static/media/vission.png": "/static/media/vission.ea6d822d5c787080b6bb.png",
     "static/media/3 ASHWINI A.png": "/static/media/3 ASHWINI A.dc605c258e8230845fea.png",
-    "static/media/Group 13.png": "/static/media/Group 13.85b9fd1534895aea52cd.png",
     "static/media/58dbfef0-c491-49d7-b29d-efd0380a287a-removebg-preview.png": "/static/media/58dbfef0-c491-49d7-b29d-efd0380a287a-removebg-preview.13e51314824ae60146af.png",
     "static/media/diwali.jpg": "/static/media/diwali.462b19596c5bda4165a7.jpg",
     "static/media/18 pratik A.png": "/static/media/18 pratik A.a018bfdb60bfc4cc592e.png",
@@ -97,7 +96,6 @@
     "static/media/4 VIREN A.png": "/static/media/4 VIREN A.e2bf7ef7c74e13e6c908.png",
     "static/media/20 pooja A.png": "/static/media/20 pooja A.1948f3a39ffa3453cfa9.png",
     "static/media/Rectangle2.png": "/static/media/Rectangle2.f331bc6f99d2e6552faf.png",
-    "static/media/Group 6.png": "/static/media/Group 6.f6b3e53ecaeeb1823103.png",
     "static/media/15 bhagyashree A.png": "/static/media/15 bhagyashree A.23a12d1d2363969636ff.png",
     "static/media/AI.jpg": "/static/media/AI.ba8f228d23d04d62ff78.jpg",
     "static/media/9 sagar A.png": "/static/media/9 sagar A.19fe747e334bca8e26c4.png",
@@ -117,7 +115,6 @@
     "static/media/responsive.jpg": "/static/media/responsive.dcd5e1310e571b53aa9e.jpg",
     "static/media/SUMAGO Logo.png": "/static/media/SUMAGO Logo.bd27e557adf1d3fcaf02.png",
     "static/media/sumago.png": "/static/media/sumago.bd27e557adf1d3fcaf02.png",
-    "static/media/SCOPE FINAL LOGO Black new 1.png": "/static/media/SCOPE FINAL LOGO Black new 1.1d12ad01ff5f1e0c6eb1.png",
     "static/media/Rectangle3.png": "/static/media/Rectangle3.0ca94610214222d15717.png",
     "static/media/laptop.png": "/static/media/laptop.b9905c060696c89ad58a.png",
     "static/media/2.png": "/static/media/2.c229a230ba525c0b9113.png",
@@ -144,9 +141,7 @@
     "static/media/flaticon_azim.svg?": "/static/media/flaticon_azim.219c75cd531c30e7cc12.svg",
     "static/media/ashwini-removebg-preview.png": "/static/media/ashwini-removebg-preview.05b14af4255c53a48edc.png",
     "static/media/kajal-removebg-preview (1).png": "/static/media/kajal-removebg-preview (1).59adb041e209fc4be9ec.png",
-    "static/media/2nNRED.png": "/static/media/2nNRED.89f0c5041fe701272a1f.png",
     "static/media/NILAM-removebg-preview.png": "/static/media/NILAM-removebg-preview.fb161f1c81cad03172b2.png",
-    "static/media/SCOPE_white-removebg-preview.png": "/static/media/SCOPE_white-removebg-preview.ea724767cc45512142de.png",
     "static/media/dipsli_account-removebg-preview.png": "/static/media/dipsli_account-removebg-preview.721d7197c9eb1a4ddbd9.png",
     "static/media/VARSHA-removebg-preview.png": "/static/media/VARSHA-removebg-preview.14a78324ad48e38a6c86.png",
     "static/media/SARANGI-removebg-preview.png": "/static/media/SARANGI-removebg-preview.272f51c1b1381ce3c68a.png",
@@ -175,7 +170,6 @@
     "static/media/YASH-removebg-preview.png": "/static/media/YASH-removebg-preview.fdb058b68e543bd82a1d.png",
     "static/media/VIKAS-removebg-preview.png": "/static/media/VIKAS-removebg-preview.a118f10dd3d8315e3602.png",
     "static/media/AMOL-removebg-preview.png": "/static/media/AMOL-removebg-preview.7f78d6461237febe45ac.png",
-    "static/media/sumago_white-removebg-preview.png": "/static/media/sumago_white-removebg-preview.bdaeae6197a8a8ab4669.png",
     "static/media/PRADYUMAN-removebg-preview.png": "/static/media/PRADYUMAN-removebg-preview.1e8f57a75ec435f0e3fd.png",
     "static/media/fa-regular-400.eot": "/static/media/fa-regular-400.08f9891a6f44d9546678.eot",
     "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.1495f578452eb676f730.ttf",
@@ -211,7 +205,6 @@
     "static/media/flaticon_azim.eot?": "/static/media/flaticon_azim.984995e125eed3a939ae.eot",
     "static/media/flaticon_azim.ttf?": "/static/media/flaticon_azim.03562fc9b0f697f92e45.ttf",
     "static/media/SEO.png": "/static/media/SEO.1594238b1ad5dbf34f71.png",
-    "static/media/1nRED 1 (3).png": "/static/media/1nRED 1 (3).ec4b17da8831c37674e2.png",
     "static/media/RED.png": "/static/media/RED.7079ca4e66bc7f14246b.png",
     "static/media/back.png": "/static/media/back.1d30a4915ab0f4794dcd.png",
     "static/media/flaticon_azim.woff?": "/static/media/flaticon_azim.f91827fa1971a10e22be.woff",
@@ -236,7 +229,7 @@
     "static/media/loader.svg": "/static/media/loader.2ac8330bf65fce0b22eb.svg"
   },
   "entrypoints": [
-    "static/css/main.6e9cd7b1.css",
-    "static/js/main.5ac37e64.js"
+    "static/css/main.7a6f079b.css",
+    "static/js/main.864b0036.js"
   ]
 }

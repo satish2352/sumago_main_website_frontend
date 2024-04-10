@@ -29,11 +29,11 @@ const GetaQuote = () => {
         let isValid = true;
 
         if (!comment.trim()) {
-            errors.comment = 'comment is required';
+            errors.comment = 'Comment is required';
             isValid = false;
         }
         if (!address.trim()) {
-            errors.address = 'address is required';
+            errors.address = 'Address is required';
             isValid = false;
         }
         if (!service.trim()) {
@@ -41,7 +41,7 @@ const GetaQuote = () => {
             isValid = false;
         }
         if (!other.trim()) {
-            errors.other = 'other service is required';
+            errors.other = 'Other service is required';
             isValid = false;
         }
 
@@ -67,7 +67,7 @@ const GetaQuote = () => {
         }
 
         if (!isCaptchaVerified) {
-            errors.captcha = 'please complete the recaptcha before submitting.';
+            errors.captcha = 'Please complete the recaptcha before submitting.';
             isValid = false;
         }
 
@@ -90,7 +90,7 @@ const GetaQuote = () => {
                 setAddress("");
                 setComment("");
                 handleClose()
-                alert("form submitted successfully")
+                alert("Your information submitted we will connect with you shortly !!")
             }).catch((err) => {
                 console.log("err", err);
             })
@@ -191,7 +191,7 @@ const GetaQuote = () => {
                                                                                 <Form.Group>
                                                                                     <Form.Label>Phone No.:</Form.Label>
                                                                                     <Form.Control
-                                                                                        type="tel"
+                                                                                        type="number"
                                                                                         placeholder="Phone no."
                                                                                         value={phone}
                                                                                         onChange={(e) => setPhone(e.target.value)}

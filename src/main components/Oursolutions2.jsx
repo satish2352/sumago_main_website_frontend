@@ -68,11 +68,11 @@ const Oursolutions2 = (props) => {
         let isValid = true;
 
         if (!comment.trim()) {
-            errors.comment = 'comment is required';
+            errors.comment = 'Comment is required';
             isValid = false;
         }
         if (!address.trim()) {
-            errors.address = 'address is required';
+            errors.address = 'Address is required';
             isValid = false;
         }
         if (!service.trim()) {
@@ -80,7 +80,7 @@ const Oursolutions2 = (props) => {
             isValid = false;
         }
         if (!other.trim()) {
-            errors.other = 'other service is required';
+            errors.other = 'Other service is required';
             isValid = false;
         }
 
@@ -106,7 +106,7 @@ const Oursolutions2 = (props) => {
         }
 
         if (!isCaptchaVerified) {
-            errors.captcha = 'please complete the recaptcha before submitting.';
+            errors.captcha = 'Please complete the recaptcha before submitting.';
             isValid = false;
         }
 
@@ -115,6 +115,7 @@ const Oursolutions2 = (props) => {
     };
     const SubmitData = (e) => {
         e.preventDefault();
+        console.log("service", service);
         let newData = {
             name: name, email: email, phone: phone, service: service, other_service: other, address: address, comment: comment
         }
@@ -129,7 +130,7 @@ const Oursolutions2 = (props) => {
                 setAddress("");
                 setComment("");
                 handleClose()
-                alert("form submitted successfully")
+                alert("Your information submitted we will connect with you shortly !!")
             }).catch((err) => {
                 console.log("err", err);
             })
@@ -245,7 +246,7 @@ const Oursolutions2 = (props) => {
                                                         <Form.Group>
                                                             <Form.Label>Phone No.:</Form.Label>
                                                             <Form.Control
-                                                                type="tel"
+                                                                type="number"
                                                                 placeholder="Phone no."
                                                                 value={phone}
                                                                 onChange={(e) => setPhone(e.target.value)}
@@ -465,7 +466,7 @@ const Oursolutions2 = (props) => {
                                 {/* Content Three */}
                                 <ContentThree />
                                 {/* Content Four */}
-                                <Contentfour />
+                                {/* <Contentfour /> */}
                             </div>
                         </Col>
                     </Row>

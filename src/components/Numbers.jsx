@@ -96,10 +96,10 @@ const Numbers = () => {
                                                         <div className="inner-box town-funfact-section">
                                                             <div className="count-outer count-box">
                                                                 <span className="count-text te-count" data-speed="1500"
-                                                                    data-stop="780" style={{ color: '#0c0c0c' }}>{data[0]?.counter ? `${data[0]?.counter}+` : `${551}+`}</span>
+                                                                    data-stop="780" style={{ color: '#0c0c0c' }}>{data[0]?.counter ? `${data[0]?.counter}+` : `${589}+`}</span>
                                                             </div>
                                                             {/* <p className="te-text mt-1">Satisfied Clients</p> */}
-                                                            <p className="te-text mt-1">{data[0]?.name ? data[0]?.name : "Satisfied Clients"}</p>
+                                                            <p className="te-text mt-1">{data[0]?.name ? data[0]?.name : "Website"}</p>
                                                             <div className="icon-box te-icon">
                                                                 <img src={client} width="40" />
                                                                 {/*<i className="flaticon-poster"></i>*/}
@@ -118,9 +118,9 @@ const Numbers = () => {
                                                         <div className="inner-box town-funfact-section">
                                                             <div className="count-outer count-box">
                                                                 <span className="count-text te-count" data-speed="1500"
-                                                                    data-stop="1850" style={{ color: '#F54C4C' }}>{data[1]?.counter ? `${data[1]?.counter}+` : `{589}+`}</span>
+                                                                    data-stop="1850" style={{ color: '#F54C4C' }}>{data[1]?.counter ? `${data[1]?.counter}+` : `${129}+`}</span>
                                                             </div>
-                                                            <p className="te-text mt-1">{data[1]?.name ? data[1]?.name : "Website"}</p>
+                                                            <p className="te-text mt-1">{data[1]?.name ? data[1]?.name : "Mobile App"}</p>
                                                             <div className="icon-box te-icon">
                                                                 <i className="flaticon-user"></i>
 
@@ -144,10 +144,10 @@ const Numbers = () => {
                                                         <div className="inner-box town-funfact-section">
                                                             <div className="count-outer count-box">
                                                                 <span className="count-text te-count" data-speed="1500"
-                                                                    data-stop="700">{data[2]?.counter ? `${data[2]?.counter}+` : `${129}+`}</span><span
+                                                                    data-stop="700">{data[2]?.counter ? `${data[2]?.counter}+` : `${551}+`}</span><span
                                                                         className="symble te-symble"></span>
                                                             </div>
-                                                            <p className="te-text">{data[1]?.name ? data[1]?.name : "Mobile App"}</p>
+                                                            <p className="te-text">{data[2]?.name ? data[2]?.name : "Happy Clients"}</p>
                                                             <div className="icon-box te-icon">
                                                                 {/*<img src="./wp-content/themes/printpark/assets/images/shape/AWRAD.png" width="30">*/}
                                                                 <i className="flaticon-cup-printing"></i>

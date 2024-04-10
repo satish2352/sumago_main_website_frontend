@@ -11,12 +11,14 @@ import { useRef } from 'react'
 const Contact1 = () => {
     const [data, setData] = useState([])
     useEffect(() => {
-        axios.get("/location/find").then((result) => {
-            console.log("result", result);
-            setData(result.data)
-        }).catch((err) => {
-            console.log("err", err);
-        });
+        setTimeout(() => {
+            axios.get("/location/find").then((result) => {
+                console.log("result", result);
+                setData(result.data)
+            }).catch((err) => {
+                console.log("err", err);
+            });
+        }, 5000);
     }, [])
 
     const [name, setName] = useState("")
@@ -41,7 +43,7 @@ const Contact1 = () => {
             isValid = false;
         }
         if (!message.trim()) {
-            errors.message = 'message is required';
+            errors.message = 'Message is required';
             isValid = false;
         }
 
@@ -66,7 +68,7 @@ const Contact1 = () => {
             isValid = false;
         }
         if (!isCaptchaVerified) {
-            errors.captcha = 'please complete the recaptcha before submitting.';
+            errors.captcha = 'Please complete the recaptcha before submitting.';
             isValid = false;
         }
         //   if (!isCaptchaVerified) {
@@ -93,7 +95,7 @@ const Contact1 = () => {
                 setPhone("")
                 setWebsite("")
                 setMessage("")
-                alert("form submitted successfully")
+                alert("Your information submitted we will connect with you shortly !!")
             }).catch((err) => {
                 console.log("err", err);
             })
@@ -308,7 +310,7 @@ const Contact1 = () => {
                                                                                         onChange={onChange}
                                                                                     />
                                                                                 </div>
-                                                                                {errors.captcha && <span className="error text-danger" style={{fontWeight:"400"}}> {errors.captcha}</span>}
+                                                                                {errors.captcha && <span className="error text-danger" style={{ fontWeight: "400" }}> {errors.captcha}</span>}
                                                                                 <div
                                                                                     className="col-lg-12 col-md-12 col-sm-12 form-group message-btn centred">
                                                                                     <button className="theme-btn btn-one"
@@ -345,43 +347,44 @@ const Contact1 = () => {
                         <div className="elementor-container elementor-column-gap-default">
                             <Row className='tabAdjustment'>
                                 {
-                                    data.map((item, id) => {
-                                        return (
-                                            <Col lg={4} md={6} sm={12} className='column1'>
-                                                <div className="elementor-column elementor-top-column elementor-element elementor-element-a4fd0a5 "
-                                                    data-id="a4fd0a5" data-element_type="column">
-                                                    <div className="elementor-widget-wrap elementor-element-populated">
-                                                        <div className="elementor-element elementor-element-ca701f4 elementor-widget elementor-widget-printpark_icon_box"
-                                                            data-id="ca701f4" data-element_type="widget"
-                                                            data-widget_type="printpark_icon_box.default">
-                                                            <div className="elementor-widget-container">
-                                                                <section className="info-section centred p-0 m-0">
-                                                                    <div className="info-column">
-                                                                        <div className="info-block-one">
-                                                                            <div className="inner-box te-icon-box cardHeight">
-                                                                                <div className="icon-box te-icon">
-                                                                                    <i className="flaticon-map"></i>
+                                    data.length == 0 ? "" :
+                                        data?.map((item, id) => {
+                                            return (
+                                                <Col lg={4} md={6} sm={12} className='column1'>
+                                                    <div className="elementor-column elementor-top-column elementor-element elementor-element-a4fd0a5 "
+                                                        data-id="a4fd0a5" data-element_type="column">
+                                                        <div className="elementor-widget-wrap elementor-element-populated">
+                                                            <div className="elementor-element elementor-element-ca701f4 elementor-widget elementor-widget-printpark_icon_box"
+                                                                data-id="ca701f4" data-element_type="widget"
+                                                                data-widget_type="printpark_icon_box.default">
+                                                                <div className="elementor-widget-container">
+                                                                    <section className="info-section centred p-0 m-0">
+                                                                        <div className="info-column">
+                                                                            <div className="info-block-one">
+                                                                                <div className="inner-box te-icon-box cardHeight">
+                                                                                    <div className="icon-box te-icon">
+                                                                                        <i className="flaticon-map"></i>
+                                                                                    </div>
+                                                                                    <p className="te-text">Visit our office <br />9 am to 7 pm Monday to Friday.
+                                                                                    </p>
+                                                                                    <h4 className="te-subtitle">{item.address}
+                                                                                    </h4>
+                                                                                    <h6 className="text-lowercase"><a href="mailto:{item.email}" >{item.email}</a></h6>
+                                                                                    <h6><a href={`tel:+91${item.contact}`}>+91 {item.contact}</a></h6>
+                                                                                    <h6><a href={item.geolocation}
+                                                                                        target="&quot;_blank&quot;" rel="&quot;nofollow&quot;"><i
+                                                                                            className="flaticon-arrow-right"></i>View On Map</a></h6>
                                                                                 </div>
-                                                                                <p className="te-text">Visit our office <br />9 am to 7 pm Monday to Saturday.
-                                                                                </p>
-                                                                                <h4 className="te-subtitle">{item.address}
-                                                                                </h4>
-                                                                                <h6 className="text-lowercase"><a href="mailto:{item.email}" >{item.email}</a></h6>
-                                                                                <h6><a href={`tel:+91${item.contact}`}>+91 {item.contact}</a></h6>
-                                                                                <h6><a href={item.geolocation}
-                                                                                    target="&quot;_blank&quot;" rel="&quot;nofollow&quot;"><i
-                                                                                        className="flaticon-arrow-right"></i>View On Map</a></h6>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                </section>
+                                                                    </section>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </Col>
-                                        )
-                                    })
+                                                </Col>
+                                            )
+                                        })
                                 }
                                 {/* <Col lg={4} md={6} sm={12} className='column1'>
                                     <div className="elementor-column elementor-top-column elementor-element elementor-element-a4fd0a5 "
@@ -398,7 +401,7 @@ const Contact1 = () => {
                                                                     <div className="icon-box te-icon">
                                                                         <i className="flaticon-map"></i>
                                                                     </div>
-                                                                    <p className="te-text">Visit our office <br />9 am to 6 pm Monday to Saturday.
+                                                                    <p className="te-text">Visit our office <br />9 am to 6 pm Monday to Friday.
                                                                     </p>
                                                                     <h4 className="te-subtitle">Third Floor, Gajra Chambers, Mumbai - Agra National Hwy, Kamod Nagar, Indira Nagar, Nashik, Maharashtra 422009.
                                                                     </h4>
@@ -431,7 +434,7 @@ const Contact1 = () => {
                                                                     <div className="icon-box te-icon">
                                                                         <i className="flaticon-map"></i>
                                                                     </div>
-                                                                    <p className="te-text">Visit our office <br />9 am to 6 pm Monday to Saturday.
+                                                                    <p className="te-text">Visit our office <br />9 am to 6 pm Monday to Friday.
                                                                     </p>
                                                                     <h4 className="te-subtitle">The Avenue, Fourth Floor, Behind Prakash Petrol Pump, Govind Nagar, Nashik, Maharashtra 422009.
                                                                     </h4>
@@ -464,7 +467,7 @@ const Contact1 = () => {
                                                                     <div className="icon-box te-icon">
                                                                         <i className="flaticon-map"></i>
                                                                     </div>
-                                                                    <p className="te-text">Visit our office <br />9 am to 6 pm Monday to Saturday.
+                                                                    <p className="te-text">Visit our office <br />9 am to 6 pm Monday to Friday.
                                                                     </p>
                                                                     <h4 className="te-subtitle">Third Floor, Kakade Center Port, University Rd, near E-Square, Premnagar, Shivajinagar, Pune, Maharashtra 411016.
                                                                     </h4>

@@ -11,11 +11,11 @@ import Oursolutions2 from './main components/Oursolutions2';
 import NewNavbar from './components/NewNavbar';
 import axios from 'axios';
 import GoUp from './components/GoUp';
-import StatrterPage from './components/StatrterPage';
 function App() {
   
   useEffect(() => {
-    axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+    // axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+    axios.defaults.baseURL = "https://nodebackend.sumagoinfotech.com/";
   }, []);
   return (
     <Router>
