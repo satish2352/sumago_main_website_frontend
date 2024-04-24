@@ -326,11 +326,11 @@ const AboutUs = () => {
                                                                                     className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
                                                                                     alt="" /></figure>
                                                                                 <div className="text-box">
-                                                                                    <h3 className="te-title">Sonali Gorade</h3>
+                                                                                    <h3 className="te-title">Sonali Adhav</h3>
                                                                                 </div>
                                                                                 <div className="overlay-content">
                                                                                     <h3 className="te-title"><a
-                                                                                    >Sonali Gorade</a></h3>
+                                                                                    >Sonali Adhav</a></h3>
                                                                                     <span
                                                                                         className="designation te-designation">CHIEF EXECUTIVE OFFICER</span>
 
