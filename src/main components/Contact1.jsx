@@ -11,14 +11,12 @@ import { useRef } from 'react'
 const Contact1 = () => {
     const [data, setData] = useState([])
     useEffect(() => {
-        setTimeout(() => {
-            axios.get("/location/find").then((result) => {
+            axios.get("/location/getlocationRecords").then((result) => {
                 console.log("result", result);
                 setData(result.data)
             }).catch((err) => {
                 console.log("err", err);
             });
-        }, 5000);
     }, [])
 
     const [name, setName] = useState("")

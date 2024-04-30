@@ -8,7 +8,7 @@ import award from '../assets/images/wp-content/themes/printpark/assets/images/sh
 const Numbers = () => {
     const [data, setData] = useState([])
     useEffect(() => {
-        axios.get("/clientCount/find").then((result) => {
+        axios.get("/clientCount/getClients").then((result) => {
             setData(result.data)
         }).catch((err) => {
             console.log("err", err);
