@@ -379,8 +379,10 @@ const Header = () => {
                                                 <div lg={11} className='mt-3'>
                                                     <ReCAPTCHA
                                                         ref={captchaRef}
+                                                        //test key
+                                                        sitekey="6Lf8UM0pAAAAAJtwWTKRhf2yqdvkvM1cmEeV8sco"
+                                                        // server key
                                                         // sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
-                                                        sitekey={process.env.NOCAPTCHA_SITEKEY}
                                                         // sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"}
                                                         onChange={onChange}
                                                     />
