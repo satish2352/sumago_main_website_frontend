@@ -13,10 +13,11 @@ import axios from 'axios';
 import GoUp from './components/GoUp';
 function App() {
   
-  useEffect(() => {
-    axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+  // useEffect(() => {
+    axios.defaults.baseURL = "https://sumagodemo.com/"
+    // axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
     // axios.defaults.baseURL = "https://nodebackend.sumagoinfotech.com/";
-  }, []);
+  // }, []);
   return (
     <Router>
       <NewNavbar />
