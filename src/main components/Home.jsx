@@ -20,7 +20,7 @@ const Home = () => {
             <WhoWeAre />
             <WhySumago />
             <Services />
-            {/* <Testimonials/> */}
+            <Testimonials/>
             <GetaQuote />
             <TechnologiesServiced/>
             <ContactButton/>

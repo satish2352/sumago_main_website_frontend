@@ -292,12 +292,12 @@ const Header = () => {
                                                             aria-expanded="false" data-scroll
                                                             data-options="easing: easeOutQuart" style={{ textDecoration: 'none' }} onclick={scrollToTop}>Our Solutions</Link>
                                                     </li>
-                                                    {/* <li id="menu-item-82"
+                                                    <li id="menu-item-82"
                                                         className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-82">
                                                         <Link title="Career" to="/career" data-toggle="dropdown1"
                                                             className="hvr-underline-from-left1" aria-expanded="false" data-scroll
                                                             data-options="easing: easeOutQuart" style={{ textDecoration: 'none' }} onclick={scrollToTop}>Career</Link>
-                                                    </li> */}
+                                                    </li>
                                                     <li id="menu-item-81"
                                                         className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-81">
                                                         <Link title="About" to="/about" data-toggle="dropdown1"
@@ -382,7 +382,8 @@ const Header = () => {
                                                         //test key
                                                         // sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
                                                         // server key
-                                                        sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
+                                                        // sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
+                                                        sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
                                                         // sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"}
                                                         onChange={onChange}
                                                     />
@@ -498,13 +499,13 @@ const Header = () => {
 
 
 
-                                                    {/* <li id="menu-item-82"
+                                                    <li id="menu-item-82"
                                                         className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-82">
                                                         <Link title="Career" to="/career" data-toggle="dropdown1"
                                                             className="hvr-underline-from-left1" aria-expanded="false" data-scroll
                                                             data-options="easing: easeOutQuart" style={{ textDecoration: 'none', color: "black" }} onClick={scrollToTop}>Career</Link>
 
-                                                    </li> */}
+                                                    </li>
                                                     <li id="menu-item-81"
                                                         className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-81">
                                                         <Link title="About" to="/about" data-toggle="dropdown1"
