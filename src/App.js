@@ -13,8 +13,8 @@ import axios from "axios";
 import GoUp from "./components/GoUp";
 function App() {
   // useEffect(() => {
-  // axios.defaults.baseURL = "https://sumagodemo.com/"
-  axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+  axios.defaults.baseURL = "https://sumagodemo.com/"
+  // axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
   // axios.defaults.baseURL = "https://nodebackend.sumagoinfotech.com/";
   // }, []);
   return (
@@ -27,7 +27,7 @@ function App() {
           return (
             <Route
               key={c.title}
-              path={`/solutions/${c.title}`}
+              path={`/solutions/${c.path}`}
               element={
                 <Oursolutions2 titles={c.title} info={c.info} inmg={c.inmg} />
               }

@@ -72,7 +72,7 @@ const Career = () => {
     });
   }, [])
 
-  const [activeTab, setActiveTab] = useState('all'); // Initial active tab state
+  const [activeTab, setActiveTab] = useState('All Categories'); // Initial active tab state
   const [title, setTitle] = useState("")
   const [name, setName] = useState("")
   const [phone, setPhone] = useState("")
@@ -176,12 +176,19 @@ const Career = () => {
       })
     }
   }
+  useEffect(() => {
+      axios.get("/life_category_details/find_all").then((response) => {
+        setLifeCategoryData(response.data)
+        // Handle the response data here, such as updating state or rendering it on the UI
+      }).catch((error) => {
+        console.log("error", error);
+        // Handle errors here
+      })
+  }, [])
   const handleTabClick = (category) => {
     setActiveTab(category);
-    console.log("category", category);
     if (category === "All Categories") {
       axios.get("/life_category_details/find_all").then((response) => {
-        console.log("result", response.data);
         setLifeCategoryData(response.data)
         // Handle the response data here, such as updating state or rendering it on the UI
       }).catch((error) => {
@@ -301,24 +308,6 @@ const Career = () => {
                                     )
                                   })
                                 }
-                                {/* <li
-                                className={activeTab === 'all' ? 'active filter' : 'filter'}
-                                onClick={() => handleTabClick('all')}
-                              >
-                                All Categories
-                              </li> */}
-                                {/* <li
-                                className={activeTab === 'garment-printing' ? 'active filter' : 'filter'}
-                                onClick={() => handleTabClick('garment-printing')}
-                              >
-                                Training
-                              </li> */}
-                                {/* <li
-                                className={activeTab === 'litho_printing' ? 'active filter' : 'filter'}
-                                onClick={() => handleTabClick('litho_printing')}
-                              >
-                                Implant
-                              </li> */}
                               </ul>
                             </div>
                           </div>
@@ -582,78 +571,79 @@ const Career = () => {
         </section>
         {/*pricing - section end*/}
 
-      {/*Modal */}
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Apply Now</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form onSubmit={submitData} name="myForm" encType="multipart/form-data">
-            <Form.Group controlId="formTitle">
-              <Form.Label>Title:</Form.Label>
-              <Form.Control type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
-              {errors.title && <span className="error text-danger">{errors.title}</span>}
-            </Form.Group>
-            <Form.Group controlId="formName">
-              <Form.Label>Name:</Form.Label>
-              <Form.Control type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
-              {errors.name && <span className="error text-danger">{errors.name}</span>}
-            </Form.Group>
-            <Form.Group controlId="formPhone">
-              <Form.Label>Mobile Number:</Form.Label>
-              <Form.Control type="tel" placeholder="Mobile no." value={phone} onChange={(e) => setPhone(e.target.value)} />
-              {errors.phone && <span className="error text-danger">{errors.phone}</span>}
-            </Form.Group>
-            <Form.Group controlId="formAddress">
-              <Form.Label>Address:</Form.Label>
-              <Form.Control as="textarea" rows={3} placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} />
-              {errors.address && <span className="error text-danger">{errors.address}</span>}
-            </Form.Group>
-            <Form.Group controlId="formEmail">
-              <Form.Label>Email ID:</Form.Label>
-              <Form.Control type="email" placeholder="Email Id" value={email} onChange={(e) => setEmail(e.target.value)} />
-              {errors.email && <span className="error text-danger">{errors.email}</span>}
-            </Form.Group>
-            <Form.Group controlId="formConfmEmail">
-              <Form.Label>Confirm Email ID:</Form.Label>
-              <Form.Control type="email" placeholder="Confirm Email Id" value={confmEmail} onChange={(e) => setConfmEmail(e.target.value)} />
-              {errors.confmEmail && <span className="error text-danger">{errors.confmEmail}</span>}
-            </Form.Group>
-            <Form.Group controlId="formCoverLetter">
-              <Form.Label>Cover Letter:</Form.Label>
-              <Form.Control type="file" accept=".pdf" onChange={(e) => setCover_letter(e.target.files[0])} />
-              {errors.coverLetter && <span className="error text-danger">{errors.coverLetter}</span>}
-            </Form.Group>
-            <Form.Group controlId="formCV">
-              <Form.Label>Upload CV:</Form.Label>
-              <Form.Control type="file" accept=".pdf" onChange={(e) => setCV(e.target.files[0])} />
-              {errors.cv && <span className="error text-danger">{errors.cv}</span>}
-            </Form.Group>
-            <div lg={11} className='mt-3'>
-              <ReCAPTCHA
-                ref={captchaRef}
-                //test key
-                // sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
-                // server key
-                // sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
-                sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
-                // sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"}
-                onChange={onChange}
-              />
-            </div>
-            {errors.captcha && <span className="error text-danger">{errors.captcha}</span>}
-            <div className="form-group text-center mt-4">
-              <Button variant="secondary" className='mx-1' onClick={handleClose}>
-                Close
-              </Button>
-              <Button variant="primary" className='mx-1' type="submit">
-                Submit
-              </Button>
-            </div>
-          </Form>
-        </Modal.Body>
-      </Modal>
-      {/* <section className="pricing-section style-two">
+        {/*Modal */}
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Apply Now</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form onSubmit={submitData} name="myForm" encType="multipart/form-data">
+              <Form.Group controlId="formTitle">
+                <Form.Label>Title:</Form.Label>
+                <Form.Control type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+                {errors.title && <span className="error text-danger">{errors.title}</span>}
+              </Form.Group>
+              <Form.Group controlId="formName">
+                <Form.Label>Name:</Form.Label>
+                <Form.Control type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+                {errors.name && <span className="error text-danger">{errors.name}</span>}
+              </Form.Group>
+              <Form.Group controlId="formPhone">
+                <Form.Label>Mobile Number:</Form.Label>
+                <Form.Control type="tel" placeholder="Mobile no." value={phone} onChange={(e) => setPhone(e.target.value)} />
+                {errors.phone && <span className="error text-danger">{errors.phone}</span>}
+              </Form.Group>
+              <Form.Group controlId="formAddress">
+                <Form.Label>Address:</Form.Label>
+                <Form.Control as="textarea" rows={3} placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} />
+                {errors.address && <span className="error text-danger">{errors.address}</span>}
+              </Form.Group>
+              <Form.Group controlId="formEmail">
+                <Form.Label>Email ID:</Form.Label>
+                <Form.Control type="email" placeholder="Email Id" value={email} onChange={(e) => setEmail(e.target.value)} />
+                {errors.email && <span className="error text-danger">{errors.email}</span>}
+              </Form.Group>
+              <Form.Group controlId="formConfmEmail">
+                <Form.Label>Confirm Email ID:</Form.Label>
+                <Form.Control type="email" placeholder="Confirm Email Id" value={confmEmail} onChange={(e) => setConfmEmail(e.target.value)} />
+                {errors.confmEmail && <span className="error text-danger">{errors.confmEmail}</span>}
+              </Form.Group>
+              <Form.Group controlId="formCoverLetter">
+                <Form.Label>Cover Letter:</Form.Label>
+                <Form.Control type="file" accept=".pdf" onChange={(e) => setCover_letter(e.target.files[0])} />
+                {errors.coverLetter && <span className="error text-danger">{errors.coverLetter}</span>}
+              </Form.Group>
+              <Form.Group controlId="formCV">
+                <Form.Label>Upload CV:</Form.Label>
+                <Form.Control type="file" accept=".pdf" onChange={(e) => setCV(e.target.files[0])} />
+                {errors.cv && <span className="error text-danger">{errors.cv}</span>}
+              </Form.Group>
+              <div lg={11} className='mt-3'>
+                <ReCAPTCHA
+                  ref={captchaRef}
+                  //test key
+                  sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
+                  // server key
+                  // sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
+                  //local key
+                  // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
+                  // sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"}
+                  onChange={onChange}
+                />
+              </div>
+              {errors.captcha && <span className="error text-danger">{errors.captcha}</span>}
+              <div className="form-group text-center mt-4">
+                <Button variant="secondary" className='mx-1' onClick={handleClose}>
+                  Close
+                </Button>
+                <Button variant="primary" className='mx-1' type="submit">
+                  Submit
+                </Button>
+              </div>
+            </Form>
+          </Modal.Body>
+        </Modal>
+        {/* <section className="pricing-section style-two">
         <div className="auto-container">
           <div className="tabs-box">
             <div className="row clearfix">
@@ -890,7 +880,7 @@ const Career = () => {
             </div>
           </div>
         </section>
-        {/* <Testimonials /> */}
+        <Testimonials />
       </div>
     </>
   )

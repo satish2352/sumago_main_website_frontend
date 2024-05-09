@@ -380,10 +380,11 @@ const Header = () => {
                                                     <ReCAPTCHA
                                                         ref={captchaRef}
                                                         //test key
-                                                        // sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
+                                                        sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
                                                         // server key
                                                         // sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
-                                                        sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
+                                                        //local key
+                                                        // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
                                                         // sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"}
                                                         onChange={onChange}
                                                     />
@@ -490,7 +491,7 @@ const Header = () => {
                                                     </li>
                                                     <li id="menu-item-54"
                                                         className="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-54">
-                                                        <Link title="Our Solutions" to={`/solutions/${encodeURIComponent("Web Development")}`}
+                                                        <Link title="Our Solutions" to={`/solutions/${encodeURIComponent("WebDevelopment")}`}
                                                             data-toggle="dropdown1" className="hvr-underline-from-left1"
                                                             aria-expanded="false" data-scroll
                                                             data-options="easing: easeOutQuart" style={{ textDecoration: 'none', color: "black" }} onClick={scrollToTop}>Our Solutions</Link>
