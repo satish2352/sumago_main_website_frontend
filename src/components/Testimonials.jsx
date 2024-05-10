@@ -95,7 +95,7 @@ const Testimonials = () => {
                     <Col lg={7} md={7} sm={12}>
                         <div className='slider-bg'>
                             <Slider {...settings}>
-                                {slidedata.map((item, id) => {
+                                {data.map((item, id) => {
                                     return (
                                         <div className="testimonial-block-three">
                                             <div className="inner-box te-testimonial">
@@ -112,7 +112,7 @@ const Testimonials = () => {
                                                 <div className="author-box">
                                                     <figure className="author-thumb"><img loading="lazy"
                                                         decoding="async" width="50" height="50"
-                                                        src={item.src}
+                                                        src={item.img}
                                                         className="attachment-printpark_50x50 size-printpark_50x50 wp-post-image"
                                                         alt="" /></figure>
                                                     <h3 className="te-title">{item.name}</h3>
@@ -124,10 +124,10 @@ const Testimonials = () => {
                                     )
                                 })
                                 }
-                              
+
                             </Slider>
                             <div className='testimonialSlideCount'>
-                                <h1><span>{currentSlide + 1}</span>/ {slidedata.length}</h1>
+                                <h1><span>{currentSlide + 1}</span>/ {data.length}</h1>
                             </div>
                         </div>
                     </Col >

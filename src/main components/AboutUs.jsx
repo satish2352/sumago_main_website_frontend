@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 import '../assets/images/wp-content/plugins/elementor/assets/css/frontend-lite.min.css'
 import '../assets/images/wp-content/themes/printpark/assets/css/style.css'
@@ -116,12 +117,23 @@ const AboutUs = () => {
     };
     
     
-    const team = [
-        {
-            img: sonaliG,
-            designation: "CHIEF EXECUTIVE OFFICER", name: "Sonali Adhav"
-        }
-    ]
+    // const team = [
+    //     {
+    //         img: sonaliG,
+    //         designation: "CHIEF EXECUTIVE OFFICER", name: "Sonali Adhav"
+    //     }
+    // ]
+
+    const [team,setteamData]=useState([])
+    useEffect(() => {
+        axios.get("/team/getteamRecord").then((result) => {
+          console.log("result", result);
+          setteamData(result.data)
+        }).catch((err) => {
+          console.log("err", err);
+        });
+      }, [])
+
     const appreciations = [
         {
             name: "YASH GHODKE",
