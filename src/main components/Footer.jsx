@@ -70,24 +70,24 @@ const Footer = () => {
                                     <ul id="menu-essentials-menu" className="menu p-2">
                                         <li id="menu-item-1271"
                                             className="menu-item menu-item-type-post_type menu-item-object-service menu-item-1271">
-                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("WebDevelopment")}`} style={{ textDecoration: 'none' }}>Web Development</Link>
+                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("web-development")}`} style={{ textDecoration: 'none' }}>Web Development</Link>
 
                                         </li>
                                         <li id="menu-item-1272"
                                             className="menu-item menu-item-type-post_type menu-item-object-service menu-item-1272">
-                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("MobileApplication")}`} style={{ textDecoration: 'none' }}>Mobile Application</Link>
+                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("mobile-application")}`} style={{ textDecoration: 'none' }}>Mobile Application</Link>
                                         </li>
                                         <li id="menu-item-1273"
                                             className="menu-item menu-item-type-post_type menu-item-object-service menu-item-1273">
-                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("DigitalMarketing")}`} style={{ textDecoration: 'none' }}>Digital Marketing</Link>
+                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("digital-marketing")}`} style={{ textDecoration: 'none' }}>Digital Marketing</Link>
                                         </li>
                                         <li id="menu-item-1274"
                                             className="menu-item menu-item-type-post_type menu-item-object-service menu-item-1274">
-                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("ITConsulting")}`} style={{ textDecoration: 'none' }}>IT Consulting</Link>
+                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("iT-consulting")}`} style={{ textDecoration: 'none' }}>IT Consulting</Link>
                                         </li>
                                         <li id="menu-item-1275"
                                             className="menu-item menu-item-type-post_type menu-item-object-service menu-item-1275">
-                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("ITSolutions")}`} style={{ textDecoration: 'none' }}>IT Solutions</Link>
+                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("it-solutions")}`} style={{ textDecoration: 'none' }}>IT Solutions</Link>
                                         </li>
                                         <li id="menu-item-1276"
                                             className="menu-item menu-item-type-post_type menu-item-object-service menu-item-1276">
@@ -95,25 +95,29 @@ const Footer = () => {
                                         </li>
                                     </ul>
                                     <ul id="menu-company-menu" className="menu p-2">
+                                    <li id="menu-item-1265"
+                                            className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1265">
+                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("project-management")}`} style={{ textDecoration: 'none' }}>Project Management</Link>
+                                        </li>
                                         <li id="menu-item-1265"
                                             className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1265">
                                             <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("ResourceAugmentation")}`} style={{ textDecoration: 'none' }}>Resource Augmentation</Link>
                                         </li>
                                         <li id="menu-item-1266"
                                             className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1266">
-                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("Blockchain")}`} style={{ textDecoration: 'none' }}>Blockchain</Link>
+                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("blockchain")}`} style={{ textDecoration: 'none' }}>Blockchain</Link>
                                         </li>
                                         <li id="menu-item-1267"
                                             className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1267">
-                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("ArtificialIntelligence (AI)")}`} style={{ textDecoration: 'none' }}>Artificial Intelligence</Link>
+                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("artificial-intelligence(ai)")}`} style={{ textDecoration: 'none' }}>Artificial Intelligence</Link>
                                         </li>
                                         <li id="menu-item-1268"
                                             className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1268">
-                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("OutsourcingEngagement")}`} style={{ textDecoration: 'none' }}>Outsourcing Engagement</Link>
+                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("outsourcing-engagement")}`} style={{ textDecoration: 'none' }}>Outsourcing Engagement</Link>
                                         </li>
                                         <li id="menu-item-1269"
                                             className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1269">
-                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("IoT(InternetofThings)")}`} style={{ textDecoration: 'none' }}>IOT</Link>
+                                            <Link onClick={scrollToTop} to={`/solutions/${encodeURIComponent("iot(internetofihings)")}`} style={{ textDecoration: 'none' }}>IOT</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -138,7 +142,7 @@ const Footer = () => {
                 </div>
                 <div className="footer-top me-5 ms-5">
                     <div className="left-column">
-                        <figure className="footer-logo">
+                        <figure className="footer-logo"> 
                             <Link to="/" onClick={scrollToTop}>
                                 <img style={{ height: '40px', width: '300px' }} src={im} alt="Awesome" />
                             </Link>

@@ -287,7 +287,7 @@ const Header = () => {
                                                     </li>
                                                     <li id="menu-item-54"
                                                         className="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-54">
-                                                        <Link title="Our Solutions" to={`/solutions/${encodeURIComponent("Web Development")}`}
+                                                        <Link title="Our Solutions" to={`/solutions/${encodeURIComponent("web-development")}`}
                                                             data-toggle="dropdown1" className="hvr-underline-from-left1"
                                                             aria-expanded="false" data-scroll
                                                             data-options="easing: easeOutQuart" style={{ textDecoration: 'none' }} onclick={scrollToTop}>Our Solutions</Link>
