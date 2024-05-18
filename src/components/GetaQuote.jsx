@@ -286,9 +286,9 @@ const GetaQuote = () => {
                                                                                         ref={captchaRef}
                                                                                         // sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"}
                                                                                         //test key
-                                                                                        sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
+                                                                                        // sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
                                                                                         // local key
-                                                                                        // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
+                                                                                        sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
                                                                                         // server key
                                                                                         // sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
                                                                                         onChange={onChange}
