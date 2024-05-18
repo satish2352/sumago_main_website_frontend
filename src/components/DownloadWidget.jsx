@@ -126,47 +126,53 @@ const DownloadWidget = () => {
                                 name="fullname"
                                 value={formData.fullname}
                                 onChange={handleChange}
+                                placeholder="Enter your full name"
                                 required
                             />
                         </Form.Group>
                         <Form.Group controlId="formEmail">
-                            <Form.Label>Email</Form.Label>
+                            <Form.Label>Email address</Form.Label>
                             <Form.Control
                                 type="email"
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
+                                placeholder="Enter your email"
                                 required
                             />
                         </Form.Group>
                         <Form.Group controlId="formPhone">
-                            <Form.Label>Phone</Form.Label>
+                            <Form.Label>Phone Number</Form.Label>
                             <Form.Control
                                 type="text"
                                 name="phone"
                                 value={formData.phone}
                                 onChange={handleChange}
+                                placeholder="Enter your phone number"
                                 required
                             />
                         </Form.Group>
-                  
                         <Form.Group controlId="formLocation">
-                            <Form.Label>Location</Form.Label>
+                            <Form.Label>Select Location</Form.Label>
                             <Form.Control
-                                type="text"
+                                as="select"
                                 name="location"
                                 value={formData.location}
                                 onChange={handleChange}
                                 required
-                            />
+                            >
+                                <option value="">Select Location</option>
+                                <option value="Pune">Pune</option>
+                                <option value="Nashik">Nashik</option>
+                            </Form.Control>
                         </Form.Group>
                         <ReCAPTCHA
                             ref={captchaRef}
-                            sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
-                            //  sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"}
-                            onChange={onChange}
+                            // sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
+                          sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
+                          onChange={onChange}
                         />
-                              {error && <p className="text-danger">{error}</p>}
+                        {error && <p className="text-danger">{error}</p>}
                         <Button variant="primary" type="submit">
                             Submit
                         </Button>
