@@ -39,7 +39,7 @@ const DownloadWidget = () => {
         e.preventDefault();
         if (validateForm()) {
             try {
-                const response = await axios.post('https://sumagodemo.com/broucherDownload/createBroucherDownloadRecord', formData);
+                const response = await axios.post('/broucherDownload/createBroucherDownloadRecord', formData);
                 console.log('API Response:', response.data);
 
                 // Trigger the file download
