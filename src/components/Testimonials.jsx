@@ -63,7 +63,7 @@ const Testimonials = () => {
 
     const [data, setData] = useState([])
     useEffect(() => {
-        axios.get("/testimonials/find").then((result) => {
+        axios.get("/testimonials/getTestimonials").then((result) => {
             setData(result.data)
         }).catch((err) => {
             console.log("err", err);
