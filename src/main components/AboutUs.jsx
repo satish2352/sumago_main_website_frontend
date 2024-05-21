@@ -576,7 +576,7 @@ const AboutUs = () => {
                                                                                                 <h6 className="te-category ">
                                                                                                     <Link to="" rel="category tag">{a.name} </Link>
                                                                                                 </h6>  <span className="post-date te-meta">
-                                                                                                    <i className="flaticon-asterisks"></i>{a.position}</span>
+                                                                                                    <i className="flaticon-asterisks"></i>{a.designation}</span>
                                                                                             </div>
                                                                                             <div className="share-box">
 
