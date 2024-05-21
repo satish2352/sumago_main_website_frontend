@@ -126,7 +126,7 @@ const AboutUs = () => {
 
     const [team,setteamData]=useState([])
     useEffect(() => {
-        axios.get("/team/getteamRecord").then((result) => {
+        axios.get("/team/getteam").then((result) => {
           console.log("result", result);
           setteamData(result.data)
         }).catch((err) => {
@@ -296,7 +296,7 @@ const AboutUs = () => {
 
                         </div>
                     </section>
-                    <section
+                    {/* <section
                         className="elementor-section elementor-top-section elementor-element elementor-element-ff6bc36 elementor-section-full_width elementor-section-height-default elementor-section-height-default"
                         data-id="ff6bc36" data-element_type="section"
                         data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
@@ -410,8 +410,1026 @@ const AboutUs = () => {
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section> */}
+ <section
+                        className="elementor-section elementor-top-section elementor-element elementor-element-ff6bc36 elementor-section-full_width elementor-section-height-default elementor-section-height-default"
+                        data-id="ff6bc36" data-element_type="section"
+                        data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+                        <div className="elementor-container elementor-column-gap-default">
+                            <div className="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a69974f"
+                                data-id="a69974f" data-element_type="column">
+                                <div className="elementor-widget-wrap elementor-element-populated">
+                                    <section
+                                        className="elementor-section elementor-inner-section elementor-element elementor-element-7f76a13 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                                        data-id="7f76a13" data-element_type="section">
+                                        <div className="elementor-container elementor-column-gap-default">
+                                            <div className="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-ffd114b"
+                                                data-id="ffd114b" data-element_type="column">
+                                                <div className="elementor-widget-wrap elementor-element-populated">
+                                                    <div className="elementor-element elementor-element-246dfbb elementor-widget elementor-widget-printpark_hero_title"
+                                                        data-id="246dfbb" data-element_type="widget"
+                                                        data-widget_type="printpark_hero_title.default">
+                                                        <div className="elementor-widget-container">
 
+                                                            <div className="sec-title">
+                                                                <h6 className="te-subtitle">Team members</h6>
+                                                                <h2 className="te-title printpark-size-default">We Make Great
+                                                                    Impressions</h2>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section
+                                        className="elementor-section elementor-inner-section elementor-element elementor-element-fca3aaf elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                                        data-id="fca3aaf" data-element_type="section">
+                                        <div className="elementor-container elementor-column-gap-default">
+                                            <div className="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-3b9d0c9"
+                                                data-id="3b9d0c9" data-element_type="column">
+                                                <div className="elementor-widget-wrap elementor-element-populated">
+                                                    <div className="elementor-element elementor-element-422849d elementor-widget elementor-widget-printpark_team_grid"
+                                                        data-id="422849d" data-element_type="widget"
+                                                        data-settings="{&quot;team_box_space&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;team_box_space_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;team_box_space_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;team_box_padding&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;team_box_padding_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;team_box_padding_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;icon_box_space&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;icon_box_space_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;icon_box_space_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;icon_box_padding&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;icon_box_padding_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;icon_box_padding_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true}}"
+                                                        data-widget_type="printpark_team_grid.default">
+                                                        <div className="elementor-widget-container">
+
+                                                            <section className="team-section centred p-0 m-0">
+                                                                <div className="row clearfix">
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={sonaliG}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Sonali Adhav</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Sonali Adhav</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">CHIEF EXECUTIVE OFFICER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={sudhirG}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Sudhir Gorade</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Sudhir Gorade</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">CHIEF GROWTH OFFICER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={satishA}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Satish Aurange</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Satish Aurange</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">CHIEF TECHNOLOGY OFFICER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={satishM}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Satish Marwat</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Satish Marwat</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">CHIEF OPERATIONS OFFICER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    {/* <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={santoshG}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Santosh Gagre</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Santosh Gagre</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">REGIONAL HEAD</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div> */}
+
+                                                                      <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={ashwiniC}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Ashwini C.</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Ashwini Chaudhary</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">HR EXECUTIVE</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={chaitaliM}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Chaitali Mali</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Chaitali Mali</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">HR EXECUTIVE</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={amolP}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Amol Pawar</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Amol Pawar</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">L&D HEAD</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={prasadP}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Prasad Pawar</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Prasad Pawar</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">PROJECT MANAGER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={nilamB}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Nilam Bodke</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Nilam Bodke</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">Jr. L&D HEAD</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={pratikshaK}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Pratiksha K.</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Pratiksha Karwate</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">TEAM LEAD</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={maheshM}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Mahesh Mhaske</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Mahesh Mhaske</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">Assistant Project Manager</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={savitaH}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Savita Hajare</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Savita Hajare</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation"> Team Lead</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={vivekP}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Vivek Patil</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Vivek Patil</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation"> Associate Team Lead</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={payalP}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Payal Patil</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Payal Patil</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">TRAINING LEAD</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={anoopN}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Anoop Nanekar</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Anoop Nanekar</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation"> Associate Product Lead</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={snehalB}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Snehal Bonde</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Snehal Bonde</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation"> Software Engineer</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={rupaliP}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Rupali Patil</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Rupali Patil</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">FULL STACK DEVELOPER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={vikasW}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Vikas Wagh</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Vikas Wagh</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">PYTHON DEVELOPER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    {/* <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={harshal}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Harshal Marathe</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Harshal Marathe</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">PHYTHON DEVELOPER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div> */}
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={ashwini}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Ashwini.K</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Ashwini Kanawade</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">JR.PYTHON DEVELOPER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={saurabh}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Sourabh Kalal</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Sourabh Kalal</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">SOFTWARE DEVELOPER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={deepjyoti}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Deepjyoti Korde</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Deepjyoti Korde</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">SOFTWARE DEVELOPER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={kajalG}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Kajal Gurav</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Kajal Gurav</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">SOFTWARE DEVELOPER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={mohiniK}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Mohini Kadam</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Mohini Kadam</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">SOFTWARE DEVELOPER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={poojaD}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Pooja Dalvi</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Pooja Dalvi</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">SOFTWARE DEVELOPER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={varshaR}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Varsha Rajguru</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Varsha Rajguru</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">PYTHON DEVELOPER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={shubhamK}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Shubham K.</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Shubham Kothawade</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">REACT DEVELOPER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={vishG}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Vishwambhar.G</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Vishwambhar Gore</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">ANDROID DEVELOPER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={kajal}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Kajol Lokhande</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Kajol Lokhande</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">JAVA DEVELOPER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={ravindraK}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Ravindra.k</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Ravindra Kandekar</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">REACT NATIVE DEVELOPER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                   
+                                                                   
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={diptiP}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Dipti Pawar</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Dipti Pawar</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">BUSINESS DEVELOPMENT MANAGER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={vrushaliV}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Vrushali Varpe</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Vrushali Varpe</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">SR.BUSINESS DEVELOPMENT EXECUTIVE</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={yashG}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Yash Ghodke</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Yash Ghodke</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">Business Development Executive</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={rohiniG}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Rohini Gaikwad</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Rohini Gaikwad</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">BUISNESS ANALYST</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    
+
+                                                                    {/* <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={snehal}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Snehal Hyalij</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Snehal Hyalij</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">JR.BUSINESS ANALYST</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div> */}
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={pradN}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Pradyumna N.</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Pradyumna Nagwanshi</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">CONTENT WRITER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={dhanR}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Dhananjay Raut</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Dhananjay Raut</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">DIGITAL MARKETING</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={shwetaJ}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Shweta Jade</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Shweta Jade</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">UI/UX DESIGNER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={sarangiM}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Sarangi Mane</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Sarangi Mane</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">UI/UX DESIGNER</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={aartiP}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Aarti Pawar</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Aarti Pawar</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">JR. ACCOUNTANT</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                            
+                                                                    <div className="col-lg-3 col-md-6 col-sm-12 team-block">
+                                                                        <div className="team-block-two">
+                                                                            <div className="inner-box te-team">
+                                                                                <figure className="image-box"><img fetchpriority="high"
+                                                                                    decoding="async" width="358" height="440"
+                                                                                    src={shivamS}
+                                                                                    className="attachment-printpark_370x440 size-printpark_370x440 wp-post-image"
+                                                                                    alt="" /></figure>
+                                                                                <div className="text-box">
+                                                                                    <h3 className="te-title">Shivam Shinde</h3>
+                                                                                </div>
+                                                                                <div className="overlay-content">
+                                                                                    <h3 className="te-title"><a
+                                                                                    >Shivam Shinde</a></h3>
+                                                                                    <span
+                                                                                        className="designation te-designation">TECHNICAL SUPPORT</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                   
+                                                                </div>
+                                                            </section>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section
+                                        className="elementor-section elementor-inner-section elementor-element elementor-element-63236de elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                                        data-id="63236de" data-element_type="section">
+                                        <div className="elementor-container elementor-column-gap-default">
+                                            <div className="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-1e9b03a"
+                                                data-id="1e9b03a" data-element_type="column">
+                                                <div className="elementor-widget-wrap elementor-element-populated">
+                                                    <div className="elementor-element elementor-element-740c76a elementor-widget elementor-widget-printpark_button"
+                                                        data-id="740c76a" data-element_type="widget"
+                                                        data-settings="{&quot;btn_margin&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;btn_margin_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;btn_margin_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;btn_padding&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;btn_padding_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;btn_padding_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true}}"
+                                                        data-widget_type="printpark_button.default">
+                                                        <div className="elementor-widget-container">
+
+
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
                     <section className="elementor-section elementor-top-section elementor-element elementor-element-a466899 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a466899" data-element_type="section">
                         <div className="elementor-container elementor-column-gap-default">
@@ -548,44 +1566,267 @@ const AboutUs = () => {
                                                     <div className="row clearfix">
                                                         <p className="fs-5">We strongly believe in the recognition and appreciation of the people who put efforts behind the soaring success of Sumago Infotech! Their hard work and dedication deserve to be acknowledged and celebrated. At Sumago Infotech, we value our team members and strive to create a culture of gratitude and recognition.</p>
 
-
-                                                        {
-                                                            appreciations.map((a) => {
-                                                                return (
-                                                                    <>
-                                                                        <div className="col-lg-4 col-md-6 col-sm-12 news-block">
-                                                                            <div className="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
-                                                                                <div className="inner-box te-blog">
-                                                                                    <div className="image-box">
-                                                                                        <figure className="image">
-                                                                                            <Link to="">
-                                                                                                <img fetchpriority="high" decoding="async" width="350" height="240"
-                                                                                                    src={a.imgs}
-                                                                                                    className="attachment-printpark_350x270 size-printpark_350x270 wp-post-image" alt="" />
-                                                                                            </Link></figure>
-                                                                                        <div className="image-content">
-                                                                                            <div className="post-info text-center">
-                                                                                                <h6 className="te-category ">
-                                                                                                    <Link to="" rel="category tag">{a.name} </Link>
-                                                                                                </h6>  <span className="post-date te-meta">
-                                                                                                    <i className="flaticon-asterisks"></i>{a.position}</span>
-                                                                                            </div>
-                                                                                            <div className="share-box">
-
-                                                                                            </div>
-                                                                                        </div>
-
-
-                                                                                    </div>
-                                                                                </div>
+                                                        <div className="col-lg-4 col-md-6 col-sm-12 news-block">
+                                                            <div className="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                                                <div className="inner-box te-blog">
+                                                                    <div className="image-box">
+                                                                        <figure className="image">
+                                                                            <Link to="">
+                                                                                <img fetchpriority="high" decoding="async" width="350" height="240"
+                                                                                    src={a1}
+                                                                                    className="attachment-printpark_350x270 size-printpark_350x270 wp-post-image" alt="" />
+                                                                            </Link></figure>
+                                                                        <div className="image-content">
+                                                                            <div className="post-info text-center">
+                                                                                <h6 className="te-category ">
+                                                                                    <Link to="" rel="category tag">Yash Ghodke </Link>
+                                                                                </h6>  <span className="post-date te-meta">
+                                                                                    <i className="flaticon-asterisks"></i>[BDE]</span>
                                                                             </div>
+                                                                            <div className="share-box">
 
-
+                                                                            </div>
                                                                         </div>
-                                                                    </>
-                                                                )
-                                                            })
-                                                        }
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div className="col-lg-4 col-md-6 col-sm-12 news-block">
+                                                            <div className="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                                                <div className="inner-box te-blog">
+                                                                    <div className="image-box">
+                                                                        <figure className="image">
+                                                                            <Link to="">
+                                                                                <img fetchpriority="high" decoding="async" width="350" height="240"
+                                                                                    src={a2}
+                                                                                    className="attachment-printpark_350x270 size-printpark_350x270 wp-post-image" alt="" />
+                                                                            </Link></figure>
+                                                                        <div className="image-content">
+                                                                            <div className="post-info text-center">
+                                                                                <h6 className="te-category ">
+                                                                                    <Link to="" rel="category tag">Shweta Jade </Link>
+                                                                                </h6>  <span className="post-date te-meta">
+                                                                                    <i className="flaticon-asterisks"></i>[UI/UX]</span>
+                                                                            </div>
+                                                                            <div className="share-box">
+
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div className="col-lg-4 col-md-6 col-sm-12 news-block">
+                                                            <div className="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                                                <div className="inner-box te-blog">
+                                                                    <div className="image-box">
+                                                                        <figure className="image">
+                                                                            <Link to="">
+                                                                                <img fetchpriority="high" decoding="async" width="350" height="240"
+                                                                                    src={a3}
+                                                                                    className="attachment-printpark_350x270 size-printpark_350x270 wp-post-image" alt="" />
+                                                                            </Link></figure>
+                                                                        <div className="image-content">
+                                                                            <div className="post-info text-center">
+                                                                                <h6 className="te-category ">
+                                                                                    <Link to="" rel="category tag">Savita Hajare </Link>
+                                                                                </h6>  <span className="post-date te-meta">
+                                                                                    <i className="flaticon-asterisks"></i>[ Team Lead]</span>
+                                                                            </div>
+                                                                            <div className="share-box">
+
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div className="col-lg-4 col-md-6 col-sm-12 news-block">
+                                                            <div className="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                                                <div className="inner-box te-blog">
+                                                                    <div className="image-box">
+                                                                        <figure className="image">
+                                                                            <Link to="">
+                                                                                <img fetchpriority="high" decoding="async" width="350" height="240"
+                                                                                    src={a4}
+                                                                                    className="attachment-printpark_350x270 size-printpark_350x270 wp-post-image" alt="" />
+                                                                            </Link></figure>
+                                                                        <div className="image-content">
+                                                                            <div className="post-info text-center">
+                                                                                <h6 className="te-category ">
+                                                                                    <Link to="" rel="category tag">Amol Pawar </Link>
+                                                                                </h6>  <span className="post-date te-meta">
+                                                                                    <i className="flaticon-asterisks"></i>[L&D HEAD]</span>
+                                                                            </div>
+                                                                            <div className="share-box">
+
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div className="col-lg-4 col-md-6 col-sm-12 news-block">
+                                                            <div className="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                                                <div className="inner-box te-blog">
+                                                                    <div className="image-box">
+                                                                        <figure className="image">
+                                                                            <Link to="">
+                                                                                <img fetchpriority="high" decoding="async" width="350" height="240"
+                                                                                    src={a5}
+                                                                                    className="attachment-printpark_350x270 size-printpark_350x270 wp-post-image" alt="" />
+                                                                            </Link></figure>
+                                                                        <div className="image-content">
+                                                                            <div className="post-info text-center">
+                                                                                <h6 className="te-category ">
+                                                                                    <Link to="" rel="category tag">Satish Aurange</Link>
+                                                                                </h6>  <span className="post-date te-meta">
+                                                                                    <i className="flaticon-asterisks"></i>[CTO]</span>
+                                                                            </div>
+                                                                            <div className="share-box">
+
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div className="col-lg-4 col-md-6 col-sm-12 news-block">
+                                                            <div className="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                                                <div className="inner-box te-blog">
+                                                                    <div className="image-box">
+                                                                        <figure className="image">
+                                                                            <Link to="">
+                                                                                <img fetchpriority="high" decoding="async" width="350" height="240"
+                                                                                    src={a6}
+                                                                                    className="attachment-printpark_350x270 size-printpark_350x270 wp-post-image" alt="" />
+                                                                            </Link></figure>
+                                                                        <div className="image-content">
+                                                                            <div className="post-info text-center">
+                                                                                <h6 className="te-category ">
+                                                                                    <Link to="" rel="category tag"> Vivek Patil </Link>
+                                                                                </h6>  <span className="post-date te-meta">
+                                                                                    <i className="flaticon-asterisks"></i>[Associate Team Lead]</span>
+                                                                            </div>
+                                                                            <div className="share-box">
+
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div className="col-lg-4 col-md-6 col-sm-12 news-block">
+                                                            <div className="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                                                <div className="inner-box te-blog">
+                                                                    <div className="image-box">
+                                                                        <figure className="image">
+                                                                            <Link to="">
+                                                                                <img fetchpriority="high" decoding="async" width="350" height="240"
+                                                                                    src={a7}
+                                                                                    className="attachment-printpark_350x270 size-printpark_350x270 wp-post-image" alt="" />
+                                                                            </Link></figure>
+                                                                        <div className="image-content">
+                                                                            <div className="post-info text-center">
+                                                                                <h6 className="te-category ">
+                                                                                    <Link to="" rel="category tag">Dhananjay Raut</Link>
+                                                                                </h6>  <span className="post-date te-meta">
+                                                                                    <i className="flaticon-asterisks"></i>[DM]</span>
+                                                                            </div>
+                                                                            <div className="share-box">
+
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div className="col-lg-4 col-md-6 col-sm-12 news-block">
+                                                            <div className="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                                                <div className="inner-box te-blog">
+                                                                    <div className="image-box">
+                                                                        <figure className="image">
+                                                                            <Link to="">
+                                                                                <img fetchpriority="high" decoding="async" width="350" height="240"
+                                                                                    src={a8}
+                                                                                    className="attachment-printpark_350x270 size-printpark_350x270 wp-post-image" alt="" />
+                                                                            </Link></figure>
+                                                                        <div className="image-content">
+                                                                            <div className="post-info text-center">
+                                                                                <h6 className="te-category ">
+                                                                                    <Link to="" rel="category tag">Sarangi Mane</Link>
+                                                                                </h6>  <span className="post-date te-meta">
+                                                                                    <i className="flaticon-asterisks"></i>[UI/UX]</span>
+                                                                            </div>
+                                                                            <div className="share-box">
+
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div className="col-lg-4 col-md-6 col-sm-12 news-block">
+                                                            <div className="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                                                <div className="inner-box te-blog">
+                                                                    <div className="image-box">
+                                                                        <figure className="image">
+                                                                            <Link to="">
+                                                                                <img fetchpriority="high" decoding="async" width="350" height="240"
+                                                                                    src={a9}
+                                                                                    className="attachment-printpark_350x270 size-printpark_350x270 wp-post-image" alt="" />
+                                                                            </Link></figure>
+                                                                        <div className="image-content">
+                                                                            <div className="post-info text-center">
+                                                                                <h6 className="te-category ">
+                                                                                    <Link to="" rel="category tag">Rohini Gaikwad </Link>
+                                                                                </h6>  <span className="post-date te-meta">
+                                                                                    <i className="flaticon-asterisks"></i>[Business Analyst]</span>
+                                                                            </div>
+                                                                            <div className="share-box">
+
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
                                                     </div>
 
                                                 </section>
