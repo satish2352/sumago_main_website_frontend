@@ -568,7 +568,7 @@ const AboutUs = () => {
                                                                                         <figure className="image">
                                                                                             <Link to="">
                                                                                                 <img fetchpriority="high" decoding="async" width="350" height="240"
-                                                                                                    src={a.imgs}
+                                                                                                    src={a.img}
                                                                                                     className="attachment-printpark_350x270 size-printpark_350x270 wp-post-image" alt="" />
                                                                                             </Link></figure>
                                                                                         <div className="image-content">
