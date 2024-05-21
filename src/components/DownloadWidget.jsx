@@ -169,7 +169,7 @@ const DownloadWidget = () => {
                         <ReCAPTCHA
                             ref={captchaRef}
                             // sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
-                          sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
+                            sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
                           onChange={onChange}
                         />
                         {error && <p className="text-danger">{error}</p>}
