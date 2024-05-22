@@ -300,7 +300,7 @@ const Contact1 = () => {
                                                                                         {errors.message && <span className="error text-danger ">{errors.message}</span>}
                                                                                     </p>
                                                                                 </div>
-                                                                                <div lg={11}>
+                                                                                <div lg={11} className=' d-flex  justify-content-end my-3 '>
                                                                                     <ReCAPTCHA
                                                                                         ref={captchaRef}
                                                                                         //test key
@@ -315,7 +315,7 @@ const Contact1 = () => {
                                                                                 </div>
                                                                                 {errors.captcha && <span className="error text-danger" style={{ fontWeight: "400" }}> {errors.captcha}</span>}
                                                                                 <div
-                                                                                    className="col-lg-12 col-md-12 col-sm-12 form-group message-btn centred">
+                                                                                    className="col-lg-12 col-md-12 col-sm-12 form-group message-btn centred className=' d-flex  justify-content-end '">
                                                                                     <button className="theme-btn btn-one"
                                                                                         type="submit"
                                                                                         name="submit"><span>Send

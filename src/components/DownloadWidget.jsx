@@ -166,17 +166,21 @@ const DownloadWidget = () => {
                                 <option value="Nashik">Nashik</option>
                             </Form.Control>
                         </Form.Group>
-                        <ReCAPTCHA
-                            ref={captchaRef}
-                            // sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
-                            sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
-
-                          onChange={onChange}
-                        />
-                        {error && <p className="text-danger">{error}</p>}
-                        <Button variant="primary" type="submit">
-                            Submit
-                        </Button>
+                        <div className=' d-grid justify-content-end'>
+                            <ReCAPTCHA
+                                ref={captchaRef}
+                                // sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
+                                sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
+                                className=' p-3'
+                                onChange={onChange}
+                            />
+                            {error && <p className="text-danger">{error}</p>}
+                            <div className=' d-flex justify-content-end'>
+                                <Button variant="primary" type="submit " style={{ width: "200px" }}>
+                                    Submit
+                                </Button>
+                            </div>
+                        </div>
                     </Form>
                 </Modal.Body>
             </Modal>
