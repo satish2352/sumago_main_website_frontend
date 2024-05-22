@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import '../assets/images/wp-content/plugins/elementor/assets/css/frontend-lite.min.css'
@@ -115,76 +115,48 @@ const AboutUs = () => {
             textDecoration: 'none',
         },
     };
-    
-    
-    // const team = [
-    //     {
-    //         img: sonaliG,
-    //         designation: "CHIEF EXECUTIVE OFFICER", name: "Sonali Adhav"
-    //     }
-    // ]
 
-    const [team,setteamData]=useState([])
+
+    const [team, setTeamData] = useState([]);
+    const [appreciation, setAppreciation] = useState([]);
+    const [activeTab, setActiveTab] = useState('All Categories'); // Initial active tab state
+    const [lifeCategoryData, setLifeCategoryData] = useState([]);
+    const [imgData, setImgData] = useState([]);
+
     useEffect(() => {
-        axios.get("/team/getteam").then((result) => {
-          console.log("result", result);
-          setteamData(result.data)
-        }).catch((err) => {
-          console.log("err", err);
-        });
-      }, [])
-      const [appreciation,setappreciation]=useState([])
-      useEffect(() => {
-          axios.get("/appreciation/getAppreciation").then((result) => {
-            console.log("result", result);
-            setappreciation(result.data)
-          }).catch((err) => {
-            console.log("err", err);
-          });
-        }, [])
-    const appreciations = [
-        {
-            name: "YASH GHODKE",
-            position: "[BDE]",
-            imgs: a1
+        axios.get("/team/getteam")
+            .then((result) => setTeamData(result.data))
+            .catch((err) => console.log("err", err));
 
+        axios.get("/appreciation/getAppreciation")
+            .then((result) => setAppreciation(result.data))
+            .catch((err) => console.log("err", err));
+
+        axios.get("/culture_category/getCultureCategoryRecord")
+            .then((result) => setImgData(result.data))
+            .catch((err) => console.log("err", err));
+
+        // Load initial data for "All Categories"
+        axios.get("/culture_category_details/getallCultureDetailsRecord")
+            .then((response) => setLifeCategoryData(response.data))
+            .catch((error) => console.log("error", error));
+    }, []);
+
+    const handleTabClick = (category) => {
+        setActiveTab(category);
+        if (category === "All Categories") {
+            axios.get("/culture_category_details/getallCultureDetailsRecord")
+                .then((response) => setLifeCategoryData(response.data))
+                .catch((error) => console.log("error", error));
+        } else {
+            axios.get("/culture_category_details/getallCultureDetailsRecord", {
+                params: { category }
+            })
+                .then((response) => setLifeCategoryData(response.data))
+                .catch((error) => console.log("error", error));
         }
-    ] 
-    const imageData = [
-        { src: b1, category: 'garment-printing' },
-        { src: b5, category: 'garment-printing' },
-        { src: b3, category: 'garment-printing' },
-        { src: b2, category: 'garment-printing' },
-        { src: b4, category: 'garment-printing' },
-        { src: b6, category: 'garment-printing' },
-        { src: d1, category: 'litho_printing' },
-        { src: d2, category: 'litho_printing' },
-        { src: d3, category: 'litho_printing' },
-        { src: d4, category: 'litho_printing' },
-        { src: d5, category: 'litho_printing' },
-        { src: d8, category: 'litho_printing' },
-        // { src: n3, category: 'Navratri' },
-        { src: g6, category: 'Ganpati' },
-        { src: g2, category: 'Ganpati' },
-        { src: g1, category: 'Ganpati' },
-        { src: n2, category: 'Navratri' },
-        { src: n7, category: 'Navratri' },
-        { src: n1, category: 'Navratri' },
-        { src: g3, category: 'Ganpati' },
-        { src: g4, category: 'Ganpati' },
-        { src: d6, category: 'litho_printing' },
-        { src: g5, category: 'Ganpati' },
-        { src: n5, category: 'Navratri' },
-        { src: n4, category: 'Navratri' },
-        { src: n6, category: 'Navratri' },
-    ];
-
-    const [activeCategory, setActiveCategory] = useState('all');
-
-    const filteredImages = imageData.filter((image) => {
-        return activeCategory === 'all' || image.category === activeCategory;
-    });
-
+    
+    };
     return (
         <>
             <div className="aboutus" style={anchorStyle}>
@@ -420,7 +392,6 @@ const AboutUs = () => {
                         </div>
                     </section>
 
-
                     <section className="elementor-section elementor-top-section elementor-element elementor-element-a466899 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a466899" data-element_type="section">
                         <div className="elementor-container elementor-column-gap-default">
                             <div className="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-a8d0954" data-id="a8d0954" data-element_type="column">
@@ -436,8 +407,77 @@ const AboutUs = () => {
                                 </div>
                             </div>
                         </div>
+                    </section>  
+                     <section
+                        className="elementor-section elementor-top-section elementor-element elementor-element-1310cac elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                        data-id="1310cac" data-element_type="section">
+                        <div className="elementor-container elementor-column-gap-default">
+                            <div className="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2e2a809"
+                                data-id="2e2a809" data-element_type="column">
+                                <div className="elementor-widget-wrap elementor-element-populated">
+                                    <div className="elementor-element elementor-element-1e4d48c elementor-widget elementor-widget-printpark_masonary_projects"
+                                        data-id="1e4d48c" data-element_type="widget"
+                                        data-settings='{"mixit_padding":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"mixit_padding_tablet":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"mixit_padding_mobile":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"project_box_space":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"project_box_space_tablet":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"project_box_space_mobile":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"project_box_padding":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"project_box_padding_tablet":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"project_box_padding_mobile":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"btn_padding":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"btn_padding_tablet":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"btn_padding_mobile":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true}}'
+                                        data-widget_type="printpark_masonary_projects.default">
+                                        <div className="elementor-widget-container">
+                                            <section className="project-section p-0 m-0">
+                                                <div className="sortable-masonry">
+                                                    {/* Filter buttons */}
+                                                    <div className="filters-box">
+                                                        <div className="filters">
+                                                            <ul className="filter-tabs filter-btns clearfix">
+                                                                {
+                                                                    imgData.map((item, id) => {
+                                                                        return (
+                                                                            <li
+                                                                                className={activeTab === item.category ? 'active filter' : 'filter'}
+                                                                                onClick={() => handleTabClick(item.category)}
+                                                                            >
+                                                                                {item.category}
+                                                                            </li>
+                                                                        )
+                                                                    })
+                                                                }
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                    {/* Project items */}
+                                                    <div className="items-container row clearfix">
+                                                        {lifeCategoryData
+                                                            .filter((project) => activeTab === 'All Categories' || project.category.includes(activeTab))
+                                                            .map((project, index) => (
+                                                                <div
+                                                                    key={index}
+                                                                    className={`col-lg-4 col-md-6 col-sm-12 masonry-item small-column ${project.category}`}
+                                                                >
+                                                                    <div className="project-block-one">
+                                                                        <div className="inner-box bn-project-box">
+                                                                            <figure className="image-box">
+                                                                                {/* <h1>{project.category}</h1> */}
+                                                                                <img
+                                                                                    src={project.img}
+                                                                                    alt={project.category}
+                                                                                    onClick={() => handleTabClick(project.category)}
+                                                                                />
+                                                                            </figure>
+                                                                            {/* Additional details or links can be added here */}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            ))}
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </section>
-                    <section className="elementor-section elementor-top-section elementor-element elementor-element-1310cac elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1310cac" data-element_type="section">
+
+
+                    {/* <section className="elementor-section elementor-top-section elementor-element elementor-element-1310cac elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1310cac" data-element_type="section">
                         <div className="elementor-container elementor-column-gap-default">
                             <div className="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2e2a809" data-id="2e2a809" data-element_type="column">
                                 <div className="elementor-widget-wrap elementor-element-populated">
@@ -447,6 +487,16 @@ const AboutUs = () => {
                                                 <div className="filters-box">
                                                     <div className="filters">
                                                         <ul className="filter-tabs filter-btns clearfix">
+                                                            {
+                                                                <li
+                                                                    className={activeCategory === 'all' ? 'active filter' : 'filter'}
+                                                                    onClick={() => setActiveCategory('all')}
+                                                                    data-role="button"
+                                                                    data-filter=".all"
+                                                                >
+                                                                    All Categories
+                                                                </li>
+                                                            }
                                                             <li
                                                                 className={activeCategory === 'all' ? 'active filter' : 'filter'}
                                                                 onClick={() => setActiveCategory('all')}
@@ -520,7 +570,7 @@ const AboutUs = () => {
                                 </div>
                             </div>
                         </div >
-                    </section >
+                    </section > */}
                     <div data-elementor-type="wp-page" data-elementor-id="19" className="elementor elementor-19">
                         <section className="elementor-section elementor-top-section elementor-element elementor-element-2782308 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2782308" data-element_type="section">
                             <div className="elementor-container elementor-column-gap-default">

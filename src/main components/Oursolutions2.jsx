@@ -336,7 +336,7 @@ const Oursolutions2 = (props) => {
                                                             {errors.comment && <span className="error text-danger">{errors.comment}</span>}
                                                         </Form.Group>
 
-                                                        <div lg={11} className='mt-3'>
+                                                        <div lg={11} className='mt-3 d-flex justify-content-end'>
                                                             <ReCAPTCHA
                                                                 ref={captchaRef}
                                                                 //test key

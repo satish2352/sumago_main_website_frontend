@@ -46,8 +46,8 @@ const Career = () => {
   }
   console.log("applicationType", applicationType);
   useEffect(() => {
-    axios.get("life_category/find").then((result) => {
-      console.log("result", result);
+    axios.get("life_category/getLifeCategory").then((result) => {
+      console.log("result dfjdhfkgd", result);
       setImgData(result.data)
     }).catch((err) => {
       console.log("err", err);
@@ -55,7 +55,7 @@ const Career = () => {
   }, [])
 
   useEffect(() => {
-    axios.get("/jobs/find").then((result) => {
+    axios.get("/jobs/getJobRecord").then((result) => {
       console.log("result jobs", result);
       setJobData(result.data)
     }).catch((err) => {
@@ -64,7 +64,7 @@ const Career = () => {
   }, [])
 
   useEffect(() => {
-    axios.get("/internship/find").then((result) => {
+    axios.get("/internship/getInternshipRecord").then((result) => {
       console.log("result", result);
       setInternData(result.data)
     }).catch((err) => {
@@ -177,7 +177,7 @@ const Career = () => {
     }
   }
   useEffect(() => {
-      axios.get("/life_category_details/find_all").then((response) => {
+      axios.get("/life_category_details/getAllLifeCategoryDetailsRecord").then((response) => {
         setLifeCategoryData(response.data)
         // Handle the response data here, such as updating state or rendering it on the UI
       }).catch((error) => {
@@ -188,7 +188,7 @@ const Career = () => {
   const handleTabClick = (category) => {
     setActiveTab(category);
     if (category === "All Categories") {
-      axios.get("/life_category_details/find_all").then((response) => {
+      axios.get("/life_category_details/getAllLifeCategoryDetailsRecord").then((response) => {
         setLifeCategoryData(response.data)
         // Handle the response data here, such as updating state or rendering it on the UI
       }).catch((error) => {
@@ -199,7 +199,7 @@ const Career = () => {
       axios.get("/life_category_details/find", {
         params: {
           category: category
-        }
+        }   
       }).then((response) => {
         console.log("result", response.data);
         setLifeCategoryData(response.data)
@@ -618,7 +618,7 @@ const Career = () => {
                 <Form.Control type="file" accept=".pdf" onChange={(e) => setCV(e.target.files[0])} />
                 {errors.cv && <span className="error text-danger">{errors.cv}</span>}
               </Form.Group>
-              <div lg={11} className='mt-3'>
+              <div lg={11} className='mt-3 d-flex justify-content-end'>
                 <ReCAPTCHA
                   ref={captchaRef}
                   //test key

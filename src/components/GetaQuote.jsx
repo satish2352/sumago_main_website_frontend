@@ -281,7 +281,7 @@ const GetaQuote = () => {
                                                                                     {errors.comment && <span className="error text-danger">{errors.comment}</span>}
                                                                                 </Form.Group>
 
-                                                                                <div lg={11} className='mt-3'>
+                                                                                <div lg={11} className='mt-3 d-flex justify-content-end'>
                                                                                     <ReCAPTCHA
                                                                                         ref={captchaRef}
                                                                                         // sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"}

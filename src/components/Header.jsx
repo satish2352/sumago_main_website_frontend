@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import '../assets/css/Header.css'
 import '../assets/images/wp-content/plugins/elementor/assets/css/frontend-lite.min.css'
 import '../assets/images/wp-content/themes/printpark/assets/css/style.css'
@@ -29,6 +29,8 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useRef } from 'react'
 
 const Header = () => {
+    const location = useLocation();
+
     const [scrolled, setScrolled] = useState(false);
     const captchaRef = useRef(null);
     const [isCaptchaVerified, setCaptchaVerified] = useState(false);
@@ -279,37 +281,87 @@ const Header = () => {
                                             <div className="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                                 <ul className="navigation clearfix navbar-nav1">
                                                     <li id="menu-item-54"
-                                                        className="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-54  menu-item <?php echo ($currentPage == 'index.php') ? 'active' : ''; ?>">
-                                                        <Link title="Home" to="/"
-                                                            data-toggle="dropdown1" className="hvr-underline-from-left1"
-                                                            aria-expanded="false" data-scroll
-                                                            data-options="easing: easeOutQuart" style={{ textDecoration: 'none' }} onclick={scrollToTop}>Home</Link>
+                                                        className="menu-item menu-item-type-custom menu-item-object-custom text-danger-menu-ancestor text-danger-menu-parent menu-item-has-children menu-item-54">
+                                                        <Link
+                                                            title="Home"
+                                                            to="/"
+                                                            className={`hvr-underline-from-left1 navitemheader ${location.pathname === '/' ? 'text-danger' : ''}`}
+                                                            data-toggle="dropdown1"
+                                                            aria-expanded="false"
+                                                            data-scroll
+                                                            data-options="easing: easeOutQuart"
+                                                            style={{ textDecoration: 'none', color: 'black' }}
+                                                            onClick={scrollToTop}
+                                                        >
+                                                            Home
+                                                        </Link>
                                                     </li>
+
                                                     <li id="menu-item-54"
-                                                        className="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-54">
-                                                        <Link title="Our Solutions" to={`/solutions/${encodeURIComponent("web-development")}`}
-                                                            data-toggle="dropdown1" className="hvr-underline-from-left1"
-                                                            aria-expanded="false" data-scroll
-                                                            data-options="easing: easeOutQuart" style={{ textDecoration: 'none' }} onclick={scrollToTop}>Our Solutions</Link>
+                                                        className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-54">
+                                                        <Link
+                                                            title="Our Solutions"
+                                                            to={`/solutions/${encodeURIComponent("web-development")}`}
+                                                            className={`hvr-underline-from-left1 navitemheader ${location.pathname.startsWith('/solutions') ? 'text-danger' : ''}`}
+                                                            data-toggle="dropdown1"
+                                                            aria-expanded="false"
+                                                            data-scroll
+                                                            data-options="easing: easeOutQuart"
+                                                            style={{ textDecoration: 'none', color: 'black' }}
+                                                            onClick={scrollToTop}
+                                                        >
+                                                            Our Solutions
+                                                        </Link>
                                                     </li>
-                                                    {/* <li id="menu-item-82"
+
+                                                    <li id="menu-item-82"
                                                         className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-82">
-                                                        <Link title="Career" to="/career" data-toggle="dropdown1"
-                                                            className="hvr-underline-from-left1" aria-expanded="false" data-scroll
-                                                            data-options="easing: easeOutQuart" style={{ textDecoration: 'none' }} onclick={scrollToTop}>Career</Link>
-                                                    </li> */}
+                                                        <Link
+                                                            title="Career"
+                                                            to="/career"
+                                                            className={`hvr-underline-from-left1 ${location.pathname === '/career' ? ' text-danger ' : ''}`}
+                                                            data-toggle="dropdown1"
+                                                            aria-expanded="false"
+                                                            data-scroll
+                                                            data-options="easing: easeOutQuart"
+                                                            style={{ textDecoration: 'none', color: 'black' }}
+                                                            onClick={scrollToTop}
+                                                        >
+                                                            Career
+                                                        </Link>
+                                                    </li>
                                                     <li id="menu-item-81"
                                                         className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-81">
-                                                        <Link title="About" to="/about" data-toggle="dropdown1"
-                                                            className="hvr-underline-from-left1" aria-expanded="false" data-scroll
-                                                            data-options="easing: easeOutQuart" style={{ textDecoration: 'none' }} onclick={scrollToTop}>About us</Link>
+                                                        <Link
+                                                            title="About"
+                                                            to="/about"
+                                                            className={`hvr-underline-from-left1 navitemheader ${location.pathname === '/about' ? 'text-danger' : ''}`}
+                                                            data-toggle="dropdown1"
+                                                            aria-expanded="false"
+                                                            data-scroll
+                                                            data-options="easing: easeOutQuart"
+                                                            style={{ textDecoration: 'none', color: 'black' }}
+                                                            onClick={scrollToTop}
+                                                        >
+                                                            About us
+                                                        </Link>
                                                     </li>
                                                     <li id="menu-item-60"
                                                         className="menu-item menu-item-type-post_type menu-item-object-page menu-item-60">
-                                                        <Link title="Contact" to="/contact"
-                                                            className="hvr-underline-from-left1" data-scroll
-                                                            data-options="easing: easeOutQuart" style={{ textDecoration: 'none' }} onclick={scrollToTop}>Contact us</Link>
+                                                        <Link
+                                                            title="Contact"
+                                                            to="/contact"
+                                                            className={`hvr-underline-from-left1 navitemheader ${location.pathname === '/contact' ? 'text-danger' : ''}`}
+                                                            data-scroll
+                                                            data-options="easing: easeOutQuart"
+                                                            style={{ textDecoration: 'none', color: 'black' }}
+                                                            onClick={scrollToTop}
+                                                        >
+                                                            Contact us
+                                                        </Link>
                                                     </li>
+
+                                                 
                                                 </ul>
                                             </div>
                                         </nav>
@@ -376,7 +428,7 @@ const Header = () => {
                                                     <Form.Control as="textarea" rows={4} placeholder="Comment" value={comment} onChange={(e) => setComment(e.target.value)} />
                                                     {errors.comment && <span className="error text-danger">{errors.comment}</span>}
                                                 </Form.Group>
-                                                <div lg={11} className='mt-3'>
+                                                <div lg={11} className='mt-3 d-flex justify-content-end'>
                                                     <ReCAPTCHA
                                                         ref={captchaRef}
                                                         //test key
@@ -481,45 +533,85 @@ const Header = () => {
                                         <nav className="main-menu navbar-expand-md navbar-light">
                                             <div className="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                                 <ul className="navigation clearfix navbar-nav1">
-                                                    <li id="menu-item-54"
-                                                        className="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-54  menu-item <?php echo ($currentPage == 'index.php') ? 'active' : ''; ?>">
-                                                        <Link title="Home" to="/"
-                                                            data-toggle="dropdown1" className="hvr-underline-from-left1"
-                                                            aria-expanded="false" data-scroll
-                                                            data-options="easing: easeOutQuart" style={{ textDecoration: 'none', color: "black" }} onClick={scrollToTop}>Home</Link>
-
+                                                <li id="menu-item-54"
+                                                        className="menu-item menu-item-type-custom menu-item-object-custom text-danger-menu-ancestor text-danger-menu-parent menu-item-has-children menu-item-54">
+                                                        <Link
+                                                            title="Home"
+                                                            to="/"
+                                                            className={`hvr-underline-from-left1 navitemheader ${location.pathname === '/' ? 'text-danger' : ''}`}
+                                                            data-toggle="dropdown1"
+                                                            aria-expanded="false"
+                                                            data-scroll
+                                                            data-options="easing: easeOutQuart"
+                                                            style={{ textDecoration: 'none', color: 'black' }}
+                                                            onClick={scrollToTop}
+                                                        >
+                                                            Home
+                                                        </Link>
                                                     </li>
+
                                                     <li id="menu-item-54"
-                                                        className="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-54">
-                                                        <Link title="Our Solutions" to={`/solutions/${encodeURIComponent("web-development")}`}
-                                                            data-toggle="dropdown1" className="hvr-underline-from-left1"
-                                                            aria-expanded="false" data-scroll
-                                                            data-options="easing: easeOutQuart" style={{ textDecoration: 'none', color: "black" }} onClick={scrollToTop}>Our Solutions</Link>
-
+                                                        className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-54">
+                                                        <Link
+                                                            title="Our Solutions"
+                                                            to={`/solutions/${encodeURIComponent("web-development")}`}
+                                                            className={`hvr-underline-from-left1 navitemheader ${location.pathname.startsWith('/solutions') ? 'text-danger' : ''}`}
+                                                            data-toggle="dropdown1"
+                                                            aria-expanded="false"
+                                                            data-scroll
+                                                            data-options="easing: easeOutQuart"
+                                                            style={{ textDecoration: 'none', color: 'black' }}
+                                                            onClick={scrollToTop}
+                                                        >
+                                                            Our Solutions
+                                                        </Link>
                                                     </li>
-
-{/* 
 
                                                     <li id="menu-item-82"
                                                         className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-82">
-                                                        <Link title="Career" to="/career" data-toggle="dropdown1"
-                                                            className="hvr-underline-from-left1" aria-expanded="false" data-scroll
-                                                            data-options="easing: easeOutQuart" style={{ textDecoration: 'none', color: "black" }} onClick={scrollToTop}>Career</Link>
-
-                                                    </li> */}
+                                                        <Link
+                                                            title="Career"
+                                                            to="/career"
+                                                            className={`hvr-underline-from-left1 ${location.pathname === '/career' ? ' text-danger ' : ''}`}
+                                                            data-toggle="dropdown1"
+                                                            aria-expanded="false"
+                                                            data-scroll
+                                                            data-options="easing: easeOutQuart"
+                                                            style={{ textDecoration: 'none', color: 'black' }}
+                                                            onClick={scrollToTop}
+                                                        >
+                                                            Career
+                                                        </Link>
+                                                    </li>
                                                     <li id="menu-item-81"
                                                         className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-81">
-                                                        <Link title="About" to="/about" data-toggle="dropdown1"
-                                                            className="hvr-underline-from-left1" aria-expanded="false" data-scroll
-                                                            data-options="easing: easeOutQuart" style={{ textDecoration: 'none', color: "black" }} onClick={scrollToTop}>About us</Link>
-
+                                                        <Link
+                                                            title="About"
+                                                            to="/about"
+                                                            className={`hvr-underline-from-left1 navitemheader ${location.pathname === '/about' ? 'text-danger' : ''}`}
+                                                            data-toggle="dropdown1"
+                                                            aria-expanded="false"
+                                                            data-scroll
+                                                            data-options="easing: easeOutQuart"
+                                                            style={{ textDecoration: 'none', color: 'black' }}
+                                                            onClick={scrollToTop}
+                                                        >
+                                                            About us
+                                                        </Link>
                                                     </li>
-
                                                     <li id="menu-item-60"
                                                         className="menu-item menu-item-type-post_type menu-item-object-page menu-item-60">
-                                                        <Link title="Contact" to="/contact"
-                                                            className="hvr-underline-from-left1" data-scroll
-                                                            data-options="easing: easeOutQuart" style={{ textDecoration: 'none', color: "black" }} onClick={scrollToTop}>Contact us</Link>
+                                                        <Link
+                                                            title="Contact"
+                                                            to="/contact"
+                                                            className={`hvr-underline-from-left1 navitemheader ${location.pathname === '/contact' ? ' text-danger ' : ''}`}
+                                                            data-scroll
+                                                            data-options="easing: easeOutQuart"
+                                                            style={{ textDecoration: 'none', color: 'black' }}
+                                                            onClick={scrollToTop}
+                                                        >
+                                                            Contact us
+                                                        </Link>
                                                     </li>
                                                 </ul>
                                             </div>
