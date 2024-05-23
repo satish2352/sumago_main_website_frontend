@@ -38,9 +38,9 @@ const NewNavbar = () => {
           </div>
           <ul>
             <li><Link to="/" onClick={() => { toggleNavbar(); scrollToTop(); }}>Home</Link></li>
-            <li><Link to={`/solutions/${encodeURIComponent("Web Development")}`} onClick={() => { toggleNavbar(); scrollToTop(); }}>Our Solutions</Link></li>
+            <li><Link to={`/solutions/${encodeURIComponent("web-development")}`} onClick={() => { toggleNavbar(); scrollToTop(); }}>Our Solutions</Link></li>
             <li><Link to="/about" onClick={() => { toggleNavbar(); scrollToTop(); }}>About</Link></li>
-            {/* <li><Link to="/career" onClick={() => { toggleNavbar(); scrollToTop(); }}>Career</Link></li> */}
+            <li><Link to="/career" onClick={() => { toggleNavbar(); scrollToTop(); }}>Career</Link></li>
             <li><Link to="/contact" onClick={() => { toggleNavbar(); scrollToTop(); }}>Contact Us</Link></li>
           </ul>
         </div>
