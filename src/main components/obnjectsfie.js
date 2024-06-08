@@ -43,4 +43,7 @@ const data = [
     { inmg: im5, title: 'Outsourcing Engagement',path: 'outsourcing-engagement',  info: "There are several ways that organizations can get specialized IT resources through outsourcing engagement. While offshore development uses expertise from abroad to create software, IT outsourcing entails assigning certain IT services to outside vendors. End-to-end IT infrastructure management is offered via managed services, while staff augmentation ensures flexible and affordable solutions by providing competent temporary workers in response to project requirements" },
     { inmg: im4, title: 'IoT (Internet of Things)',path: 'iot(internetofihings)',  info: "IoT denotes the internet-based networking of physical objects and sensors that allows data to be collected and shared for a range of uses. This includes creating Internet of Things (IoT) solutions that link and interact with smart devices, fusing hardware and sensors, deriving insights from IoT-generated data analysis, putting security measures in place to safeguard IoT ecosystems, and providing advice on how to define IoT strategies and use IoT technology across sectors for improved productivity and data-driven decision-making." },
 ];
+
+
+
 export {data,services}
