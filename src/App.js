@@ -11,34 +11,55 @@ import Oursolutions2 from "./main components/Oursolutions2";
 import NewNavbar from "./components/NewNavbar";
 import axios from "axios";
 import GoUp from "./components/GoUp";
+import Blogs from "./main components/Blogs";
+import BlogDetails from "./main components/BlogDetails";
+import { useBlog } from './Datacontext';
+
 function App() {
   // useEffect(() => {
   // axios.defaults.baseURL = "https://sumagodemo.com/"
   // axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
-  axios.defaults.baseURL = "https://nodebackend.sumagoinfotech.com/";
+  axios.defaults.baseURL = "https://sumagowebbackend.sumagodemo.com";
   // }, []);
+  
+  const {blogs,solutions} = useBlog();
   return (
     <Router>
       <NewNavbar />
       <Header />
       <Routes>
         {/* <Route path="/" element={<StatrterPage />} /> */}
-        {data.map((c) => {
+        {solutions.map((c) => {
           return (
             <Route
               key={c.title}
-              path={`/solutions/${c.path}`}
+              path={`/solutions/${c.title}`}
               element={
-                <Oursolutions2 titles={c.title} info={c.info} inmg={c.inmg} />
+                <Oursolutions2 titles={c.title} info={c.text} inmg={c.img} />
               }
             />
           );
         })}
+
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/solutions" element={<Oursolutions2 />} />
         <Route path="/career" element={<Career />} />
         <Route path="/contact" element={<Contact1 />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogsdetails" element={<BlogDetails />} />
+        {/* <Route path="/" element={<StatrterPage />} /> */}
+        {blogs.map((c) => {
+          return (
+            <Route
+              key={c.title}
+              path={`/blogdetals/${c.id}`}
+              element={
+                <BlogDetails text={c.text} img={c.img} subtitle={c.subtitle}/>
+              }
+            />
+          );
+        })}
       </Routes>
       <GoUp />
       <Footer />

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Modal, Button } from 'react-bootstrap';
+
 import { Link } from 'react-router-dom'
 import '../assets/images/wp-content/plugins/elementor/assets/css/frontend-lite.min.css'
 import '../assets/images/wp-content/themes/printpark/assets/css/style.css'
@@ -116,7 +118,20 @@ const AboutUs = () => {
         },
     };
 
+    const [showModal, setShowModal] = useState(false);
+    const [selectedImage, setSelectedImage] = useState(null);
 
+   
+
+    const handleImageClick = (image) => {
+        setSelectedImage(image);
+        setShowModal(true);
+    };
+
+    const handleClose = () => {
+        setShowModal(false);
+        setSelectedImage(null);
+    };
     const [team, setTeamData] = useState([]);
     const [appreciation, setAppreciation] = useState([]);
     const [activeTab, setActiveTab] = useState('All Categories'); // Initial active tab state
@@ -155,7 +170,7 @@ const AboutUs = () => {
                 .then((response) => setLifeCategoryData(response.data))
                 .catch((error) => console.log("error", error));
         }
-    
+
     };
     return (
         <>
@@ -407,8 +422,8 @@ const AboutUs = () => {
                                 </div>
                             </div>
                         </div>
-                    </section>  
-                     <section
+                    </section>
+                    <section
                         className="elementor-section elementor-top-section elementor-element elementor-element-1310cac elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                         data-id="1310cac" data-element_type="section">
                         <div className="elementor-container elementor-column-gap-default">
@@ -476,7 +491,84 @@ const AboutUs = () => {
                         </div>
                     </section>
 
+                    <section className="elementor-section elementor-top-section elementor-element elementor-element-1310cac elementor-section-boxed elementor-section-height-default elementor-section-height-default">
+            <div className="elementor-container elementor-column-gap-default">
+                <div className="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2e2a809"
+                    data-id="2e2a809" data-element_type="column">
+                    <div className="elementor-widget-wrap elementor-element-populated">
+                        <div className="elementor-element elementor-element-1e4d48c elementor-widget elementor-widget-printpark_masonary_projects"
+                            data-id="1e4d48c" data-element_type="widget"
+                            data-widget_type="printpark_masonary_projects.default">
+                            <div className="elementor-widget-container">
+                                <section className="project-section p-0 m-0">
+                                    <div className="sortable-masonry">
+                                        {/* Filter buttons */}
+                                        <div className="filters-box">
+                                            <div className="filters">
+                                                <ul className="filter-tabs filter-btns clearfix">
+                                                    {imgData.map((item, id) => (
+                                                        <li
+                                                            key={id}
+                                                            className={activeTab === item.category ? 'active filter' : 'filter'}
+                                                            onClick={() => handleTabClick(item.category)}
+                                                        >
+                                                            {item.category}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        </div>
 
+                                        {/* Project items */}
+                                        <div className="items-container row clearfix">
+                                            {lifeCategoryData
+                                                .filter((project) => activeTab === 'All Categories' || project.category.includes(activeTab))
+                                                .map((project, index) => (
+                                                    <div
+                                                        key={index}
+                                                        className={`col-lg-4 col-md-6 col-sm-12 masonry-item small-column ${project.category}`}
+                                                    >
+                                                        <div className="project-block-one">
+                                                            <div className="inner-box bn-project-box">
+                                                                <figure className="image-box">
+                                                                    <img
+                                                                        src={project.img}
+                                                                        alt={project.category}
+                                                                        onClick={() => handleImageClick(project.img)}
+                                                                    />
+                                                                </figure>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <Modal
+                                    show={showModal}
+                                    onHide={handleClose}
+                                    centered
+                                    backdropClassName="custom-backdrop"
+                                >
+                                    <Modal.Header closeButton>
+                                        <Modal.Title>Image</Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+                                        {selectedImage && <img src={selectedImage} alt="Selected" style={{ width: '100%' }} />}
+                                    </Modal.Body>
+                                    <Modal.Footer>
+                                        <Button variant="secondary" onClick={handleClose}>
+                                            Close
+                                        </Button>
+                                    </Modal.Footer>
+                                </Modal>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
                     {/* <section className="elementor-section elementor-top-section elementor-element elementor-element-1310cac elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1310cac" data-element_type="section">
                         <div className="elementor-container elementor-column-gap-default">
                             <div className="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2e2a809" data-id="2e2a809" data-element_type="column">

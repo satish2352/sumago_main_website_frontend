@@ -301,7 +301,7 @@ const Header = () => {
                                                         className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-54">
                                                         <Link
                                                             title="Our Solutions"
-                                                            to={`/solutions/${encodeURIComponent("web-development")}`}
+                                                            to={`solutions/Web%20Development`}
                                                             className={`hvr-underline-from-left1 navitemheader ${location.pathname.startsWith('/solutions') ? 'text-danger' : ''}`}
                                                             data-toggle="dropdown1"
                                                             aria-expanded="false"
@@ -361,7 +361,21 @@ const Header = () => {
                                                         </Link>
                                                     </li>
 
-                                                 
+                                                    <li id="menu-item-60"
+                                                        className="menu-item menu-item-type-post_type menu-item-object-page menu-item-60">
+                                                        <Link
+                                                            title="Contact"
+                                                            to="blogs"
+                                          
+                                                            className={`hvr-underline-from-left1 navitemheader ${location.pathname === 'blogs' ? ' text-danger ' : ''}`}
+                                                            data-scroll
+                                                            data-options="easing: easeOutQuart"
+                                                            style={{ textDecoration: 'none', color: 'black' }}
+                                                            onClick={scrollToTop}
+                                                        >
+                                                            Blogs
+                                                        </Link>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </nav>
@@ -554,7 +568,7 @@ const Header = () => {
                                                         className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-54">
                                                         <Link
                                                             title="Our Solutions"
-                                                            to={`/solutions/${encodeURIComponent("web-development")}`}
+                                                            to={`solutions/Web%20Development`}
                                                             className={`hvr-underline-from-left1 navitemheader ${location.pathname.startsWith('/solutions') ? 'text-danger' : ''}`}
                                                             data-toggle="dropdown1"
                                                             aria-expanded="false"
@@ -611,6 +625,21 @@ const Header = () => {
                                                             onClick={scrollToTop}
                                                         >
                                                             Contact us
+                                                        </Link>
+                                                    </li>
+                                                    <li id="menu-item-60"
+                                                        className="menu-item menu-item-type-post_type menu-item-object-page menu-item-60">
+                                                        <Link
+                                                            title="Contact"
+                                                            to="blogs"
+                                          
+                                                            className={`hvr-underline-from-left1 navitemheader ${location.pathname === 'blogs' ? ' text-danger ' : ''}`}
+                                                            data-scroll
+                                                            data-options="easing: easeOutQuart"
+                                                            style={{ textDecoration: 'none', color: 'black' }}
+                                                            onClick={scrollToTop}
+                                                        >
+                                                            Blogs
                                                         </Link>
                                                     </li>
                                                 </ul>

@@ -13908,3 +13908,6 @@ div#mCSB_1_container {
 .current > a {
   color: red;
 }
+.custom-backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
