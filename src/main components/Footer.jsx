@@ -98,7 +98,7 @@ const Footer = () => {
                                             <img style={{ height: '50px', width: '50px' }} src={footercard} alt="Footer Card" />
                                         </div>
                                         <h2>Everything<br />to Market Your Business.</h2>
-                                        <Link to={`/solutions/${encodeURIComponent("DigitalMarketing")}`} onClick={scrollToTop} className="theme-btn" style={{ textDecoration: 'none' }}>Start Today</Link>
+                                        <Link to={`/solutions/${encodeURIComponent("Digital Marketing")}`} onClick={scrollToTop} className="theme-btn" style={{ textDecoration: 'none' }}>Start Today</Link>
                                     </div>
                                 </div>
                             </div>

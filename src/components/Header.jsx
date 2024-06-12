@@ -148,6 +148,8 @@ const Header = () => {
             }).catch((err) => {
                 console.log("err", err);
             })
+            axios.post("https://api.neodove.com/integration/custom/c5a5881d-54f8-4ff9-b8e1-97f5ff6233c8/leads",{
+                name: name, email: email, phone: phone,            })
         }
     }
 
@@ -361,7 +363,7 @@ const Header = () => {
                                                         </Link>
                                                     </li>
 
-                                                    <li id="menu-item-60"
+                                                    {/* <li id="menu-item-60"
                                                         className="menu-item menu-item-type-post_type menu-item-object-page menu-item-60">
                                                         <Link
                                                             title="Contact"
@@ -375,7 +377,7 @@ const Header = () => {
                                                         >
                                                             Blogs
                                                         </Link>
-                                                    </li>
+                                                    </li> */}
                                                 </ul>
                                             </div>
                                         </nav>
@@ -629,7 +631,7 @@ const Header = () => {
                                                     </li>
                                                     <li id="menu-item-60"
                                                         className="menu-item menu-item-type-post_type menu-item-object-page menu-item-60">
-                                                        <Link
+                                                        {/* <Link
                                                             title="Contact"
                                                             to="blogs"
                                           
@@ -640,7 +642,7 @@ const Header = () => {
                                                             onClick={scrollToTop}
                                                         >
                                                             Blogs
-                                                        </Link>
+                                                        </Link> */}
                                                     </li>
                                                 </ul>
                                             </div>
