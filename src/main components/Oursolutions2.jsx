@@ -181,7 +181,7 @@ const Oursolutions2 = (props) => {
                                                     className={`service-item d-flex`}
                                                 >
                                                     <li className={`menu-item menu-item-type-post_type menu-item-object-service`}>
-                                                        <Link to={`/solutions/${service.title}`} style={{ textDecoration: 'none' }}>{service.title}</Link>
+                                                        <Link to={`/solutions/${encodeURIComponent(service.title.toLowerCase().replace(/\s+/g, '-'))}`} style={{ textDecoration: 'none' }}>{service.title}</Link>
 
                                                     </li>
 

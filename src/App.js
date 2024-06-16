@@ -33,7 +33,7 @@ function App() {
           return (
             <Route
               key={c.title}
-              path={`/solutions/${c.title}`}
+              path={`/solutions/${c.title.toLowerCase().replace(/\s+/g, '-')}`}
               element={
                 <Oursolutions2 titles={c.title} info={c.text} inmg={c.img} />
               }
@@ -46,8 +46,8 @@ function App() {
         <Route path="/solutions" element={<Oursolutions2 />} />
         <Route path="/career" element={<Career />} />
         <Route path="/contact" element={<Contact1 />} />
-        <Route path="/blogs" element={<Blogs />} />
-        <Route path="/blogsdetails" element={<BlogDetails />} />
+        {/* <Route path="/blogs" element={<Blogs />} /> */}
+        {/* <Route path="/blogsdetails" element={<BlogDetails />} /> */}
         {/* <Route path="/" element={<StatrterPage />} /> */}
         {blogs.map((c) => {
           return (
