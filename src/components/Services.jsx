@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import '../assets/css/Services.css'
+import axios from 'axios';
+
 import { Col, Container, Row } from 'react-bootstrap'
 import shape1 from '../assets/images/wp-content/themes/printpark/assets/images/shape/shape-36.png'
 import shape2 from '../assets/images/wp-content/themes/printpark/assets/images/shape/back.png'
@@ -15,6 +17,17 @@ import img9 from '../assets/images/wp-content/themes/printpark/assets/images/sha
 
 
 const Services = () => {
+    const [sectors, setSectors] = useState([]);
+
+    useEffect(() => {
+      axios.get('/sector/getsectors')
+        .then(response => {
+          setSectors(response.data);
+        })
+        .catch(error => {
+          console.error("There was an error fetching the sectors!", error);
+        });
+    }, []);
     const cardsCol1 = [
         {
             title: 'Healthcare',
@@ -53,34 +66,7 @@ const Services = () => {
             img: img9,
         }
     ]
-    const cardsCol2 = [
-        {
-            title: 'E-commerce',
-            img: img4,
-        },
-        {
-            title: 'Manufactoring',
-            img: img5,
-        },
-        {
-            title: 'Education',
-            img: img6,
-        }
-    ]
-    const cardsCol3 = [
-        {
-            title: 'Government',
-            img: img7,
-        },
-        {
-            title: 'Retail',
-            img: img8,
-        },
-        {
-            title: 'Logistics',
-            img: img9,
-        }
-    ]
+    
     return (
         <div className='services-section container-fluid'>
             <Container>
@@ -92,7 +78,7 @@ const Services = () => {
                 </div>
                 <Row className='mt-4'>
                     {
-                        cardsCol1.map((a) => (
+                        sectors.map((a) => (
                             <Col lg={4} md={6} sm={12} className='serviceCards'>
                                 <div
                                     class="service-block te-service-block">
@@ -125,76 +111,7 @@ const Services = () => {
                         ))
                     }
                 </Row>
-                {/* <Row style={{ marginTop: '20px' }}>
-                    {
-                        cardsCol2.map((a) => (
-                            <Col lg={4} md={6} sm={12}>
-                                <div
-                                    class="service-block te-service-block">
-                                    <div class="service-block-one wow fadeInUp animated"
-                                        data-wow-delay="00ms" data-wow-duration="1500ms">
-                                        <div class="inner-box">
-                                            <div class="overlay-shape"
-                                                style={{ backgroundImage: `url(${shape1})` }}>
-                                            </div>
-                                            <div class="icon-box">
-
-                                                <div class="shape"
-                                                    style={{ backgroundImage: `url(${shape2})` }}>
-                                                </div>
-                                                <div class="">
-                                                    <img src={a.img}
-                                                        class="img-fluid" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="link-btn"><a
-                                            ><i class="bi bi-arrow-right"></i></a>
-                                            </div>
-                                            <h3><a class="ser-title"
-                                            >{a.title}</a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
-                        ))
-                    }
-                </Row>
-                <Row style={{ marginTop: '20px', marginBottom: '20px' }}>
-                    {
-                        cardsCol3.map((a) => (
-                            <Col lg={4} md={6} sm={12}>
-                                <div
-                                    class="service-block te-service-block">
-                                    <div class="service-block-one wow fadeInUp animated"
-                                        data-wow-delay="00ms" data-wow-duration="1500ms">
-                                        <div class="inner-box">
-                                            <div class="overlay-shape"
-                                                style={{ backgroundImage: `url(${shape1})` }}>
-                                            </div>
-                                            <div class="icon-box">
-
-                                                <div class="shape"
-                                                    style={{ backgroundImage: `url(${shape2})` }}>
-                                                </div>
-                                                <div class="">
-                                                    <img src={a.img}
-                                                        class="img-fluid" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="link-btn"><a
-                                            ><i class="bi bi-arrow-right"></i></a>
-                                            </div>
-                                            <h3><a class="ser-title"
-                                            >{a.title}</a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
-                        ))
-                    }
-                </Row> */}
+                
             </Container>
         </div>
     )

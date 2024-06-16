@@ -3,7 +3,7 @@ import '../assets/css/GetaQuote.css';
 import { Button, Col, Form, Modal, Row } from 'react-bootstrap';
 import axios from 'axios';
 import ReCAPTCHA from "react-google-recaptcha";
-import { useRef } from 'react'
+import { useRef,useEffect } from 'react'
 const GetaQuote = () => {
     const [show, setShow] = useState(false);
     const [name, setName] = useState("")
@@ -18,7 +18,13 @@ const GetaQuote = () => {
     const [isCaptchaVerified, setCaptchaVerified] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    const [storedPhone, setStoredPhone] = useState("");
+    useEffect(() => {
+        const storedPhone  = localStorage.getItem("phone4");
+        if (storedPhone) {
+            setPhone(storedPhone);
+        }
+    }, []); 
     const onChange = (value) => {
         setCaptchaVerified(true);
         console.log(value);
@@ -136,7 +142,7 @@ const GetaQuote = () => {
                                                                 call us today!
                                                             </p>
                                                             <h4 className="te-subtitle"><a
-                                                                href="tel:+91 8530388815" className='ms-5 me-5 ps-1 pe-1'>+918530388815</a></h4>
+                                                                href="tel:+91 8530388815" className='ms-5 me-5 ps-1 pe-1'>+91{storedPhone ? storedPhone: "8530388815"}</a></h4>
                                                         </div>
                                                     </div>
                                                 </div>

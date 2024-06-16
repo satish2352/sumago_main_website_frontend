@@ -71,7 +71,7 @@ const Footer = () => {
                                     <ul className="menu p-2 services-column">
                                         {services.slice(0, 6).map((service, index) => (
                                             <li key={index} className="menu-item">
-                                                <Link to={`/solutions/${encodeURIComponent(service.title.toLowerCase())}`} onClick={scrollToTop} style={{ textDecoration: 'none' }}>
+                                                <Link to={`/solutions/${encodeURIComponent(service.title.toLowerCase().replace(/\s+/g, '-'))}`} onClick={scrollToTop} style={{ textDecoration: 'none' }}>
                                                     {service.title}
                                                 </Link>
                                             </li>
@@ -80,7 +80,7 @@ const Footer = () => {
                                     <ul className="menu p-2 services-column">
                                         {services.slice(6, 12).map((service, index) => (
                                             <li key={index} className="menu-item">
-                                                <Link to={`/solutions/${encodeURIComponent(service.title.toLowerCase())}`} onClick={scrollToTop} style={{ textDecoration: 'none' }}>
+                                                <Link to={`/solutions/${encodeURIComponent(service.title.toLowerCase().replace(/\s+/g, '-'))}`} onClick={scrollToTop} style={{ textDecoration: 'none' }}>
                                                     {service.title}
                                                 </Link>
                                             </li>

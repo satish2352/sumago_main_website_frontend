@@ -59,6 +59,30 @@ const Header = () => {
             behavior: 'smooth'
         });
     };
+    const [contactInfo, setContactInfo] = useState({
+        phone1: '',
+        phone2: '',
+        phone3: '',
+        email: ''
+    });
+    useEffect(() => {
+        axios.get('/contactInfo/getrecords')
+            .then(response => {
+                const data = response.data[0];
+                setContactInfo({
+                    phone1: data.phone1,
+                    phone2: data.phone2,
+                    phone3: data.phone3,
+                    email: data.email
+                });
+                if (data.phone4) {
+                    localStorage.setItem('phone4', data.phone4);
+                }
+            })
+            .catch(error => {
+                console.error("There was an error fetching the contact info!", error);
+            });
+    }, []);
 
     const [show, setShow] = useState(false);
     const [name, setName] = useState("")
@@ -148,8 +172,9 @@ const Header = () => {
             }).catch((err) => {
                 console.log("err", err);
             })
-            axios.post("https://api.neodove.com/integration/custom/c5a5881d-54f8-4ff9-b8e1-97f5ff6233c8/leads",{
-                name: name, email: email, phone: phone,            })
+            axios.post("https://api.neodove.com/integration/custom/c5a5881d-54f8-4ff9-b8e1-97f5ff6233c8/leads", {
+                name: name, email: email, phone: phone,
+            })
         }
     }
 
@@ -223,6 +248,51 @@ const Header = () => {
                                     <i className="flaticon-incoming-call"></i> &nbsp;
                                     <span> Call Us</span> <strong>Now:</strong>
                                 </div>
+                                <ul className='list-unstyled d-flex justify-content-evenly mb-2'>
+                                    <li>
+                                        <a href={`tel:${contactInfo.phone1}`}><strong>+91 {contactInfo.phone1}</strong></a>
+                                    </li>
+                                    <li>
+                                        <a href={`tel:${contactInfo.phone2}`}><strong>+91 {contactInfo.phone2}</strong></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="col-sm-12 col-md-5 col-lg-5 d-grid justify-content-center ">
+                                <figure className="logo">
+                                    <Link to="/" title="WordPress Printing">
+                                        <img id="sumalogo" src={sumagologo} alt="logo" />
+                                    </Link>
+                                </figure>
+                            </div>
+                            <div className="text2 col-sm-12 col-md-3 col-lg-3">
+                                <div className='right-box'>
+                                    <Row style={{ paddingLeft: '40px', paddingRight: '40px', paddingTop: '5px' }}>
+                                        <Col lg={2} md={2} sm={2}>
+                                            <i className="fas fa-envelope email-icon"></i>
+                                        </Col>
+                                        <Col lg={10} md={10} sm={10}>
+                                            <a href={`mailto:${contactInfo.email}`} style={{ color: 'black' }}>{contactInfo.email}</a>
+                                        </Col>
+                                    </Row>
+                                    <Row style={{ paddingLeft: '40px', paddingRight: '40px', paddingBottom: '5px' }}>
+                                        <Col lg={2} md={2} sm={2}>
+                                            <i className="flaticon-incoming-call" style={{ color: "black" }}></i>
+                                        </Col>
+                                        <Col lg={10} md={10} sm={10}>
+                                            <a href={`tel:${contactInfo.phone3}`}><strong>+91 {contactInfo.phone3}</strong></a>
+                                        </Col>
+                                    </Row>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/* <div className="header-top">
+                        <div className="outer-container d-sm-grid d-lg-flex d-md-flex">
+                            <div className="text text-center col-sm-12 col-md-4 col-lg-3">
+                                <div className='mt-1'>
+                                    <i className="flaticon-incoming-call"></i> &nbsp;
+                                    <span> Call Us</span> <strong>Now:</strong>
+                                </div>
                                 <ul className='list-unstyled d-flex justify-content-evenly mb-2'
                                 >
                                     <li>
@@ -257,7 +327,7 @@ const Header = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="header-lower">
                         <div className="outer-container">
                             <div className="outer-box outer-box1">
@@ -303,7 +373,7 @@ const Header = () => {
                                                         className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-54">
                                                         <Link
                                                             title="Our Solutions"
-                                                            to={`solutions/Web%20Development`}
+                                                            to={`solutions/web-development`}
                                                             className={`hvr-underline-from-left1 navitemheader ${location.pathname.startsWith('/solutions') ? 'text-danger' : ''}`}
                                                             data-toggle="dropdown1"
                                                             aria-expanded="false"
@@ -549,7 +619,7 @@ const Header = () => {
                                         <nav className="main-menu navbar-expand-md navbar-light">
                                             <div className="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                                 <ul className="navigation clearfix navbar-nav1">
-                                                <li id="menu-item-54"
+                                                    <li id="menu-item-54"
                                                         className="menu-item menu-item-type-custom menu-item-object-custom text-danger-menu-ancestor text-danger-menu-parent menu-item-has-children menu-item-54">
                                                         <Link
                                                             title="Home"
@@ -570,7 +640,7 @@ const Header = () => {
                                                         className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-54">
                                                         <Link
                                                             title="Our Solutions"
-                                                            to={`solutions/Web%20Development`}
+                                                            to={`solutions/web-development`}
                                                             className={`hvr-underline-from-left1 navitemheader ${location.pathname.startsWith('/solutions') ? 'text-danger' : ''}`}
                                                             data-toggle="dropdown1"
                                                             aria-expanded="false"
