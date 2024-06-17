@@ -14,12 +14,11 @@ import GoUp from "./components/GoUp";
 import Blogs from "./main components/Blogs";
 import BlogDetails from "./main components/BlogDetails";
 import { useBlog } from './Datacontext';
-
 function App() {
   // useEffect(() => {
   // axios.defaults.baseURL = "https://sumagodemo.com/"
   // axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
-  axios.defaults.baseURL = "https://sumagowebbackend.sumagodemo.com";
+  axios.defaults.baseURL = "https://nodebackend.sumagoinfotech.com/";
   // }, []);
   
   const {blogs,solutions} = useBlog();

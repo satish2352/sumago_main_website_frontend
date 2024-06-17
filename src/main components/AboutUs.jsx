@@ -121,7 +121,7 @@ const AboutUs = () => {
     const [showModal, setShowModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
 
-   
+
 
     const handleImageClick = (image) => {
         setSelectedImage(image);
@@ -133,12 +133,27 @@ const AboutUs = () => {
         setSelectedImage(null);
     };
     const [team, setTeamData] = useState([]);
+    const [mission1, setmission] = useState([]);
+    const [visionData, setVisionData] = useState(null);
+    const [misionData, setMisionData] = useState(null);
     const [appreciation, setAppreciation] = useState([]);
     const [activeTab, setActiveTab] = useState('All Categories'); // Initial active tab state
     const [lifeCategoryData, setLifeCategoryData] = useState([]);
     const [imgData, setImgData] = useState([]);
 
     useEffect(() => {
+        axios.get("/aboutmission/find")
+            .then(response => {
+                setMisionData(response.data[0]);
+            })
+            .catch((err) => console.log("err", err));
+
+        axios.get("aboutvission/getAllaboutvisionRecord")
+            .then(response => {
+                setVisionData(response.data[0]);
+            })
+            .catch((err) => console.log("err", err));
+
         axios.get("/team/getteam")
             .then((result) => setTeamData(result.data))
             .catch((err) => console.log("err", err));
@@ -198,7 +213,8 @@ const AboutUs = () => {
                                 data-id="84f6fd6" data-element_type="column">
                                 <div className="vision-mission-container">
                                     <img decoding="async"
-                                        src={vision}
+                                        src={visionData ? visionData.img : mission}
+
                                         alt="Awesome Image" />
                                 </div>
                             </div>
@@ -225,7 +241,9 @@ const AboutUs = () => {
                                             <div className="sec-title">
                                                 <div className="te-subtitle"></div>
                                                 <div className="te-title"></div>
-                                                <p id="viscont">"We aspire to be the global sourcing choice of the global market and revolutionize the way service processes function. Our goal is to reach out to common people across the globe and make Information Technology a tool for the "Masses", as well as the "Classes". We strive to create innovative IT solutions and provide IT-enabled services to enthrall customers worldwide and build relationships based on Trust, Values, and Professionalism."</p>
+                                                <p id="viscont">{visionData ? visionData.title : ''}</p>
+
+                                                {/* <p id="viscont">"We aspire to be the global sourcing choice of the global market and revolutionize the way service processes function. Our goal is to reach out to common people across the globe and make Information Technology a tool for the "Masses", as well as the "Classes". We strive to create innovative IT solutions and provide IT-enabled services to enthrall customers worldwide and build relationships based on Trust, Values, and Professionalism."</p> */}
                                             </div>
 
                                         </div>
@@ -248,7 +266,7 @@ const AboutUs = () => {
                                 data-id="84f6fd6" data-element_type="column">
                                 <div className="vision-mission-container">
                                     <img decoding="async"
-                                        src={mission}
+                                        src={misionData ? misionData.img : ''}
                                         alt="Awesome Image" />
                                 </div>
                             </div>
@@ -275,7 +293,8 @@ const AboutUs = () => {
                                             <div className="sec-title">
                                                 <div className="te-subtitle"></div>
                                                 <div className="te-title"></div>
-                                                <p id="viscont">"At Sumago Infotech, we strive with technology to provide the most effective and affordable services that fulfill our customers' needs and budgets. We provide customized websites and software solutions that suit our customers' company objectives. We always involve our customers in the entire process, starting from design right up to deployment, so that your ideas can be incorporated into our work."</p>
+                                                <p id="viscont">{misionData ? misionData.title : ''}</p>
+                                                {/* <p id="viscont">"At Sumago Infotech, we strive with technology to provide the most effective and affordable services that fulfill our customers' needs and budgets. We provide customized websites and software solutions that suit our customers' company objectives. We always involve our customers in the entire process, starting from design right up to deployment, so that your ideas can be incorporated into our work."</p> */}
                                             </div>
 
                                         </div>
@@ -492,83 +511,83 @@ const AboutUs = () => {
                     </section>
 
                     <section className="elementor-section elementor-top-section elementor-element elementor-element-1310cac elementor-section-boxed elementor-section-height-default elementor-section-height-default">
-            <div className="elementor-container elementor-column-gap-default">
-                <div className="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2e2a809"
-                    data-id="2e2a809" data-element_type="column">
-                    <div className="elementor-widget-wrap elementor-element-populated">
-                        <div className="elementor-element elementor-element-1e4d48c elementor-widget elementor-widget-printpark_masonary_projects"
-                            data-id="1e4d48c" data-element_type="widget"
-                            data-widget_type="printpark_masonary_projects.default">
-                            <div className="elementor-widget-container">
-                                <section className="project-section p-0 m-0">
-                                    <div className="sortable-masonry">
-                                        {/* Filter buttons */}
-                                        <div className="filters-box">
-                                            <div className="filters">
-                                                <ul className="filter-tabs filter-btns clearfix">
-                                                    {imgData.map((item, id) => (
-                                                        <li
-                                                            key={id}
-                                                            className={activeTab === item.category ? 'active filter' : 'filter'}
-                                                            onClick={() => handleTabClick(item.category)}
-                                                        >
-                                                            {item.category}
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        {/* Project items */}
-                                        <div className="items-container row clearfix">
-                                            {lifeCategoryData
-                                                .filter((project) => activeTab === 'All Categories' || project.category.includes(activeTab))
-                                                .map((project, index) => (
-                                                    <div
-                                                        key={index}
-                                                        className={`col-lg-4 col-md-6 col-sm-12 masonry-item small-column ${project.category}`}
-                                                    >
-                                                        <div className="project-block-one">
-                                                            <div className="inner-box bn-project-box">
-                                                                <figure className="image-box">
-                                                                    <img
-                                                                        src={project.img}
-                                                                        alt={project.category}
-                                                                        onClick={() => handleImageClick(project.img)}
-                                                                    />
-                                                                </figure>
-                                                            </div>
+                        <div className="elementor-container elementor-column-gap-default">
+                            <div className="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2e2a809"
+                                data-id="2e2a809" data-element_type="column">
+                                <div className="elementor-widget-wrap elementor-element-populated">
+                                    <div className="elementor-element elementor-element-1e4d48c elementor-widget elementor-widget-printpark_masonary_projects"
+                                        data-id="1e4d48c" data-element_type="widget"
+                                        data-widget_type="printpark_masonary_projects.default">
+                                        <div className="elementor-widget-container">
+                                            <section className="project-section p-0 m-0">
+                                                <div className="sortable-masonry">
+                                                    {/* Filter buttons */}
+                                                    <div className="filters-box">
+                                                        <div className="filters">
+                                                            <ul className="filter-tabs filter-btns clearfix">
+                                                                {imgData.map((item, id) => (
+                                                                    <li
+                                                                        key={id}
+                                                                        className={activeTab === item.category ? 'active filter' : 'filter'}
+                                                                        onClick={() => handleTabClick(item.category)}
+                                                                    >
+                                                                        {item.category}
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
                                                         </div>
                                                     </div>
-                                                ))}
+
+                                                    {/* Project items */}
+                                                    <div className="items-container row clearfix">
+                                                        {lifeCategoryData
+                                                            .filter((project) => activeTab === 'All Categories' || project.category.includes(activeTab))
+                                                            .map((project, index) => (
+                                                                <div
+                                                                    key={index}
+                                                                    className={`col-lg-4 col-md-6 col-sm-12 masonry-item small-column ${project.category}`}
+                                                                >
+                                                                    <div className="project-block-one">
+                                                                        <div className="inner-box bn-project-box">
+                                                                            <figure className="image-box">
+                                                                                <img
+                                                                                    src={project.img}
+                                                                                    alt={project.category}
+                                                                                    onClick={() => handleImageClick(project.img)}
+                                                                                />
+                                                                            </figure>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            ))}
+                                                    </div>
+                                                </div>
+                                            </section>
+
+                                            <Modal
+                                                show={showModal}
+                                                onHide={handleClose}
+                                                centered
+                                                backdropClassName="custom-backdrop"
+                                            >
+                                                <Modal.Header closeButton>
+                                                    <Modal.Title>Image</Modal.Title>
+                                                </Modal.Header>
+                                                <Modal.Body>
+                                                    {selectedImage && <img src={selectedImage} alt="Selected" style={{ width: '100%' }} />}
+                                                </Modal.Body>
+                                                <Modal.Footer>
+                                                    <Button variant="secondary" onClick={handleClose}>
+                                                        Close
+                                                    </Button>
+                                                </Modal.Footer>
+                                            </Modal>
                                         </div>
                                     </div>
-                                </section>
-
-                                <Modal
-                                    show={showModal}
-                                    onHide={handleClose}
-                                    centered
-                                    backdropClassName="custom-backdrop"
-                                >
-                                    <Modal.Header closeButton>
-                                        <Modal.Title>Image</Modal.Title>
-                                    </Modal.Header>
-                                    <Modal.Body>
-                                        {selectedImage && <img src={selectedImage} alt="Selected" style={{ width: '100%' }} />}
-                                    </Modal.Body>
-                                    <Modal.Footer>
-                                        <Button variant="secondary" onClick={handleClose}>
-                                            Close
-                                        </Button>
-                                    </Modal.Footer>
-                                </Modal>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                    </section>
                     {/* <section className="elementor-section elementor-top-section elementor-element elementor-element-1310cac elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1310cac" data-element_type="section">
                         <div className="elementor-container elementor-column-gap-default">
                             <div className="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2e2a809" data-id="2e2a809" data-element_type="column">
