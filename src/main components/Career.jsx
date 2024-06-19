@@ -174,18 +174,19 @@ const Career = () => {
       }).catch((err) => {
         console.log("err", err);
       })
-      axios.post("https://api.neodove.com/integration/custom/c5a5881d-54f8-4ff9-b8e1-97f5ff6233c8/leads",{
-        name: name, email: email, phone: phone,            })
+      axios.post("https://api.neodove.com/integration/custom/c5a5881d-54f8-4ff9-b8e1-97f5ff6233c8/leads", {
+        name: name, email: email, phone: phone,
+      })
     }
   }
   useEffect(() => {
-      axios.get("/life_category_details/getAllLifeCategoryDetailsRecord").then((response) => {
-        setLifeCategoryData(response.data)
-        // Handle the response data here, such as updating state or rendering it on the UI
-      }).catch((error) => {
-        console.log("error", error);
-        // Handle errors here
-      })
+    axios.get("/life_category_details/getAllLifeCategoryDetailsRecord").then((response) => {
+      setLifeCategoryData(response.data)
+      // Handle the response data here, such as updating state or rendering it on the UI
+    }).catch((error) => {
+      console.log("error", error);
+      // Handle errors here
+    })
   }, [])
   const handleTabClick = (category) => {
     setActiveTab(category);
@@ -201,7 +202,7 @@ const Career = () => {
       axios.get("/life_category_details/find", {
         params: {
           category: category
-        }   
+        }
       }).then((response) => {
         console.log("result", response.data);
         setLifeCategoryData(response.data)

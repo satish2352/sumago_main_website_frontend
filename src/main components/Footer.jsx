@@ -52,9 +52,9 @@ const Footer = () => {
                                         <li className="menu-item">
                                             <Link to="/contact" onClick={scrollToTop} style={{ textDecoration: 'none' }}>Contact</Link>
                                         </li>
-                                        <li className="menu-item">
+                                        {/* <li className="menu-item">
                                             <Link to="#" onClick={scrollToTop} style={{ textDecoration: 'none' }}>Projects</Link>
-                                        </li>
+                                        </li> */}
                                         <li className="menu-item">
                                             <Link to="/about" onClick={scrollToTop} style={{ textDecoration: 'none' }}>Team</Link>
                                         </li>
@@ -98,7 +98,7 @@ const Footer = () => {
                                             <img style={{ height: '50px', width: '50px' }} src={footercard} alt="Footer Card" />
                                         </div>
                                         <h2>Everything<br />to Market Your Business.</h2>
-                                        <Link to={`/solutions/${encodeURIComponent("Digital Marketing")}`} onClick={scrollToTop} className="theme-btn" style={{ textDecoration: 'none' }}>Start Today</Link>
+                                        <Link to={`/solutions/${encodeURIComponent("digital-marketing")}`} onClick={scrollToTop} className="theme-btn" style={{ textDecoration: 'none' }}>Start Today</Link>
                                     </div>
                                 </div>
                             </div>
