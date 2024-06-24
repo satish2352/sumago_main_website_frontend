@@ -59,9 +59,17 @@ const DownloadWidget = () => {
                 setError('Mobile number is already registered');
             }
         }
-        // axios.post("https://api.neodove.com/integration/custom/c5a5881d-54f8-4ff9-b8e1-97f5ff6233c8/leads",{
-        //     name: name,mobile:phone,email:email,detail:service,detail:address
-        // })
+        try {
+            await axios.post("https://api.neodove.com/integration/custom/817befb0-2962-41af-be56-f81b8e5f8c93/leads?update=true", {
+                name: formData.fullname,
+                mobile: formData.phone,
+                email: formData.email,
+                detail: formData.location
+            });
+        } catch (error) {
+            console.error('Neodove API Error:', error);
+            // Handle error, show a message to the user, etc.
+        }
     };
 
     const validateForm = () => {
