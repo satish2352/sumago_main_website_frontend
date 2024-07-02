@@ -97,7 +97,7 @@ const Contact1 = () => {
             }).catch((err) => {
                 console.log("err", err);
             })
-            axios.post("https://api.neodove.com/integration/custom/1311aef1-7e12-4ee1-a174-3d9b39229b17/leads?update=true",{
+            axios.post("https://api.neodove.com/integration/custom/1311aef1-7e12-4ee1-a174-3d9b39229b17/leads",{
                 name: name, email: email, phone: phone,            })
         }
     }

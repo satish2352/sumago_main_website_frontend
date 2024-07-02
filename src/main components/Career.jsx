@@ -26,72 +26,77 @@ import { Button, Form, Modal } from 'react-bootstrap';
 import ReCAPTCHA from "react-google-recaptcha";
 
 const Career = () => {
-  const [imgData, setImgData] = useState([])
-  const [internData, setInternData] = useState([])
-  const [jobData, setJobData] = useState([])
+  const [imgData, setImgData] = useState([]);
+  const [internData, setInternData] = useState([]);
+  const [jobData, setJobData] = useState([]);
   const [show, setShow] = useState(false);
   const [applicationType, setApplicationType] = useState("");
   const captchaRef = useRef(null);
   const [isCaptchaVerified, setCaptchaVerified] = useState(false);
   const handleClose = () => setShow(false);
 
-  const handleShow = (application) => {
-    setShow(true);
-    setApplicationType(application)
-  }
+
+
   const onChange = (value) => {
     // This function will be called when the ReCAPTCHA is completed.
     setCaptchaVerified(true);
     console.log(value);
-  }
-  console.log("applicationType", applicationType);
-  useEffect(() => {
-    axios.get("life_category/getLifeCategory").then((result) => {
-      console.log("result dfjdhfkgd", result);
-      setImgData(result.data)
-    }).catch((err) => {
-      console.log("err", err);
-    });
-  }, [])
+  };
 
   useEffect(() => {
-    axios.get("/jobs/getJobRecord").then((result) => {
-      console.log("result jobs", result);
-      setJobData(result.data)
-    }).catch((err) => {
-      console.log("err", err);
-    });
-  }, [])
+    axios.get("life_category/getLifeCategory")
+      .then((result) => {
+        setImgData(result.data);
+      })
+      .catch((err) => {
+        console.error("Error fetching life category data", err);
+      });
+  }, []);
 
   useEffect(() => {
-    axios.get("/internship/getInternshipRecord").then((result) => {
-      console.log("result", result);
-      setInternData(result.data)
-    }).catch((err) => {
-      console.log("err", err);
-    });
-  }, [])
+    axios.get("/jobs/getJobRecord")
+      .then((result) => {
+        setJobData(result.data);
+      })
+      .catch((err) => {
+        console.error("Error fetching job data", err);
+      });
+  }, []);
 
-  const [activeTab, setActiveTab] = useState('All Categories'); // Initial active tab state
-  const [title, setTitle] = useState("")
-  const [name, setName] = useState("")
-  const [phone, setPhone] = useState("")
-  const [address, setAddress] = useState("")
-  const [email, setEmail] = useState("")
-  const [confmEmail, setConfmEmail] = useState("")
-  const [cv, setCV] = useState()
-  const [cover_letter, setCover_letter] = useState()
-  const [lifeCategoryData, setLifeCategoryData] = useState([])
+  useEffect(() => {
+    axios.get("/internship/getInternshipRecord")
+      .then((result) => {
+        setInternData(result.data);
+      })
+      .catch((err) => {
+        console.error("Error fetching internship data", err);
+      });
+  }, []);
+
+  const [activeTab, setActiveTab] = useState('All Categories');
+  // Initial active tab state
+  const [jobtittle, setjobtitle] = useState("")
+  const [title, setTitle] = useState(jobtittle);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [email, setEmail] = useState("");
+  const [confmEmail, setConfmEmail] = useState("");
+  const [cv, setCV] = useState(null); // Changed to null for clearer initialization
+  const [cover_letter, setCover_letter] = useState(null); // Changed to null for clearer initialization
+  const [lifeCategoryData, setLifeCategoryData] = useState([]);
   const [errors, setErrors] = useState({});
-  console.log("lifeCategoryData", lifeCategoryData);
+  const handleShow = (application) => {
+    setShow(true);
+    setApplicationType(application);
+    setjobtitle(application)
+  };
+  // console.log("opppppppppppp", jobtittle)
   const validateForm = () => {
     let errors = {};
     let isValid = true;
 
-    if (!title.trim()) {
-      errors.title = 'Title is required';
-      isValid = false;
-    }
+
 
     if (!name.trim()) {
       errors.name = 'Name is required';
@@ -138,90 +143,104 @@ const Career = () => {
     }
 
     if (!isCaptchaVerified) {
-      errors.captcha = 'please complete the recaptcha before submitting.';
+      errors.captcha = 'Please complete the reCAPTCHA before submitting.';
       isValid = false;
     }
 
     setErrors(errors);
     return isValid;
   };
-  const submitData = (e) => {
+
+  const submitData = async (e) => {
     e.preventDefault();
+  
     if (validateForm()) {
       const formData = new FormData();
-      formData.append("applicationType", applicationType)
-      formData.append("title", title)
-      formData.append("name", name)
-      formData.append("phone", phone)
-      formData.append("address", address)
-      formData.append("email", email)
-      formData.append("confmEmail", confmEmail)
-      formData.append("cv", cv)
-      formData.append("cover_letter", cover_letter)
-      axios.post("applynow/create", formData, { headers: { "Content-Type": "multipart/form-data" } }).then((resp) => {
-        console.log("resp", resp)
-        setTitle("")
-        setName("")
-        setPhone("")
-        setAddress("")
-        setEmail("")
-        setConfmEmail("")
-        setCV("")
-        setCover_letter("")
-        setApplicationType("")
-        handleClose()
-        alert("Your information submitted we will connect with you shortly !!")
-      }).catch((err) => {
-        console.log("err", err);
-      })
+      formData.append("applicationType", applicationType);
+      formData.append("title", jobtittle);
+      formData.append("name", name);
+      formData.append("phone", phone);
+      formData.append("address", address);
+      formData.append("email", email);
+      formData.append("confmEmail", confmEmail);
+      formData.append("cv", cv);
+      formData.append("cover_letter", cover_letter);
+  
+      try {
+        const resp = await axios.post("applynow/create", formData, {
+          headers: { "Content-Type": "multipart/form-data" }
+        });
+  
+        console.log("Form submission response:", resp.data);
+  
+        // Clear form fields after successful submission
+        setTitle("");
+        setName("");
+        setPhone("");
+        setAddress("");
+        setEmail("");
+        setConfmEmail("");
+        setCV(null);
+        setCover_letter(null);
+        setApplicationType("");
+        handleClose();
+        alert("Your information submitted. We will connect with you shortly!!");
+      } catch (err) {
+        console.error("Error submitting form", err);
+        // Handle specific errors or log them for debugging
+        alert("Error submitting form. Please try again later.");
+      }
+  
+      // Send additional lead information asynchronously
       axios.post("https://api.neodove.com/integration/custom/1311aef1-7e12-4ee1-a174-3d9b39229b17/leads?update=true", {
-        name: name, email: email, phone: phone,
-      })
-    }
-  }
-  useEffect(() => {
-    axios.get("/life_category_details/getAllLifeCategoryDetailsRecord").then((response) => {
-      setLifeCategoryData(response.data)
-      // Handle the response data here, such as updating state or rendering it on the UI
-    }).catch((error) => {
-      console.log("error", error);
-      // Handle errors here
-    })
-  }, [])
-  const handleTabClick = (category) => {
-    setActiveTab(category);
-    if (category === "All Categories") {
-      axios.get("/life_category_details/getAllLifeCategoryDetailsRecord").then((response) => {
-        setLifeCategoryData(response.data)
-        // Handle the response data here, such as updating state or rendering it on the UI
-      }).catch((error) => {
-        console.log("error", error);
-        // Handle errors here
-      })
-    } else {
-      axios.get("/life_category_details/find", {
-        params: {
-          category: category
-        }
-      }).then((response) => {
-        console.log("result", response.data);
-        setLifeCategoryData(response.data)
-        // Handle the response data here, such as updating state or rendering it on the UI
-      }).catch((error) => {
-        console.log("error", error);
-        // Handle errors here
-      })
+        name: name, email: email, phone: phone
+      });
     }
   };
+  
 
-  const projects = [
-    { category: 'garment-printing', image: img4 },
-    { category: 'garment-printing', image: img6 },
-    { category: 'litho_printing', image: img3 },
-    { category: 'all', image: img8 },
-    { category: 'litho_printing', image: img },
-    { category: 'litho_printing', image: img5 },
-  ];
+  useEffect(() => {
+    axios.get("/life_category_details/getAllLifeCategoryDetailsRecord")
+      .then((response) => {
+        setLifeCategoryData(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching life category details", error);
+      });
+  }, []);
+
+  const handleTabClick = (category) => {
+    setActiveTab(category);
+
+    const axiosConfig = {
+      headers: {
+        // Add headers if necessary
+      }
+    };
+
+    if (category === "All Categories") {
+      axios.get("/life_category_details/getAllLifeCategoryDetailsRecord", axiosConfig)
+        .then((response) => {
+          setLifeCategoryData(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching All Categories data", error);
+        });
+    } else {
+      axios.get("/life_category_details/find", {
+        params: { category },
+        ...axiosConfig
+      })
+        .then((response) => {
+          setLifeCategoryData(response.data);
+        })
+        .catch((error) => {
+          console.error(`Error fetching ${category} data`, error);
+        });
+    }
+
+  }
+
   return (
     <>
       <div className="careersPage">
@@ -385,7 +404,7 @@ const Career = () => {
                                       {/* <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                       Apply Now
                                     </button> */}
-                                      <Button type="button" className="theme-btn btn-two border-0" onClick={() => handleShow("Job")}>
+                                      <Button type="button" className="theme-btn btn-two border-0" onClick={() => handleShow(item.designation)}>
                                         Apply Now
                                       </Button>
 
@@ -425,145 +444,7 @@ const Career = () => {
                           })
                       }
 
-                      {/* <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                      <div className="pricing-block-one ">
-                        <div className="pricing-table te-tab">
-                          <div className="table-header">
-                            <div className="shape"
-                              style={{ backgroundImage: `url(${img7})` }}>
-                            </div>
-                            <img src={r1} style={{ width: '80px', height: '90px' }} alt="image" />
-                            <h2 className="te-heading">
-                              <h3 className="te-pac">MEAN DEVELOPER</h3>
-                            </h2>
-                            <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                              Apply Now
-                            </button>
 
-                          </div>
-
-                          <div className="table-content te-list">
-                            <div className="card__header">
-                              <img className="card__thumb" src={experience1} alt="" />
-                              <div className="card__header-text">
-                                <ul className="clearfix" style={{ fontWeight: '400' }}>
-                                  <li>1</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div className="card__header">
-                              <img className="card__thumb" src={location1} alt="" />
-                              <div className="card__header-text">
-                                <ul className="clearfix" style={{ fontWeight: '400' }}>
-                                  <li>Nashik</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div className="card__header">
-                              <img className="card__thumb" src={BEimg} alt="" />
-                              <div className="card__header-text">
-                                <ul className="clearfix" style={{ fontWeight: '400' }}>
-                                  <li>BE</li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div> */}
-                      {/* <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                      <div className="pricing-block-one active-block">
-                        <div className="pricing-table te-tab">
-                          <div className="table-header">
-                            <div className="shape"
-                              style={{ backgroundImage: `url(${img7})` }}>
-                            </div>
-                            <img src={r1} style={{ width: '80px', height: '90px' }} alt="image" />
-                            <h2 className="te-heading">
-                              <h3 className="te-pac" style={{ color: '#f54c4c' }}>MEAN DEVELOPER</h3>
-                            </h2>
-                            <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                              Apply Now
-                            </button>
-
-                          </div>
-                          <div className="table-content te-list">
-                            <div className="card__header">
-                              <img className="card__thumb" src={experience} alt="" />
-                              <div className="card__header-text">
-                                <ul className="clearfix" style={{ fontWeight: '400', color: 'white' }}>
-                                  <li>1</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div className="card__header">
-                              <img className="card__thumb" src={location} alt="" />
-                              <div className="card__header-text">
-                                <ul className="clearfix" style={{ fontWeight: '400', color: 'white' }}>
-                                  <li>Nashik</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div className="card__header">
-                              <img className="card__thumb" src={BEimg2} alt="" />
-                              <div className="card__header-text">
-                                <ul className="clearfix" style={{ fontWeight: '400', color: 'white' }}>
-                                  <li>BE</li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div> */}
-                      {/* <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                      <div className="pricing-block-one ">
-                        <div className="pricing-table te-tab">
-                          <div className="table-header">
-                            <div className="shape"
-                              style={{ backgroundImage: `url(${img7})` }}>
-                            </div>
-                            <img src={r1} style={{ width: '80px', height: '90px' }} alt="image" />
-                            <h2 className="te-heading">
-                              <h3 className="te-pac">MEAN DEVELOPER</h3>
-                              </h2>
-                            <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                              Apply Now
-                            </button>
-
-                          </div>
-
-                          <div className="table-content te-list">
-                            <div className="card__header">
-                              <img className="card__thumb" src={experience1} alt="" />
-                              <div className="card__header-text">
-                                <ul className="clearfix" style={{ fontWeight: '400' }}>
-                                  <li>1</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div className="card__header">
-                              <img className="card__thumb" src={location1} alt="" />
-                              <div className="card__header-text">
-                                <ul className="clearfix" style={{ fontWeight: '400' }}>
-                                  <li>Nashik</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div className="card__header">
-                              <img className="card__thumb" src={BEimg3} alt="" />
-                              <div className="card__header-text">
-                                <ul className="clearfix" style={{ fontWeight: '400' }}>
-                                  <li>BE</li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div> */}
 
                     </div>
                   </div>
@@ -572,9 +453,7 @@ const Career = () => {
             </div>
           </div>
         </section>
-        {/*pricing - section end*/}
 
-        {/*Modal */}
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Apply Now</Modal.Title>
@@ -583,8 +462,8 @@ const Career = () => {
             <Form onSubmit={submitData} name="myForm" encType="multipart/form-data">
               <Form.Group controlId="formTitle">
                 <Form.Label>Title:</Form.Label>
-                <Form.Control type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
-                {errors.title && <span className="error text-danger">{errors.title}</span>}
+                <Form.Control type="text" placeholder={`${jobtittle}`} disabled/>
+
               </Form.Group>
               <Form.Group controlId="formName">
                 <Form.Label>Name:</Form.Label>
@@ -627,9 +506,9 @@ const Career = () => {
                   //test key
                   // sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
                   // server key
-                  sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
+                  // sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
                   //local key
-                  // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
+                  sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
                   // sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"}
                   onChange={onChange}
                 />
@@ -646,28 +525,7 @@ const Career = () => {
             </Form>
           </Modal.Body>
         </Modal>
-        {/* <section className="pricing-section style-two">
-        <div className="auto-container">
-          <div className="tabs-box">
-            <div className="row clearfix">
-              <div className="content-box clearfix centred">
-                <div className="sec-title">
-                  <h6 className="te-subtitle">Career Opportunities</h6>
-                  <h2 className="te-title">Internship Openings</h2>
-                </div>
-              </div>
-              {errors.captcha && <span className="error text-danger">{errors.captcha}</span>}
-              <div className="form-group text-center mt-4">
-                <Button variant="secondary" className='mx-1' onClick={handleClose}>
-                  Close
-                </Button>
-                <Button variant="primary" className='mx-1' type="submit">
-                  Submit
-                </Button>
-              </div>
-            </Form>
-          </Modal.Body>
-        </Modal> */}
+      
         <section className="pricing-section style-two">
           <div className="auto-container">
             <div className="tabs-box">
@@ -697,7 +555,7 @@ const Career = () => {
                                       <h2 className="te-heading">
                                         <h3 className="te-pac" >{item.designation}</h3>
                                       </h2>
-                                      <Button type='button' className='theme-btn btn-two border-0' onClick={() => handleShow("Internship")}>
+                                      <Button type='button' className='theme-btn btn-two border-0' onClick={() => handleShow(item.designation)}>
                                         Apply Now
                                       </Button>
 
@@ -736,145 +594,7 @@ const Career = () => {
                             )
                           })
                       }
-                      {/* <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                      <div className="pricing-block-one ">
-                        <div className="pricing-table te-tab">
-                          <div className="table-header">
-                            <div className="shape"
-                              style={{ backgroundImage: `url(${img7})` }}>
-                            </div>
-                            <img src={r1} style={{ width: '80px', height: '90px' }} alt="image" />
-                            <h2 className="te-heading">
-                              <h3 className="te-pac">MEAN DEVELOPER</h3>
-                              </h2>
-                            <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                              Apply Now
-                            </button>
-
-                          </div>
-
-                          <div className="table-content te-list">
-                            <div className="card__header">
-                              <img className="card__thumb" src={experience1} alt="" />
-                              <div className="card__header-text">
-                                <ul className="clearfix" style={{ fontWeight: '400' }}>
-                                  <li>1</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div className="card__header">
-                              <img className="card__thumb" src={location1} alt="" />
-                              <div className="card__header-text">
-                                <ul className="clearfix" style={{ fontWeight: '400' }}>
-                                  <li>Nashik</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div className="card__header">
-                              <img className="card__thumb" src={BEimg} alt="" />
-                              <div className="card__header-text">
-                                <ul className="clearfix" style={{ fontWeight: '400' }}>
-                                  <li>BE</li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div> */}
-                      {/* <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                      <div className="pricing-block-one active-block">
-                        <div className="pricing-table te-tab">
-                          <div className="table-header">
-                            <div className="shape"
-                              style={{ backgroundImage: `url(${img7})` }}>
-                            </div>
-                            <img src={r1} style={{ width: '80px', height: '90px' }} alt="image" />
-                            <h2 className="te-heading">
-                              <h3 className="te-pac" style={{ color: '#f54c4c' }}>MEAN DEVELOPER</h3>
-                              </h2>
-                            <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                              Apply Now
-                            </button>
-
-                          </div>
-                          <div className="table-content te-list">
-                            <div className="card__header">
-                              <img className="card__thumb" src={experience} alt="" />
-                              <div className="card__header-text">
-                                <ul className="clearfix" style={{ fontWeight: '400', color: 'white' }}>
-                                  <li>1</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div className="card__header">
-                              <img className="card__thumb" src={location} alt="" />
-                              <div className="card__header-text">
-                                <ul className="clearfix" style={{ fontWeight: '400', color: 'white' }}>
-                                  <li>Nashik</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div className="card__header">
-                              <img className="card__thumb" src={BEimg2} alt="" />
-                              <div className="card__header-text">
-                                <ul className="clearfix" style={{ fontWeight: '400', color: 'white' }}>
-                                  <li>BE</li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div> */}
-                      {/* <div className="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                      <div className="pricing-block-one ">
-                        <div className="pricing-table te-tab">
-                          <div className="table-header">
-                            <div className="shape"
-                              style={{ backgroundImage: `url(${img7})` }}>
-                            </div>
-                            <img src={r1} style={{ width: '80px', height: '90px' }} alt="image" />
-                            <h2 className="te-heading">
-                              <h3 className="te-pac">MEAN DEVELOPER</h3>
-                             </h2>
-                            <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                              Apply Now
-                            </button>
-
-                          </div>
-
-                          <div className="table-content te-list">
-                            <div className="card__header">
-                              <img className="card__thumb" src={experience1} alt="" />
-                              <div className="card__header-text">
-                                <ul className="clearfix" style={{ fontWeight: '400' }}>
-                                  <li>1</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div className="card__header">
-                              <img className="card__thumb" src={location1} alt="" />
-                              <div className="card__header-text">
-                                <ul className="clearfix" style={{ fontWeight: '400' }}>
-                                  <li>Nashik</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div className="card__header">
-                              <img className="card__thumb" src={BEimg3} alt="" />
-                              <div className="card__header-text">
-                                <ul className="clearfix" style={{ fontWeight: '400' }}>
-                                  <li>BE</li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div> */}
+                    
 
                     </div>
                   </div>
@@ -883,7 +603,6 @@ const Career = () => {
             </div>
           </div>
         </section>
-        {/* <Testimonials /> */}
       </div>
     </>
   )

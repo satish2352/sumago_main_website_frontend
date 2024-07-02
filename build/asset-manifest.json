@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.6185ae1e.css",
-    "main.js": "/static/js/main.13701f0e.js",
+    "main.js": "/static/js/main.03543b96.js",
     "static/js/453.f6403434.chunk.js": "/static/js/453.f6403434.chunk.js",
     "static/media/SCOPE introduction.pdf": "/static/media/SCOPE introduction.4309e043b80f44bc787a.pdf",
     "static/media/business_profile.pdf": "/static/media/business_profile.5131d2d95f92d910a7a3.pdf",
@@ -218,11 +218,11 @@
     "static/media/diners.svg": "/static/media/diners.637579df083fe357ab09.svg",
     "static/media/loader.svg": "/static/media/loader.2ac8330bf65fce0b22eb.svg",
     "main.6185ae1e.css.map": "/static/css/main.6185ae1e.css.map",
-    "main.13701f0e.js.map": "/static/js/main.13701f0e.js.map",
+    "main.03543b96.js.map": "/static/js/main.03543b96.js.map",
     "453.f6403434.chunk.js.map": "/static/js/453.f6403434.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6185ae1e.css",
-    "static/js/main.13701f0e.js"
+    "static/js/main.03543b96.js"
   ]
 }
