@@ -60,7 +60,7 @@ const DownloadWidget = () => {
             }
         }
         try {
-            await axios.post("https://api.neodove.com/integration/custom/817befb0-2962-41af-be56-f81b8e5f8c93/leads?update=true", {
+            await axios.post("https://api.neodove.com/integration/custom/817befb0-2962-41af-be56-f81b8e5f8c93/leads", {
                 name: formData.fullname,
                 mobile: formData.phone,
                 email: formData.email,
@@ -181,8 +181,9 @@ const DownloadWidget = () => {
                         <div className=' d-grid justify-content-end'>
                             <ReCAPTCHA
                                 ref={captchaRef}
-                                // sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
                                 sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
+                                // local key
+                                // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
                                 className=' p-3'
                                 onChange={onChange}
                             />

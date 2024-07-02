@@ -3,7 +3,7 @@ import '../assets/css/GetaQuote.css';
 import { Button, Col, Form, Modal, Row } from 'react-bootstrap';
 import axios from 'axios';
 import ReCAPTCHA from "react-google-recaptcha";
-import { useRef,useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 const GetaQuote = () => {
     const [show, setShow] = useState(false);
     const [name, setName] = useState("")
@@ -19,12 +19,7 @@ const GetaQuote = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [storedPhone, setStoredPhone] = useState("");
-    useEffect(() => {
-        const storedPhone  = localStorage.getItem("phone4");
-        if (storedPhone) {
-            setPhone(storedPhone);
-        }
-    }, []); 
+  
     const onChange = (value) => {
         setCaptchaVerified(true);
         console.log(value);
@@ -102,8 +97,8 @@ const GetaQuote = () => {
             }).catch((err) => {
                 console.log("err", err);
             })
-            axios.post("https://api.neodove.com/integration/custom/407cfcb7-1e05-4e5b-9421-3f50bcd5167f/leads?update=true",{
-                name: name,mobile:phone,email:email,detail:service,detail:address
+            axios.post("https://api.neodove.com/integration/custom/407cfcb7-1e05-4e5b-9421-3f50bcd5167f/leads", {
+                name: name, mobile: phone, email: email, detail: service, detail: address
             })
         }
     }
@@ -142,7 +137,7 @@ const GetaQuote = () => {
                                                                 call us today!
                                                             </p>
                                                             <h4 className="te-subtitle"><a
-                                                                href="tel:+91 8530388815" className='ms-5 me-5 ps-1 pe-1'>+91{storedPhone ? storedPhone: "8530388815"}</a></h4>
+                                                                href="tel:+91 8530388815" className='ms-5 me-5 ps-1 pe-1'>+91{storedPhone ? storedPhone : "8530388815"}</a></h4>
                                                         </div>
                                                     </div>
                                                 </div>
