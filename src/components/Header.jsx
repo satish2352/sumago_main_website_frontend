@@ -249,13 +249,18 @@ const Header = () => {
                                     <span> Call Us</span> <strong>Now:</strong>
                                 </div>
                                 <ul className='list-unstyled d-flex justify-content-evenly mb-2'>
-                                    <li>
-                                        <a href={`tel:${contactInfo.phone1}`}><strong>+91 {contactInfo.phone1}</strong></a>
-                                    </li>
-                                    <li>
-                                        <a href={`tel:${contactInfo.phone2}`}><strong>+91 {contactInfo.phone2}</strong></a>
-                                    </li>
-                                </ul>
+    {contactInfo.phone1 && (
+        <li>
+            <a href={`tel:${contactInfo.phone1}`}><strong>+91 {contactInfo.phone1}</strong></a>
+        </li>
+    )}
+    {contactInfo.phone2 && (
+        <li>
+            <a href={`tel:${contactInfo.phone2}`}><strong>+91 {contactInfo.phone2}</strong></a>
+        </li>
+    )}
+</ul>
+
                             </div>
                             <div className="col-sm-12 col-md-5 col-lg-5 d-grid justify-content-center ">
                                 <figure className="logo">
