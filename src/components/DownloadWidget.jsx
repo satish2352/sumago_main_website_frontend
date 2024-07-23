@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import downloadFile from "../assets/css/SCOPE introduction.pdf";
-// D:\sumagodeev\new\sumago_main_website_frontend\src\assets\
 import im from '../assets/images/wp-content/uploads/2023/08/thumbnail.png';
 import axios from 'axios';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -40,7 +39,7 @@ const DownloadWidget = () => {
         e.preventDefault();
         if (validateForm()) {
             try {
-                const response = await axios.post('/broucherDownload/createBroucherDownloadRecord', formData);
+                const response = await axios.post('broucherDownload/createBroucherDownloadRecord', formData);
                 console.log('API Response:', response.data);
 
                 // Trigger the file download
@@ -55,8 +54,20 @@ const DownloadWidget = () => {
                 handleClose();
             } catch (error) {
                 console.error('Error:', error);
-                // Handle error, show a message to the user, etc.
-                setError('Mobile number is already registered');
+                console.error('Error Response:', error.response?.data);
+
+                if (error.response && error.response.data && error.response.data.error) {
+                    const errorMessage = error.response.data.error;
+                    if (errorMessage === 'Email already exists') {
+                        setError('Email is already registered');
+                    } else if (errorMessage === 'Phone number already exists') {
+                        setError('Mobile number is already registered');
+                    } else {
+                        setError('An unexpected error occurred');
+                    }
+                } else {
+                    setError('An unexpected error occurred');
+                }
             }
         }
         try {
@@ -182,8 +193,6 @@ const DownloadWidget = () => {
                             <ReCAPTCHA
                                 ref={captchaRef}
                                 sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
-                                // local key
-                                // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
                                 className=' p-3'
                                 onChange={onChange}
                             />
