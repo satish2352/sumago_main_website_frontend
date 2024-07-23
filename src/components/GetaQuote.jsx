@@ -1,29 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import '../assets/css/GetaQuote.css';
 import { Button, Col, Form, Modal, Row } from 'react-bootstrap';
 import axios from 'axios';
-import ReCAPTCHA from "react-google-recaptcha";
-import { useRef, useEffect } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha';
+
 const GetaQuote = () => {
-    const [show, setShow] = useState(false);
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [phone, setPhone] = useState("")
-    const [service, setService] = useState("")
-    const [other, setOther] = useState("")
-    const [address, setAddress] = useState("")
-    const [comment, setComment] = useState("")
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [service, setService] = useState("");
+    const [other, setOther] = useState("");
+    const [address, setAddress] = useState("");
+    const [comment, setComment] = useState("");
     const [errors, setErrors] = useState({});
     const captchaRef = useRef(null);
     const [isCaptchaVerified, setCaptchaVerified] = useState(false);
+    const [show, setShow] = useState(false);
+    const [error, setError] = useState('');
+    const [storedPhone, setStoredPhone] = useState("8530388815");
+
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const [storedPhone, setStoredPhone] = useState("");
-  
+
     const onChange = (value) => {
         setCaptchaVerified(true);
         console.log(value);
-    }
+    };
 
     const validateForm = () => {
         let errors = {};
@@ -41,18 +43,14 @@ const GetaQuote = () => {
             errors.service = 'Service is required';
             isValid = false;
         }
-        if (service == "Other Service") {
-            if (!other.trim()) {
-                errors.other = 'Other service is required';
-                isValid = false;
-            }
+        if (service === "Other Service" && !other.trim()) {
+            errors.other = 'Other service is required';
+            isValid = false;
         }
-
         if (!name.trim()) {
             errors.name = 'Name is required';
             isValid = false;
         }
-
         if (!phone.trim()) {
             errors.phone = 'Phone number is required';
             isValid = false;
@@ -60,7 +58,6 @@ const GetaQuote = () => {
             errors.phone = 'Invalid phone number';
             isValid = false;
         }
-
         if (!email.trim()) {
             errors.email = 'Email Id is required';
             isValid = false;
@@ -68,7 +65,6 @@ const GetaQuote = () => {
             errors.email = 'Invalid email address';
             isValid = false;
         }
-
         if (!isCaptchaVerified) {
             errors.captcha = 'Please complete the recaptcha before submitting.';
             isValid = false;
@@ -77,14 +73,23 @@ const GetaQuote = () => {
         setErrors(errors);
         return isValid;
     };
-    const SubmitData = (e) => {
+
+    const SubmitData = async (e) => {
         e.preventDefault();
         let newData = {
-            name: name, email: email, phone: phone, service: service, other_service: service == "Other Service" ? other : "NA", address: address, comment: comment
-        }
+            name: name,
+            email: email,
+            phone: phone,
+            service: service,
+            other_service: service === "Other Service" ? other : "NA",
+            address: address,
+            comment: comment
+        };
+
         if (validateForm()) {
-            axios.post("/quotes/create", newData).then((resp) => {
-                console.log("resp", resp)
+            try {
+                const response = await axios.post('/quotes/create', newData);
+                console.log('API Response:', response.data);
                 setName("");
                 setEmail("");
                 setPhone("");
@@ -92,37 +97,43 @@ const GetaQuote = () => {
                 setOther("");
                 setAddress("");
                 setComment("");
-                handleClose()
-                alert("Your information submitted we will connect with you shortly !!")
-            }).catch((err) => {
-                console.log("err", err);
-            })
-            axios.post("https://api.neodove.com/integration/custom/407cfcb7-1e05-4e5b-9421-3f50bcd5167f/leads", {
-                name: name, mobile: phone, email: email, detail: service, detail: address
-            })
-        }
-    }
+                handleClose();
+                alert("Your information submitted. We will connect with you shortly!!");
+            } catch (error) {
+                console.error('Error:', error);
+                console.error('Error Response:', error.response?.data);
 
-    // const clearFields = () => {
-    //     setName("")
-    //     setEmail("")
-    //     setPhone("")
-    //     setService("")
-    //     setOther("")
-    //     setAddress("")
-    //     setComment("")
-    // }
+                if (error.response && error.response.data && error.response.data.error) {
+                    const errorMessage = error.response.data.error;
+                    if (errorMessage === 'Email already exists') {
+                        setError('Email is already registered');
+                    } else if (errorMessage === 'Phone number already exists') {
+                        setError('Mobile number is already registered');
+                    } else {
+                        setError('An unexpected error occurred');
+                    }
+                } else {
+                    setError('An unexpected error occurred');
+                }
+            }
+            axios.post("https://api.neodove.com/integration/custom/407cfcb7-1e05-4e5b-9421-3f50bcd5167f/leads", {
+                name: name,
+                mobile: phone,
+                email: email,
+                detail: service,
+                detail: address
+            });
+        }
+    };
+
     return (
         <>
             <div className='getaquote-section container mt-5'>
                 <Row>
                     <Col lg={4} md={6} sm={12} className='column-1'>
-                        <div className="elementor-column elementor-top-column elementor-element elementor-element-fec6395  "
-                            data-id="fec6395" data-element_type="column">
-                            <div className="elementor-widget-wrap elementor-element-populated d-flex  align-content-center">
-                                <div className="elementor-element elementor-element-91f6e29 elementor-widget elementor-widget-printpark_icon_box"
-                                    data-id="91f6e29" data-element_type="widget"
-                                    data-widget_type="printpark_icon_box.default">
+                        <div className="elementor-column elementor-top-column elementor-element elementor-element-fec6395">
+                            <div className="elementor-widget-wrap elementor-element-populated d-flex align-content-center">
+                                <div className="elementor-element elementor-element-91f6e29 elementor-widget elementor-widget-printpark_icon_box">
                                     <div className="elementor-widget-container">
                                         <section className="info-section centred p-0 m-0">
                                             <div className="info-column">
@@ -132,12 +143,10 @@ const GetaQuote = () => {
                                                             <div className="icon-box te-icon">
                                                                 <i className="flaticon-incoming-call"></i>
                                                             </div>
-                                                            <p className="te-text">If you need help, don't look far,
-                                                                <br />
-                                                                call us today!
-                                                            </p>
-                                                            <h4 className="te-subtitle"><a
-                                                                href="tel:+91 8530388815" className='ms-5 me-5 ps-1 pe-1'>+91{storedPhone ? storedPhone : "8530388815"}</a></h4>
+                                                            <p className="te-text">If you need help, don't look far,<br />call us today!</p>
+                                                            <h4 className="te-subtitle">
+                                                                <a href="tel:+91 8530388815" className='ms-5 me-5 ps-1 pe-1'>+91{storedPhone}</a>
+                                                            </h4>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -149,17 +158,14 @@ const GetaQuote = () => {
                         </div>
                     </Col>
                     <Col lg={4} md={6} sm={12} className='column-2'>
-                        <div className="elementor-column elementor-top-column elementor-element elementor-element-a4fd0a5  "
-                            data-id="a4fd0a5" data-element_type="column">
-                            <div className="elementor-widget-wrap elementor-element-populated d-flex  align-content-center">
-                                <div className="elementor-element elementor-element-ca701f4 elementor-widget elementor-widget-printpark_icon_box"
-                                    data-id="ca701f4" data-element_type="widget"
-                                    data-widget_type="printpark_icon_box.default">
+                        <div className="elementor-column elementor-top-column elementor-element elementor-element-a4fd0a5">
+                            <div className="elementor-widget-wrap elementor-element-populated d-flex align-content-center">
+                                <div className="elementor-element elementor-element-ca701f4 elementor-widget elementor-widget-printpark_icon_box">
                                     <div className="elementor-widget-container">
                                         <section className="info-section centred p-0 m-0">
                                             <div className="info-column">
                                                 <div className="info-block-one">
-                                                    <div className="inner-box te-icon-box cardAtCenter" >
+                                                    <div className="inner-box te-icon-box cardAtCenter">
                                                         <div>
                                                             <div className="icon-box te-icon">
                                                                 <i className="flaticon-map"></i>
@@ -231,31 +237,31 @@ const GetaQuote = () => {
                                                                                         <option value="" disabled>Select Service</option>
                                                                                         <option value="Website Development">Website Development</option>
                                                                                         <option value="App Development">App Development</option>
-                                                                                        <option value="Software Development">Software Development</option>
-                                                                                        <option value="Digital Marketing">Digital Marketing</option>
-                                                                                        <option value="Social Media">Social Media</option>
-                                                                                        <option value="SEO">SEO</option>
-                                                                                        <option value="Training/Internship">Training/Internship</option>
-                                                                                        <option value="Start up Consultancy">Start up Consultancy</option>
-                                                                                        <option value="Web Hosting">Web Hosting</option>
+                                                                                        <option value="Custom Software Development">Custom Software Development</option>
                                                                                         <option value="Other Service">Other Service</option>
                                                                                     </Form.Control>
                                                                                     {errors.service && <span className="error text-danger">{errors.service}</span>}
+                                                                                    {service === "Other Service" && (
+                                                                                        <Form.Group className='mt-2'>
+                                                                                            <Form.Control
+                                                                                                type="text"
+                                                                                                placeholder="Please specify the service"
+                                                                                                value={other}
+                                                                                                onChange={(e) => setOther(e.target.value)}
+                                                                                                onBlur={() => {
+                                                                                                    if (other.trim() && errors.other) {
+                                                                                                        setErrors({ ...errors, other: '' });
+                                                                                                    }
+                                                                                                }}
+                                                                                            />
+                                                                                            {errors.other && <span className="error text-danger">{errors.other}</span>}
+                                                                                        </Form.Group>
+                                                                                    )}
                                                                                 </Form.Group>
-                                                                                {
-                                                                                    service == "Other Service" &&
-                                                                                    <Form.Group>
-                                                                                        <Form.Label>Other Service:</Form.Label>
-                                                                                        <Form.Control type="text" placeholder="Other Service" value={service == "Other Service" ? other : "NA"} onChange={(e) => setOther(e.target.value)} />
-                                                                                        {errors.other && <span className="error text-danger">{errors.other}</span>}
-                                                                                    </Form.Group>
-                                                                                }
-
                                                                                 <Form.Group>
                                                                                     <Form.Label>Address:</Form.Label>
                                                                                     <Form.Control
-                                                                                        as="textarea"
-                                                                                        rows={4}
+                                                                                        type="text"
                                                                                         placeholder="Address"
                                                                                         value={address}
                                                                                         onChange={(e) => setAddress(e.target.value)}
@@ -267,13 +273,12 @@ const GetaQuote = () => {
                                                                                     />
                                                                                     {errors.address && <span className="error text-danger">{errors.address}</span>}
                                                                                 </Form.Group>
-
                                                                                 <Form.Group>
-                                                                                    <Form.Label>Any Comment:</Form.Label>
+                                                                                    <Form.Label>Comment:</Form.Label>
                                                                                     <Form.Control
                                                                                         as="textarea"
                                                                                         rows={4}
-                                                                                        placeholder="Comment"
+                                                                                        placeholder="Comments"
                                                                                         value={comment}
                                                                                         onChange={(e) => setComment(e.target.value)}
                                                                                         onBlur={() => {
@@ -284,28 +289,21 @@ const GetaQuote = () => {
                                                                                     />
                                                                                     {errors.comment && <span className="error text-danger">{errors.comment}</span>}
                                                                                 </Form.Group>
-
-                                                                                <div lg={11} className='mt-3 d-flex justify-content-end'>
+                                                                                <Form.Group className="mt-3">
                                                                                     <ReCAPTCHA
-                                                                                        ref={captchaRef}
-                                                                                        // sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"}
-                                                                                        //test key
-                                                                                        // sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
-                                                                                        // local key
-                                                                                        // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
-                                                                                        // server key
                                                                                         sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
                                                                                         onChange={onChange}
+                                                                                        ref={captchaRef}
                                                                                     />
-                                                                                </div>
-
-                                                                                {errors.captcha && <span className="error text-danger">{errors.captcha}</span>}
+                                                                                    {errors.captcha && <span className="error text-danger">{errors.captcha}</span>}
+                                                                                </Form.Group>
+                                                                                <p className='error text-danger'>{error}</p>
                                                                             </Modal.Body>
                                                                             <Modal.Footer>
                                                                                 <Button variant="secondary" onClick={handleClose}>
                                                                                     Close
                                                                                 </Button>
-                                                                                <Button variant="success" type="submit">
+                                                                                <Button variant="primary" type="submit">
                                                                                     Submit
                                                                                 </Button>
                                                                             </Modal.Footer>
@@ -323,6 +321,7 @@ const GetaQuote = () => {
                             </div>
                         </div>
                     </Col>
+                 
                     <Col lg={4} md={6} sm={12} className='column-3'>
                         <div className="elementor-column elementor-top-column elementor-element elementor-element-c350336 "
                             data-id="c350336" data-element_type="column">
