@@ -60,6 +60,8 @@ const Oursolutions2 = (props) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const captchaRef = useRef(null);
+    const [error, setError] = useState('');
+
     const [isCaptchaVerified, setCaptchaVerified] = useState(false);
     const onChange = (value) => {
         setCaptchaVerified(true);
@@ -82,25 +84,21 @@ const Oursolutions2 = (props) => {
             errors.service = 'Service is required';
             isValid = false;
         }
-        if (service == "Other Service") {
-            if (!other.trim()) {
-                errors.other = 'Other service is required';
-                isValid = false;
-            }
+        if (service === "Other Service" && !other.trim()) {
+            errors.other = 'Other service is required';
+            isValid = false;
         }
         if (!name.trim()) {
             errors.name = 'Name is required';
             isValid = false;
         }
-
         if (!phone.trim()) {
             errors.phone = 'Phone number is required';
             isValid = false;
-        } else if (!/^[6-9]{1}[0-9]{9}$/.test(phone)) {
+        } else if (!/^[7-9]{1}[0-9]{9}$/.test(phone)) {
             errors.phone = 'Invalid phone number';
             isValid = false;
         }
-
         if (!email.trim()) {
             errors.email = 'Email Id is required';
             isValid = false;
@@ -108,7 +106,6 @@ const Oursolutions2 = (props) => {
             errors.email = 'Invalid email address';
             isValid = false;
         }
-
         if (!isCaptchaVerified) {
             errors.captcha = 'Please complete the recaptcha before submitting.';
             isValid = false;
@@ -117,15 +114,23 @@ const Oursolutions2 = (props) => {
         setErrors(errors);
         return isValid;
     };
-    const SubmitData = (e) => {
+
+    const SubmitData = async (e) => {
         e.preventDefault();
-        console.log("service", service);
         let newData = {
-            name: name, email: email, phone: phone, service: service, other_service: service == "Other Service" ? other : "NA", address: address, comment: comment
-        }
+            name: name,
+            email: email,
+            phone: phone,
+            service: service,
+            other_service: service === "Other Service" ? other : "NA",
+            address: address,
+            comment: comment
+        };
+
         if (validateForm()) {
-            axios.post("/quotes/create", newData).then((resp) => {
-                console.log("resp", resp)
+            try {
+                const response = await axios.post('/quotes/create', newData);
+                console.log('API Response:', response.data);
                 setName("");
                 setEmail("");
                 setPhone("");
@@ -133,16 +138,34 @@ const Oursolutions2 = (props) => {
                 setOther("");
                 setAddress("");
                 setComment("");
-                handleClose()
-                alert("Your information submitted we will connect with you shortly !!")
-            }).catch((err) => {
-                console.log("err", err);
-            })
-            axios.post("https://api.neodove.com/integration/custom/1311aef1-7e12-4ee1-a174-d9b39229b17/leads?update=true", {
-                name: name, email: email, phone: phone,
-            })
+                handleClose();
+                alert("Your information submitted. We will connect with you shortly!!");
+            } catch (error) {
+                console.error('Error:', error);
+                console.error('Error Response:', error.response?.data);
+
+                if (error.response && error.response.data && error.response.data.error) {
+                    const errorMessage = error.response.data.error;
+                    if (errorMessage === 'Email already exists') {
+                        setError('Email is already registered');
+                    } else if (errorMessage === 'Phone number already exists') {
+                        setError('Mobile number is already registered');
+                    } else {
+                        setError('An unexpected error occurred');
+                    }
+                } else {
+                    setError('An unexpected error occurred');
+                }
+            }
+            axios.post("https://api.neodove.com/integration/custom/407cfcb7-1e05-4e5b-9421-3f50bcd5167f/leads", {
+                name: name,
+                mobile: phone,
+                email: email,
+                detail: service,
+                detail: address
+            });
         }
-    }
+    };
 
     return (
         <div className='ourSolutions'>
@@ -230,143 +253,135 @@ const Oursolutions2 = (props) => {
                                             </button>
                                             {/* Modal */}
                                             <Modal show={show} onHide={handleClose}>
-                                                <Modal.Header closeButton>
-                                                    <Modal.Title>GET A QUOTE</Modal.Title>
-                                                </Modal.Header>
-                                                <Form onSubmit={SubmitData}>
-                                                    <Modal.Body>
-                                                        <Form.Group>
-                                                            <Form.Label>Name:</Form.Label>
-                                                            <Form.Control
-                                                                type="text"
-                                                                placeholder="Name"
-                                                                value={name}
-                                                                onChange={(e) => setName(e.target.value)}
-                                                                onBlur={() => {
-                                                                    if (name.trim() && errors.name) {
-                                                                        setErrors({ ...errors, name: '' });
-                                                                    }
-                                                                }}
-                                                            />
-                                                            {errors.name && <span className="error text-danger">{errors.name}</span>}
-                                                        </Form.Group>
-                                                        <Form.Group>
-                                                            <Form.Label>Phone No.:</Form.Label>
-                                                            <Form.Control
-                                                                type="number"
-                                                                placeholder="Phone no."
-                                                                value={phone}
-                                                                onChange={(e) => setPhone(e.target.value)}
-                                                                onBlur={() => {
-                                                                    if (phone.trim() && errors.phone) {
-                                                                        setErrors({ ...errors, phone: '' });
-                                                                    }
-                                                                }}
-                                                                maxLength={10} // Limit input to 10 characters
-                                                            />
-                                                            {errors.phone && <span className="error text-danger">{errors.phone}</span>}
-                                                        </Form.Group>
-                                                        <Form.Group>
-                                                            <Form.Label>Email Id:</Form.Label>
-                                                            <Form.Control
-                                                                type="email"
-                                                                placeholder="Email Id"
-                                                                value={email}
-                                                                onChange={(e) => setEmail(e.target.value)}
-                                                                onBlur={() => {
-                                                                    if (email.trim() && errors.email) {
-                                                                        setErrors({ ...errors, email: '' });
-                                                                    }
-                                                                }}
-                                                            />
-                                                            {errors.email && <span className="error text-danger">{errors.email}</span>}
-                                                        </Form.Group>
-                                                        <Form.Group>
-                                                            <Form.Label>Type of Services:</Form.Label>
-                                                            <Form.Control as="select" value={service} onChange={(e) => setService(e.target.value)}>
-                                                                <option value="" disabled>Select Service</option>
-                                                                <option value="Website Development">Website Development</option>
-                                                                <option value="App Development">App Development</option>
-                                                                <option value="Software Development">Software Development</option>
-                                                                <option value="Digital Marketing">Digital Marketing</option>
-                                                                <option value="Social Media">Social Media</option>
-                                                                <option value="SEO">SEO</option>
-                                                                <option value="Training/Internship">Training/Internship</option>
-                                                                <option value="Start up Consultancy">Start up Consultancy</option>
-                                                                <option value="Web Hosting">Web Hosting</option>
-                                                                <option value="Other Service">Other Service</option>
-                                                            </Form.Control>
-                                                            {errors.service && <span className="error text-danger">{errors.service}</span>}
-                                                        </Form.Group>
-                                                        {
-                                                            service == "Other Service" &&
-                                                            <Form.Group>
-                                                                <Form.Label>Other Service:</Form.Label>
-                                                                <Form.Control type="text" placeholder="Other Service" value={other} onChange={(e) => setOther(e.target.value)} />
-                                                                {errors.other && <span className="error text-danger">{errors.other}</span>}
-                                                            </Form.Group>
-                                                        }
-
-                                                        <Form.Group>
-                                                            <Form.Label>Address:</Form.Label>
-                                                            <Form.Control
-                                                                as="textarea"
-                                                                rows={4}
-                                                                placeholder="Address"
-                                                                value={address}
-                                                                onChange={(e) => setAddress(e.target.value)}
-                                                                onBlur={() => {
-                                                                    if (address.trim() && errors.address) {
-                                                                        setErrors({ ...errors, address: '' });
-                                                                    }
-                                                                }}
-                                                            />
-                                                            {errors.address && <span className="error text-danger">{errors.address}</span>}
-                                                        </Form.Group>
-
-                                                        <Form.Group>
-                                                            <Form.Label>Any Comment:</Form.Label>
-                                                            <Form.Control
-                                                                as="textarea"
-                                                                rows={4}
-                                                                placeholder="Comment"
-                                                                value={comment}
-                                                                onChange={(e) => setComment(e.target.value)}
-                                                                onBlur={() => {
-                                                                    if (comment.trim() && errors.comment) {
-                                                                        setErrors({ ...errors, comment: '' });
-                                                                    }
-                                                                }}
-                                                            />
-                                                            {errors.comment && <span className="error text-danger">{errors.comment}</span>}
-                                                        </Form.Group>
-
-                                                        <div lg={11} className='mt-3 d-flex justify-content-end'>
-                                                            <ReCAPTCHA
-                                                                ref={captchaRef}
-                                                                //test key
-                                                                // sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
-                                                                // server key
-                                                                sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
-                                                                //local
-                                                                // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
-                                                                // sitekey={window.location.hostname === "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"}
-                                                                onChange={onChange}
-                                                            />
-                                                        </div>
-
-                                                        {errors.captcha && <span className="error text-danger">{errors.captcha}</span>}
-                                                    </Modal.Body>
-                                                    <Modal.Footer>
-                                                        <Button variant="secondary" onClick={handleClose}>
-                                                            Close
-                                                        </Button>
-                                                        <Button variant="success" type="submit">
-                                                            Submit
-                                                        </Button>
-                                                    </Modal.Footer>
-                                                </Form>
-                                            </Modal>
+                                                                        <Modal.Header closeButton>
+                                                                            <Modal.Title>GET A QUOTE</Modal.Title>
+                                                                        </Modal.Header>
+                                                                        <Form onSubmit={SubmitData}>
+                                                                            <Modal.Body>
+                                                                                <Form.Group>
+                                                                                    <Form.Label>Name:</Form.Label>
+                                                                                    <Form.Control
+                                                                                        type="text"
+                                                                                        placeholder="Name"
+                                                                                        value={name}
+                                                                                        onChange={(e) => setName(e.target.value)}
+                                                                                        onBlur={() => {
+                                                                                            if (name.trim() && errors.name) {
+                                                                                                setErrors({ ...errors, name: '' });
+                                                                                            }
+                                                                                        }}
+                                                                                    />
+                                                                                    {errors.name && <span className="error text-danger">{errors.name}</span>}
+                                                                                </Form.Group>
+                                                                                <Form.Group>
+                                                                                    <Form.Label>Phone No.:</Form.Label>
+                                                                                    <Form.Control
+                                                                                        type="number"
+                                                                                        placeholder="Phone no."
+                                                                                        value={phone}
+                                                                                        onChange={(e) => setPhone(e.target.value)}
+                                                                                        onBlur={() => {
+                                                                                            if (phone.trim() && errors.phone) {
+                                                                                                setErrors({ ...errors, phone: '' });
+                                                                                            }
+                                                                                        }}
+                                                                                        maxLength={10} // Limit input to 10 characters
+                                                                                    />
+                                                                                    {errors.phone && <span className="error text-danger">{errors.phone}</span>}
+                                                                                </Form.Group>
+                                                                                <Form.Group>
+                                                                                    <Form.Label>Email Id:</Form.Label>
+                                                                                    <Form.Control
+                                                                                        type="email"
+                                                                                        placeholder="Email Id"
+                                                                                        value={email}
+                                                                                        onChange={(e) => setEmail(e.target.value)}
+                                                                                        onBlur={() => {
+                                                                                            if (email.trim() && errors.email) {
+                                                                                                setErrors({ ...errors, email: '' });
+                                                                                            }
+                                                                                        }}
+                                                                                    />
+                                                                                    {errors.email && <span className="error text-danger">{errors.email}</span>}
+                                                                                </Form.Group>
+                                                                                <Form.Group>
+                                                                                    <Form.Label>Type of Services:</Form.Label>
+                                                                                    <Form.Control as="select" value={service} onChange={(e) => setService(e.target.value)}>
+                                                                                        <option value="" disabled>Select Service</option>
+                                                                                        <option value="Website Development">Website Development</option>
+                                                                                        <option value="App Development">App Development</option>
+                                                                                        <option value="Custom Software Development">Custom Software Development</option>
+                                                                                        <option value="Other Service">Other Service</option>
+                                                                                    </Form.Control>
+                                                                                    {errors.service && <span className="error text-danger">{errors.service}</span>}
+                                                                                    {service === "Other Service" && (
+                                                                                        <Form.Group className='mt-2'>
+                                                                                            <Form.Control
+                                                                                                type="text"
+                                                                                                placeholder="Please specify the service"
+                                                                                                value={other}
+                                                                                                onChange={(e) => setOther(e.target.value)}
+                                                                                                onBlur={() => {
+                                                                                                    if (other.trim() && errors.other) {
+                                                                                                        setErrors({ ...errors, other: '' });
+                                                                                                    }
+                                                                                                }}
+                                                                                            />
+                                                                                            {errors.other && <span className="error text-danger">{errors.other}</span>}
+                                                                                        </Form.Group>
+                                                                                    )}
+                                                                                </Form.Group>
+                                                                                <Form.Group>
+                                                                                    <Form.Label>Address:</Form.Label>
+                                                                                    <Form.Control
+                                                                                        type="text"
+                                                                                        placeholder="Address"
+                                                                                        value={address}
+                                                                                        onChange={(e) => setAddress(e.target.value)}
+                                                                                        onBlur={() => {
+                                                                                            if (address.trim() && errors.address) {
+                                                                                                setErrors({ ...errors, address: '' });
+                                                                                            }
+                                                                                        }}
+                                                                                    />
+                                                                                    {errors.address && <span className="error text-danger">{errors.address}</span>}
+                                                                                </Form.Group>
+                                                                                <Form.Group>
+                                                                                    <Form.Label>Comment:</Form.Label>
+                                                                                    <Form.Control
+                                                                                        as="textarea"
+                                                                                        rows={4}
+                                                                                        placeholder="Comments"
+                                                                                        value={comment}
+                                                                                        onChange={(e) => setComment(e.target.value)}
+                                                                                        onBlur={() => {
+                                                                                            if (comment.trim() && errors.comment) {
+                                                                                                setErrors({ ...errors, comment: '' });
+                                                                                            }
+                                                                                        }}
+                                                                                    />
+                                                                                    {errors.comment && <span className="error text-danger">{errors.comment}</span>}
+                                                                                </Form.Group>
+                                                                                <Form.Group className="mt-3">
+                                                                                    <ReCAPTCHA
+                                                                                        sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
+                                                                                        onChange={onChange}
+                                                                                        ref={captchaRef}
+                                                                                    />
+                                                                                    {errors.captcha && <span className="error text-danger">{errors.captcha}</span>}
+                                                                                </Form.Group>
+                                                                                <p className='error text-danger'>{error}</p>
+                                                                            </Modal.Body>
+                                                                            <Modal.Footer>
+                                                                                <Button variant="secondary" onClick={handleClose}>
+                                                                                    Close
+                                                                                </Button>
+                                                                                <Button variant="primary" type="submit">
+                                                                                    Submit
+                                                                                </Button>
+                                                                            </Modal.Footer>
+                                                                        </Form>
+                                                                    </Modal>
                                         </div>
                                     </div>
                                 </div>

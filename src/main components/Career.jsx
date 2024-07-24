@@ -86,6 +86,8 @@ const Career = () => {
   const [cover_letter, setCover_letter] = useState(null); // Changed to null for clearer initialization
   const [lifeCategoryData, setLifeCategoryData] = useState([]);
   const [errors, setErrors] = useState({});
+  const [error, setError] = useState('');
+
   const handleShow = (application) => {
     setShow(true);
     setApplicationType(application);
@@ -153,7 +155,7 @@ const Career = () => {
 
   const submitData = async (e) => {
     e.preventDefault();
-  
+
     if (validateForm()) {
       const formData = new FormData();
       formData.append("applicationType", applicationType);
@@ -165,14 +167,14 @@ const Career = () => {
       formData.append("confmEmail", confmEmail);
       formData.append("cv", cv);
       formData.append("cover_letter", cover_letter);
-  
+
       try {
         const resp = await axios.post("applynow/create", formData, {
           headers: { "Content-Type": "multipart/form-data" }
         });
-  
+
         console.log("Form submission response:", resp.data);
-  
+
         // Clear form fields after successful submission
         setTitle("");
         setName("");
@@ -181,23 +183,36 @@ const Career = () => {
         setEmail("");
         setConfmEmail("");
         setCV(null);
+        setError("")
         setCover_letter(null);
         setApplicationType("");
         handleClose();
         alert("Your information submitted. We will connect with you shortly!!");
-      } catch (err) {
-        console.error("Error submitting form", err);
-        // Handle specific errors or log them for debugging
-        alert("Error submitting form. Please try again later.");
+      } catch (error) {
+        console.error('Error:', error);
+        console.error('Error Response:', error.response?.data);
+
+        if (error.response && error.response.data && error.response.data.error) {
+          const errorMessage = error.response.data.error;
+          if (errorMessage === 'Email already exists') {
+            setError('Email is already registered');
+          } else if (errorMessage === 'Phone number already exists') {
+            setError('Mobile number is already registered');
+          } else {
+            setError('An unexpected error occurred');
+          }
+        } else {
+          setError('An unexpected error occurred');
+        }
       }
-  
+
       // Send additional lead information asynchronously
       axios.post("https://api.neodove.com/integration/custom/1311aef1-7e12-4ee1-a174-3d9b39229b17/leads?update=true", {
         name: name, email: email, phone: phone
       });
     }
   };
-  
+
 
   useEffect(() => {
     axios.get("/life_category_details/getAllLifeCategoryDetailsRecord")
@@ -462,7 +477,7 @@ const Career = () => {
             <Form onSubmit={submitData} name="myForm" encType="multipart/form-data">
               <Form.Group controlId="formTitle">
                 <Form.Label>Title:</Form.Label>
-                <Form.Control type="text" placeholder={`${jobtittle}`} disabled/>
+                <Form.Control type="text" placeholder={`${jobtittle}`} disabled />
 
               </Form.Group>
               <Form.Group controlId="formName">
@@ -513,7 +528,9 @@ const Career = () => {
                   onChange={onChange}
                 />
               </div>
-              {errors.captcha && <span className="error text-danger">{errors.captcha}</span>}
+              {errors.captcha && <span className="error text-danger">{errors.captcha}</span>}                                                                                <p className='error text-danger'>{error}</p>
+              <p className='error text-danger'>{error}</p>
+
               <div className="form-group text-center mt-4">
                 <Button variant="secondary" className='mx-1' onClick={handleClose}>
                   Close
@@ -525,7 +542,7 @@ const Career = () => {
             </Form>
           </Modal.Body>
         </Modal>
-      
+
         <section className="pricing-section style-two">
           <div className="auto-container">
             <div className="tabs-box">
@@ -594,7 +611,7 @@ const Career = () => {
                             )
                           })
                       }
-                    
+
 
                     </div>
                   </div>
