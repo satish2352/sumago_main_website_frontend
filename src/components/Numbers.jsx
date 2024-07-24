@@ -4,8 +4,9 @@ import '../assets/css/Numbers.css'
 import { Col, Container, Row } from 'react-bootstrap'
 import client from '../assets/images/wp-content/themes/printpark/assets/images/shape/client.png'
 import award from '../assets/images/wp-content/themes/printpark/assets/images/shape/AWRAD.png'
-
+import { Link, useNavigate } from 'react-router-dom'
 const Numbers = () => {
+    const  navigate = useNavigate()
     const [data, setData] = useState([])
     useEffect(() => {
         axios.get("/clientCount/getClients").then((result) => {
@@ -42,8 +43,8 @@ const Numbers = () => {
                                                 <div className="text-box">
                                                     {/* <p className="te-text">There are many variations of passages of lorem
                                                 ipsum available.</p> */}
-                                                    <a className="theme-btn btn-one text-decoration-none">Start Your
-                                                        Project</a>
+                                                    <Link className="theme-btn btn-one text-decoration-none" to='/contact'>Start Your
+                                                        Project</Link>
                                                 </div>
                                             </div>
                                         </div>

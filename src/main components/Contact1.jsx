@@ -11,12 +11,12 @@ import { useRef } from 'react'
 const Contact1 = () => {
     const [data, setData] = useState([])
     useEffect(() => {
-            axios.get("/location/getlocationRecords").then((result) => {
-                console.log("result", result);
-                setData(result.data)
-            }).catch((err) => {
-                console.log("err", err);
-            });
+        axios.get("/location/getlocationRecords").then((result) => {
+            console.log("result", result);
+            setData(result.data)
+        }).catch((err) => {
+            console.log("err", err);
+        });
     }, [])
 
     const [name, setName] = useState("")
@@ -26,6 +26,8 @@ const Contact1 = () => {
     const [message, setMessage] = useState("")
     const [errors, setErrors] = useState({});
     const captchaRef = useRef(null);
+    const [error, setError] = useState('');
+
     const [isCaptchaVerified, setCaptchaVerified] = useState(false);
     const onChange = (value) => {
         setCaptchaVerified(true);
@@ -82,25 +84,44 @@ const Contact1 = () => {
     const SubmitData = (e) => {
         e.preventDefault();
 
-        let newData = {
-            name, email, phone, website, message
-        }
         if (validateForm()) {
-            axios.post("contact/records", newData, { headers: { "content-type": "application/json" } }).then((resp) => {
-                console.log("resp", resp)
-                setName("")
-                setEmail("")
-                setPhone("")
-                setWebsite("")
-                setMessage("")
-                alert("Your information submitted we will connect with you shortly !!")
-            }).catch((err) => {
-                console.log("err", err);
-            })
-            axios.post("https://api.neodove.com/integration/custom/1311aef1-7e12-4ee1-a174-3d9b39229b17/leads",{
-                name: name, email: email, phone: phone,            })
+            let newData = {
+                name, email, phone, website, message
+            };
+
+            axios.post("contact/records", newData, { headers: { "content-type": "application/json" } })
+                .then((resp) => {
+                    console.log("resp", resp);
+                    setName("");
+                    setEmail("");
+                    setPhone("");
+                    setWebsite("");
+                    setMessage("");
+                    setError("")
+                    alert("Your information has been submitted. We will connect with you shortly!");
+                })
+                .catch((error) => {
+                    console.error('Error Response:', error.response?.data);
+
+                    if (error.response && error.response.data && error.response.data.error) {
+                        const errorMessage = error.response.data.error;
+                        if (errorMessage === 'Email already exists') {
+                            setError('Email is already registered');
+                        } else if (errorMessage === 'Phone number already exists') {
+                            setError('Mobile number is already registered');
+                        } else {
+                            setError('An unexpected error occurred');
+                        }
+                    } else {
+                        setError('An unexpected error occurred');
+                    }
+                });
+            setError("")
+            axios.post("https://api.neodove.com/integration/custom/1311aef1-7e12-4ee1-a174-3d9b39229b17/leads", {
+                name: name, email: email, phone: phone,
+            });
         }
-    }
+    };
     return (
         <>
             <section className="page-title centred">
@@ -316,6 +337,8 @@ const Contact1 = () => {
                                                                                     />
                                                                                 </div>
                                                                                 {errors.captcha && <span className="error text-danger" style={{ fontWeight: "400" }}> {errors.captcha}</span>}
+                                                                                <p className='error text-danger'>{error}</p>
+
                                                                                 <div
                                                                                     className="col-lg-12 col-md-12 col-sm-12 form-group message-btn centred className=' d-flex  justify-content-end '">
                                                                                     <button className="theme-btn btn-one"
