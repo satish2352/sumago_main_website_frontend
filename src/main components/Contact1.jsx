@@ -337,7 +337,9 @@ const Contact1 = () => {
                                                                                     />
                                                                                 </div>
                                                                                 {errors.captcha && <span className="error text-danger" style={{ fontWeight: "400" }}> {errors.captcha}</span>}
-                                                                                <p className='error text-danger'>{error}</p>
+                                                                                <div className=' d-flex  justify-content-end'>
+                                                                                    <p className='error text-danger'>{error}</p>
+                                                                                </div>
 
                                                                                 <div
                                                                                     className="col-lg-12 col-md-12 col-sm-12 form-group message-btn centred className=' d-flex  justify-content-end '">
