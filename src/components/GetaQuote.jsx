@@ -98,6 +98,7 @@ const GetaQuote = () => {
                 setAddress("");
                 setComment("");
                 handleClose();
+                setErrors("")
                 alert("Your information submitted. We will connect with you shortly!!");
             } catch (error) {
                 console.error('Error:', error);
