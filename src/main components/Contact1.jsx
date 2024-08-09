@@ -261,6 +261,9 @@ const Contact1 = () => {
                                                                                             type="email"
                                                                                             name="email" /></span>
                                                                                         {errors.email && <span className="error text-danger">{errors.email}</span>}
+                                                                                        {error === "Email is already registered" && (
+                                                                                            <p className='error text-danger'>Email is already registered</p>
+                                                                                        )}
                                                                                     </p>
                                                                                 </div>
                                                                                 <div
@@ -281,6 +284,9 @@ const Contact1 = () => {
                                                                                             type="number"
                                                                                             name="phone" required /></span>
                                                                                         {errors.phone && <span className="error text-danger">{errors.phone}</span>}
+                                                                                        {error === "Mobile number is already registered" && (
+                                                                                            <p className='error text-danger'>Mobile number is already registered</p>
+                                                                                        )}
                                                                                     </p>
                                                                                 </div>
                                                                                 <div
@@ -329,16 +335,15 @@ const Contact1 = () => {
                                                                                         //test key
                                                                                         // sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
                                                                                         // server key
-                                                                                        sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
+                                                                                        // sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
                                                                                         //local
-                                                                                        // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
+                                                                                        sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
                                                                                         // sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"}
                                                                                         onChange={onChange}
                                                                                     />
                                                                                 </div>
                                                                                 {errors.captcha && <span className="error text-danger" style={{ fontWeight: "400" }}> {errors.captcha}</span>}
                                                                                 <div className=' d-flex  justify-content-end'>
-                                                                                    <p className='error text-danger'>{error}</p>
                                                                                 </div>
 
                                                                                 <div
