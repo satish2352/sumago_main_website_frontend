@@ -164,6 +164,9 @@ const DownloadWidget = () => {
                                 required
                             />
                         </Form.Group>
+                        {error === "Email is already registered" && (
+                            <p className='error text-danger'>Email is already registered</p>
+                        )}
                         <Form.Group controlId="formPhone">
                             <Form.Label>Phone Number</Form.Label>
                             <Form.Control
@@ -175,6 +178,9 @@ const DownloadWidget = () => {
                                 required
                             />
                         </Form.Group>
+                        {error === "Mobile number is already registered" && (
+                            <p className='error text-danger'>Mobile number is already registered</p>
+                        )}
                         <Form.Group controlId="formLocation">
                             <Form.Label>Select Location</Form.Label>
                             <Form.Control
@@ -193,10 +199,11 @@ const DownloadWidget = () => {
                             <ReCAPTCHA
                                 ref={captchaRef}
                                 sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
+                                //local key
+                                // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
                                 className=' p-3'
                                 onChange={onChange}
                             />
-                            {error && <p className="text-danger">{error}</p>}
                             <div className=' d-flex justify-content-end'>
                                 <Button variant="primary" type="submit " style={{ width: "200px" }}>
                                     Submit

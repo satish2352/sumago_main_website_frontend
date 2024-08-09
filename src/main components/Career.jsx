@@ -91,7 +91,7 @@ const Career = () => {
   const handleShow = (application) => {
     setShow(true);
     setApplicationType(application);
-    setjobtitle(application)
+
   };
   // console.log("opppppppppppp", jobtittle)
   const validateForm = () => {
@@ -419,7 +419,7 @@ const Career = () => {
                                       {/* <button type="button" className="theme-btn btn-two" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                       Apply Now
                                     </button> */}
-                                      <Button type="button" className="theme-btn btn-two border-0" onClick={() => handleShow(item.designation)}>
+                                      <Button type="button" className="theme-btn btn-two border-0" onClick={() => { handleShow(item.designation); setjobtitle("Job") }}>
                                         Apply Now
                                       </Button>
 
@@ -482,32 +482,43 @@ const Career = () => {
               </Form.Group>
               <Form.Group controlId="formName">
                 <Form.Label>Name:</Form.Label>
-                <Form.Control type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+                <Form.Control type="text" required placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
                 {errors.name && <span className="error text-danger">{errors.name}</span>}
               </Form.Group>
               <Form.Group controlId="formPhone">
                 <Form.Label>Mobile Number:</Form.Label>
-                <Form.Control type="tel" placeholder="Mobile no." value={phone} onChange={(e) => setPhone(e.target.value)} />
+                <Form.Control type="tel" required placeholder="Mobile no." value={phone} onChange={(e) => setPhone(e.target.value)} />
                 {errors.phone && <span className="error text-danger">{errors.phone}</span>}
+                {error === "Mobile number is already registered" && (
+                  <p className='error text-danger'>Mobile number is already registered</p>
+                )}
               </Form.Group>
               <Form.Group controlId="formAddress">
                 <Form.Label>Address:</Form.Label>
-                <Form.Control as="textarea" rows={3} placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} />
+                <Form.Control as="textarea" required rows={3} placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} />
                 {errors.address && <span className="error text-danger">{errors.address}</span>}
               </Form.Group>
               <Form.Group controlId="formEmail">
                 <Form.Label>Email ID:</Form.Label>
-                <Form.Control type="email" placeholder="Email Id" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <Form.Control type="email" required placeholder="Email Id" value={email} onChange={(e) => setEmail(e.target.value)} />
                 {errors.email && <span className="error text-danger">{errors.email}</span>}
+                {error === "Email is already registered" && (
+                  <p className='error text-danger'>Email is already registered</p>
+                )}
+
               </Form.Group>
               <Form.Group controlId="formConfmEmail">
                 <Form.Label>Confirm Email ID:</Form.Label>
-                <Form.Control type="email" placeholder="Confirm Email Id" value={confmEmail} onChange={(e) => setConfmEmail(e.target.value)} />
+                <Form.Control type="email" required placeholder="Confirm Email Id" value={confmEmail} onChange={(e) => setConfmEmail(e.target.value)} />
                 {errors.confmEmail && <span className="error text-danger">{errors.confmEmail}</span>}
+                {error === "Email is already registered" && (
+                  <p className='error text-danger'>Email is already registered</p>
+                )}
+
               </Form.Group>
               <Form.Group controlId="formCoverLetter">
                 <Form.Label>Cover Letter:</Form.Label>
-                <Form.Control type="file" accept=".pdf" onChange={(e) => setCover_letter(e.target.files[0])} />
+                <Form.Control type="file" required accept=".pdf" onChange={(e) => setCover_letter(e.target.files[0])} />
                 {errors.coverLetter && <span className="error text-danger">{errors.coverLetter}</span>}
               </Form.Group>
               <Form.Group controlId="formCV">
@@ -528,8 +539,7 @@ const Career = () => {
                   onChange={onChange}
                 />
               </div>
-              {errors.captcha && <span className="error text-danger">{errors.captcha}</span>}                                                                                <p className='error text-danger'>{error}</p>
-              <p className='error text-danger'>{error}</p>
+              {errors.captcha && <span className="error text-danger">{errors.captcha}</span>}                                                
 
               <div className="form-group text-center mt-4">
                 <Button variant="secondary" className='mx-1' onClick={handleClose}>
@@ -572,7 +582,7 @@ const Career = () => {
                                       <h2 className="te-heading">
                                         <h3 className="te-pac" >{item.designation}</h3>
                                       </h2>
-                                      <Button type='button' className='theme-btn btn-two border-0' onClick={() => handleShow(item.designation)}>
+                                      <Button type='button' className='theme-btn btn-two border-0' onClick={() => { handleShow(item.designation); setjobtitle("internship") }}>
                                         Apply Now
                                       </Button>
 
