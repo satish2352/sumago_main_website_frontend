@@ -14,6 +14,7 @@ import GoUp from "./components/GoUp";
 import Blogs from "./main components/Blogs";
 import BlogDetails from "./main components/BlogDetails";
 import { useBlog } from './Datacontext';
+import Movingicon from './components/Movingicon'
 function App() {
   // useEffect(() => {
   // axios.defaults.baseURL = "https://sumagowebbackend.sumagodemo.com/"
@@ -62,6 +63,7 @@ function App() {
       </Routes>
       <GoUp />
       <Footer />
+      <Movingicon/>
     </Router>
   );
 }
