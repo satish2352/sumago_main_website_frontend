@@ -519,13 +519,8 @@ img {
 }
 
 .scroll-top {
-  position: absolute;
-  display: inline-block;
-  right: 50px;
-  bottom: 50px;
-  width: 56px;
-  height: 56px;
-  line-height: 62px;
+  width: 50px;
+  padding: 5px;
   border: 1px dashed rgba(255, 255, 255, 0.15);
   border-radius: 50%;
   font-size: 30px;
@@ -1287,9 +1282,11 @@ img {
 .main-menu .navigation>li.active>a {
   color: hwb(358 20% 16%) !important;
 }
+
 .navitemheader:active {
   color: hwb(358 20% 16%) !important;
 }
+
 .navitemheader:focus {
   color: hwb(358 20% 16%) !important;
 }
@@ -13905,9 +13902,11 @@ div#mCSB_1_container {
   -webkit-line-clamp: 3;
   overflow: hidden;
 }
-.current > a {
+
+.current>a {
   color: red;
 }
+
 .custom-backdrop {
   background-color: rgba(0, 0, 0, 0.75);
 }

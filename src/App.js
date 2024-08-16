@@ -10,7 +10,7 @@ import { data } from "./main components/obnjectsfie";
 import Oursolutions2 from "./main components/Oursolutions2";
 import NewNavbar from "./components/NewNavbar";
 import axios from "axios";
-import GoUp from "./components/GoUp";
+
 import Blogs from "./main components/Blogs";
 import BlogDetails from "./main components/BlogDetails";
 import { useBlog } from './Datacontext';
@@ -61,7 +61,7 @@ function App() {
           );
         })}
       </Routes>
-      <GoUp />
+
       <Footer />
       <Movingicon/>
     </Router>
