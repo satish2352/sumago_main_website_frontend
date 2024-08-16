@@ -337,7 +337,7 @@ const Contact1 = () => {
                                                                                         // server key
                                                                                         sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
                                                                                         //local
-                                                                                        // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
+                                                                                        // sitekey="6Le657EpAAAAADHl0EnUi-58y19 XOcORV9dehjAz"
                                                                                         // sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"}
                                                                                         onChange={onChange}
                                                                                     />
@@ -380,7 +380,7 @@ const Contact1 = () => {
                         className="mt-lg-4 mb-lg-5 elementor-section elementor-top-section elementor-element elementor-element-1fdab63 elementor-section-boxed elementor-section-height-default elementor-section-height-default mb-3"
                         data-id="1fdab63" data-element_type="section">
                         <div className="elementor-container elementor-column-gap-default">
-                            <Row className='tabAdjustment'>
+                            <Row className='tabAdjustment d-flex justify-content-evenly'>
                                 {
                                     data.length == 0 ? "" :
                                         data?.map((item, id) => {
