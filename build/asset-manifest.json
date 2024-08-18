@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.2fb1b9a5.css",
-    "main.js": "/static/js/main.f1573ff9.js",
-    "static/js/453.f6403434.chunk.js": "/static/js/453.f6403434.chunk.js",
+    "main.css": "/static/css/main.80862d6b.css",
+    "main.js": "/static/js/main.6ab6f84c.js",
+    "static/js/206.7fe358d8.chunk.js": "/static/js/206.7fe358d8.chunk.js",
     "static/media/SCOPE introduction.pdf": "/static/media/SCOPE introduction.4309e043b80f44bc787a.pdf",
     "static/media/business_profile.pdf": "/static/media/business_profile.5131d2d95f92d910a7a3.pdf",
     "static/media/Frame.png": "/static/media/Frame.ef0d9342f1d2bfd5128c.png",
@@ -216,13 +216,10 @@
     "static/media/star.woff": "/static/media/star.8ab6da8ce4d274edf643.woff",
     "static/media/star.svg": "/static/media/star.486bfe4fbf01c0dbb3d3.svg",
     "static/media/diners.svg": "/static/media/diners.637579df083fe357ab09.svg",
-    "static/media/loader.svg": "/static/media/loader.2ac8330bf65fce0b22eb.svg",
-    "main.2fb1b9a5.css.map": "/static/css/main.2fb1b9a5.css.map",
-    "main.f1573ff9.js.map": "/static/js/main.f1573ff9.js.map",
-    "453.f6403434.chunk.js.map": "/static/js/453.f6403434.chunk.js.map"
+    "static/media/loader.svg": "/static/media/loader.2ac8330bf65fce0b22eb.svg"
   },
   "entrypoints": [
-    "static/css/main.2fb1b9a5.css",
-    "static/js/main.f1573ff9.js"
+    "static/css/main.80862d6b.css",
+    "static/js/main.6ab6f84c.js"
   ]
 }
