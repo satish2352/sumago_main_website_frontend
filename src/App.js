@@ -19,10 +19,12 @@ function App() {
   // useEffect(() => {
   // axios.defaults.baseURL = "https://sumagowebbackend.sumagodemo.com/"
   // axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
-  axios.defaults.baseURL = "https://nodebackend.sumagoinfotech.com/";
+  // axios.defaults.baseURL = "http://localhost:5000/";
+
+  // axios.defaults.baseURL = "https://nodebackend.sumagoinfotech.com/";
   // }, []);
-  
-  const {blogs,solutions} = useBlog();
+
+  const { blogs, solutions } = useBlog();
   return (
     <Router>
       <NewNavbar />
@@ -55,7 +57,7 @@ function App() {
               key={c.title}
               path={`/blogdetals/${c.id}`}
               element={
-                <BlogDetails text={c.text} img={c.img} subtitle={c.subtitle}/>
+                <BlogDetails text={c.text} img={c.img} subtitle={c.subtitle} />
               }
             />
           );
@@ -63,7 +65,7 @@ function App() {
       </Routes>
 
       <Footer />
-      <Movingicon/>
+      <Movingicon />
     </Router>
   );
 }
