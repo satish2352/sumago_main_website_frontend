@@ -32,7 +32,16 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.vgfg {
+  background: #faf1ef;
+  border-radius: 25px;
+  display: block;
+  padding: 40px 60px;
+  position: relative;
 }

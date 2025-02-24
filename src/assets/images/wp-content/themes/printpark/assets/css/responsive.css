@@ -77,12 +77,26 @@
 
 }
 
-
-@media only screen and (max-width: 1499px) {
+@media only screen and (max-width: 1030px) {
 
   .main-header .menu-right-content .btn-box {
     display: none;
   }
+}
+
+@media only screen and (min-width: 1030px) and (max-width: 1380px) {
+
+  .main-header .outer-box {
+    padding: 0px 0px 0px 130px;
+  }
+  .main-menu .navigation>li {
+    margin: 0px 0px !important; 
+}
+}
+
+@media only screen and (max-width: 1499px) {
+
+
 
   .header-top .outer-container {
     padding: 0px 30px;
