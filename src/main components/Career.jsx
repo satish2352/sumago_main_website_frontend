@@ -413,6 +413,7 @@ const Career = () => {
                                         style={{ backgroundImage: `url(${img7})` }}>
                                       </div>
                                       <img src={r1} style={{ width: '80px', height: '90px' }} alt="images" />
+                                      <br />
                                       <h2 className="te-heading">
                                         <h3 className="te-pac">{item.designation}</h3>
                                       </h2>
@@ -579,6 +580,7 @@ const Career = () => {
                                         style={{ backgroundImage: `url(${img7})` }}>
                                       </div>
                                       <img src={r1} style={{ width: '80px', height: '90px' }} alt="images" />
+                                      <br />
                                       <h2 className="te-heading">
                                         <h3 className="te-pac" >{item.designation}</h3>
                                       </h2>
