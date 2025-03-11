@@ -21,7 +21,7 @@ function App() {
   // axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
   // axios.defaults.baseURL = "http://localhost:5000/";
 
-  // axios.defaults.baseURL = "https://nodebackend.sumagoinfotech.com/";
+  axios.defaults.baseURL = "https://nodebackend.sumagoinfotech.com/";
   // }, []);
 
   const { blogs, solutions } = useBlog();
@@ -48,8 +48,8 @@ function App() {
         <Route path="/solutions" element={<Oursolutions2 />} />
         <Route path="/career" element={<Career />} />
         <Route path="/contact" element={<Contact1 />} />
-        {/* <Route path="/blogs" element={<Blogs />} /> */}
-        {/* <Route path="/blogsdetails" element={<BlogDetails />} /> */}
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogsdetails" element={<BlogDetails />} />
         {/* <Route path="/" element={<StatrterPage />} /> */}
         {blogs.map((c) => {
           return (

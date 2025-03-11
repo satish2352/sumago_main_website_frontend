@@ -484,52 +484,76 @@ const Header = () => {
                                         </nav>
                                     </div>
                                 </div>
-                              
+
                                 <div className="menu-right-content">
                                     <div className="btn-box">
-                                        {/* Use Button instead of Link to prevent navigation */}
-                                        <Link className="theme-btn btn-one" style={{ textDecoration: 'none' }} onClick={handleShow}>
+                                        <button className="theme-btn btn-one rounded-pill glowing-btn" onClick={handleShow}>
                                             Get a Quote
-                                        </Link>
+                                        </button>
                                     </div>
 
-                                    {/* Directly use GetAQuoteModal */}
-                                    <GetAQuoteModal show={show} handleClose={handleClose} />
+                                    <style jsx>{`
+        .glowing-btn {
+            position: relative;
+            display: inline-block;
+            color: white;
+            background-color: rgb(255, 34, 34);
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 50px;
+        }
+
+        .glowing-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 34, 34, 1);
+        }
+
+      
+    `}</style>
+                                </div>
+
+
+                                {/* Directly use GetAQuoteModal */}
+                                <GetAQuoteModal show={show} handleClose={handleClose} />
+                            </div>
+                        </div>
+                    </div>
+               
+
+                <div class="sticky-header">
+                    <div class="outer-container">
+                        <div class="outer-box">
+                            <div class="left-column">
+                                <div class="logo-box">
+                                    <figure class="logo" onClick={scrollToTop}><Link to="/" title="WordPress Printing">
+                                        <img style={{ height: "40px", width: "300px" }} src={sumago} alt="logo" /></Link></figure>
+                                </div>
+                                <div class="menu-area clearfix">
+                                    <nav class="main-menu clearfix">
+                                        {/*Keep This Empty / Menu will come through Javascript*/}
+                                    </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </header>
+            <div class="mobile-menu">
+                <div class="menu-backdrop"></div>
+                <div class="close-btn"><i class="fas fa-times"></i></div>
 
-                    <div class="sticky-header">
-                        <div class="outer-container">
-                            <div class="outer-box">
-                                <div class="left-column">
-                                    <div class="logo-box">
-                                        <figure class="logo" onClick={scrollToTop}><Link to="/" title="WordPress Printing">
-                                            <img style={{ height: "40px", width: "300px" }} src={sumago} alt="logo" /></Link></figure>
-                                    </div>
-                                    <div class="menu-area clearfix">
-                                        <nav class="main-menu clearfix">
-                                            {/*Keep This Empty / Menu will come through Javascript*/}
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <nav class="menu-box">
+                    <div class="nav-logo">
+                        <Link to="/" title="WordPress Printing"><img src={sumagowhite}
+                            alt="logo" /></Link>
                     </div>
-                </header>
-                <div class="mobile-menu">
-                    <div class="menu-backdrop"></div>
-                    <div class="close-btn"><i class="fas fa-times"></i></div>
-
-                    <nav class="menu-box">
-                        <div class="nav-logo">
-                            <Link to="/" title="WordPress Printing"><img src={sumagowhite}
-                                alt="logo" /></Link>
-                        </div>
-                        <div class="menu-outer">{/*Here Menu Will Come Automatically Via Javascript / Same Menu as in Header*/}
-                        </div>
-                        {/* <div class="contact-info">
+                    <div class="menu-outer">{/*Here Menu Will Come Automatically Via Javascript / Same Menu as in Header*/}
+                    </div>
+                    {/* <div class="contact-info">
                             <h4>Contact Info</h4>
                             <ul>
                                 <li>Third Floor, Gajra Chambers, Mumbai - Agra National Hwy, Kamod Nagar, Nashik, Maharashtra 422009</li>
@@ -537,7 +561,7 @@ const Header = () => {
                                 <li><a href="mailto:info@sumagoinfotech.com">info@sumagoinfotech.com</a></li>
                             </ul>
                         </div> */}
-                        {/* <div class="social-links">
+                    {/* <div class="social-links">
                             <ul class="clearfix">
 
                                 <li>
@@ -557,10 +581,10 @@ const Header = () => {
 
                             </ul>
                         </div> */}
-                    </nav>
-                </div>
-            </header >
-            {scrolled && (
+                </nav>
+            </div>
+        </header >
+            { scrolled && (
                 <header className={`header-style-two ${scrolled ? 'sticky' : ''}`}>
                     <div className="header-lower">
                         <div className="outer-container2">
@@ -684,7 +708,7 @@ const Header = () => {
 
                 </header>
             )
-            }
+}
         </>
     )
 }
