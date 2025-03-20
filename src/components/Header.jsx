@@ -27,6 +27,7 @@ import { Button, Col, Form, Modal, Row } from 'react-bootstrap'
 import axios from 'axios'
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRef } from 'react'
+import GetAQuoteModal from './GetAQuoteModal'
 
 const Header = () => {
     const location = useLocation();
@@ -85,7 +86,6 @@ const Header = () => {
     }, []);
     const [error, setError] = useState('');
 
-    const [show, setShow] = useState(false);
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
@@ -94,8 +94,11 @@ const Header = () => {
     const [address, setAddress] = useState("")
     const [comment, setComment] = useState("")
     const [errors, setErrors] = useState({});
+    const [show, setShow] = useState(false);
+
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
     const onChange = (value) => {
         setCaptchaVerified(true);
         console.log(value);
@@ -287,7 +290,7 @@ const Header = () => {
                             </div>
                             <div className="col-sm-12 col-md-5 col-lg-5 d-grid justify-content-center ">
                                 <figure className="logo">
-                                    <Link to="/" title="WordPress Printing">
+                                    <Link to="/home" title="WordPress Printing">
                                         <img id="sumalogo" src={sumagologo} alt="logo" />
                                     </Link>
                                 </figure>
@@ -481,184 +484,76 @@ const Header = () => {
                                         </nav>
                                     </div>
                                 </div>
+
                                 <div className="menu-right-content">
                                     <div className="btn-box">
-                                        <Link to={"/contact"}
-                                            className="theme-btn btn-one" style={{ textDecoration: 'none' }} onClick={handleShow}>Get a Quote</Link>
+                                        <button className="theme-btn btn-one rounded-pill glowing-btn" onClick={handleShow}>
+                                            Get a Quote
+                                        </button>
                                     </div>
-                                    <Modal show={show} onHide={handleClose}>
-                                        <Modal.Header closeButton>
-                                            <Modal.Title>GET A QUOTE</Modal.Title>
-                                        </Modal.Header>
-                                        <Form onSubmit={SubmitData}>
-                                            <Modal.Body>
-                                                <Form.Group>
-                                                    <Form.Label>Name:</Form.Label>
-                                                    <Form.Control
-                                                        type="text"
-                                                        placeholder="Name"
-                                                        value={name}
-                                                        onChange={(e) => setName(e.target.value)}
-                                                        onBlur={() => {
-                                                            if (name.trim() && errors.name) {
-                                                                setErrors({ ...errors, name: '' });
-                                                            }
-                                                        }}
-                                                    />
-                                                    {errors.name && <span className="error text-danger">{errors.name}</span>}
-                                                </Form.Group>
-                                                <Form.Group>
-                                                    <Form.Label>Phone No.:</Form.Label>
-                                                    <Form.Control
-                                                        type="number"
-                                                        placeholder="Phone no."
-                                                        value={phone}
-                                                        onChange={(e) => setPhone(e.target.value)}
-                                                        onBlur={() => {
-                                                            if (phone.trim() && errors.phone) {
-                                                                setErrors({ ...errors, phone: '' });
-                                                            }
-                                                        }}
-                                                        maxLength={10} // Limit input to 10 characters
-                                                    />
-                                                    {errors.phone && <span className="error text-danger">{errors.phone}</span>}
-                                                    {error === "Mobile number is already registered" && (
-                                                        <p className='error text-danger'>Mobile number is already registered</p>
-                                                    )}
-                                                </Form.Group>
-                                                <Form.Group>
-                                                    <Form.Label>Email Id:</Form.Label>
-                                                    <Form.Control
-                                                        type="email"
-                                                        placeholder="Email Id"
-                                                        value={email}
-                                                        onChange={(e) => setEmail(e.target.value)}
-                                                        onBlur={() => {
-                                                            if (email.trim() && errors.email) {
-                                                                setErrors({ ...errors, email: '' });
-                                                            }
-                                                        }}
-                                                    />
-                                                    {errors.email && <span className="error text-danger">{errors.email}</span>}
-                                                    {error === "Email is already registered" && (
-                                                        <p className='error text-danger'>Email is already registered</p>
-                                                    )}
-                                                </Form.Group>
-                                                <Form.Group>
-                                                    <Form.Label>Type of Services:</Form.Label>
-                                                    <Form.Control as="select" value={service} onChange={(e) => setService(e.target.value)}>
-                                                        <option value="" disabled>Select Service</option>
-                                                        <option value="Website Development">Website Development</option>
-                                                        <option value="App Development">App Development</option>
-                                                        <option value="Custom Software Development">Custom Software Development</option>
-                                                        <option value="Other Service">Other Service</option>
-                                                    </Form.Control>
-                                                    {errors.service && <span className="error text-danger">{errors.service}</span>}
-                                                    {service === "Other Service" && (
-                                                        <Form.Group className='mt-2'>
-                                                            <Form.Control
-                                                                type="text"
-                                                                placeholder="Please specify the service"
-                                                                value={other}
-                                                                onChange={(e) => setOther(e.target.value)}
-                                                                onBlur={() => {
-                                                                    if (other.trim() && errors.other) {
-                                                                        setErrors({ ...errors, other: '' });
-                                                                    }
-                                                                }}
-                                                            />
-                                                            {errors.other && <span className="error text-danger">{errors.other}</span>}
-                                                        </Form.Group>
-                                                    )}
-                                                </Form.Group>
-                                                <Form.Group>
-                                                    <Form.Label>Address:</Form.Label>
-                                                    <Form.Control
-                                                        type="text"
-                                                        placeholder="Address"
-                                                        value={address}
-                                                        onChange={(e) => setAddress(e.target.value)}
-                                                        onBlur={() => {
-                                                            if (address.trim() && errors.address) {
-                                                                setErrors({ ...errors, address: '' });
-                                                            }
-                                                        }}
-                                                    />
-                                                    {errors.address && <span className="error text-danger">{errors.address}</span>}
-                                                </Form.Group>
-                                                <Form.Group>
-                                                    <Form.Label>Comment:</Form.Label>
-                                                    <Form.Control
-                                                        as="textarea"
-                                                        rows={4}
-                                                        placeholder="Comments"
-                                                        value={comment}
-                                                        onChange={(e) => setComment(e.target.value)}
-                                                        onBlur={() => {
-                                                            if (comment.trim() && errors.comment) {
-                                                                setErrors({ ...errors, comment: '' });
-                                                            }
-                                                        }}
-                                                    />
-                                                    {errors.comment && <span className="error text-danger">{errors.comment}</span>}
-                                                </Form.Group>
-                                                <Form.Group className="mt-3">
-                                                    <ReCAPTCHA
-                                                        // sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
-                                                        //local key
-                                                        sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
-                                                        onChange={onChange}
-                                                        ref={captchaRef}
-                                                    />
-                                                    {errors.captcha && <span className="error text-danger">{errors.captcha}</span>}
-                                                </Form.Group>
-                                            </Modal.Body>
-                                            <Modal.Footer>
-                                                <Button variant="secondary" onClick={handleClose}>
-                                                    Close
-                                                </Button>
-                                                <Button variant="primary" type="submit">
-                                                    Submit
-                                                </Button>
-                                            </Modal.Footer>
-                                        </Form>
-                                    </Modal>
+
+                                    <style jsx>{`
+        .glowing-btn {
+            position: relative;
+            display: inline-block;
+            color: white;
+            background-color: rgb(255, 34, 34);
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 50px;
+        }
+
+        .glowing-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 34, 34, 1);
+        }
+
+      
+    `}</style>
                                 </div>
 
+
+                                {/* Directly use GetAQuoteModal */}
+                                <GetAQuoteModal show={show} handleClose={handleClose} />
                             </div>
                         </div>
                     </div>
+               
 
-                    <div class="sticky-header">
-                        <div class="outer-container">
-                            <div class="outer-box">
-                                <div class="left-column">
-                                    <div class="logo-box">
-                                        <figure class="logo" onClick={scrollToTop}><Link to="/" title="WordPress Printing">
-                                            <img style={{ height: "40px", width: "300px" }} src={sumago} alt="logo" /></Link></figure>
-                                    </div>
-                                    <div class="menu-area clearfix">
-                                        <nav class="main-menu clearfix">
-                                            {/*Keep This Empty / Menu will come through Javascript*/}
-                                        </nav>
-                                    </div>
+                <div class="sticky-header">
+                    <div class="outer-container">
+                        <div class="outer-box">
+                            <div class="left-column">
+                                <div class="logo-box">
+                                    <figure class="logo" onClick={scrollToTop}><Link to="/" title="WordPress Printing">
+                                        <img style={{ height: "40px", width: "300px" }} src={sumago} alt="logo" /></Link></figure>
+                                </div>
+                                <div class="menu-area clearfix">
+                                    <nav class="main-menu clearfix">
+                                        {/*Keep This Empty / Menu will come through Javascript*/}
+                                    </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </header>
-                <div class="mobile-menu">
-                    <div class="menu-backdrop"></div>
-                    <div class="close-btn"><i class="fas fa-times"></i></div>
+                </div>
+            </header>
+            <div class="mobile-menu">
+                <div class="menu-backdrop"></div>
+                <div class="close-btn"><i class="fas fa-times"></i></div>
 
-                    <nav class="menu-box">
-                        <div class="nav-logo">
-                            <Link to="/" title="WordPress Printing"><img src={sumagowhite}
-                                alt="logo" /></Link>
-                        </div>
-                        <div class="menu-outer">{/*Here Menu Will Come Automatically Via Javascript / Same Menu as in Header*/}
-                        </div>
-                        {/* <div class="contact-info">
+                <nav class="menu-box">
+                    <div class="nav-logo">
+                        <Link to="/" title="WordPress Printing"><img src={sumagowhite}
+                            alt="logo" /></Link>
+                    </div>
+                    <div class="menu-outer">{/*Here Menu Will Come Automatically Via Javascript / Same Menu as in Header*/}
+                    </div>
+                    {/* <div class="contact-info">
                             <h4>Contact Info</h4>
                             <ul>
                                 <li>Third Floor, Gajra Chambers, Mumbai - Agra National Hwy, Kamod Nagar, Nashik, Maharashtra 422009</li>
@@ -666,7 +561,7 @@ const Header = () => {
                                 <li><a href="mailto:info@sumagoinfotech.com">info@sumagoinfotech.com</a></li>
                             </ul>
                         </div> */}
-                        {/* <div class="social-links">
+                    {/* <div class="social-links">
                             <ul class="clearfix">
 
                                 <li>
@@ -686,10 +581,10 @@ const Header = () => {
 
                             </ul>
                         </div> */}
-                    </nav>
-                </div>
-            </header>
-            {scrolled && (
+                </nav>
+            </div>
+        </header >
+            { scrolled && (
                 <header className={`header-style-two ${scrolled ? 'sticky' : ''}`}>
                     <div className="header-lower">
                         <div className="outer-container2">
@@ -812,7 +707,8 @@ const Header = () => {
                     </div>
 
                 </header>
-            )}
+            )
+}
         </>
     )
 }

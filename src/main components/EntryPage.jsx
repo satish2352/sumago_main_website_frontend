@@ -33,7 +33,7 @@ const EntryPage = () => {
                                 <img src={group33} onClick={() => navigate("/home")} alt="Sumago Infotech" class="w-100" style={{ cursor: "pointer" }} />
                                 <h4 class="mt-3 fs-3"><strong>Transforming Businesses </strong> <span class=""
                                     style={{ fontSize: "1.7rem ", fontWeight: 200 }}>with Next-Gen IT Solutions</span></h4>
-                                <p style={{ fontSize: "14px" }}>At Sumago Infotech, we provide expert solutions in Web & Mobile Development, Digital Marketing, IoT, and more -helping businesses innovate and grow.</p>
+                                <p style={{ fontSize: "14px" }}>Sumago Infotech delivers expert Web & App Development, Digital Marketing, IoT, and more - helping businesses innovate and grow.</p>
                                 <ul class="list-group list-group-flush bg-transparent">
                                     <li class="list-group-item bg-transparent" style={{ fontWeight: 500 }}>UI / UX DESIGN</li>
                                     <li class="list-group-item bg-transparent" style={{ fontWeight: 500 }}>WEBSITE DESIGN</li>

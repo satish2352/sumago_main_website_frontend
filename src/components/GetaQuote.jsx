@@ -3,6 +3,7 @@ import '../assets/css/GetaQuote.css';
 import { Button, Col, Form, Modal, Row } from 'react-bootstrap';
 import axios from 'axios';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { siteKey } from '../App';
 
 const GetaQuote = () => {
     const [name, setName] = useState("");
@@ -292,7 +293,7 @@ const GetaQuote = () => {
                                                                                 </Form.Group>
                                                                                 <Form.Group className="mt-3">
                                                                                     <ReCAPTCHA
-                                                                                        sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
+                                                                                        sitekey={siteKey}
                                                                                         onChange={onChange}
                                                                                         ref={captchaRef}
                                                                                     />

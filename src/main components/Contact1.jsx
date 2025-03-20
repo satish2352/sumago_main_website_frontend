@@ -7,6 +7,7 @@ import '../assets/css/Contact1.css'
 import axios from 'axios';
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRef } from 'react'
+import { siteKey } from '../App';
 
 const Contact1 = () => {
     const [data, setData] = useState([])
@@ -335,7 +336,7 @@ const Contact1 = () => {
                                                                                         //test key
                                                                                         // sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
                                                                                         // server key
-                                                                                        sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
+                                                                                        sitekey={siteKey}
                                                                                         //local
                                                                                         // sitekey="6Le657EpAAAAADHl0EnUi-58y19 XOcORV9dehjAz"
                                                                                         // sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"}
