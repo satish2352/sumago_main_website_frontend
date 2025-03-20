@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.80862d6b.css",
-    "main.js": "/static/js/main.6ab6f84c.js",
+    "main.css": "/static/css/main.b4b0a24e.css",
+    "main.js": "/static/js/main.0523e6b2.js",
     "static/js/206.7fe358d8.chunk.js": "/static/js/206.7fe358d8.chunk.js",
     "static/media/SCOPE introduction.pdf": "/static/media/SCOPE introduction.4309e043b80f44bc787a.pdf",
     "static/media/business_profile.pdf": "/static/media/business_profile.5131d2d95f92d910a7a3.pdf",
@@ -61,6 +61,7 @@
     "static/media/snehal.png": "/static/media/snehal.0c2bf07c9fb78147ae15.png",
     "static/media/16 chetana A.png": "/static/media/16 chetana A.5b1e08fac5f762c3a11a.png",
     "static/media/birthday (2).jpg": "/static/media/birthday (2).e8d9af415cbbc9f5b92a.jpg",
+    "static/media/Group 41.png": "/static/media/Group 41.fe108ff1b226fb338d1b.png",
     "static/media/consulting.jpg": "/static/media/consulting.c756d4930221780896dd.jpg",
     "static/media/diwali (3).jpg": "/static/media/diwali (3).5c693cebaf0a7747ef2c.jpg",
     "static/media/birthday (3).jpg": "/static/media/birthday (3).65bc2866dff1dfa6a25d.jpg",
@@ -131,16 +132,19 @@
     "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.c967a94cfbe2b06627ff.woff2",
     "static/media/ROHINI-removebg-preview (1).png": "/static/media/ROHINI-removebg-preview (1).b83f8d3d970ed53259c5.png",
     "static/media/flaticon_azim.svg?": "/static/media/flaticon_azim.219c75cd531c30e7cc12.svg",
+    "static/media/finallll.png": "/static/media/finallll.10301868f4fa8eef9217.png",
     "static/media/ashwini-removebg-preview.png": "/static/media/ashwini-removebg-preview.05b14af4255c53a48edc.png",
     "static/media/kajal-removebg-preview (1).png": "/static/media/kajal-removebg-preview (1).59adb041e209fc4be9ec.png",
     "static/media/NILAM-removebg-preview.png": "/static/media/NILAM-removebg-preview.fb161f1c81cad03172b2.png",
     "static/media/dipsli_account-removebg-preview.png": "/static/media/dipsli_account-removebg-preview.721d7197c9eb1a4ddbd9.png",
+    "static/media/Group 34.png": "/static/media/Group 34.294d61a0a19d37847c4d.png",
     "static/media/VARSHA-removebg-preview.png": "/static/media/VARSHA-removebg-preview.14a78324ad48e38a6c86.png",
     "static/media/SARANGI-removebg-preview.png": "/static/media/SARANGI-removebg-preview.272f51c1b1381ce3c68a.png",
     "static/media/PRATHIKSHAAA-removebg-preview.png": "/static/media/PRATHIKSHAAA-removebg-preview.ef377630ff61588a283a.png",
     "static/media/PRATHIKSHA-removebg-preview.png": "/static/media/PRATHIKSHA-removebg-preview.88ce82fce1e384666836.png",
     "static/media/2 h.png": "/static/media/2 h.023c56b103ce2ba4fc46.png",
     "static/media/payal-removebg-preview.png": "/static/media/payal-removebg-preview.80c525c7319f69a4a59c.png",
+    "static/media/Group 33.png": "/static/media/Group 33.356da026c4f6d1de7a7f.png",
     "static/media/anop-removebg-preview.png": "/static/media/anop-removebg-preview.4fcaac453662656ed622.png",
     "static/media/savita-removebg-preview.png": "/static/media/savita-removebg-preview.2a06cda2b0c71acc0c94.png",
     "static/media/satush_aurange-removebg-preview.png": "/static/media/satush_aurange-removebg-preview.7db747b8d40b95f25ea3.png",
@@ -204,9 +208,9 @@
     "static/media/mastercard.svg": "/static/media/mastercard.f1c9b84d18b6945bd212.svg",
     "static/media/laser.svg": "/static/media/laser.c480151df6703d3de005.svg",
     "static/media/jcb.svg": "/static/media/jcb.cbc1d605c08ca48d5908.svg",
+    "index.html": "/index.html",
     "static/media/discover.svg": "/static/media/discover.7efc7ded4740010630de.svg",
     "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
-    "index.html": "/index.html",
     "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/star.eot": "/static/media/star.2593128f94a599b8656f.eot",
@@ -219,7 +223,7 @@
     "static/media/loader.svg": "/static/media/loader.2ac8330bf65fce0b22eb.svg"
   },
   "entrypoints": [
-    "static/css/main.80862d6b.css",
-    "static/js/main.6ab6f84c.js"
+    "static/css/main.b4b0a24e.css",
+    "static/js/main.0523e6b2.js"
   ]
 }

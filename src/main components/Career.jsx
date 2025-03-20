@@ -24,6 +24,7 @@ import axios from 'axios';
 import GoUp from '../components/GoUp';
 import { Button, Form, Modal } from 'react-bootstrap';
 import ReCAPTCHA from "react-google-recaptcha";
+import { siteKey } from '../App';
 
 const Career = () => {
   const [imgData, setImgData] = useState([]);
@@ -413,6 +414,7 @@ const Career = () => {
                                         style={{ backgroundImage: `url(${img7})` }}>
                                       </div>
                                       <img src={r1} style={{ width: '80px', height: '90px' }} alt="images" />
+                                      <br />
                                       <h2 className="te-heading">
                                         <h3 className="te-pac">{item.designation}</h3>
                                       </h2>
@@ -532,7 +534,7 @@ const Career = () => {
                   //test key
                   // sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
                   // server key
-                  sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
+                  sitekey={siteKey}
                   //local key
                   // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
                   // sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"}
@@ -579,6 +581,7 @@ const Career = () => {
                                         style={{ backgroundImage: `url(${img7})` }}>
                                       </div>
                                       <img src={r1} style={{ width: '80px', height: '90px' }} alt="images" />
+                                      <br />
                                       <h2 className="te-heading">
                                         <h3 className="te-pac" >{item.designation}</h3>
                                       </h2>

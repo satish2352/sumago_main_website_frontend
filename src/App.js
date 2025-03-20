@@ -17,6 +17,8 @@ import { useBlog } from './Datacontext';
 import Movingicon from './components/Movingicon'
 import EntryPage from "./main components/EntryPage";
 import MainLayout from "./MainLayout";
+export const siteKey = "6Lc0UvoqAAAAABIRkR2atTzdiUIPRuG_VN4Byub8" 
+// export const siteKey = "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" 
 function App() {
   // axios.defaults.baseURL = "https://sumagowebbackend.sumagodemo.com/"
   axios.defaults.baseURL = "https://nodebackend.sumagoinfotech.com/";
