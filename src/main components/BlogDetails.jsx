@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import img2 from '../assets/images/wp-content/themes/printpark/assets/images/shape/e commerce.png';
 import img1 from '../assets/images/wp-content/themes/printpark/assets/images/shape/Frame.png';
 import img22 from '../assets/images/wp-content/themes/printpark/assets/images/shape/shape-20.png';
 import im from '../assets/images/wp-content/uploads/2023/08/news-16-80x80.jpg'
 import { useBlog } from '../Datacontext';
+import GetAQuoteModal from '../components/GetAQuoteModal';
 
 const BlogDetails = (props) => {
-    const {blogs} = useBlog();
+    const { blogs } = useBlog();
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const [show, setShow] = useState(false);
 
     return (
         <>
@@ -30,11 +35,14 @@ const BlogDetails = (props) => {
                         <div className="content-side col-lg-8 col-md-12 col-sm-12 content-column">
                             <div className="blog-details-content">
                                 <div className="thm-unit-test">
+                                    <div className="upper-text">
+                                        <h4>{props.subtitle}</h4>
+                                    </div>
                                     <div className="content-one">
                                         <div className="upper-text">
-                                            <p><span>w</span>{props.text}</p>
-                                            <h4>{props.subtitle}</h4>
+                                            <p>{props.text}</p>
                                         </div>
+
                                         <figure className="image-box">
                                             <img
                                                 fetchpriority="high"
@@ -44,16 +52,15 @@ const BlogDetails = (props) => {
                                                 width="730"
                                                 height="500"
                                                 className="alignnone size-medium wp-image-467"
-                                                
+
                                                 sizes="(max-width: 730px) 100vw, 730px"
                                             />
                                         </figure>
-                                        <div className="text-box">
-                                            <p>{props.subtitle}</p>
-                                        </div>
+
+
                                     </div>
 
-                                    <div className="content-three">
+                                    {/* <div className="content-three">
                                         <h2>Exceeding Expectations</h2>
                                         <p>Belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed.</p>
                                         <blockquote>
@@ -81,7 +88,7 @@ const BlogDetails = (props) => {
                                                 <p><span>Technology in Print:</span> Which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise.</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
 
                                 </div>
                             </div>
@@ -103,28 +110,30 @@ const BlogDetails = (props) => {
                                             {
                                                 blogs.map((a) => {
                                                     return (<>
-                                                        <div className="post">
-                                                            <figure className="post-thumb">
-                                                                <a href="https://wp1.themevibrant.com/newwp/printpark/2023/09/05/protecting-goods-to-foster-local-solutions-to-globals/">
-                                                                    <img width="80" height="80"
-                                                                        src={a.img}
-                                                                        className="attachment-printpark_80x80 size-printpark_80x80 wp-post-image"
-                                                                        alt="" decoding="async"
-                                                                        srcSet={a.img}
-                                                                        sizes="(max-width: 80px) 100vw, 80px" />
-                                                                </a>
-                                                            </figure>
-                                                            <h6>{a.date}</h6>
-                                                            <h5>
-                                                                <a href="https://wp1.themevibrant.com/newwp/printpark/2023/09/05/protecting-goods-to-foster-local-solutions-to-globals/">
-                                                                    {a.title}                                                                </a>
-                                                            </h5>
-                                                        </div>
+                                                        <div className="post" >
+                                                            <Link class="te-btn" to={`/blogdetals/${a.id}`}>
+                                                                <figure className="post-thumb">
+                                                                    <a  >
+                                                                        <img width="80" height="80"
+                                                                            src={a.img}
+                                                                            className="attachment-printpark_80x80 size-printpark_80x80 wp-post-image"
+                                                                            alt="" decoding="async"
+                                                                            srcSet={a.img}
+                                                                            sizes="(max-width: 80px) 100vw, 80px" />
+                                                                    </a>
+                                                                </figure>
+                                                                <h6>{a.date}</h6>
+                                                                <h5>
+                                                                    <a  >
+                                                                        {a.title}                                                                </a>
+                                                                </h5>
+                                                            </Link>
+                                                        </div >
                                                     </>)
                                                 })
                                             }
 
-                                          
+
                                         </div>
                                     </div>
                                 </div>
@@ -139,11 +148,43 @@ const BlogDetails = (props) => {
                                                     <img src="https://wp1.themevibrant.com/newwp/printpark/wp-content/uploads/2023/08/sidebar-1.png" alt="Awesome Image" />
                                                 </figure>
                                             </div>
-                                            <a href="https://wp1.themevibrant.com/newwp/printpark/contact/" className="theme-btn btn-one">Get a Free Quote</a>
+
+                                            <div className="menu-right-content">
+                                                <div className="btn-box">
+                                                    <button className="theme-btn btn-one rounded-pill glowing-btn" onClick={handleShow}>
+                                                        Get a Quote
+                                                    </button>
+                                                </div>
+
+                                                <style jsx>{`
+        .glowing-btn {
+            position: relative;
+            display: inline-block;
+            color: white;
+            background-color: rgb(255, 34, 34);
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 50px;
+        }
+
+        .glowing-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 34, 34, 1);
+        }
+
+      
+    `}</style>
+                                            </div>
+
+                                            <GetAQuoteModal show={show} handleClose={handleClose} />
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div></div>
