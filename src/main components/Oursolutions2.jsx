@@ -27,6 +27,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useRef } from 'react'
 import DownloadWidget from '../components/DownloadWidget';
 import { useBlog } from '../Datacontext';
+import { siteKey } from '../App';
 const Oursolutions2 = (props) => {
     const { blogs, solutions } = useBlog();
     const data = [
@@ -370,7 +371,7 @@ const Oursolutions2 = (props) => {
                                                         </Form.Group>
                                                         <Form.Group className="mt-3">
                                                             <ReCAPTCHA
-                                                                sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
+                                                                sitekey={siteKey}
                                                                 onChange={onChange}
                                                                 ref={captchaRef}
                                                             />

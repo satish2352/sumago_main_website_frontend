@@ -290,7 +290,7 @@ const Header = () => {
                             </div>
                             <div className="col-sm-12 col-md-5 col-lg-5 d-grid justify-content-center ">
                                 <figure className="logo">
-                                    <Link to="/" title="WordPress Printing">
+                                    <Link to="/home" title="WordPress Printing">
                                         <img id="sumalogo" src={sumagologo} alt="logo" />
                                     </Link>
                                 </figure>

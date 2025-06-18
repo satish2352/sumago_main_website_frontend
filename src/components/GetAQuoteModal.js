@@ -3,6 +3,7 @@ import { Modal, Button, Form, Alert, Spinner, Container, Row, Col } from "react-
 import axios from "axios"; // Import Axios
 import "./getaquote.css";
 import ReCAPTCHA from "react-google-recaptcha";
+import { siteKey } from "../App";
 
 const GetAQuoteModal = ({ show, handleClose }) => {
     const [step, setStep] = useState(1);
@@ -333,7 +334,7 @@ const GetAQuoteModal = ({ show, handleClose }) => {
                                         //test key
                                         // sitekey="6LdOus0pAAAAADdOMM08sSgGToiefhBsU80Y7UJA"
                                         // server key
-                                        sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
+                                        sitekey={siteKey}
                                         //local key
                                         // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
                                         // sitekey={window.location.hostname == "localhost" ? "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" : "6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"}

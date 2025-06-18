@@ -4,6 +4,7 @@ import downloadFile from "../assets/css/SCOPE introduction.pdf";
 import im from '../assets/images/wp-content/uploads/2023/08/thumbnail.png';
 import axios from 'axios';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { siteKey } from '../App';
 
 const DownloadWidget = () => {
     const [show, setShow] = useState(false);
@@ -198,7 +199,7 @@ const DownloadWidget = () => {
                         <div className=' d-grid justify-content-end'>
                             <ReCAPTCHA
                                 ref={captchaRef}
-                                sitekey="6Ld3e7QpAAAAAH7rseHrdwzF0VPZWtJ2ESOVrR_V"
+                                sitekey={siteKey}
                                 //local key
                                 // sitekey="6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz"
                                 className=' p-3'

@@ -15,57 +15,57 @@ import Blogs from "./main components/Blogs";
 import BlogDetails from "./main components/BlogDetails";
 import { useBlog } from './Datacontext';
 import Movingicon from './components/Movingicon'
+import EntryPage from "./main components/EntryPage";
+import MainLayout from "./MainLayout";
+export const siteKey = "6Lc0UvoqAAAAABIRkR2atTzdiUIPRuG_VN4Byub8" 
+// export const siteKey = "6Le657EpAAAAADHl0EnUi-58y19XOcORV9dehjAz" 
 function App() {
-  // useEffect(() => {
   // axios.defaults.baseURL = "https://sumagowebbackend.sumagodemo.com/"
-  // axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
-  // axios.defaults.baseURL = "http://localhost:5000/";
-
   axios.defaults.baseURL = "https://nodebackend.sumagoinfotech.com/";
-  // }, []);
 
   const { blogs, solutions } = useBlog();
   return (
     <Router>
-      <NewNavbar />
-      <Header />
+      {/* <Header /> */}
       <Routes>
-        {/* <Route path="/" element={<StatrterPage />} /> */}
-        {solutions.map((c) => {
-          return (
-            <Route
-              key={c.title}
-              path={`/solutions/${c.title.toLowerCase().replace(/\s+/g, '-')}`}
-              element={
-                <Oursolutions2 titles={c.title} info={c.text} inmg={c.img} />
-              }
-            />
-          );
-        })}
+        {/* Routes using the MainLayout */}
+        <Route element={<MainLayout />}>
+          {solutions.map((c) => {
+            return (
+              <Route
+                key={c.title}
+                path={`/solutions/${c.title.toLowerCase().replace(/\s+/g, '-')}`}
+                element={
+                  <Oursolutions2 titles={c.title} info={c.text} inmg={c.img} />
+                }
+              />
+            );
+          })}
 
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/solutions" element={<Oursolutions2 />} />
-        <Route path="/career" element={<Career />} />
-        <Route path="/contact" element={<Contact1 />} />
-        <Route path="/blogs" element={<Blogs />} />
-        <Route path="/blogsdetails" element={<BlogDetails />} />
-        {/* <Route path="/" element={<StatrterPage />} /> */}
-        {blogs.map((c) => {
-          return (
-            <Route
-              key={c.title}
-              path={`/blogdetals/${c.id}`}
-              element={
-                <BlogDetails text={c.text} img={c.img} subtitle={c.subtitle} />
-              }
-            />
-          );
-        })}
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/solutions" element={<Oursolutions2 />} />
+          <Route path="/career" element={<Career />} />
+          <Route path="/contact" element={<Contact1 />} />
+          {/* <Route path="/blogs" element={<Blogs />} /> */}
+          {/* <Route path="/blogsdetails" element={<BlogDetails />} /> */}
+          {/* <Route path="/" element={<StatrterPage />} /> */}
+          {blogs.map((c) => {
+            return (
+              <Route
+                key={c.title}
+                path={`/blogdetals/${c.id}`}
+                element={
+                  <BlogDetails text={c.text} img={c.img} subtitle={c.subtitle} />
+                }
+              />
+            );
+          })}
+        </Route>
+          <Route path="/" element={<EntryPage />} />
       </Routes>
 
-      <Footer />
-      <Movingicon />
+      {/* <Footer /> */}
     </Router>
   );
 }
