@@ -6,7 +6,14 @@ import { useBlog } from '../Datacontext';
 import { Link } from 'react-router-dom';
 const BlogGrid = () => {
 
+
     const { blogs } = useBlog();
+
+    const formattedDate = new Date(blogs.date).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+    });
     return (
         <div data-elementor-type="wp-page" data-elementor-id="19" class="elementor elementor-19">
             <section
@@ -48,26 +55,21 @@ const BlogGrid = () => {
                                                                                 <h6 class="te-category">
                                                                                     Digital</h6> <span
                                                                                         class="post-date te-meta"><i
-                                                                                            class="flaticon-asterisks"></i>{a.date}</span>
+                                                                                            class="flaticon-asterisks"></i>
+
+                                                                                    {new Date(a.date)
+                                                                                        .toLocaleDateString("en-US", { year: "numeric", month: "short", day: "2-digit" })
+                                                                                        .replace(",", "")}
+
+                                                                                </span>
                                                                             </div>
-                                                                            <div class="share-box">
-                                                                                <div class="share-icon"><i
-                                                                                    class="flaticon-share"></i></div>
-                                                                                <ul class="social-links team-card__social clearfix">
-                                                                                    <li><a href="https://facebook.com/"><i
-                                                                                        class="fa fa-facebook"></i></a></li>
-                                                                                    <li><a href="https://twitter.com/"><i
-                                                                                        class="fa fa-twitter"></i></a></li>
-                                                                                    <li><a href="https://youtube.com/"><i
-                                                                                        class="fa fa-youtube"></i></a></li>
-                                                                                </ul>
-                                                                            </div>
+                                                                       
                                                                         </div>
                                                                     </div>
                                                                     <div class="lower-content">
-                                                                        <h3 class="te-title">
+                                                                        <h5 class="te-title">
                                                                             {a.title}
-                                                                        </h3>
+                                                                        </h5>
                                                                         <div class="link-box">
 
                                                                             <Link class="te-btn" to={`/blogdetals/${a.id}`}><i
@@ -79,12 +81,12 @@ const BlogGrid = () => {
                                                     )
                                                 })
                                             }
-                                      
+
 
 
 
                                         </div>
-                                       
+
                                     </section>
 
                                 </div>
