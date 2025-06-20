@@ -6,6 +6,9 @@ import img22 from '../assets/images/wp-content/themes/printpark/assets/images/sh
 import im from '../assets/images/wp-content/uploads/2023/08/news-16-80x80.jpg'
 import { useBlog } from '../Datacontext';
 import GetAQuoteModal from '../components/GetAQuoteModal';
+import '../assets/css/blog.css'
+import styled from 'styled-components';
+import im1 from '../assets/images/wp-content/uploads/2023/08/laptop.png'
 
 const BlogDetails = (props) => {
     const { blogs } = useBlog();
@@ -14,6 +17,19 @@ const BlogDetails = (props) => {
 
     const [show, setShow] = useState(false);
 
+    const StyledBlogContent = styled.div`
+  p {
+    color: #0c0c0c !important;
+  }
+  ul, li {
+    list-style: disc !important;
+    padding: 4px !important;
+    margin: 4px !important;
+  }  table, th, td {
+    border: none !important;
+    border-collapse: collapse !important;
+  }
+`;
     return (
         <>
             <section class="page-title style-two centred">
@@ -23,7 +39,7 @@ const BlogDetails = (props) => {
                 <div className="pattern-layer"
                     style={{ backgroundImage: `url(${img22})` }}></div><div class="auto-container">
                     <div class="content-box">
-                        <h1>A Non-Emergency Trusted Product services</h1>
+                        <h1>{props.title}</h1>
                     </div>
                 </div>
 
@@ -36,12 +52,18 @@ const BlogDetails = (props) => {
                             <div className="blog-details-content">
                                 <div className="thm-unit-test">
                                     <div className="upper-text">
-                                        <h4>{props.subtitle}</h4>
+                                        <h4>{props.title}</h4>
                                     </div>
+                                    <div className="blog-details-content">
+                                        <div className="ck-content" >
+                                            <StyledBlogContent dangerouslySetInnerHTML={{ __html: props.text }} />
+                                        </div>
+                                    </div>
+
                                     <div className="content-one">
                                         <div className="upper-text">
-                                            <p>{props.text}</p>
                                         </div>
+
 
                                         <figure className="image-box">
                                             <img
@@ -114,7 +136,7 @@ const BlogDetails = (props) => {
                                                             <Link class="te-btn" to={`/blogdetals/${a.id}`}>
                                                                 <figure className="post-thumb">
                                                                     <a  >
-                                                                        <img width="80" height="80"
+                                                                        <img width="180" height="180"
                                                                             src={a.img}
                                                                             className="attachment-printpark_80x80 size-printpark_80x80 wp-post-image"
                                                                             alt="" decoding="async"
@@ -122,7 +144,10 @@ const BlogDetails = (props) => {
                                                                             sizes="(max-width: 80px) 100vw, 80px" />
                                                                     </a>
                                                                 </figure>
-                                                                <h6>{a.date}</h6>
+                                                                <h6 >  {new Date(a.date)
+                                                                    .toLocaleDateString("en-US", { year: "numeric", month: "short", day: "2-digit" })
+                                                                    .replace(",", "")}</h6>
+
                                                                 <h5>
                                                                     <a  >
                                                                         {a.title}                                                                </a>
@@ -138,7 +163,25 @@ const BlogDetails = (props) => {
                                     </div>
                                 </div>
                                 {/* Banner Widget */}
-                                <div id="printpark_banner2-2" className="widget sidebar-side sidebar-widget widget_printpark_banner2">
+                                <div id="printpark_banner-1" className="widget widget_printpark_banner">
+                                    <div className="banner-widget">
+                                        <div className="inner-box">
+                                            <h3 className='text-white'>Make your Website stand out from Competitors!</h3>
+                                            <div className="image-box">
+                                                {/* <div className="shape" style={{ backgroundImage: `url(${shape37})` }}></div> */}
+                                                <figure className="image">
+                                                    <img src={im1} alt="" />
+                                                </figure>
+                                            </div>
+                                            <button type="button" className="theme-btn btn-two" onClick={handleShow}>
+                                                GET A QUOTE
+                                            </button>
+                                            {/* Modal */}
+
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* <div id="printpark_banner2-2" className="widget sidebar-side sidebar-widget widget_printpark_banner2">
                                     <div className="banner-widget">
                                         <div className="inner-box">
                                             <h3>Make your Packaging Stand out from Competitors</h3>
@@ -183,7 +226,7 @@ const BlogDetails = (props) => {
                                             <GetAQuoteModal show={show} handleClose={handleClose} />
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
 
                             </div>
                         </div>

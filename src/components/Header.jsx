@@ -468,7 +468,7 @@ const Header = () => {
                                                         className="menu-item menu-item-type-post_type menu-item-object-page menu-item-60">
                                                         <Link
                                                             title="Contact"
-                                                            to="blogs"
+                                                            to="/blogs"
                                           
                                                             className={`hvr-underline-from-left1 navitemheader ${location.pathname === 'blogs' ? ' text-danger ' : ''}`}
                                                             data-scroll
@@ -683,7 +683,7 @@ const Header = () => {
                                                     </li>
                                                     <li id="menu-item-60"
                                                         className="menu-item menu-item-type-post_type menu-item-object-page menu-item-60">
-                                                        {/* <Link
+                                                        <Link
                                                             title="Contact"
                                                             to="blogs"
                                           
@@ -694,7 +694,7 @@ const Header = () => {
                                                             onClick={scrollToTop}
                                                         >
                                                             Blogs
-                                                        </Link> */}
+                                                        </Link>
                                                     </li>
                                                 </ul>
                                             </div>

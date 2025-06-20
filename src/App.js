@@ -47,7 +47,7 @@ function App() {
           <Route path="/solutions" element={<Oursolutions2 />} />
           <Route path="/career" element={<Career />} />
           <Route path="/contact" element={<Contact1 />} />
-          {/* <Route path="/blogs" element={<Blogs />} /> */}
+          <Route path="/blogs" element={<Blogs />} />
           {/* <Route path="/blogsdetails" element={<BlogDetails />} /> */}
           {/* <Route path="/" element={<StatrterPage />} /> */}
           {blogs.map((c) => {
@@ -56,7 +56,7 @@ function App() {
                 key={c.title}
                 path={`/blogdetals/${c.id}`}
                 element={
-                  <BlogDetails text={c.text} img={c.img} subtitle={c.subtitle} />
+                  <BlogDetails text={c.text} img={c.img} subtitle={c.subtitle} title={c.title} />
                 }
               />
             );

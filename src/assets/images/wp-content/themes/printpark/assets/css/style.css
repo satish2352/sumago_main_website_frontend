@@ -11094,7 +11094,8 @@ div#mCSB_1_container {
   padding: 43px 30px 50px 30px;
   text-align: center;
   border-radius: 15px;
-  background: -webkit-linear-gradient(90deg, #faeddc, #eef9ec 100%);
+  background: linear-gradient(104.46deg, #FF3030 5.72%, #FF4747 38.33%, rgba(255, 91, 91, 0.879926) 55.04%, rgba(255, 103, 103, 0.76) 65.97%, rgba(255, 103, 103, 0.82) 81.86%);
+
 }
 
 .blog-sidebar .banner-widget .inner-box h3 {
