@@ -14,6 +14,12 @@ const BlogGrid = () => {
         month: "short",
         day: "2-digit",
     });
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 60,
+            behavior: 'smooth',
+        });
+    };
     return (
         <div data-elementor-type="wp-page" data-elementor-id="19" class="elementor elementor-19">
             <section
@@ -63,7 +69,7 @@ const BlogGrid = () => {
 
                                                                                 </span>
                                                                             </div>
-                                                                       
+
                                                                         </div>
                                                                     </div>
                                                                     <div class="lower-content">
@@ -72,7 +78,8 @@ const BlogGrid = () => {
                                                                         </h5>
                                                                         <div class="link-box">
 
-                                                                            <Link class="te-btn" to={`/blogdetals/${a.id}`}><i
+
+                                                                            <Link class="te-btn" to={`/blogs/${a.title.toLowerCase().replace(/\s+/g, '-')}`} onClick={scrollToTop}><i
                                                                                 class="flaticon-arrow-right"></i>Continue Reading </Link></div>
                                                                     </div>
                                                                 </div>

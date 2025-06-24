@@ -453,6 +453,21 @@ const Header = () => {
                                                         className="menu-item menu-item-type-post_type menu-item-object-page menu-item-60">
                                                         <Link
                                                             title="Contact"
+                                                            to="/blogs"
+
+                                                            className={`hvr-underline-from-left1 navitemheader ${location.pathname === 'blogs' ? ' text-danger ' : ''}`}
+                                                            data-scroll
+                                                            data-options="easing: easeOutQuart"
+                                                            style={{ textDecoration: 'none', color: 'black' }}
+                                                            onClick={scrollToTop}
+                                                        >
+                                                            Blogs
+                                                        </Link>
+                                                    </li>
+                                                    <li id="menu-item-60"
+                                                        className="menu-item menu-item-type-post_type menu-item-object-page menu-item-60">
+                                                        <Link
+                                                            title="Contact"
                                                             to="/contact"
                                                             className={`hvr-underline-from-left1 navitemheader ${location.pathname === '/contact' ? 'text-danger' : ''}`}
                                                             data-scroll
@@ -464,21 +479,7 @@ const Header = () => {
                                                         </Link>
                                                     </li>
 
-                                                    <li id="menu-item-60"
-                                                        className="menu-item menu-item-type-post_type menu-item-object-page menu-item-60">
-                                                        <Link
-                                                            title="Contact"
-                                                            to="/blogs"
-                                          
-                                                            className={`hvr-underline-from-left1 navitemheader ${location.pathname === 'blogs' ? ' text-danger ' : ''}`}
-                                                            data-scroll
-                                                            data-options="easing: easeOutQuart"
-                                                            style={{ textDecoration: 'none', color: 'black' }}
-                                                            onClick={scrollToTop}
-                                                        >
-                                                            Blogs
-                                                        </Link>
-                                                    </li>
+
                                                 </ul>
                                             </div>
                                         </nav>
@@ -522,38 +523,38 @@ const Header = () => {
                             </div>
                         </div>
                     </div>
-               
 
-                <div class="sticky-header">
-                    <div class="outer-container">
-                        <div class="outer-box">
-                            <div class="left-column">
-                                <div class="logo-box">
-                                    <figure class="logo" onClick={scrollToTop}><Link to="/" title="WordPress Printing">
-                                        <img style={{ height: "40px", width: "300px" }} src={sumago} alt="logo" /></Link></figure>
-                                </div>
-                                <div class="menu-area clearfix">
-                                    <nav class="main-menu clearfix">
-                                        {/*Keep This Empty / Menu will come through Javascript*/}
-                                    </nav>
+
+                    <div class="sticky-header">
+                        <div class="outer-container">
+                            <div class="outer-box">
+                                <div class="left-column">
+                                    <div class="logo-box">
+                                        <figure class="logo" onClick={scrollToTop}><Link to="/" title="WordPress Printing">
+                                            <img style={{ height: "40px", width: "300px" }} src={sumago} alt="logo" /></Link></figure>
+                                    </div>
+                                    <div class="menu-area clearfix">
+                                        <nav class="main-menu clearfix">
+                                            {/*Keep This Empty / Menu will come through Javascript*/}
+                                        </nav>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </header>
-            <div class="mobile-menu">
-                <div class="menu-backdrop"></div>
-                <div class="close-btn"><i class="fas fa-times"></i></div>
+                </header>
+                <div class="mobile-menu">
+                    <div class="menu-backdrop"></div>
+                    <div class="close-btn"><i class="fas fa-times"></i></div>
 
-                <nav class="menu-box">
-                    <div class="nav-logo">
-                        <Link to="/" title="WordPress Printing"><img src={sumagowhite}
-                            alt="logo" /></Link>
-                    </div>
-                    <div class="menu-outer">{/*Here Menu Will Come Automatically Via Javascript / Same Menu as in Header*/}
-                    </div>
-                    {/* <div class="contact-info">
+                    <nav class="menu-box">
+                        <div class="nav-logo">
+                            <Link to="/" title="WordPress Printing"><img src={sumagowhite}
+                                alt="logo" /></Link>
+                        </div>
+                        <div class="menu-outer">{/*Here Menu Will Come Automatically Via Javascript / Same Menu as in Header*/}
+                        </div>
+                        {/* <div class="contact-info">
                             <h4>Contact Info</h4>
                             <ul>
                                 <li>Third Floor, Gajra Chambers, Mumbai - Agra National Hwy, Kamod Nagar, Nashik, Maharashtra 422009</li>
@@ -561,7 +562,7 @@ const Header = () => {
                                 <li><a href="mailto:info@sumagoinfotech.com">info@sumagoinfotech.com</a></li>
                             </ul>
                         </div> */}
-                    {/* <div class="social-links">
+                        {/* <div class="social-links">
                             <ul class="clearfix">
 
                                 <li>
@@ -581,10 +582,10 @@ const Header = () => {
 
                             </ul>
                         </div> */}
-                </nav>
-            </div>
-        </header >
-            { scrolled && (
+                    </nav>
+                </div>
+            </header >
+            {scrolled && (
                 <header className={`header-style-two ${scrolled ? 'sticky' : ''}`}>
                     <div className="header-lower">
                         <div className="outer-container2">
@@ -671,6 +672,21 @@ const Header = () => {
                                                         className="menu-item menu-item-type-post_type menu-item-object-page menu-item-60">
                                                         <Link
                                                             title="Contact"
+                                                            to="blogs"
+
+                                                            className={`hvr-underline-from-left1 navitemheader ${location.pathname === 'blogs' ? ' text-danger ' : ''}`}
+                                                            data-scroll
+                                                            data-options="easing: easeOutQuart"
+                                                            style={{ textDecoration: 'none', color: 'black' }}
+                                                            onClick={scrollToTop}
+                                                        >
+                                                            Blogs
+                                                        </Link>
+                                                    </li>
+                                                    <li id="menu-item-60"
+                                                        className="menu-item menu-item-type-post_type menu-item-object-page menu-item-60">
+                                                        <Link
+                                                            title="Contact"
                                                             to="/contact"
                                                             className={`hvr-underline-from-left1 navitemheader ${location.pathname === '/contact' ? ' text-danger ' : ''}`}
                                                             data-scroll
@@ -681,21 +697,7 @@ const Header = () => {
                                                             Contact us
                                                         </Link>
                                                     </li>
-                                                    <li id="menu-item-60"
-                                                        className="menu-item menu-item-type-post_type menu-item-object-page menu-item-60">
-                                                        <Link
-                                                            title="Contact"
-                                                            to="blogs"
-                                          
-                                                            className={`hvr-underline-from-left1 navitemheader ${location.pathname === 'blogs' ? ' text-danger ' : ''}`}
-                                                            data-scroll
-                                                            data-options="easing: easeOutQuart"
-                                                            style={{ textDecoration: 'none', color: 'black' }}
-                                                            onClick={scrollToTop}
-                                                        >
-                                                            Blogs
-                                                        </Link>
-                                                    </li>
+
                                                 </ul>
                                             </div>
                                         </nav>
@@ -708,7 +710,7 @@ const Header = () => {
 
                 </header>
             )
-}
+            }
         </>
     )
 }

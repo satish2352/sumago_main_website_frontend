@@ -10,7 +10,7 @@ const Datacontext = ({ children }) => {
 
     const [blogs, setblogs] = useState([])
     useEffect(() => {
-        axios.get("http://localhost:5000/Blogdetails/getBlogdetails")
+        axios.get("/Blogdetails/getBlogdetails")
             .then((result) => setblogs(result.data))
             .catch((err) => console.log("err", err));
 
