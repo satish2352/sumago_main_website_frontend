@@ -16,7 +16,12 @@ const BlogDetails = (props) => {
     const handleShow = () => setShow(true);
 
     const [show, setShow] = useState(false);
-
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 460,
+            behavior: 'smooth',
+        });
+    };
     const StyledBlogContent = styled.div`
   p {
     color: #0c0c0c !important;
@@ -133,7 +138,8 @@ const BlogDetails = (props) => {
                                                 blogs.map((a) => {
                                                     return (<>
                                                         <div className="post" >
-                                                            <Link class="te-btn" to={`/blogdetals/${a.id}`}>
+
+                                                            <Link class="te-btn" to={`/blogs/${a.title.toLowerCase().replace(/\s+/g, '-')}`} onClick={scrollToTop}>
                                                                 <figure className="post-thumb">
                                                                     <a  >
                                                                         <img width="180" height="180"
@@ -176,7 +182,7 @@ const BlogDetails = (props) => {
                                             <button type="button" className="theme-btn btn-two" onClick={handleShow}>
                                                 GET A QUOTE
                                             </button>
-                                            {/* Modal */}
+                                            <GetAQuoteModal show={show} handleClose={handleClose} />
 
                                         </div>
                                     </div>

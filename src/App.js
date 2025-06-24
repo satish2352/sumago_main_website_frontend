@@ -54,7 +54,7 @@ function App() {
             return (
               <Route
                 key={c.title}
-                path={`/blogdetals/${c.id}`}
+                path={`/blogs/${c.title.toLowerCase().replace(/\s+/g, '-')}`}
                 element={
                   <BlogDetails text={c.text} img={c.img} subtitle={c.subtitle} title={c.title} />
                 }
