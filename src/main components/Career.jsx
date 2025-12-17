@@ -478,9 +478,8 @@ const Career = () => {
           <Modal.Body>
             <Form onSubmit={submitData} name="myForm" encType="multipart/form-data">
               <Form.Group controlId="formTitle">
-                <Form.Label>Title:</Form.Label>
-                <Form.Control type="text" placeholder={`${jobtittle}`} disabled />
-
+                <Form.Label>Applying For:</Form.Label>
+                <Form.Control type="text" placeholder={`${applicationType}`} disabled />
               </Form.Group>
               <Form.Group controlId="formName">
                 <Form.Label>Name:</Form.Label>
