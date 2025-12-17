@@ -140,16 +140,7 @@ const BlogDetails = (props) => {
                                                         <div className="post" >
 
                                                             <Link class="te-btn" to={`/blogs/${a.title.toLowerCase().replace(/\s+/g, '-')}`} onClick={scrollToTop}>
-                                                                <figure className="post-thumb">
-                                                                    <a  >
-                                                                        <img width="180" height="180"
-                                                                            src={a.img}
-                                                                            className="attachment-printpark_80x80 size-printpark_80x80 wp-post-image"
-                                                                            alt="" decoding="async"
-                                                                            srcSet={a.img}
-                                                                            sizes="(max-width: 80px) 100vw, 80px" />
-                                                                    </a>
-                                                                </figure>
+
                                                                 <h6 >  {new Date(a.date)
                                                                     .toLocaleDateString("en-US", { year: "numeric", month: "short", day: "2-digit" })
                                                                     .replace(",", "")}</h6>

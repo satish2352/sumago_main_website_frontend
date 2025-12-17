@@ -10,3 +10,74 @@
         align-items: center;
     }
 }
+
+/* Container for the category tabs */
+
+
+/* Tab button styles */
+.te-tab-btn {
+    background-color: transparent;
+    color: #343a40;
+    /* dark-gray text like their body font */
+    border: none;
+    margin: 0 8px;
+    padding: 6px 12px;
+    font-size: 19px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s;
+        font-weight: 700;
+
+}
+
+/* Hover effect: subtle underline in brand color */
+.te-tab-btn:hover {
+    color: rgb(245, 76, 76);
+    /* their signature blue */
+
+}
+
+.te-tab-btn::first-letter {
+    text-transform: uppercase;
+}
+
+c::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: rgb(245, 76, 76);
+    width: 0%;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    transition: width 0.3s;
+}
+
+.te-tab-btn:hover::after {
+    width: 100%;
+}
+
+/* Active tab state */
+.te-tab-btn.active {
+    color: rgb(245, 76, 76);
+    font-weight: 500;
+}
+
+.te-tab-btn.active::after {
+    width: 100%;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 576px) {
+    .te-category-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .te-tab-btn {
+        margin: 4px;
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+}
