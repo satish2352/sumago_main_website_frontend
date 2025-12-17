@@ -452,7 +452,7 @@ const Header = () => {
                                                     <li id="menu-item-60"
                                                         className="menu-item menu-item-type-post_type menu-item-object-page menu-item-60">
                                                         <Link
-                                                            title="Contact"
+                                                            title="Blogs"
                                                             to="/blogs"
 
                                                             className={`hvr-underline-from-left1 navitemheader ${location.pathname === 'blogs' ? ' text-danger ' : ''}`}
@@ -671,7 +671,7 @@ const Header = () => {
                                                     <li id="menu-item-60"
                                                         className="menu-item menu-item-type-post_type menu-item-object-page menu-item-60">
                                                         <Link
-                                                            title="Contact"
+                                                            title="Blogs"
                                                             to="blogs"
 
                                                             className={`hvr-underline-from-left1 navitemheader ${location.pathname === 'blogs' ? ' text-danger ' : ''}`}

@@ -3773,7 +3773,7 @@ div#mCSB_1_container {
 .news-block-one .inner-box .lower-content {
   position: relative;
   display: block;
-  padding: 23px 20px 0px 20px;
+  padding: 2px 20px 0px 20px;
 }
 
 .news-block-one .inner-box .lower-content h3 {
@@ -10985,9 +10985,10 @@ div#mCSB_1_container {
 .blog-sidebar .post-widget .post {
   position: relative;
   display: block;
-  padding-left: 100px;
+  padding-left: 10px;
   margin-bottom: 26px;
   min-height: 87px;
+  border-bottom: 0.5px dashed #dcd5d4;
 }
 
 .blog-sidebar .post-widget .post:last-child {
