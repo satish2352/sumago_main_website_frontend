@@ -19,7 +19,7 @@ const WhoWeAre2 = () => {
         <div className="whoweare2-section container-fluid">
             <Container>
                 <Row>
-                    <Col lg={6} className="elementor-top-column">
+                    <Col lg={12} className="elementor-top-column">
                         <div className="elementor-widget-wrap elementor-element-populated">
                             <div className="elementor-element elementor-element-b25f309 elementor-widget elementor-widget-printpark_hero_title" data-id="b25f309" data-element_type="widget" data-widget_type="printpark_hero_title.default">
                                 <div className="elementor-widget-container">
@@ -75,17 +75,7 @@ const WhoWeAre2 = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col lg={6} className="elementor-top-column">
-                        <div className="elementor-widget-wrap elementor-element-populated">
-                            <div className="elementor-element elementor-element-fdcf695 elementor-widget elementor-widget-printpark_float_image" data-id="fdcf695" data-element_type="widget" data-widget_type="printpark_float_image.default">
-                                <div className="elementor-widget-container">
-                                    <section className="about-section p-0 m-0">
-                                        <figure className="image image-4"><img src={rightimg} alt="Awesome" /></figure>
-                                    </section>
-                                </div>
-                            </div>
-                        </div>
-                    </Col>
+           
                 </Row>
             </Container>
         </div>

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
-import downloadFile from "../assets/css/SCOPE introduction.pdf";
+import downloadFile from "../assets/css/file_new .pdf";
 import im from '../assets/images/wp-content/uploads/2023/08/thumbnail.png';
 import axios from 'axios';
 import ReCAPTCHA from 'react-google-recaptcha';
