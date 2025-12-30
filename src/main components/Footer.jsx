@@ -108,7 +108,7 @@ const Footer = () => {
                 <div className="footer-top me-5 ms-5">
                     <div className="left-column">
                         <figure className="footer-logo">
-                            <Link to="/" onClick={scrollToTop}>
+                            <Link to="/home" onClick={scrollToTop}>
                                 <img style={{ height: '40px', width: '300px' }} src={im} alt="Awesome" />
                             </Link>
                         </figure>

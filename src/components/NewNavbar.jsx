@@ -22,7 +22,7 @@ const NewNavbar = () => {
   return (
     <div className="navbar d-flex d-lg-none">
       <div className="sumagoImageContainer">
-        <Link to="/" className='d-flex align-items-center'>
+        <Link to="/home" className='d-flex align-items-center'>
           <img src={sumagologo} alt="" style={{ width: '300px', height: 'auto' }} /></Link>
       </div>
       <div className="nav-content">
@@ -37,7 +37,7 @@ const NewNavbar = () => {
             <i className="bi bi-x ms-auto cancelNavbar" onClick={toggleNavbar}></i>
           </div>
           <ul>
-            <li><Link to="/" onClick={() => { toggleNavbar(); scrollToTop(); }}>Home</Link></li>
+            <li><Link to="/home" onClick={() => { toggleNavbar(); scrollToTop(); }}>Home</Link></li>
             <li><Link to={`/solutions/${encodeURIComponent("web-development")}`} onClick={() => { toggleNavbar(); scrollToTop(); }}>Our Solutions</Link></li>
             <li><Link to="/about" onClick={() => { toggleNavbar(); scrollToTop(); }}>About</Link></li>
             <li><Link to="/career" onClick={() => { toggleNavbar(); scrollToTop(); }}>Career</Link></li>

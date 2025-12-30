@@ -26,7 +26,7 @@ const WhoWeAre2 = () => {
                                     <div className="sec-title">
                                         <h6 className="te-subtitle">Who We Are</h6>
                                         <h2 className="te-title printpark-size-default">Glimpses of Corporate Training 2023</h2>
-                                        <p>A 2-day Corporate Training session was organized for the Sumago Infotech Team by CGO Sudhir Gorade</p>
+                                        <p>A 2-day Corporate Training session was organized for the Sumago Infotech Team by CEO Soanli Gorade</p>
                                     </div>
                                 </div>
                             </div>

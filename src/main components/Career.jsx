@@ -270,7 +270,7 @@ const Career = () => {
             <div className="content-box">
               <h1>Career</h1>
               <ul className="bread-crumb clearfix">
-                <li className="breadcrumb-item"><Link to="/" style={{ textDecoration: 'none' }}>Home &nbsp;</Link></li>
+                <li className="breadcrumb-item"><Link to="/home" style={{ textDecoration: 'none' }}>Home &nbsp;</Link></li>
                 <li className="breadcrumb-item">Career</li>
               </ul>
             </div>

@@ -217,13 +217,13 @@ const Header = () => {
                     <div class="xs-sidebar-widget">
                         <div class="sidebar-widget-container">
                             <div class="widget-heading">
-                                <Link to={"/"} class="close-side-widget"><i class="fa fa-times"></i></Link>
+                                <Link to={"/home"} class="close-side-widget"><i class="fa fa-times"></i></Link>
                             </div>
                             <div class="sidebar-textwidget">
                                 <div class="sidebar-info-contents">
                                     <div class="content-inner">
                                         <div class="logo1">
-                                            <Link to="/" title="WordPress Printing"><img
+                                            <Link to="/home" title="WordPress Printing"><img
                                                 src={sumagologo} alt="logo" /></Link>
                                         </div>
                                         <div class="content-box">
@@ -368,7 +368,7 @@ const Header = () => {
                                             style={{ backgroundImage: `url(${shape2})` }}>
                                         </div>
                                         <figure className="logo">
-                                            <Link to="/" title="WordPress Printing">
+                                            <Link to="/home" title="WordPress Printing">
                                                 <img id="shapeimg" src={logo13} alt="" /></Link>
                                         </figure>
 
@@ -387,8 +387,8 @@ const Header = () => {
                                                         className="menu-item menu-item-type-custom menu-item-object-custom text-danger-menu-ancestor text-danger-menu-parent menu-item-has-children menu-item-54">
                                                         <Link
                                                             title="Home"
-                                                            to="/"
-                                                            className={`hvr-underline-from-left1 navitemheader ${location.pathname === '/' ? 'text-danger' : ''}`}
+                                                            to="/home"
+                                                            className={`hvr-underline-from-left1 navitemheader ${location.pathname === '/home' ? 'text-danger' : ''}`}
                                                             data-toggle="dropdown1"
                                                             aria-expanded="false"
                                                             data-scroll
@@ -530,7 +530,7 @@ const Header = () => {
                             <div class="outer-box">
                                 <div class="left-column">
                                     <div class="logo-box">
-                                        <figure class="logo" onClick={scrollToTop}><Link to="/" title="WordPress Printing">
+                                        <figure class="logo" onClick={scrollToTop}><Link to="/home" title="WordPress Printing">
                                             <img style={{ height: "40px", width: "300px" }} src={sumago} alt="logo" /></Link></figure>
                                     </div>
                                     <div class="menu-area clearfix">
@@ -549,7 +549,7 @@ const Header = () => {
 
                     <nav class="menu-box">
                         <div class="nav-logo">
-                            <Link to="/" title="WordPress Printing"><img src={sumagowhite}
+                            <Link to="/home" title="WordPress Printing"><img src={sumagowhite}
                                 alt="logo" /></Link>
                         </div>
                         <div class="menu-outer">{/*Here Menu Will Come Automatically Via Javascript / Same Menu as in Header*/}
@@ -591,7 +591,7 @@ const Header = () => {
                         <div className="outer-container2">
                             <div className="outer-box outer-box1 d-flex justify-content-evenly ">
 
-                                <Link to="/" title="WordPress Printing" className='d-flex align-items-center'>
+                                <Link to="/home" title="WordPress Printing" className='d-flex align-items-center'>
                                     <img src={sumagologo} alt="" style={{ width: '400px', height: 'auto' }} onClick={scrollToTop} /></Link>
 
                                 <div className="left-column">
@@ -606,8 +606,8 @@ const Header = () => {
                                                         className="menu-item menu-item-type-custom menu-item-object-custom text-danger-menu-ancestor text-danger-menu-parent menu-item-has-children menu-item-54">
                                                         <Link
                                                             title="Home"
-                                                            to="/"
-                                                            className={`hvr-underline-from-left1 navitemheader ${location.pathname === '/' ? 'text-danger' : ''}`}
+                                                            to="/home"
+                                                            className={`hvr-underline-from-left1 navitemheader ${location.pathname === '/home' ? 'text-danger' : ''}`}
                                                             data-toggle="dropdown1"
                                                             aria-expanded="false"
                                                             data-scroll

@@ -135,7 +135,7 @@ const Contact1 = () => {
                     <div className="content-box">
                         <h1>Contact</h1>
                         <ul className="bread-crumb clearfix">
-                            <li className="breadcrumb-item"><Link to="/" style={{ textDecoration: 'none' }}>Home &nbsp;</Link></li>
+                            <li className="breadcrumb-item"><Link to="/home" style={{ textDecoration: 'none' }}>Home &nbsp;</Link></li>
                             <li className="breadcrumb-item">Contact</li>
                         </ul>
                     </div>

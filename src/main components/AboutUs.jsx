@@ -715,7 +715,7 @@ const AboutUs = () => {
                                                         </p>
                                                         <div className="two-column">
                                                             <div className="row align-items-center">
-                                                                <div className="col-lg-6 col-md-12 col-sm-12 image-column">
+                                                                {/* <div className="col-lg-6 col-md-12 col-sm-12 image-column">
                                                                     <div className="image-box">
                                                                         <div className="image-shape">
                                                                             <div className="shape-1"></div>
@@ -724,15 +724,15 @@ const AboutUs = () => {
                                                                         </div>
                                                                         <figure className="image"><img fetchpriority="high" decoding="async" src={aboutUs} alt="" width="539" height="393" className="alignnone size-medium wp-image-359" /></figure>
                                                                     </div>
-                                                                </div>
-                                                                <div className="col-lg-6 col-md-12 col-sm-12 content-column">
+                                                                </div> */}
+                                                                <div className="col-md-12 col-sm-12 content-column">
                                                                     <div className="content-box">
 
                                                                         <p>It's crucial for a person to constantly adapt and improve both at work and in other areas of their lives. It's also seemingly important for them to have the proper work-life balance and, most importantly, to understand how to keep it.
                                                                             <br />
                                                                             <br /> The training session aimed to provide the team with practical tools and techniques to effectively manage their workload and prioritize tasks. Additionally, it focused on stress management and the importance of maintaining a healthy work-life balance to enhance overall productivity and well-being.
                                                                             <br /> <br />
-                                                                            This training session was specially curated by company CGO, Sudhir Gorade to make sure that each and every person in the company benefits from it and has better strategies at hand to use for effective work and time management.
+                                                                            This training session was specially curated by company  to make sure that each and every person in the company benefits from it and has better strategies at hand to use for effective work and time management.
                                                                         </p>
 
                                                                     </div>

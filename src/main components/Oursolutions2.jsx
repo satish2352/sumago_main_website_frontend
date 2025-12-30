@@ -180,7 +180,7 @@ const Oursolutions2 = (props) => {
                     <div class="content-box">
                         <h1>Our Solutions</h1>
                         <ul class="bread-crumb clearfix">
-                            <li class="breadcrumb-item"><Link to={"/"} style={{ textDecoration: 'none' }}>Home &nbsp;</Link></li>
+                            <li class="breadcrumb-item"><Link to={"/home"} style={{ textDecoration: 'none' }}>Home &nbsp;</Link></li>
                             <li class="breadcrumb-item">Our Solutions</li>
                         </ul>
                     </div>

@@ -47,12 +47,12 @@ const Hero = () => {
                         </Carousel.Item>
                     ))}
                 </Carousel>
-                <div>
-                    {isMobile ? (
+                <div className='mt-3 mb-3' >
+                    {/* {isMobile ? (
                         <img src={awardbanner} alt="Award Winning Company" style={{ width: '100%' }} className='mt-3 mb-3' />
                     ) : (
                         <img src={awc} alt="Award Winning Company" className='mt-3 mb-3' />
-                    )}
+                    )} */}
                 </div>
             </div>
         </div>
