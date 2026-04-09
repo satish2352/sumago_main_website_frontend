@@ -1,10 +1,33 @@
-@media only screen and (min-width: 768px) and (max-width: 991px){
+/* Make all location cards equal height using flexbox */
+.tabAdjustment .column1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabAdjustment .column1 .elementor-column,
+.tabAdjustment .column1 .elementor-widget-wrap,
+.tabAdjustment .column1 .elementor-element,
+.tabAdjustment .column1 .elementor-widget-container,
+.tabAdjustment .column1 .info-section,
+.tabAdjustment .column1 .info-column,
+.tabAdjustment .column1 .info-block-one {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.tabAdjustment .column1 .cardHeight {
+    flex: 1;
+}
+
+/* Give address h4 a consistent min-height so short/long text doesn't shift other elements */
+.te-subtitle {
+    min-height: 60px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
     .tabAdjustment .column3{
         margin-left: 25%;
         margin-top: 20px;
-    }
-
-    .tabAdjustment .cardHeight {
-        height: 500px;
     }
 }

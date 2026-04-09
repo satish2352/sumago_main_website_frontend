@@ -75,7 +75,7 @@ const EntryPage = () => {
                     <h2>Our offices </h2>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6 col-sm-5 my-1">
+                    <div class="col-lg-4 col-sm-5 my-1">
                         <div style={{ height: "90%" }} class="card p-3 my-3 bg-transparent text-white crd border-1">
                             <h6 class="text-uppercase fw-bold mx-2"><img src={india}
                                 width="25" />&nbsp;&nbsp;&nbsp;Corporate OFFICE</h6>
@@ -103,11 +103,37 @@ const EntryPage = () => {
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-6 col-sm-5 my-1">
+                    <div class="col-lg-4 col-sm-5 my-1">
                         <div style={{ height: "90%" }} class="card p-3 my-3 bg-transparent text-white crd border-1">
                             <h6 class="text-uppercase fw-bold mx-2"><img src={india}
-                                width="25" />&nbsp;&nbsp;&nbsp;PUNE OFFICE</h6>
+                                width="25" />&nbsp;&nbsp;&nbsp;Nashik BRANCH OFFICE</h6>
+                            <br />
+                            <div class="contact-info">
+                                <div class="contact-item homek d-flex">
+                                    <div class=" mx-3 mt-2"> <i class="fas fa-home mb-5"></i> </div>
+                                    <p class="mt-2 mb-0 text-white">
+                                        D-24, Near KIA Workshop , NICE Area, Satpur, Nashik, Maharashtra 422007
+                                    </p>
+                                </div>
+                                <div class="contact-item d-flex" style={{ paddingTop: "5px" }}>
+                                    <div class=" mx-3 mt-2"> <i class="fas fa-envelope"></i></div>
+                                    <p class="mt-2 mb-0">
+                                        <a href="mailto:info@sumagoinfotech.com" class="text-white">info@sumagoinfotech.com</a>
+                                    </p>
+                                </div>
+                                <div class="contact-item d-flex">
+                                    <div class=" mx-3 mt-2"> <i class="fas fa-phone"></i></div>
+                                    <p class="mt-2 mb-0">
+                                        <a href="tel:+918530388815" class="text-white">+91  8530388815</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-5 my-1">
+                        <div style={{ height: "90%" }} class="card p-3 my-3 bg-transparent text-white crd border-1">
+                            <h6 class="text-uppercase fw-bold mx-2"><img src={india}
+                                width="25" />&nbsp;&nbsp;&nbsp;PUNE BRANCH OFFICE</h6>
                             <br />
                             <div class="contact-info">
                                 <div class="contact-item homek d-flex">
